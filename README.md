@@ -302,6 +302,24 @@ Contains the following:
 
 ## Technologies Used
 
+- [Github](https://github.com/)- software hosting platform to keep project in a remote location
+- [Gitpod](https://gitpod.io/) - a development hosting platform
+- Git - used for version-control.
+- [Google fonts](https://fonts.google.com/) -used to select and provide typography.
+- [Online kanban tool for plan and management of project tasks](https://kanbantool.com/)
+- [Balsamiq](https://balsamiq.com/) - used to build wireframes. Downloaded software to use.
+- [Markdown table convert](https://tableconvert.com/) - I am using this to turn data on excel into markdown table syntax
+- Microsoft word and excel: to assis in organising planning for project
+- [Flow chart](https://app.diagrams.net/) - Used to create a flow chart for planning of project
+- [site for creating DB schema diagrams](dbdiagram.io)
+- [site to enable me to edit pdfS](https://www.ilovepdf.com/) - I needed a tool to allow me to edit pdfs of diagrams 
+- 
+
+
+
+
+
+
 [Back to table of contents](#table-of-contents)
 
 ## Testing
