@@ -7,6 +7,8 @@ Paragraph about document: testing
 
 ## **To open any links in a new tab, please press Ctrl + click**
 
+##
+
 ## Table of Contents
 
 - [Testing](#testing)
@@ -18,7 +20,8 @@ Paragraph about document: testing
   - [Bugs](#bugs)
   - [Performance and Accessibility testing](#performance-and-accessibility-testing)
   - [Code Validation](#code-validation)
-
+  - [Main README File](https://github.com/LisaHackett97/HiddenIrishTravels/blob/main/README.md)
+    
 ---
 
 
@@ -63,3 +66,5 @@ Paragraph about document: testing
 [These are the final validation reports](xx)
 
 [Back to table of contents](#table-of-contents)
+
+[Link to README File](https://github.com/LisaHackett97/HiddenIrishTravels/blob/main/README.md)

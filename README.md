@@ -100,7 +100,9 @@ Contains the following:
 
 ## Testing
 
-[Testing Documentation](https://github.com/lisahackett97/blob/main/TESTING.md)
+[Testing Documentation](https://github.com/LisaHackett97/HiddenIrishTravels/blob/main/TESTING.md)
+
+
 - Issues during development and bugs are covered in this document, in addition to the planned testing.
 
 ## Deployment
