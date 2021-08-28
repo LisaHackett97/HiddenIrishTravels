@@ -125,19 +125,176 @@ I feel these fonts are easy for user to read on screen and are visually appealin
 
 ## Features
 
-
 **_Website has the following features_**
 
-###  Page
-Contains the following:
+### Features which are accessible on all pages with the exception of error pages.
 
-### Nav Menu
+#### Navigation Menu. 
+
 - Contains links to:
 
-### Page
+| Logged Out | Logged In	|
+|------------|-----------------	|
+|  Home	     | Home       	|
+|  Log In    | Recommendations  |
+|  Register  | Search 		|
+|  	     | Admin *  	| ** Admin option will bring the user to the overall Admin  page, where user can access the admin functionality
+				| ** The Admin option is restricted and regular user will not have access
+|  	     | Log Out  	|
+|  	     |   		|
+| Recommendations Menu| 
+|---------------------|
+|  Add New	      | 
+|  Edit  	      | 
+|  Delete	      | 
+
+
+- Navbar is collapsible icon on medium and small screens, and will display as vertical menu when clicked
+- Search will display as an icon on desktop
+
+#### Search
+
+- search box to be displayed
+
+#### Footer
+
+- Contains copyright and site policy info
+
+
+### Features on individual pages
+
+#### Home Page
+
 Contains the following:
 
-### 404 page
+- Logged Out User 
+	- Navigation Menu
+	
+	- Button to Log in
+	- Button to register  Modal Pop Up for instructions on registering
+	- Recommendations section
+	- Button to click to go to top of page.
+	- Footer
+
+- Logged In User (Regular and Admin)
+	- Navigation Menu
+	
+	- Add/Edit button
+	- Recommendations section
+	- Button to click to go to top of page.
+	- Footer
+
+#### Registration Page
+
+Contains the following:
+
+- Navigation Menu
+- Header and quick note on how to register
+- Registration Form with 3 input fields and submit button
+	- username
+	- password
+	- password confirmation
+	- Submit button to register
+- Footer
+
+#### Log In Page
+
+Contains the following:
+
+- Navigation Menu
+- Log In Form with 2 input fields and submit button
+	- username
+	- password
+	- Log In button
+- Footer
+
+#### Recommendation Page
+
+Contains the following:
+
+- Navigation Menu
+- If Add New Option was selected : Blank Recommendation form.
+- If Edit Option was selected: Prepopulated form is shown with Edit button. **Restrict to username
+- If Delete Option was selected: Prepopulated form is shown with delete button.    **Restrict to username and show confirmation btn
+
+- Recommendation Form:
+	- Image to select from
+	- 2 user input fields: title and details.
+		On Edit, fields user can click on fields to edit
+	- 2 fields for user to select from dropdown
+	- Created_by field updated from username
+	- Submit Button/Edit Button/Delete Button (dependant on option selected)
+- Footer
+
+#### Admin Overview Page
+
+Contains the following:
+
+- Navigation Menu
+- Manage Form fields Button
+- Delete a user recommendation button
+- Delete user button
+- Footer
+
+#### Admin Delete User Page
+
+Contains the following:
+
+- Navigation Menu
+- Admin Username as heading
+- Form with the following fields:
+	- Find username
+	- User details
+	- Reason for deletion (admin could keep screenshots as back up to confirm reasons)
+- Delete button
+- Cancel button
+- Footer
+
+#### Admin Add/Edit Fields Page
+
+Contains the following:
+
+** warning on how these actions affect active recommendation **
+
+- Navigation Menu
+- Admin Username as heading
+- Recommendation Form:
+	- current fields on display
+- Add New button
+	- will display form with key:value details to be input and button confirmation
+- Edit button: allow Admin user to click on a field to edit
+- Cancel button
+- Footer
+
+#### Admin Delete Recommendation Page
+
+** Note: Admin should only be able to delete a users recommendation, not edit it.
+Contains the following:
+
+- Navigation Menu
+- Admin Username as heading
+- Form with the following fields:
+	- Find recommendation (*using _id or how??)
+	- Details
+	- Reason for deletion (admin could keep screenshots as back up to confirm reasons)
+- Delete button
+- Cancel button
+- Footer
+
+#### Logout Page
+
+Contains the following:
+
+- Navigation Menu
+- Confirm logout button. 
+- Footer
+
+#### Logout confirmation
+
+Contains the following:
+
+- Message to user 
+- Option to return to home page
 
 ## Future Features
 
