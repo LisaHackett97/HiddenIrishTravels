@@ -138,16 +138,18 @@ I feel these fonts are easy for user to read on screen and are visually appealin
 |  Home	     | Home       	|
 |  Log In    | Recommendations  |
 |  Register  | Search 		|
-|  	     | Admin *  	| ** Admin option will bring the user to the overall Admin  page, where user can access the admin functionality
-				| ** The Admin option is restricted and regular user will not have access
+|  	     | Admin *  	| 
 |  	     | Log Out  	|
 |  	     |   		|
+
 | Recommendations Menu| 
 |---------------------|
 |  Add New	      | 
 |  Edit  	      | 
 |  Delete	      | 
 
+** Admin option will bring the user to the overall Admin  page, where user can access the admin functionality
+** The Admin option is restricted and regular user will not have access
 
 - Navbar is collapsible icon on medium and small screens, and will display as vertical menu when clicked
 - Search will display as an icon on desktop
