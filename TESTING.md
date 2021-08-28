@@ -102,9 +102,41 @@ The following are defensive design elements identified in planning. Each will be
 
 #### As a prospective user, I want to
 
+| 	| Tests Performed | 
+|------ | ----|
+| Understand the main purpose of the   site.| |
+|View recommended places in Ireland  <br> and Northern Ireland. | View recommendations section. Scroll through to view all|
+| Find out how to submit a recommendation | |
+| Register as a user  | |
+| Be able to view the site on mobile/<br> desktop/tablet. | User can view the site on mobile/tablet/laptop/desktop screensizes without issues. |
+| Be able to access all pages and navigate <br> without confusion, without too many clicks. | |
+
 #### As a returning user, I want to
 
+ 	| Tests Performed | 
+|------ | ----|
+| View recommended places in Ireland  <br> and Northern Ireland.| View recommedations section, when logged in and out|
+| Log In|Select log in from nav bar access the site.<br> Logged out of site and use log in button to access |
+| Submit a recommendation |Select Add new recommendations and submit. <br> View new on the recommendations section.
+|			  | Repeated test with button on home page.|
+| Edit a previously submitted recommendation | |
+| Delete negative / misleading  user <br> recommendations  | |
+| Delete Users | |
+| Be able to view the site on mobile/<br> desktop/tablet. | |
+| Be able to access all pages and navigate <br> without confusion, without too many clicks. |A clear navbar with links to all areas of the site is provided on all pages.<br> This is fixed to the top of the page for easy access.
+|											    |Recommendations and search options are clearly avilable when logged in
+|											    |Easy to use "go to top" button to avoid user having to scroll 
+|									
+
 #### As site owner I want to
+
+| 	| Tests Performed | 
+|------ | ----|
+| Provide a place for users to recommend <br>unusual and unknown places to see on the island of Ireland.| |
+| Manage Categories | |
+| Update/add own personal recommendations | |
+| Delete negative and misleading recommendations |
+| Delete users| |
 
 [Back to table of contents](#table-of-contents)
 
