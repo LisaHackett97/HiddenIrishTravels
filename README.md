@@ -75,7 +75,7 @@ The aim is to highlight and share information on places/things to do, that do no
 The main goal of the site is to provide user with a site where they can find recommendations from others, on unusual or unknown places on the island of Ireland. Eg places the user may not have been aware. Users will not need to be registered to view the recommendations but will have to do so, in order to upload a review.<br>
 To convert a visitor, and draw them in, there will be a short explanation of the site with some examples of unique and interesting places to visit.<br> Emphasis is on positivity on the site, this is a place for users to let others know about places they have perhaps stumbled that they have enjoyed and found interesting, but maybe had never heard of before.
 
-#           ADD SCREENSHOT OF SCOPE TABLES###
+####       ADD SCREENSHOT OF SCOPE TABLES ###
 
 [Strategy and scope tables](xx)
 
