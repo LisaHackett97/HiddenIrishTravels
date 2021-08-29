@@ -391,11 +391,11 @@ Ensure there are no additional blank lines in the Procfile
 	- Select Settings
 	- Select Reveal Config Vars
 	Add the following and their corresponding key values. Click Add after each
-	a. IP
-	b. PORT
-	c. MONGO_DBNAME
-	d. MONGO_URI
-	d. SECRET_KEY
+	- IP
+	- PORT
+	- MONGO_DBNAME
+	- MONGO_URI
+	- SECRET_KEY
 
 ![Adding config vars](README-assets/heroku-config-screen.PNG)
 
@@ -411,7 +411,7 @@ Ensure there are no additional blank lines in the Procfile
 	- A message should be displayed once the app is successfully deployed
 	- Click view to launch app
 
-![Auto deployment to Github](deploy-connect.PNG)
+![Auto deployment to Github](README-assets/deploy-connect.PNG)
 
 ### To download and run locally, follow the below steps:
 
