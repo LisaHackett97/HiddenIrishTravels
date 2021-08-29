@@ -333,11 +333,116 @@ Contains the following:
 
 ## Deployment
 
-### Set up
-### Deployment to Heroku
-### Download and run repo locally
-### Cloning the repo
+### Set up:
+
+1) Some requirements
+- git
+- python3
+- pip3 to install packages
+- for connection with flask, run these--> pip3 install dnspython  pip3 install pymongo  
+	- (*ensure these are added to the requirements.txt file)
+- Flask:  install Flask-->  pip3 install flask
+- MongoDb Account, with a cluster set up
+- Heroku Account
+
+2) In MongoDb, create your Database and your collections
+	
+3) In Gitpod, create app.py and env.py files.
+
+4) Add env.py file to .gitignore. 
+
+5) Connecting Flask to Mongo, will give you the URI in Mongo
+	In MongoDb, within your cluster, select Overview. The click Connect button on right side.
+	Select Connect to your application option
+	On the next screen, ensure you have selected Python and the correct version.
+	URI string will be provided. Copy/paste this to the env.py file, updating the password and DB name.
+	
+
+6) import os and set config variables in the env.py file, using os.environ.setdefault()
+
+	a. IP			os.environ.setdefault("IP", "0.0.0.0")
+	b. PORT  		os.environ.setdefault("PORT", "5000")
+	c. MONGO_DBNAME  	os.environ.setdefault("MONGO_DBNAME", "*name of database*")
+	d. MONGO_URI  		os.environ.setdefault("IP", "*paste the str copied from mongo, update password and db name")
+	d. SECRET_KEY 		os.environ.setdefault("IP", "*unique secret key")
+
+7) In the app.py file, set up imports, flask and other required variables:
+	- note using an if statment to import the env.py, will create the __pycache__ directory, which must also be added to the .gitignore file.
+
+8) Commit and push appropriate files to Github.
+
+### Deployment to Heroku:
+
+1. A requirements.txt file must be in place
+	Use the command-->  pip3 freeze > requirements.txt
+
+2. Add a Procfile, so that Heroku know how to run the app
+	Use the command-->  echo web: python app.py > Procfile
+Ensure there are no additional blank lines in the Procfile
+
+3. Create a new app in Heroku
+	- On the dashboard, click New, and Create New app
+	- Give the app a unique name (Use hyphens instead of spaces), select Region and click Create App
+
+![New App](README-assets/new-heroku-app.PNG)
+
+
+4. Set up environmental variables in Heroku.
+	- Select Settings
+	- Select Reveal Config Vars
+	Add the following and their corresponding key values. Click Add after each
+	a. IP
+	b. PORT
+	c. MONGO_DBNAME
+	d. MONGO_URI
+	d. SECRET_KEY
+
+![Adding config vars](README-assets/heroku-config-screen.PNG)
+
+**Config Variables must be set up before Automatic Deployment is put in place**
+
+5. Set up Automatic Deployment to Github
+	- Select Deploy tab
+	- Choose deploy using Github. Select your repo and click connect
+	- Under automatic deploy, choose master branch 
+	- Click Enable automatic deploys. ***nb ensure config variables are set up before you do this)
+	- Ubder manual deploy section, select the branch to deploy
+	- Click Deploy branch
+	- A message should be displayed once the app is successfully deployed
+	- Click view to launch app
+
+![Auto deployment to Github](deploy-connect.PNG)
+
+### To download and run locally, follow the below steps:
+
+1. Log into GitHub and lcoate the repository.
+2. Select Code
+3. Click Download Zip
+4. Once files have downloaded, you can extract and use cloned-project locally.
+
+### To Clone, follow the below steps:
+
+1. Log into GitHub and select the repository.
+2. Select Code
+3. Click https and copy the link
+4. Open git bash
+5. Change the working directory to where you want the cloned directory
+6. Use command git clone and the copied URL
+7. Press enter
+
+NB: In order to work with a clone of this project, you will need to create the env.py file using your own variables and create a MongoDB database with collections. See Databas Schema section of this document for more details.
+You will also need to install all of the packages listed in the requirements file you can use the following command in the terminal pip install -r requirements.txt which will do it for you.
+
+
+
 ### Forking the repository:
+
+1. Log into GitHub and select the repository.
+2. Select Fork on top right hand corner.
+3. A copy should be created in your github profile and pull requests submitted.
+
+GitHub docs link [Forking a repository](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop#forking-a-repository/)
+
 
 
 
