@@ -2,6 +2,7 @@ import os
 from flask import (
     Flask, flash, render_template, url_for,
     redirect, request, session)
+from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 if os.path.exists("env.py"):
     import env
@@ -20,6 +21,7 @@ mongo = PyMongo(app)
 @app.route("/")
 def home():
     return render_template("home.html")
+    
 
 
 if __name__ == "__main__":
