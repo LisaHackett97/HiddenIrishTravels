@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Log In Here</h3>
+<form action="##" class="col s12">
+    <div class="row">
+        <div class="input-field col">
+            <input type="text" id="username" name ="username"class="validate">
+            <label for="username">Username</label>
+        </div>
+    </div>
+    <!-- /password -->
+    <div class="row">
+        <div class="input-field col">
+            <input type="text" id="password" name ="password"class="validate">
+            <label for="password">Password</label>
+        </div>
+    </div>
+    <!-- Confirm password -->
+    <div class="row">
+        <div class="input-field col">
+            <input type="text" id="#" name ="#" class="validate">
+            <label for="username">Confirm Password</label>
+        </div>
+    </div>
+
+    <!-- Log in button -->
+<a class="waves-effect waves-light btn" type="submit">Log in</a>
+
+</form>
+<div class="row">
+<p>Click here to sign up <a href="#" class="waves-effect waves-light btn-small">Sign Up Now</a></p>
+</div>
+
+{% endblock %}
