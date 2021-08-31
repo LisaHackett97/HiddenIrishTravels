@@ -36,7 +36,27 @@ footer, .nav-wrapper {
   font-size: 14px;
 }
 
-.fa-smile{
+.fa-smile, .fa-times-circle{
   color: #169B62;
 }
+
+.card {
+  border-radius: 10%;
+  margin-top: 8px;
+}
+
+/* card image set to 50% height of card */
+.card-image  { 
+  height: 50%;
+  object-fit: contain;
+  border-radius: 10%;
+  margin-top: 10px;
+}
+/* set img height to 100% of its container so that all imgs appear same size */
+img {
+height: 100%;
+}
+
+
+
 
