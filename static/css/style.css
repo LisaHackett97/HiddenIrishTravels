@@ -13,7 +13,7 @@ font-family: 'Poppins', sans-serif; */
   
 }
 
-.nav-wrapper{
+.nav-wrapper, footer{
     background-color: #83C5BE;
     color: #172A3A;
 }
