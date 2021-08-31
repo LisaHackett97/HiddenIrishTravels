@@ -1,0 +1,19 @@
+/* google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;500;700&family=Poppins:wght@300;400;500;700&display=swap');
+
+/* font-family: 'Hind', sans-serif;
+font-family: 'Poppins', sans-serif; */
+
+/* main colours used on site */
+:root {
+  --main-text-color: #172A3A;
+  --irish-green: #169B62;
+  --decoration1: #83C5BE;
+  --decoration2: #EDF6F9;
+  
+}
+
+.nav-wrapper{
+    background-color: #83C5BE;
+    color: #172A3A;
+}
