@@ -23,12 +23,13 @@
 <nav>
   <div class="nav-wrapper">
     <a href="#!" class="brand-logo">Logo</a>
-    <ul class="right hide-on-med-and-down">
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+      <ul class="right hide-on-med-and-down">
       <li><a href="#">Home</a></li>
       <li><a href="#">Log In</a></li>
       <li><a href="#">Register</a></li>
-      <!-- Dropdown Trigger -->
-      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Recommendation<i class="material-icons right">arrow_drop_down</i></a></li>
+      <!-- Dropdown Trigger Only for logged in user-->
+      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Recommendation<i class="fas fa-caret-down"></i></a></li>
     </ul>
   </div>
   <ul class="sidenav" id="mobile-demo">

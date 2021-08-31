@@ -107,7 +107,7 @@ I wanted to use green colour associate with Ireland so chose the hex value of th
 
 Simple colour scheme containing 3 main colours:
 	- 172a3a/169b62/edf6f9			
-    | Irish green for small elements / A dark color for txt / light blue colour for overall visual |
+    | A dark color for txt/ Irish green for small elements /  / light blue colour for overall visual |
 
 
 
