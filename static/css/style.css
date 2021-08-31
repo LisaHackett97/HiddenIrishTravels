@@ -12,8 +12,16 @@ font-family: 'Poppins', sans-serif; */
   --decoration2: #EDF6F9;
   
 }
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
 
-.nav-wrapper, footer{
+main {
+  flex: 1 0 auto;
+}
+footer, .nav-wrapper {
     background-color: #83C5BE;
     color: #172A3A;
 }

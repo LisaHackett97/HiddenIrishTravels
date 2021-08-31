@@ -13,59 +13,52 @@
 </head>
 
 <body>
+  <header>
+    <!-- Materialize nav bar-->
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a href="#!">Add Review</a></li>
+      <li><a href="#!">Edit Review</a></li>
+      <li><a href="#!">Delete</a></li>
+    </ul>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo left">Logo</a>
 
-  <!-- Materialize nav bar-->
-  <!-- Dropdown Structure -->
-  <ul id="dropdown1" class="dropdown-content">
-    <li><a href="#!">Add Review</a></li>
-    <li><a href="#!">Edit Review</a></li>
-    <li><a href="#!">Delete</a></li>
-  </ul>
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">Logo</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+        <ul class="right hide-on-med-and-down">
 
-      <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
-      <ul class="right hide-on-med-and-down">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Log In</a></li>
+          <li><a href="#">Register</a></li>
+          <!-- Dropdown Trigger Only for logged in user-->
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Recommendation<i
+                class="fas fa-caret-down"></i></a></li>
+        </ul>
 
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Log In</a></li>
-        <li><a href="#">Register</a></li>
-        <!-- Dropdown Trigger Only for logged in user-->
-        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Recommendation<i
-              class="fas fa-caret-down"></i></a></li>
-      </ul>
-    </div>
+      </div>
+    </nav>
+
+    <!-- mobile sidenav -->
     <ul class="sidenav" id="mobile-demo">
       <li><a href="#">Home</a></li>
       <li><a href="#">Log In</a></li>
       <li><a href="#">Register</a></li>
     </ul>
-  </nav>
 
+  </header>
   <main class="container">
     {% block content %}
     {% endblock%}
   </main>
 
   <footer class="container">
-    <footer class="page-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col l6 s12">
-            <h5 class="white-text">Footer Content</h5>
-
-          </div>
-
-        </div>
-      </div>
-
+    
+      
       <div class="container">
         Text in here
-
       </div>
-
-    </footer>
+    
   </footer>
 
 
