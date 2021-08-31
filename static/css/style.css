@@ -12,6 +12,8 @@ font-family: 'Poppins', sans-serif; */
   --decoration2: #EDF6F9;
   
 }
+
+/* flex setting in order to fix footer, per materialize docs */
 body {
   display: flex;
   min-height: 100vh;
@@ -25,3 +27,12 @@ footer, .nav-wrapper {
     background-color: #83C5BE;
     color: #172A3A;
 }
+
+.dropdown-content  {
+  background-color: var(--decoration2);
+}
+
+.fa-caret-down {
+  font-size: 14px;
+}
+
