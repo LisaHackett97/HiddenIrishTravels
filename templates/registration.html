@@ -3,10 +3,11 @@
 
 <h1 class="center-align">Register</h1>
 
-<p class="center-align">Please add your details below to register:</p>
+<p class="center-align">Please update details below to register:</p>
 
 <div class="row">
   <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('registration') }}">
+
     <div class="card-panel blue-grey lighten-5">
 <!-- user to enter their new username. Must be betwwen 5 and 15 characters in length -->
       <div class="row">
@@ -21,7 +22,8 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="fas fa-unlock-alt prefix"></i>
-          <input id="password" name="password" type="password" class="validate">
+          <input id="password" name="password" type="password" minlength="5" maxlength="15"
+          pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
           <label for="password">Password</label>
         </div>
       </div>
