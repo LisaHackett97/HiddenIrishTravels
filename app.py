@@ -19,8 +19,11 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+@app.route("/home")
 def home():
-    return render_template("home.html")
+    recommendations = list(mongo.db.recommendations.find())
+    return render_template("home.html", recommendations=recommendations)
+
 
 @app.route("/login")
 def login():
@@ -30,7 +33,6 @@ def login():
 @app.route("/registration")
 def registration():
     return render_template("registration.html")
-
 
 
 if __name__ == "__main__":

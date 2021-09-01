@@ -23,6 +23,18 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+h1{
+  color: var(--irish-green);
+  font-family: 'Hind', sans-serif;
+  font-size: 30px;
+  text-align: center;
+}
+p{
+  color: var(--main-text-color);
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
 footer, .nav-wrapper {
     background-color: #83C5BE;
     color: #172A3A;
@@ -32,6 +44,26 @@ footer, .nav-wrapper {
   background-color: var(--decoration2);
 }
 
+/* Recommendations layout */
+
+.card {
+  border-radius: 5%;
+}
+
+/* card image set to 50% height of card */
+.card-image  { 
+  height: 50%;
+  object-fit: contain;
+  border-radius: 5%;
+}
+
+/* set img height to 100% of its container so that all imgs appear same size */
+img {
+height: 100%;
+}
+
+
+/* icon styling */
 .fa-caret-down {
   font-size: 14px;
 }
@@ -39,24 +71,6 @@ footer, .nav-wrapper {
 .fa-smile, .fa-times-circle{
   color: #169B62;
 }
-
-.card {
-  border-radius: 10%;
-  margin-top: 8px;
-}
-
-/* card image set to 50% height of card */
-.card-image  { 
-  height: 50%;
-  object-fit: contain;
-  border-radius: 10%;
-  margin-top: 10px;
-}
-/* set img height to 100% of its container so that all imgs appear same size */
-img {
-height: 100%;
-}
-
 
 
 

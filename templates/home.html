@@ -1,58 +1,53 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+
 <h1>Welcome to Hidden Irish Travels</h1>
-<p>This is a paragraph giving an overview of the site<i class="far fa-smile"></i></p>
+<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."<i
+        class="far fa-smile"></i></p>
 
 
+
+{% if recommendations|length > 0 %}
 <div class="container-fluid">
     <div class="row recommendation-row">
+{% for recommendation in recommendations %}
 
-           <div class="card medium col s12 m6 l3">
-            <div class="card-image">
-                <img src="static/images/g-connemara-killary-harbour.jpg" alt="" class="activator">
-            </div>
-            <div class="card-content">
-                <p>Place to recommended<span>title data goes here</span></p>
-                <p>location <span>locations data here</span></p>
-                <span class="card-title activator">Click to see More</span>
-            </div>
-            <div class="card-reveal">
-                <span class="card-title"> Visitor_type (for_who) data goes here <span></span><i class="far fa-times-circle"></i></p>
+        <div class="col s12 m6 l3">
+            <div class="card medium">
+                <div class="card-image">
+                    <img src="#" alt="" class="activator">
+                </div>
+                <div class="card-content">
+                    <p>Place to recommended<span>{{recommendations.title}}</span></p>
+                    <p>location <span>{{recommendations.location}}</span></p>
+                    <span class="card-title activator">Click to see More</span>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title"> {{recommendations.visitor_type  }} <span></span><i
+                            class="far fa-times-circle"></i></p>
 
-                    <p> Details<span>Recommendation details goes here.</span>
-                    </p>
-                    <p> Created By <span>username</span></p>
+                        <p> Details<span>{{ recommendations.details }}</span>
+                        </p>
+                        <p> Created By <span>{{ recommendations.created_by }}</span></p>
 
-                    <p class="card-title activator">Close<br><i
-                            class="far fa-times-circle"></i>
-                    </p>
+                        <p class="card-title activator">Close<br><i class="far fa-times-circle"></i>
+                        </p>
+                </div>
             </div>
         </div>
-        <div class="card medium col s12 m6 l3">
-            <div class="card-image">
-                <img src="static/images/botanic-garden-dublin.jpg" alt="" class="activator">
-            </div>
-            <div class="card-content">
-                <p>Place to recommended<span>title data goes here</span></p>
-                <p>location <span>locations data here</span></p>
-                <span class="card-title activator">Click to see More</span>
-            </div>
-            <div class="card-reveal">
-                <span class="card-title"> Visitor_type (for_who) data goes here <span></span><i class="far fa-times-circle"></i></p>
 
-                    <p> Details<span>Recommendation details goes here.</span>
-                    </p>
-                    <p> Created By <span>username</span></p>
+{% endfor %}
 
-                    <p class="card-title activator">Close<br><i
-                            class="far fa-times-circle"></i>
-                    </p>
-            </div>
-        </div>
+
     </div>
     <!-- end of row for cards -->
 </div>
 <!-- end of container -->
+{% endif %}
 
 {% endblock %}
