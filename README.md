@@ -461,6 +461,9 @@ GitHub docs link [Forking a repository](https://docs.github.com/en/desktop/contr
 
 ### Code
 
+code for password confirm on registration from this post
+https://stackoverflow.com/questions/21727317/how-to-check-confirm-password-field-in-form-without-reloading-page
+
 ### Acknowledgements
 
 I referred to the following to add to my knowledge and for help.

@@ -4,6 +4,7 @@ from flask import (
     redirect, request, session)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
@@ -32,6 +33,20 @@ def login():
 
 @app.route("/registration", methods=["GET", "POST"])
 def registration():
+    if request.method == "POST":
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+   
+        registration = {
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        mongo.db.users.insert_one(registration)
+
+        session['user'] = request.form.get("username").lower()
+        flash("Congratulations. You have been registered")
+        return redirect(url_for("home", username=sesion["user"]))
+
     return render_template("registration.html")
 
 
