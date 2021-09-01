@@ -68,8 +68,14 @@ height: 100%;
   font-size: 14px;
 }
 
-.fa-smile, .fa-times-circle{
+.fas, .far {
   color: #169B62;
+}
+
+.register > button {
+  color: var(--main-text-color);
+  background-color: var(--decoration2);
+
 }
 
 
