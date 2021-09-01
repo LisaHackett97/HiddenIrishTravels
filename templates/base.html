@@ -39,7 +39,7 @@
         <ul class="right hide-on-med-and-down">
           <li><a href="{{ url_for('home')}}">Home</a></li>
           <li><a href="{{ url_for('login')}}">Log In</a></li>
-          <li><a href="#">Register</a></li>
+          <li><a href="{{ url_for('registration')}}">Register</a></li>
           <!-- Logged in user options-->
           <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Recommendations  <i
                 class="fas fa-caret-down"></i></a></li>
@@ -55,7 +55,7 @@
     <ul class="sidenav" id="mobile-demo">
       <li><a href="{{ url_for('home')}}">Home</a></li>
       <li><a href="{{ url_for('login')}}">Log In</a></li>
-      <li><a href="#">Register</a></li>
+      <li><a href="{{ url_for('registration')}}">Register</a></li>
       <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Recommendation<i
         class="fas fa-caret-down"></i></a></li>
       <li><a href="#">Search</a></li>
