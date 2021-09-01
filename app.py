@@ -45,7 +45,7 @@ def registration():
 
         session['user'] = request.form.get("username").lower()
         flash("Congratulations. You have been registered")
-        return redirect(url_for("home", username=sesion["user"]))
+        return redirect(url_for("home", username=session["user"]))
 
     return render_template("registration.html")
 

@@ -6,7 +6,7 @@
 <p class="center-align">Please add your details below to register:</p>
 
 <div class="row">
-  <form class="col s12 m8 offset-m2">
+  <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('registration') }}">
     <div class="card-panel blue-grey lighten-5">
 <!-- user to enter their new username. Must be betwwen 5 and 15 characters in length -->
       <div class="row">
