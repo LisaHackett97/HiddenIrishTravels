@@ -1,35 +1,48 @@
 {% extends "base.html" %}
+
 {% block content %}
 
-<h3>Log In Here</h3>
-<form action="##" class="col s12">
-    <div class="row">
-        <div class="input-field col">
-            <input type="text" id="username" name ="username"class="validate">
-            <label for="username">Username</label>
-        </div>
-    </div>
-    <!-- /password -->
-    <div class="row">
-        <div class="input-field col">
-            <input type="text" id="password" name ="password"class="validate">
-            <label for="password">Password</label>
-        </div>
-    </div>
-    <!-- Confirm password -->
-    <div class="row">
-        <div class="input-field col">
-            <input type="text" id="#" name ="#" class="validate">
-            <label for="username">Confirm Password</label>
-        </div>
-    </div>
+<h1>Log In Here</h1>
 
-    <!-- Log in button -->
-<a class="waves-effect waves-light btn" type="submit">Log in</a>
-
-</form>
 <div class="row">
-<p>Click here to sign up <a href="#" class="waves-effect waves-light btn-small">Sign Up Now</a></p>
+    <form action="{{ url_for('login')}}" method="POST" class="col s12 m8 offset-m2">
+        <div class="card-panel blue-grey lighten-5">
+            <!-- Input for username -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="far fa-user prefix"></i>
+                    <input type="text" id="username" name="username" class="validate">
+                    <label for="username">Username</label>
+                </div>
+            </div>
+            <!-- Password -->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-unlock-alt prefix"></i>
+                    <input id="password" name="password" type="password" minlength="5" maxlength="15"
+                        pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <!-- Log in button -->
+            <div class="row register">
+                <button type="submit" class="btn col s8 offset-s2" name="action"><i
+                        class="fas fa-sign-in-alt prefix"></i>
+                    Log In
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- end of row containing log in form-->
+
+
+<div class="row">
+    <div class="col s12">
+        <p class="center-align">Not registered?
+            <a href="{{ url_for('registration') }}">Register here </a>
+        </p>
+    </div>
 </div>
 
 {% endblock %}
