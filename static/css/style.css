@@ -44,6 +44,12 @@ footer, .nav-wrapper {
   background-color: var(--decoration2);
 }
 
+.flashes h5 {
+  color: var(--decoration2);
+  background-color: var(--irish-green);
+  line-height: 2;
+}
+
 /* Recommendations layout */
 
 .card {

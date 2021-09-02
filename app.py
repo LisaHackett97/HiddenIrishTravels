@@ -74,6 +74,14 @@ def registration():
     return render_template("registration.html")
 
 
+@app.route("/logout")
+def logout():
+    flash("you have been logged out")
+    session.pop("user")
+    return redirect(url_for('login'))
+
+
+
 if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP"),
