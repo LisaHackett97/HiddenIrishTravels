@@ -11,43 +11,12 @@
         class="far fa-smile"></i></p>
 
 
-
-{% if recommendations|length > 0 %}
-<div class="container-fluid">
-    <div class="row recommendation-row">
-{% for recommendation in recommendations %}
-
-        <div class="col s12 m6 l3">
-            <div class="card medium">
-                <div class="card-image">
-                    <img src="#" alt="" class="activator">
-                </div>
-                <div class="card-content">
-                    <p>Place to recommended<span>{{recommendations.title}}</span></p>
-                    <p>location <span>{{recommendations.location}}</span></p>
-                    <span class="card-title activator">Click to see More</span>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title"> {{recommendations.visitor_type  }} <span></span><i
-                            class="far fa-times-circle"></i></p>
-
-                        <p> Details<span>{{ recommendations.details }}</span>
-                        </p>
-                        <p> Created By <span>{{ recommendations.created_by }}</span></p>
-
-                        <p class="card-title activator">Close<br><i class="far fa-times-circle"></i>
-                        </p>
-                </div>
-            </div>
-        </div>
-
-{% endfor %}
-
-
-    </div>
-    <!-- end of row for cards -->
-</div>
-<!-- end of container -->
-{% endif %}
+    {% for recommend in recommendations %}
+        {{ recommend.title }}<br>
+        {{ recommend.visitor_type }}<br>
+        {{ recommend.location }}<br>
+        {{ recommend.details }}<br>
+        {{ recommend.created_by }}<br>
+    {% endfor %}
 
 {% endblock %}
