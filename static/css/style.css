@@ -51,24 +51,36 @@ footer, .nav-wrapper {
 }
 
 /* Recommendation Cards */
-
-#recommend-details{
-  overflow:hidden
+.card {
+  border-radius: 5%;
 }
+
+.card.medium .card-image+.card-content {
+   max-height: 55%;
+   padding-bottom: 10px;
+}
+
+/* action card on recommendation to click to reveal more */
+.card.medium .card-action{
+padding-top: 2px;
+color: var(--irish-green);
+}
+
 #recommend-title{
  font-style: italic;
 }
 
-/* 
+/* set img height to 100% of its container so that all imgs appear same size */
+img {
+  height: 100%;
+  }
+
+  /* 
 give id to the close text on the card 
 seperate id needed to target just the text 
 */
 #reveal-close{
   font-size: 20px;
-}
-
-.card {
-  border-radius: 5%;
 }
 
 /* 
@@ -87,17 +99,10 @@ appearing on card reveal. Close and icon
   border-radius: 5%;
 }
 
-/* to remove default boder on card-action */
-.card .card-action{
-   border-top: none;
-   padding-top: 0;
-   margin-top: 0;
+.card .card-reveal{
+  background-color:#53cf99;
 }
 
-/* set img height to 100% of its container so that all imgs appear same size */
-img {
-height: 100%;
-}
 
 /* registration page */
 
