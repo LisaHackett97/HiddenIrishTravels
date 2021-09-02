@@ -28,7 +28,7 @@
       <div class="row">
         <div class="input-field col s12">
             <i class="fas fa-folder-open prefix"></i>
-            <select id="location" name="location" class="validate" required>
+            <select id="location_name" name="location_name" class="validate" required>
                 <option value="" disabled selected>Choose county</option>
                     {% for county in location %}
                         <option value="{{ county.location_name }}">{{ county.location_name }}</option>
@@ -55,7 +55,7 @@
             <i class="fas fa-align-left prefix"></i>
             
             <textarea id="upload_img" name="upload_img" minlength="5" maxlength="200"
-                class="materialize-textarea validate" required></textarea>
+                class="materialize-textarea"></textarea>
             <label for="upload_img"> Image Upload here. Functionality not yet in place</label>
         </div>
 

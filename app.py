@@ -91,9 +91,17 @@ def registration():
 def add_recommendation():
     if request.method == "POST":
         recommendation = {
-            "location": request.form.get("location")
+            "title": request.form.get("title"),
+            "visitor_type": request.form.get("visitor_type"),
+            "location": request.form.get("location"),
+            "details": request.form.get("details"),
+            "created_by": session["user"]
         }
-    return render_template('add_recommendation.html')
+        mongo.db.tasks.insert_one(recommendation)
+        flash("Successfully added")
+        return redirect(url_for("home"))
+    location = mongo.db.location.find().sort("location_name", 1)
+    return render_template('add_recommendation.html', location=location)
 
 
 @app.route("/logout")
