@@ -6,7 +6,7 @@
 <p class="center-align">Please update details below to register:</p>
 
 <div class="row">
-  <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('registration') }}">
+  <form class="col s12 m8 offset-m2" id="register_form" method="POST" action="{{ url_for('registration') }}">
 
     <div class="card-panel blue-grey lighten-5">
 <!-- user to enter their new username. Must be betwwen 5 and 15 characters in length -->
@@ -31,7 +31,7 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="fas fa-unlock-alt prefix"></i>
-          <input id="confirm_password" name="confirm_password" type="password" onchange="check()">
+          <input id="confirm_password" name="confirm_password" type="password">
           
           <label for="confirm_password">Confirm Password</label>
           <span id='message'></span>
@@ -40,7 +40,7 @@
 
 <!-- Register Button -->
       <div class="row register">
-        <button type="submit" class="btn col s8 offset-s2" name="action"><i class="fas fa-sign-in-alt"></i>
+        <button type="submit" id="register-btn" class="btn col s8 offset-s2" name="action"><i class="fas fa-sign-in-alt"></i>
           Register
         </button>
       </div>

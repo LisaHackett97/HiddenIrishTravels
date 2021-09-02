@@ -1,3 +1,8 @@
+// function to clear registration form 
+window.onload = function() {
+    document.getElementById("register_form").reset();
+    }
+         
 /*
 jquery for materialize
 */
@@ -16,9 +21,15 @@ $(document).ready(function () {
 https://stackoverflow.com/questions/21727317/how-to-check-confirm-password-field-in-form-without-reloading-page
 */
 
-$('#password, #confirm_password').on('keyup', function () {
+
+$('#confirm_password').on('keyup', function () {
     if ($('#password').val() == $('#confirm_password').val()) {
+     
       $('#message').html('Passwords Match. Click register to continue').css('color', '#172A3A');
-    } else 
+      $('#register-btn').prop('disabled', false);
+    } else {
       $('#message').html('Passwords do not Match').css('color', 'red');
+      $('#register-btn').prop('disabled', true);}
   });
+
+
