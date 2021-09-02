@@ -2,7 +2,7 @@
 window.onload = function() {
     document.getElementById("register_form").reset();
     }
-         
+
 /*
 jquery for materialize
 */
@@ -29,4 +29,22 @@ $('#confirm_password').on('keyup', function () {
       $('#register-btn').prop('disabled', true);}
   });
 
+// This code gives msg when switching between pageXOffset, not on brower window close
+//   window.onbeforeunload = function (e) {
+//     e = e || window.event;
 
+//     // For IE and Firefox prior to version 4
+//     if (e) {
+//         e.returnValue = 'Sure?';
+//     }
+
+//     // For Safari
+//     return 'Sure?';
+// };
+
+
+window.onbeforeunload = confirmExit;
+function confirmExit(){
+    alert("confirm exit is being called");
+    return false;
+}
