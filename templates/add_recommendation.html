@@ -5,30 +5,70 @@
 
 <div class="row card-panel">
     <form action="" class="col s12">
-        <div class="row">
-            
-            <div class="input-field col s12">
-                <i class="fas fa-align-left prefix"></i>
+        
+          <!-- title input field -->
+          <div class="row">
+          <div class="input-field col s12">
+            <i class="fas fa-align-left prefix"></i>
+            <textarea id="recommend-title" name="recommend-title" minlength="5" maxlength="200"
+                class="materialize-textarea validate" required></textarea>
+            <label for="recommend-title">Title</label>
+        </div>
+    </div>
+     <!-- visitor input field -->
+     <div class="row">
+     <div class="input-field col s12">
+        <i class="fas fa-align-left prefix"></i>
+        <textarea id="visitor_type" name="visitor_type " minlength="5" maxlength="200"
+            class="materialize-textarea validate" required></textarea>
+        <label for="visitor_type ">visitor_type will be dropdown</label>
+        </div>
+    </div>
+      <!-- location input field -->
+      <div class="row">
+        <div class="input-field col s12">
+            <i class="fas fa-folder-open prefix"></i>
+            <select id="location" name="location" class="validate" required>
+                <option value="" disabled selected>Choose county</option>
+                    {% for county in location %}
+                        <option value="{{ county.location_name }}">{{ county.location_name }}</option>
+                    {% endfor %}
+            </select>
+            <label for="location">Location</label>
+        </div>
+    </div>
 
-                <textarea id="recommend-title" name="recommend-title" minlength="5" maxlength="200"
-                    class="materialize-textarea validate" required></textarea>
-                <label for="recommend-title">Title</label>
-            </div>
+
+
+        <!-- details input field -->
+        <div class="row">
+        <div class="input-field col s12">
+            <i class="fas fa-align-left prefix"></i>
+            <textarea id="recommend-details" name="recommend-details" minlength="5" maxlength="200"
+                class="materialize-textarea validate" required></textarea>
+            <label for="recommend-details">Details</label>
+        </div>
+    </div>
+
+          <!-- image upload area input field -->
+          <div class="input-field col s12">
+            <i class="fas fa-align-left prefix"></i>
             
+            <textarea id="upload_img" name="upload_img" minlength="5" maxlength="200"
+                class="materialize-textarea validate" required></textarea>
+            <label for="upload_img"> Image Upload here. Functionality not yet in place</label>
         </div>
 
-        <div class="row">
-            
-            <div class="input-field col s12">
-                <i class="fas fa-align-left prefix"></i>
+        <button class="btn waves-effect waves-light" type="submit" name="action">
+            <i class="material-icons right">Add Recommendation</i>
+          </button>
+          <button class="btn waves-effect waves-light" type="#" name="cancel">
+            <i class="material-icons right">cancel</i>
 
-                <textarea id="recommend-details" name="recommend-details" minlength="5" maxlength="200"
-                    class="materialize-textarea validate" required></textarea>
-                <label for="recommend-details">Details</label>
-            </div>
+
             
-        </div>
+          </button>
+      
     </form>
 </div>
 {% endblock %}
-

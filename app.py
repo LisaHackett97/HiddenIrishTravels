@@ -89,6 +89,10 @@ def registration():
 
 @app.route("/add_recommendation", methods=["GET", "POST"])
 def add_recommendation():
+    if request.method == "POST":
+        recommendation = {
+            "location": request.form.get("location")
+        }
     return render_template('add_recommendation.html')
 
 
@@ -97,11 +101,6 @@ def logout():
     flash("you have been logged out")
     session.pop("user")
     return redirect(url_for('login'))
-
-@app.route("/logout_user")
-def logout_user():
-    session.pop("user")
-# https://flask-login.readthedocs.io/en/latest/_modules/flask_login/utils.html#logout_user
 
 
 if __name__ == "__main__":
