@@ -20,21 +20,27 @@
   <header>
     <!-- Materialize nav bar-->
     <!-- Dropdown Structure for logged in users -->
+  
     <ul id="dropdown1" class="dropdown-content">
       <li><a href="#!">Add Review</a></li>
       <li><a href="#!">Edit Review</a></li>
       <li><a href="#!">Delete</a></li>
+      <li><a href="{{ url_for('user_page', username=session['user'])}}">Your page</a></li>
     </ul>
+   
     <!-- for smaller screens with collapsed menu -->
+   
     <ul id="dropdown2" class="dropdown-content">
       <li><a href="#!">Add Review</a></li>
       <li><a href="#!">Edit Review</a></li>
       <li><a href="#!">Delete</a></li>
+      <li><a href="{{ url_for('user_page', username=session['user'])}}">Your page</a></li>
     </ul>
+   
     <nav>
       <!-- Materialize nav code -->
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo left">Logo</a>
+        <a href="{{ url_for('home')}}" class="brand-logo left">Logo</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="{{ url_for('home')}}">Home</a></li>
@@ -46,7 +52,7 @@
           <!-- Admin Option only available to an Admin user -->
           <li><a href="#">Admin</a></li>
           <li><a href="{{ url_for('logout')}}">Log Out</a></li>
-          <li><a href="{{ url_for('user_page', username=session['user'])}}">Your page</a></li>
+          
           {% else %}
           
           <li><a href="{{ url_for('login')}}">Log In</a></li>
@@ -61,18 +67,17 @@
       <li><a href="{{ url_for('home')}}">Home</a></li>
       <!-- Logged in user options-->
       {% if session.user %}
-      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Recommendations  <i
+      <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Recommendations  <i
             class="fas fa-caret-down"></i></a></li>
       <li><a href="#">Search</a></li>
       <!-- Admin Option only available to an Admin user -->
       <li><a href="#">Admin</a></li>
       <li><a href="{{ url_for('logout')}}">Log Out</a></li>
       <li><a href="{{ url_for('user_page', username=session['user'])}}">Your page</a></li>
-      {% else %}
-          
+      {% else %}          
           <li><a href="{{ url_for('login')}}">Log In</a></li>
           <li><a href="{{ url_for('registration')}}">Register</a></li>
-          {% endif %}
+      {% endif %}
     </ul>
   </header>
 
