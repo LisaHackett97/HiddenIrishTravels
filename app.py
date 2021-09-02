@@ -25,6 +25,24 @@ def home():
     recommendations = list(mongo.db.recommendations.find())
     return render_template("home.html", recommendations=recommendations)
 
+# test for usr page
+# @app.route("/user_page/<username>", methods=["GET", "POST"])
+# def u
+#     username = mongo.db.users.find_one(
+#         {"username": session["user"]})["username"]
+
+#     if session["user"]:
+#         return render_template("user_page.html", username=username)
+
+# @app.route("/user_page")
+# def user_page(username):
+#     # grab session user's username frrom db
+#     username = mongo.db.users.find_one(
+#         {"username": session["user"]})["username"]
+
+#     # if session["user"]:
+#     return render_template("user_page.html", username=username)
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
