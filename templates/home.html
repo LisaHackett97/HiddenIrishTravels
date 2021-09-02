@@ -11,12 +11,46 @@
         class="far fa-smile"></i></p>
 
 
-    {% for recommend in recommendations %}
-        {{ recommend.title }}<br>
-        {{ recommend.visitor_type }}<br>
-        {{ recommend.location }}<br>
-        {{ recommend.details }}<br>
-        {{ recommend.created_by }}<br>
-    {% endfor %}
+
+{% if recommendations|length > 0 %}
+<div class="container-fluid">
+    <div class="row recommendation-row">
+{% for recommendation in recommendations %}
+
+        <div class="col s12 m6 l3">
+            <div class="card medium">
+                <div class="card-image">
+                    <img src="#" alt="" class="activator">
+                </div>
+                <div class="card-content">
+                    <p>Title:  <span>{{recommendation.title}}</span></p>
+                    <p>Location:  <span>{{recommendation.location}}</span></p>
+                    <p>Visitor Type:  <span>{{recommendation.visitor_type  }}</span></p>
+                    <p id="recommend-details"> Details:  <span>{{ recommendation.details }}</span>
+                    </p>
+                    <div class="activator card-action">Click to see More</div>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title">click to close  <span></span><i
+                            class="far fa-times-circle"></i></p>
+
+                        <p> Details:  <span>{{ recommendation.details }}</span>
+                        </p>
+                        <p> Created By:  <span>{{ recommendation.created_by }}</span></p>
+
+                        <div class="card-title activator">Close<i class="far fa-times-circle postfix"></i>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+{% endfor %}
+
+
+    </div>
+    <!-- end of row for cards -->
+</div>
+<!-- end of container -->
+{% endif %}
 
 {% endblock %}

@@ -52,6 +52,9 @@ footer, .nav-wrapper {
 
 /* Recommendations layout */
 
+#recommend-details{
+  overflow:hidden
+}
 .card {
   border-radius: 5%;
 }
@@ -61,6 +64,11 @@ footer, .nav-wrapper {
   height: 50%;
   object-fit: contain;
   border-radius: 5%;
+}
+
+/* to remove default boder on card-action */
+.card .card-action{
+   border-top: none;
 }
 
 /* set img height to 100% of its container so that all imgs appear same size */
