@@ -26,23 +26,47 @@ def home():
     return render_template("home.html", recommendations=recommendations)
 
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
+    if request.method == "POST":
+        # Check is user exists in db.
+        # Look in users collection for key of username
+        # Value is the data from the user input
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+        # check if existing user variable found a match in db
+        # If truthy, then check if passwords match
+        if existing_user:
+            if check_password_hash(
+                existing_user["password"], request.form.get("password")):
+                    session["user"] = request.form.get("username").lower()
+                    flash("welcome, {}".format(request.form.get("username")))
+                    return redirect(url_for("home"))
+            else:
+                # invald password
+                flash("incorrect Username and/password")
+                return redirect(url_for('login'))
+        else:
+            flash("incorrect Username and/password")
+            return redirect(url_for('login'))
     return render_template("login.html")
 
 
 @app.route("/registration", methods=["GET", "POST"])
 def registration():
     if request.method == "POST":
+        # checking if user already exists
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
-   
+        if existing_user:
+            flash("Username already exists. Please choose another!")
+            return redirect(url_for("registration"))
+        # if user doesn't exist, update db with detials from user
         registration = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password"))
         }
         mongo.db.users.insert_one(registration)
-
         session['user'] = request.form.get("username").lower()
         flash("Congratulations. You have been registered")
         return redirect(url_for("home", username=session["user"]))
