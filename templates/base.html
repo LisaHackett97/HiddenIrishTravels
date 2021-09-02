@@ -47,7 +47,7 @@
           <!-- Admin Option only available to an Admin user -->
           <li><a href="#">Admin</a></li>
           <li><a href="{{ url_for('logout')}}">Log Out</a></li>
-          <li><a href="{{ url_for('user_page')}}">Your page</a></li>
+          <li><a href="{{ url_for('user_page', username=session['user'])}}">Your page</a></li>
          
           
         </ul>
@@ -63,6 +63,7 @@
       <li><a href="#">Search</a></li>
       <li><a href="#">Admin</a></li>
       <li><a href="{{ url_for('logout')}}">Log Out</a></li>
+      <li><a href="{{ url_for('user_page', username=session['user'])}}">Your page</a></li>
     </ul>
   </header>
 

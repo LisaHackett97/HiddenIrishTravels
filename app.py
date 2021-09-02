@@ -25,23 +25,14 @@ def home():
     recommendations = list(mongo.db.recommendations.find())
     return render_template("home.html", recommendations=recommendations)
 
-# test for usr page
-# @app.route("/user_page/<username>", methods=["GET", "POST"])
-# def u
-#     username = mongo.db.users.find_one(
-#         {"username": session["user"]})["username"]
+# Access session user page
+@app.route("/user_page/<username>", methods=["GET", "POST"])
+def user_page(username):
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
 
-#     if session["user"]:
-#         return render_template("user_page.html", username=username)
-
-# @app.route("/user_page")
-# def user_page(username):
-#     # grab session user's username frrom db
-#     username = mongo.db.users.find_one(
-#         {"username": session["user"]})["username"]
-
-#     # if session["user"]:
-#     return render_template("user_page.html", username=username)
+    if session["user"]:
+        return render_template("user_page.html", username=username)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -59,7 +50,7 @@ def login():
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
                     flash("welcome, {}".format(request.form.get("username")))
-                    return redirect(url_for("home"))
+                    return redirect(url_for("user_page", username=session['user']))
             else:
                 # invald password
                 flash("incorrect Username and/password")
@@ -87,7 +78,7 @@ def registration():
         mongo.db.users.insert_one(registration)
         session['user'] = request.form.get("username").lower()
         flash("Congratulations. You have been registered")
-        return redirect(url_for("home", username=session["user"]))
+        return redirect(url_for("user_page", username=session["user"]))
 
     return render_template("registration.html")
 
