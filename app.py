@@ -25,6 +25,7 @@ def home():
     recommendations = list(mongo.db.recommendations.find())
     return render_template("home.html", recommendations=recommendations)
 
+
 # Access session user page
 @app.route("/user_page/<username>", methods=["GET", "POST"])
 def user_page(username):
@@ -50,7 +51,8 @@ def login():
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
                     flash("welcome, {}".format(request.form.get("username")))
-                    return redirect(url_for("user_page", username=session['user']))
+                    return redirect(url_for(
+                        "user_page", username=session['user']))
             else:
                 # invald password
                 flash("incorrect Username and/password")
@@ -83,12 +85,16 @@ def registration():
     return render_template("registration.html")
 
 
+@app.route("/add_recommendation", methods=["GET", "POST"])
+def add_recommendation():
+    return render_template('add_recommendation.html')
+
+
 @app.route("/logout")
 def logout():
     flash("you have been logged out")
     session.pop("user")
     return redirect(url_for('login'))
-
 
 
 if __name__ == "__main__":

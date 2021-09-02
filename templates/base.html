@@ -22,7 +22,7 @@
     <!-- Dropdown Structure for logged in users -->
   
     <ul id="dropdown1" class="dropdown-content">
-      <li><a href="#!">Add Review</a></li>
+      <li><a href="{{ url_for('add_recommendation') }}">Add New/a></li>
       <li><a href="#!">Edit Review</a></li>
       <li><a href="#!">Delete</a></li>
       <li><a href="{{ url_for('user_page', username=session['user'])}}">Your page</a></li>
@@ -31,7 +31,7 @@
     <!-- for smaller screens with collapsed menu -->
    
     <ul id="dropdown2" class="dropdown-content">
-      <li><a href="#!">Add Review</a></li>
+      <li><a href="{{ url_for('add_recommendation') }}">Add New/a></li>
       <li><a href="#!">Edit Review</a></li>
       <li><a href="#!">Delete</a></li>
       <li><a href="{{ url_for('user_page', username=session['user'])}}">Your page</a></li>
