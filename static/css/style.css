@@ -50,18 +50,39 @@ footer, .nav-wrapper {
   line-height: 2;
 }
 
-/* Recommendations layout */
+/* Recommendation Cards */
 
 #recommend-details{
   overflow:hidden
 }
+#recommend-title{
+ font-style: italic;
+}
+
+/* 
+give id to the close text on the card 
+seperate id needed to target just the text 
+*/
+#reveal-close{
+  font-size: 20px;
+}
+
 .card {
   border-radius: 5%;
 }
 
-/* card image set to 50% height of card */
+/* 
+set font style on card title
+appearing on card reveal. Close and icon 
+*/
+.card-title{
+ color: var(--irish-green);
+ font-family: 'Hind', sans-serif;
+}
+
+/* card image set to 35% height of card */
 .card-image  { 
-  height: 50%;
+  height: 35%;
   object-fit: contain;
   border-radius: 5%;
 }
@@ -69,6 +90,8 @@ footer, .nav-wrapper {
 /* to remove default boder on card-action */
 .card .card-action{
    border-top: none;
+   padding-top: 0;
+   margin-top: 0;
 }
 
 /* set img height to 100% of its container so that all imgs appear same size */
@@ -76,8 +99,15 @@ img {
 height: 100%;
 }
 
+/* registration page */
 
-/* icon styling */
+/* style button */
+.register > button {
+  color: var(--main-text-color);
+  background-color: var(--decoration2);
+}
+
+/* icon across the site */
 .fa-caret-down {
   font-size: 14px;
 }
@@ -85,11 +115,9 @@ height: 100%;
 .fas, .far {
   color: #169B62;
 }
-
-.register > button {
-  color: var(--main-text-color);
-  background-color: var(--decoration2);
-
+/* padding to the info icon on recommendations */
+.fa-info{
+  padding-right: 8px;
 }
 
 

@@ -15,7 +15,7 @@
 {% if recommendations|length > 0 %}
 <div class="container-fluid">
     <div class="row recommendation-row">
-{% for recommendation in recommendations %}
+        {% for recommendation in recommendations %}
 
         <div class="col s12 m6 l3">
             <div class="card medium">
@@ -23,28 +23,25 @@
                     <img src="#" alt="" class="activator">
                 </div>
                 <div class="card-content">
-                    <p>Title:  <span>{{recommendation.title}}</span></p>
-                    <p>Location:  <span>{{recommendation.location}}</span></p>
-                    <p>Visitor Type:  <span>{{recommendation.visitor_type  }}</span></p>
-                    <p id="recommend-details"> Details:  <span>{{ recommendation.details }}</span>
+                    <h5 id="recommend-title"> {{recommendation.title}}</h5>
+                    <p> <i class="fas fa-location-arrow"></i> {{ recommendation.location }} </p>
+                    <p> <i class="fas fa-info"> </i> {{ recommendation.visitor_type }}</p>
+                    <p><i class="fas fa-comment"></i> {{ recommendation.details }}
                     </p>
-                    <div class="activator card-action">Click to see More</div>
+                    <!-- card action footer. user click to reveal more. wrapped on strong to emphasise action -->
+                    <strong><div class="activator card-action">Click to see More..</div></strong>
                 </div>
                 <div class="card-reveal">
-                    <span class="card-title">click to close  <span></span><i
-                            class="far fa-times-circle"></i></p>
-
-                        <p> Details:  <span>{{ recommendation.details }}</span>
-                        </p>
-                        <p> Created By:  <span>{{ recommendation.created_by }}</span></p>
-
-                        <div class="card-title activator">Close<i class="far fa-times-circle postfix"></i>
-                        </div>
+                    <span class="card-title"><i class="far fa-times-circle right"></i><span><br>
+                            <p> <i class="fas fa-comment"></i> {{ recommendation.details }}</p>
+                            <p> Created By: <span>{{ recommendation.created_by }}</span></p>
+                            <div class="card-title activator right" id="reveal-close">Close  <i class="far fa-times-circle"></i>
+                            </div>
                 </div>
             </div>
         </div>
 
-{% endfor %}
+        {% endfor %}
 
 
     </div>
