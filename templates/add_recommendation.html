@@ -4,75 +4,73 @@
 <h1>Add a new recommendation</h1>
 
 <div class="row card-panel">
-    <form action="" class="col s12">
-        
-          <!-- title input field -->
-          <div class="row">
-          <div class="input-field col s12">
-            <i class="fas fa-align-left prefix"></i>
-            <textarea id="recommend-title" name="recommend-title" minlength="5" maxlength="200"
-                class="materialize-textarea validate" required></textarea>
-            <label for="recommend-title">Title</label>
-        </div>
-    </div>
-     <!-- visitor input field -->
-     <div class="row">
-     <div class="input-field col s12">
-        <i class="fas fa-align-left prefix"></i>
-        <select name="visitor_type" id="visitor_type" class="validate" required>
-            <option value="" disable selected>Choose visitor type</option>
-            {% for visitor in visitor_type %}
-                <option value="{{ visitor.visitor_type }}">{{ visitor.visitor_type }}</option>
-            {% endfor %}
-        </select>
-        <label for="visitor_type ">Visitor Type</label>
-        </div>
-    </div>
-      <!-- location input field -->
-      <div class="row">
-        <div class="input-field col s12">
-            <i class="fas fa-folder-open prefix"></i>
-            <select id="location_name" name="location_name" class="validate" required>
-                <option value="" disabled selected>Choose county</option>
-                    {% for location in locations %}
-                        <option value="{{ location.location_name }}">{{ location.location_name }}</option>
-                    {% endfor %}
-            </select>
-            <label for="location_name">Location</label>
-        </div>
-    </div>
-
-
-
-        <!-- details input field -->
-        <div class="row">
+    <form action="" class="col s12" id="add-new-form">
+        <!-- image upload area input field Not yet working -->
         <div class="input-field col s12">
             <i class="fas fa-align-left prefix"></i>
-            <textarea id="recommend-details" name="recommend-details" minlength="5" maxlength="200"
-                class="materialize-textarea validate" required></textarea>
-            <label for="recommend-details">Details</label>
-        </div>
-    </div>
-
-          <!-- image upload area input field -->
-          <div class="input-field col s12">
-            <i class="fas fa-align-left prefix"></i>
-            
             <textarea id="upload_img" name="upload_img" minlength="5" maxlength="200"
                 class="materialize-textarea"></textarea>
             <label for="upload_img"> Image Upload here. Functionality not yet in place</label>
         </div>
+        <!-- title input field -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-align-left prefix"></i>
+                <textarea id="recommend-title" name="recommend-title" minlength="5" maxlength="200"
+                    class="materialize-textarea validate" required></textarea>
+                <label for="recommend-title">Title</label>
+            </div>
+        </div>
+        <!-- visitor input field -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-align-left prefix"></i>
+                <select name="visitor_type" id="visitor_type" class="validate" required>
+                    <option value="" disable selected>Choose visitor type</option>
+                    {% for visitor in visitor_type %}
+                    <option value="{{ visitor.visitor_type }}">{{ visitor.visitor_type }}</option>
+                    {% endfor %}
+                </select>
+                <label for="visitor_type ">Visitor Type</label>
+            </div>
+        </div>
+        <!-- location input field -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix"></i>
+                <select id="location_name" name="location_name" class="validate" required>
+                    <option value="" disabled selected>Choose county</option>
+                    {% for location in locations %}
+                    <option value="{{ location.location_name }}">{{ location.location_name }}</option>
+                    {% endfor %}
+                </select>
+                <label for="location_name">Location</label>
+            </div>
+        </div>
+        <!-- details input field -->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-align-left prefix"></i>
+                <textarea id="recommend-details" name="recommend-details" minlength="5" maxlength="200"
+                    class="materialize-textarea validate" required></textarea>
+                <label for="recommend-details">Details</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 center-align">
+                <button class="btn waves-effect waves-light" type="submit" name="action">
+                    <i class="material-icons right">Add Recommendation</i>
+                </button>
+               
 
-        <button class="btn waves-effect waves-light" type="submit" name="action">
-            <i class="material-icons right">Add Recommendation</i>
-          </button>
-          <button class="btn waves-effect waves-light" type="#" name="cancel">
-            <i class="material-icons right">cancel</i>
+
+                    <button type="button" class="btn" onclick="resetAddForm();">Clear Form</button>
+            </div>
+        </div>
 
 
-            
-          </button>
-      
+        </button>
+
     </form>
 </div>
 {% endblock %}

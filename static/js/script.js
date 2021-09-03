@@ -29,4 +29,9 @@ $('#confirm_password').on('keyup', function () {
       $('#message').html('Passwords do not Match').css('color', 'red');
       $('#register-btn').prop('disabled', true);}
   });
+  
+// Function to allow user to clear the Add New form. Triggered with onclick 
+  function resetAddForm(){
+      document.getElementById('add-new-form').reset();
+  }
 
