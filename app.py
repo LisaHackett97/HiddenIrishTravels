@@ -105,6 +105,18 @@ def add_recommendation():
         visitor_type=visitor_type, locations=locations)
 
 
+@app.route("/edit_recommendation/<recommendation_id>", methods=["GET", "POST"])
+def edit_recommendation(recommendation_id):
+    recommendation = mongo.db.recommendations.find_one({"_id": ObjectId(recommendation_id)})
+    locations = mongo.db.locations.find().sort("location_name", 1)
+    visitor_type = mongo.db.visitor_type.find().sort("visitor_type", 1)
+    return render_template(
+        "edit_recommendations.html", recommendation=recommendation,
+        visitor_type=visitor_type, locations=locations)
+
+
+
+
 @app.route("/logout")
 def logout():
     flash("you have been logged out")
