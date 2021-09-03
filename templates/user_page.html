@@ -5,11 +5,11 @@
     <h1 class="center-align"> {{ username }}'s' Recommendations</h1>
 
     <p>If you are new to our site, and haven't yet uploaded anything, this page will look a little blank.
-      Dont worry, you can select Add New from the recommendation menu, add something in there.
-    This will then appear below. Where you can edit or delete, or just view what you have uploaded. <br>
-    Please go to our home page, to see all user receommendations</p>
+        Dont worry, you can select Add New from the recommendation menu, add something in there.
+        This will then appear below. Where you can edit or delete, or just view what you have uploaded. <br>
+        Please go to our home page, to see all user receommendations</p>
 
-    {% if recommendations|length > 0 %}     
+    {% if recommendations|length > 0 %}
     <div class="container-fluid">
         <div class="row recommendation-row">
             {% for recommendation in recommendations %}
@@ -32,15 +32,28 @@
                             Until filter in place, edit is restricted to the user 
                         -->
                         {% if session.user|lower == recommendation.created_by|lower %}
-                        <a href="{{ url_for('edit_recommendations', recommendation_id=recommendation._id) }}" class="btn-small">Edit</a>
-                        <a href="{{ url_for('delete_recommendation', recommendation_id=recommendation._id) }}" class="btn-small">Delete</a>
+                        <a href="{{ url_for('edit_recommendations', recommendation_id=recommendation._id) }}"
+                            class="btn">Edit</a>
+                        <!-- Modal Trigger To ask User to confirm before deletion happens-->
+                        <a class="btn modal-trigger" href="#modal1">Delete</a>
+
+                        <!-- Modal Structure -->
+                        <div id="modal1" class="modal">
+                            <div class="modal-content">
+                                <a href="{{ url_for('user_page', username=session['user'])}}!"
+                                    class="modal-close btn-flat">Dismiss </a>
+                                <a href="{{ url_for('delete_recommendation', recommendation_id=recommendation._id) }}"
+                                    class="modal-close btn-flat">Confirm Deleteion</a>
+
+                            </div>
+                        </div>
                         {% endif %}
                     </div>
-                    
-                    
+
+
                 </div>
             </div>
-           
+
             {% endif %}
             {% endfor %}
         </div>
@@ -48,7 +61,7 @@
     </div>
     <!-- end of container -->
     {% endif %}
-    
+
 
 
 

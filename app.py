@@ -134,7 +134,7 @@ def edit_recommendations(recommendation_id):
 def delete_recommendation(recommendation_id):
     mongo.db.recommendations.remove({"_id": ObjectId(recommendation_id)})
     flash("You have successfully deleted the recommendation.")
-    return redirect(url_for('user_page'))
+    return redirect(url_for("user_page", username=session["user"]))
 
 
 @app.route("/logout")

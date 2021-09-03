@@ -15,7 +15,7 @@ $(document).ready(function () {
         edge: "right"
     });
     $(".tooltipped").tooltip();
-    $(".collapsible").collapsible();
+    $('.modal').modal();
     $("select").formSelect();
 
        // jQuery Select validation from the Code Institute task manager mini-project
@@ -47,8 +47,6 @@ $(document).ready(function () {
            });
        }
 });
-
- 
 
 
 /* code for password confirm from this post

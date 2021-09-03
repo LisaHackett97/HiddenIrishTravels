@@ -136,6 +136,18 @@ appearing on card reveal. Close and icon
   background-color: var(--decoration2);
   font-weight: bold;
 }
+
+.modal-close{
+  color: var(--irish-green);
+  background-color: var(--decoration2);
+  font-weight: bold;
+}
+
+.modal-close:hover{
+  color: var(--decoration2);
+  background-color: var(--irish-green);
+  font-weight: bold;
+}
 /* icon across the site */
 .fa-caret-down {
   font-size: 14px;
