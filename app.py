@@ -86,6 +86,17 @@ def registration():
 
 @app.route("/add_recommendation", methods=["GET", "POST"])
 def add_recommendation():
+    if request.method == "POST":
+        recommendation = {
+            "title": request.form.get("recommend-title"),
+            "visitor_type": request.form.get("visitor_type"),
+            "location_name": request.form.get("location_name"),
+            "details": request.form.get("recommend-details"),
+            "created_by": session["user"]
+        }
+        mongo.db.recommendations.insert_one(recommendation)
+        flash ("Success. You have added a new recommendation!")
+        return redirect(url_for("home"))
     locations = mongo.db.locations.find().sort("location_name", 1)
     visitor_type = mongo.db.visitor_type.find().sort("visitor_type", 1)
     return render_template(
