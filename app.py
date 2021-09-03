@@ -130,11 +130,18 @@ def edit_recommendations(recommendation_id):
         visitor_type=visitor_type, locations=locations)
 
 
+@app.route("/delete_recommendation/<recommendation_id>")
+def delete_recommendation(recommendation_id):
+    mongo.db.recommendations.remove({"_id": ObjectId(recommendation_id)})
+    flash("You have successfully deleted the recommendation.")
+    return redirect(url_for('user_page'))
+
+
 @app.route("/logout")
 def logout():
     flash("you have been logged out")
     session.pop("user")
-    return redirect(url_for('login'))
+    return redirect(url_for('home'))
 
 
 if __name__ == "__main__":
