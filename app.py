@@ -33,7 +33,8 @@ def user_page(username):
     recommendations = list(mongo.db.recommendations.find())
 
     if session["user"]:
-        return render_template("user_page.html", username=username, recommendations=recommendations)
+        return render_template(
+            "user_page.html", username=username, recommendations=recommendations)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -105,7 +106,9 @@ def add_recommendation():
         visitor_type=visitor_type, locations=locations)
 
 
-@app.route("/edit_recommendations/<recommendation_id>", methods=["GET", "POST"])
+@app.route(
+    "/edit_recommendations/<recommendation_id>",
+    methods=["GET", "POST"])
 def edit_recommendations(recommendation_id):
     if request.method == "POST":
         submit = {
@@ -115,16 +118,16 @@ def edit_recommendations(recommendation_id):
             "details": request.form.get("recommend-details"),
             "created_by": session["user"]
         }
-        mongo.db.recommendations.update({"_id": ObjectId(recommendation_id)}, submit)
+        mongo.db.recommendations.update(
+            {"_id": ObjectId(recommendation_id)}, submit)
         flash("Recommendation successfully updated!")
-    recommendation = mongo.db.recommendations.find_one({"_id": ObjectId(recommendation_id)})
+    recommendation = mongo.db.recommendations.find_one(
+        {"_id": ObjectId(recommendation_id)})
     locations = mongo.db.locations.find().sort("location_name", 1)
     visitor_type = mongo.db.visitor_type.find().sort("visitor_type", 1)
     return render_template(
         "edit_recommendations.html", recommendation=recommendation,
         visitor_type=visitor_type, locations=locations)
-
-
 
 
 @app.route("/logout")

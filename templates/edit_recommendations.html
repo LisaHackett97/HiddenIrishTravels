@@ -75,14 +75,16 @@
         <!--Edit and cancel buttons -->
         <div class="row" id="add_new_btns">
             <div class="col s12 center-align">
+                {% if session.user|lower == recommendation.created_by|lower %}
                 <button class="btn tooltipped" data-position="bottom"
                     data-tooltip="Click this button to edit your recommendation" type="submit" name="action">
                     Edit Recommendation
-                </button>
-
-                <button type="button" class="btn tooltipped" data-position="bottom"
-                    data-tooltip="This button will clear the form so you can start over" onclick="resetAddForm();">Clear
-                    Form</button>
+                </button>               
+                <a href="{{ url_for('user_page', username=session['user'])}}" class="btn tooltipped" data-position="bottom"
+                    data-tooltip="Click to cancel your edits"><i class="far fa-times-circle"></i>
+                    Cancel
+                </a>
+                {% endif %}
             </div>
         </div>
 
