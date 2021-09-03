@@ -19,9 +19,13 @@
      <div class="row">
      <div class="input-field col s12">
         <i class="fas fa-align-left prefix"></i>
-        <textarea id="visitor_type" name="visitor_type " minlength="5" maxlength="200"
-            class="materialize-textarea validate" required></textarea>
-        <label for="visitor_type ">visitor_type will be dropdown</label>
+        <select name="visitor_type" id="visitor_type" class="validate" required>
+            <option value="" disable selected>Choose visitor type</option>
+            {% for visitor in visitor_type %}
+                <option value="{{ visitor.visitor_type }}">{{ visitor.visitor_type }}</option>
+            {% endfor %}
+        </select>
+        <label for="visitor_type ">Visitor Type</label>
         </div>
     </div>
       <!-- location input field -->
@@ -30,11 +34,11 @@
             <i class="fas fa-folder-open prefix"></i>
             <select id="location_name" name="location_name" class="validate" required>
                 <option value="" disabled selected>Choose county</option>
-                    {% for county in location %}
-                        <option value="{{ county.location_name }}">{{ county.location_name }}</option>
+                    {% for location in locations %}
+                        <option value="{{ location.location_name }}">{{ location.location_name }}</option>
                     {% endfor %}
             </select>
-            <label for="location">Location</label>
+            <label for="location_name">Location</label>
         </div>
     </div>
 

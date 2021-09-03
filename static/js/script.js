@@ -15,6 +15,7 @@ $(document).ready(function () {
         edge: "right"
     });
     $(".collapsible").collapsible();
+    $("select").formSelect();
 });
 
 /* code for password confirm from this post

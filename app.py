@@ -1,8 +1,7 @@
 import os
 from flask import (
     Flask, flash, render_template, url_for,
-    redirect, request, session)
-
+    redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -11,8 +10,6 @@ if os.path.exists("env.py"):
 
 
 app = Flask(__name__)
-
-
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
@@ -89,19 +86,11 @@ def registration():
 
 @app.route("/add_recommendation", methods=["GET", "POST"])
 def add_recommendation():
-    if request.method == "POST":
-        recommendation = {
-            "title": request.form.get("title"),
-            "visitor_type": request.form.get("visitor_type"),
-            "location": request.form.get("location"),
-            "details": request.form.get("details"),
-            "created_by": session["user"]
-        }
-        mongo.db.tasks.insert_one(recommendation)
-        flash("Successfully added")
-        return redirect(url_for("home"))
-    location = mongo.db.location.find().sort("location_name", 1)
-    return render_template('add_recommendation.html', location=location)
+    locations = mongo.db.locations.find().sort("location_name", 1)
+    visitor_type = mongo.db.visitor_type.find().sort("visitor_type", 1)
+    return render_template(
+        "add_recommendation.html",
+        visitor_type=visitor_type, locations=locations)
 
 
 @app.route("/logout")
