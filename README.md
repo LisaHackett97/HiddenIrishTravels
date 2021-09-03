@@ -451,6 +451,9 @@ GitHub docs link [Forking a repository](https://docs.github.com/en/desktop/contr
 ### Media
 
 #### Images Used
+Ireland icon in navbar
+href="https://www.vecteezy.com/free-vector/ireland-map">Ireland Map Vectors by Vecteezy
+
 
 #### Other
 
@@ -463,6 +466,9 @@ GitHub docs link [Forking a repository](https://docs.github.com/en/desktop/contr
 
 code for password confirm on registration from this post
 https://stackoverflow.com/questions/21727317/how-to-check-confirm-password-field-in-form-without-reloading-page
+
+- I followed the Code Institute task manager tutorial for the CRUD structure. I also copied the JS code for the materialize validate form.
+
 
 ### Acknowledgements
 
