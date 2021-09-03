@@ -21,7 +21,7 @@
                 <i class="fas fa-info-circle prefix tooltipped" data-position="left"
                     data-tooltip="Select to edit details"></i>
                 <textarea id="recommend-title" name="recommend-title" minlength="5" maxlength="200"
-                value="{{ recommendation.title }}" class="materialize-textarea validate" required></textarea>
+                class="materialize-textarea validate" required>{{- recommendation.title }}</textarea>
                 <label for="recommend-title">Title</label>
             </div>
         </div>
@@ -68,7 +68,7 @@
                 <i class="fas fa-comment prefix tooltipped" data-position="left"
                     data-tooltip="Select to edit details"></i>
                 <textarea id="recommend-details" name="recommend-details" minlength="5" maxlength="200"
-                    class="materialize-textarea validate" required></textarea>
+                    class="materialize-textarea validate" required>{{- recommendation.details }}</textarea>
                 <label for="recommend-details">Details</label>
             </div>
         </div>
