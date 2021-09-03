@@ -4,12 +4,12 @@
 <div class="card-panel">
     <h1 class="center-align"> {{ username }}'s' Recommendations</h1>
 
-
+   
     {% if recommendations|length > 0 %}
     <div class="container-fluid">
         <div class="row recommendation-row">
             {% for recommendation in recommendations %}
-
+            {% if session.user|lower == recommendation.created_by|lower %}
             <div class="col s12">
                 <div class="card">
                     <div class="card-image">
@@ -35,13 +35,15 @@
                     
                 </div>
             </div>
-
+           
+            {% endif %}
             {% endfor %}
         </div>
         <!-- end of row for cards -->
     </div>
     <!-- end of container -->
     {% endif %}
+    
 
 
 
