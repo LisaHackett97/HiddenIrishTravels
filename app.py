@@ -107,6 +107,16 @@ def add_recommendation():
 
 @app.route("/edit_recommendations/<recommendation_id>", methods=["GET", "POST"])
 def edit_recommendations(recommendation_id):
+    if request.method == "POST":
+        submit = {
+            "title": request.form.get("recommend-title"),
+            "visitor_type": request.form.get("visitor_type"),
+            "location_name": request.form.get("location_name"),
+            "details": request.form.get("recommend-details"),
+            "created_by": session["user"]
+        }
+        mongo.db.recommendations.update({"_id": ObjectId(recommendation_id)}, submit)
+        flash("Recommendation successfully updated!")
     recommendation = mongo.db.recommendations.find_one({"_id": ObjectId(recommendation_id)})
     locations = mongo.db.locations.find().sort("location_name", 1)
     visitor_type = mongo.db.visitor_type.find().sort("visitor_type", 1)
