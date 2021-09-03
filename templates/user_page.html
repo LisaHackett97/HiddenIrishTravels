@@ -2,7 +2,35 @@
 {% block content %}
 
 <div class="card-panel">
-<h1 class="center-align"> {{ username }}'s' Recommendations</h1>
+    <h1 class="center-align"> {{ username }}'s' Recommendations</h1>
+
+
+    {% if recommendations|length > 0 %}
+    <div class="container-fluid">
+        <div class="row recommendation-row">
+            {% for recommendation in recommendations %}
+
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="#" alt="image to be inserted" class="activator">
+                    </div>
+                    <div class="card-content" id="user-card-content">
+                        <h5 id="recommend-title"> {{recommendation.title}}</h5>
+                        <p> <i class="fas fa-location-arrow"></i> {{ recommendation.location_name }} </p>
+                        <p> <i class="fas fa-user-tag"> </i> {{ recommendation.visitor_type }}</p>
+                        <p id="recommend-details-user"><i class="fas fa-comment"></i> {{ recommendation.details }}</p>
+                        <hr>
+                        <p> Created By: </i> {{ recommendation.created_by }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- end of row for cards -->
+    </div>
+    <!-- end of container -->
+    {% endif %}
 
 
 

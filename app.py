@@ -30,9 +30,10 @@ def home():
 def user_page(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    recommendations = list(mongo.db.recommendations.find())
 
     if session["user"]:
-        return render_template("user_page.html", username=username)
+        return render_template("user_page.html", username=username, recommendations=recommendations)
 
 
 @app.route("/login", methods=["GET", "POST"])
