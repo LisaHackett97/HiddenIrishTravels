@@ -58,6 +58,7 @@ footer, .nav-wrapper {
 .card.medium .card-image+.card-content {
    max-height: 55%;
    padding-bottom: 10px;
+   padding-top: 10px;
 }
 
 /* action card on recommendation to click to reveal more */
@@ -68,6 +69,8 @@ color: var(--irish-green);
 
 #recommend-title{
  font-style: italic;
+ font-size:16px;
+ font-weight: bold;
 }
 
 /* set img height to 100% of its container so that all imgs appear same size */
@@ -100,7 +103,7 @@ appearing on card reveal. Close and icon
 }
 
 .card .card-reveal{
-  background-color:#53cf99;
+  background-color:#a9d3c1;
 }
 
 
@@ -112,6 +115,24 @@ appearing on card reveal. Close and icon
   background-color: var(--decoration2);
 }
 
+
+/* Add enw page */
+#add_new_btns .btn{
+  margin-left: 25px;
+  margin-right: 25px;
+  width:35%;
+}
+/* Other buttons across the site */
+.btn{
+  color: var(--decoration2);
+  background-color: var(--irish-green);
+}
+
+.btn:hover{
+  color: var(--irish-green);
+  background-color: var(--decoration2);
+  font-weight: bold;
+}
 /* icon across the site */
 .fa-caret-down {
   font-size: 14px;
@@ -120,9 +141,6 @@ appearing on card reveal. Close and icon
 .fas, .far {
   color: #169B62;
 }
-/* padding to the info icon on recommendations */
-.fa-info{
-  padding-right: 8px;
-}
+
 
 

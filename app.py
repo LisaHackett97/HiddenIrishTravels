@@ -95,7 +95,7 @@ def add_recommendation():
             "created_by": session["user"]
         }
         mongo.db.recommendations.insert_one(recommendation)
-        flash ("Success. You have added a new recommendation!")
+        flash("Success. You have added a new recommendation!")
         return redirect(url_for("home"))
     locations = mongo.db.locations.find().sort("location_name", 1)
     visitor_type = mongo.db.visitor_type.find().sort("visitor_type", 1)
