@@ -23,16 +23,21 @@
   
     <ul id="dropdown1" class="dropdown-content">
       <li><a href="{{ url_for('add_recommendation') }}">Add New</a></li>
-      <li><a href="#!">Edit Review</a></li>
+      <li><a href="{{ url_for('user_page', username=session['user'])}}">Edit Review</a></li>
       <li><a href="#!">Delete</a></li>
       <li><a href="{{ url_for('user_page', username=session['user'])}}">Your page</a></li>
     </ul>
-   
+    <!--  -->
     <!-- for smaller screens with collapsed menu -->
    
     <ul id="dropdown2" class="dropdown-content">
       <li><a href="{{ url_for('add_recommendation') }}">Add New</a></li>
-      <li><a href="#!">Edit Review</a></li>
+        <!-- 
+        At this point all edit review selection will direct the user page. 
+        Looking to see if it can directly open Edit page
+        May need to have a filter or search in place first 
+        -->
+      <li><a href="{{ url_for('user_page', username=session['user'])}}">Edit Review</a></li>
       <li><a href="#!">Delete</a></li>
       <li><a href="{{ url_for('user_page', username=session['user'])}}">Your page</a></li>
     </ul>
