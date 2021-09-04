@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1 class="center-align"> {{ username }}'s' Recommendations</h1>
+<h1 class="center-align"> {{ username }}</h1>
+
+<h2 class="center-align">Your Recommendations </h2>
 
 <p>If you are new to our site, and haven't yet uploaded anything, this page will look a little blank.
     Dont worry, you can select Add New from the recommendation menu, add something in there.
@@ -16,7 +18,7 @@
     <div class="container search-container">
         <a href="{{ url_for('user_page', username=session['user'])}}" class="btn text-shadow" id="clear-search">Clear Search results</a>
         <div class="row card-panel search-card">
-            <form action="{{ url_for('search_user') }}" method="POST" class="col s12" id="search-form">
+            <form action="{{ url_for('search_user_page') }}" method="POST" class="col s12" id="search-form">
     
                 <div class="row valign-wrapper center-align">
                     <!-- <div class="row"> -->
@@ -26,10 +28,10 @@
                     </div>
                     <div class="row">
                         <div class="col s12">
-                            <button type="submit" class="btn-small text-shadow center search-action-btn">
+                            <button type="submit" class="btn-small text-shadow center" id="search-action">
                                 <i class="fas fa-search left hide-on-small-only"></i> Search
                             </button>
-                            <hr>
+                           
                             <button id="home-hide-button" class="btn-small"><i class="fas fa-times-circle"></i></button>
                         </div>
                     </div>

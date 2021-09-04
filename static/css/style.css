@@ -27,6 +27,13 @@ main {
 h1{
   color: var(--irish-green);
   font-family: 'Hind', sans-serif;
+  font-size: 45px;
+  text-align: center;
+}
+
+h2{
+  color: var(--irish-green);
+  font-family: 'Hind', sans-serif;
   font-size: 35px;
   text-align: center;
 }
@@ -140,13 +147,16 @@ appearing on card reveal. Close and icon
   font-family: 'Poppins', sans-serif;
   font-size: 12px;
 }
-
-
-#home-hide-button{
-  border-radius: 50%;
+/* buttons within seach box */
+#search-action,
+#home-hide-button,
+.search-action-btn{
+  margin-top: 25px;
 }
 
-#home-search-button{
+
+#home-search-button
+{
   font-size: 35px;
   border:none;
   background-color: white;
@@ -163,9 +173,9 @@ color:var(--main-text-color)
   font-weight: bold;
 }
 
-
-
-
+.page-btn{
+  background-color: white;
+}
 .modal-close{
   color: var(--irish-green);
   background-color: var(--decoration2);

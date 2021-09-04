@@ -4,13 +4,16 @@
 
 
 <h1>Welcome to Hidden Irish Travels</h1>
+<a href="{{ url_for('user_page', username=session['user'])}}" class="btn col s6 page-btn">Your page <i class="far fa-user-circle"></i></a>
 <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
     aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
     sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."<i
         class="far fa-smile"></i></p>
-<div class="row center-align">
-    <button id="home-search-button"><i class="fas fa-search"></i></button>
+
+        
+<div class="row center-align">    
+       <button id="home-search-button"><i class="fas fa-search"></i></button>
 </div>
 
 <!-- search on the home page will give results which are not filtered by user name-->
@@ -30,7 +33,7 @@
                         <button type="submit" class="btn-small text-shadow center search-action-btn">
                             <i class="fas fa-search left hide-on-small-only"></i> Search
                         </button>
-                        <hr>
+                      
                         <button id="home-hide-button" class="btn-small"><i class="fas fa-times-circle"></i></button>
                     </div>
                 </div>

@@ -20,16 +20,13 @@
   <header>
     <!-- Materialize nav bar-->
     <!-- Dropdown Structure for logged in users -->
-  
+   
     <ul id="dropdown1" class="dropdown-content">
       <li><a href="{{ url_for('add_recommendation') }}">Add New</a></li>
-      <li><a href="{{ url_for('user_page', username=session['user'])}}">Edit Review</a></li>
-      <li><a href="#!">Delete</a></li>
       <li><a href="{{ url_for('user_page', username=session['user'])}}">Your page</a></li>
     </ul>
     <!--  -->
-    <!-- for smaller screens with collapsed menu -->
-   
+    <!-- for smaller screens with collapsed menu -->   
     <ul id="dropdown2" class="dropdown-content">
       <li><a href="{{ url_for('add_recommendation') }}">Add New</a></li>
         <!-- 
@@ -37,15 +34,20 @@
         Looking to see if it can directly open Edit page
         May need to have a filter or search in place first 
         -->
-      <li><a href="{{ url_for('user_page', username=session['user'])}}">Edit Review</a></li>
-      <li><a href="#!">Delete</a></li>
       <li><a href="{{ url_for('user_page', username=session['user'])}}">Your page</a></li>
     </ul>
    
     <nav>
+     
       <!-- Materialize nav code -->
       <div class="nav-wrapper">
-        <a href="{{ url_for('home')}}" class="brand-logo left"> <img src="static/images/ireland-icon.png" alt=""></a>
+        <a href="{{ url_for('home')}}" class="brand-logo left"> 
+          <img src="{{ url_for('static', filename='images/ireland-icon.png')}}" height="50" width="55" alt="ireland map logo">
+        </a>
+    
+
+
+
         <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="{{ url_for('home')}}">Home</a></li>
@@ -78,7 +80,7 @@
       <!-- Admin Option only available to an Admin user -->
       <li><a href="#">Admin</a></li>
       <li><a href="{{ url_for('logout')}}">Log Out</a></li>
-      <li><a href="{{ url_for('user_page', username=session['user'])}}">Your page</a></li>
+      
       {% else %}          
           <li><a href="{{ url_for('login')}}">Log In</a></li>
           <li><a href="{{ url_for('registration')}}">Register</a></li>

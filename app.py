@@ -34,8 +34,8 @@ def search():
 
 
 # Search on user page only
-@app.route("/search_user", methods=["GET", "POST"])
-def search_user():
+@app.route("/search_user_page", methods=["GET", "POST"])
+def search_user_page():
     query = request.form.get("query")
     recommendations = list(mongo.db.recommendations.find({"$text": {"$search": query}}))
     return render_template("user_page.html", recommendations=recommendations)
