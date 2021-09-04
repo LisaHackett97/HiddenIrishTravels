@@ -164,7 +164,7 @@ def admin():
 def get_fields():
     fields = list(mongo.db.visitor_type.find().sort("visitor_type", 1))
     locations = list(mongo.db.locations.find().sort("location_name", 1))
-    return render_template("form_fields.html", visitor_type=fields, locations=locations)
+    return render_template("manage_dropdown_details.html", visitor_type=fields, locations=locations)
 
 
 
