@@ -169,6 +169,13 @@ def get_fields():
 
 @app.route("/add_dropdown_details", methods=["GET", "POST"])
 def add_dropdown_details():
+    if request.method == "POST":
+        location = {
+            "location_name": request.form.get("location_name")
+        }
+        mongo.db.locations.insert_one(location)
+        flash("new location added")
+        return redirect(url_for("get_fields"))
     return render_template("add_dropdown_details.html")
 
 @app.route("/logout")
