@@ -166,17 +166,34 @@ def get_fields():
     locations = list(mongo.db.locations.find().sort("location_name", 1))
     return render_template("manage_dropdown_details.html", visitor_type=fields, locations=locations)
 
-
-@app.route("/add_dropdown_details", methods=["GET", "POST"])
+# To bring admin user to the page to manage the categories for the dropdown lists
+@app.route("/add_dropdown_details")
 def add_dropdown_details():
+    return render_template("add_dropdown_details.html")
+
+
+@app.route("/add_location", methods=["GET", "POST"])
+def add_location():
     if request.method == "POST":
         location = {
             "location_name": request.form.get("location_name")
-        }
+        }        
         mongo.db.locations.insert_one(location)
-        flash("new location added")
+        flash("new location added")        
         return redirect(url_for("get_fields"))
     return render_template("add_dropdown_details.html")
+
+@app.route("/add_visitor_details", methods=["GET", "POST"])
+def add_visitor_details():
+    if request.method == "POST":       
+        visitor = {
+            "visitor_type": request.form.get("visitor_type")
+        }        
+        mongo.db.visitor_type.insert_one(visitor)
+        flash("new visitor added")
+        return redirect(url_for("get_fields"))
+    return render_template("add_dropdown_details.html")
+
 
 @app.route("/logout")
 def logout():

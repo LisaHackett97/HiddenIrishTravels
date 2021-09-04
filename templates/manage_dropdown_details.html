@@ -17,23 +17,27 @@
 <section>
 <div class="row">
     <h6>Visitor Types</h6>
-    {% for visitor in visitor_type %}
     <ul class="collection">
-      <li class="collection-item avatar">
+    {% for visitor in visitor_type %}
+    
+      <li  class="collection-item">
           <i class="material-icons circle"></i>
           <span class="title">{{ visitor.visitor_type }}</span>
           
           <a href="#" class="btn">Edit</a>
           <a href="#" class="btn">Delete</a>
-        </li>     
+        </li>  
+        
     {% endfor %}
+  </ul> 
 </div>
 </section>
 <section>
 <div class="row">
     <h6>Locations</h6>
-    {% for location in locations %}
     <ul class="collection">
+    {% for location in locations %}
+    
       <li class="collection-item avatar">
           <i class="material-icons circle"></i>
           <span class="title">{{ location.location_name }}</span>
@@ -42,6 +46,7 @@
           <a href="#" class="btn">Delete</a>
         </li>     
     {% endfor %}
+    </ul>
 </div>
 </section>
 
