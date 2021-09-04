@@ -24,20 +24,22 @@ def home():
     recommendations = list(mongo.db.recommendations.find())
     return render_template("home.html", recommendations=recommendations)
 
+
 # Search on home page for all recommendations
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
-    recommendations = list(mongo.db.recommendations.find({"$text": {"$search": query}}))
+    recommendations = list(
+        mongo.db.recommendations.find({"$text": {"$search": query}}))
     return render_template("home.html", recommendations=recommendations)
-
 
 
 # Search on user page only
 @app.route("/search_user_page", methods=["GET", "POST"])
 def search_user_page():
     query = request.form.get("query")
-    recommendations = list(mongo.db.recommendations.find({"$text": {"$search": query}}))
+    recommendations = list(mongo.db.recommendations.find(
+        {"$text": {"$search": query}}))
     return render_template("user_page.html", recommendations=recommendations)
 
 
@@ -50,7 +52,8 @@ def user_page(username):
 
     if session["user"]:
         return render_template(
-            "user_page.html", username=username, recommendations=recommendations)
+            "user_page.html",
+            username=username, recommendations=recommendations)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -151,6 +154,14 @@ def delete_recommendation(recommendation_id):
     mongo.db.recommendations.remove({"_id": ObjectId(recommendation_id)})
     flash("You have successfully deleted the recommendation.")
     return redirect(url_for("user_page", username=session["user"]))
+
+
+@app.route("/admin")
+def admin():    
+    return render_template("admin.html")
+    
+
+
 
 
 @app.route("/logout")
