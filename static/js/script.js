@@ -1,22 +1,27 @@
 // function to clear registration form 
 window.onload = function() {
     document.getElementById("register_form").reset();
-    }
-    
-/*
-jquery for materialize
-*/
+}
 
+
+
+
+/*
+doc ready functions, including  materialize validate
+*/
 $(document).ready(function () {
     $(".dropdown-trigger").dropdown({
-        coverTrigger: false
-    });
+        coverTrigger: false});
     $('.sidenav').sidenav({
-        edge: "right"
-    });
+        edge: "right" });
     $(".tooltipped").tooltip();
     $('.modal').modal();
     $("select").formSelect();
+    $('.search-container').hide()
+    $("#home-search-button").click(function(){
+        $(".search-container").show();
+    })
+  
 
        // jQuery Select validation from the Code Institute task manager mini-project
        validateMaterializeSelect();
@@ -49,6 +54,7 @@ $(document).ready(function () {
 });
 
 
+
 /* code for password confirm from this post
 https://stackoverflow.com/questions/21727317/how-to-check-confirm-password-field-in-form-without-reloading-page
 */
@@ -65,3 +71,9 @@ $('#confirm_password').on('keyup', function () {
   function resetAddForm(){
       document.getElementById('add-new-form').reset();
   }
+
+// To allow user to close search box
+document.getElementById("home-hide-button").addEventListener("click", showSearchForm)
+function showSearchForm() {
+    $(".search-container").hide();
+}

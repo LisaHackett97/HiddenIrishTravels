@@ -35,6 +35,7 @@ p{
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
 }
+
 footer, .nav-wrapper {
     background-color: #83C5BE;
     color: #172A3A;
@@ -110,8 +111,12 @@ appearing on card reveal. Close and icon
 .search-card{
   background-color: var(--decoration2);
   border-radius: 5%;
-}
+ }
 
+ #search-input{
+   margin:10px;
+
+ }
 /* registration page */
 
 /* style button */
@@ -128,16 +133,38 @@ appearing on card reveal. Close and icon
   width:35%;
 }
 /* Other buttons across the site */
-.btn{
-  color: var(--decoration2);
-  background-color: var(--irish-green);
-}
-
-.btn:hover{
-  color: var(--irish-green);
+#home-search-button, #home-hide-button, .btn, .btn-small{
+  color: var(--main-text-color);
   background-color: var(--decoration2);
   font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
 }
+}
+
+#home-hide-button{
+  border-radius: 50%;
+}
+
+#home-search-button{
+  font-size: 35px;
+  border:none;
+  background-color: white;
+}
+
+#home-search-button > .fa-search:hover{
+  font-size: 40px;
+color:var(--main-text-color)
+}
+
+#home-hide-button:hover, .btn:hover, .btn-small:hover{
+  color: var(--decoration2);
+  background-color: var(--irish-green);
+  font-weight: bold;
+}
+
+
+
 
 .modal-close{
   color: var(--irish-green);
@@ -159,13 +186,10 @@ appearing on card reveal. Close and icon
   color: #169B62;
 }
 
-.fa-search{
+.fa-times-circle:hover, .fa-search:hover{
   color: var(--decoration2);
 }
 
-.fa-search:hover{
-  color: var(--irish-green);
-}
 
 /* style ireland icon on navbar */
 .nav-wrapper img {

@@ -9,7 +9,39 @@
     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
     sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."<i
         class="far fa-smile"></i></p>
+<div class="row center-align">
+<button id="home-search-button"><i class="fas fa-search"></i></button>
+</div>
 
+
+<div class="container search-container">
+    <div class="row card-panel search-card">
+        <form action="{{ url_for('search') }}" method="POST" class="col s12">
+
+            <div class="row valign-wrapper center-align">
+                <!-- <div class="row"> -->
+                <div class="input-field col s8" id="search-input">
+                    <input type="text" name="query" id="query" required class="validate">
+                    <label for="query">Search here</label>
+                </div>
+                <!-- </div> -->
+                <br>
+                <div class="row">
+                    <div class="col s12">
+                    <!-- <a href="{{ url_for('user_page', username=session['user'])}}"
+                        class="red lighten-5 btn-small text-shadow">Clear</a>
+                    <hr> -->
+                    <button type="submit" class="btn-small text-shadow center search-action-btn">
+                        <i class="fas fa-search left hide-on-small-only"></i> Search
+                    </button>
+                    <hr>
+                    <button id="home-hide-button" class="btn-small"><i class="fas fa-times-circle"></i></button>
+                </div></div>
+
+                </div> 
+        </form>
+    </div>
+</div>
 
 
 {% if recommendations|length > 0 %}
@@ -30,9 +62,9 @@
                 </div>
                 <!-- card action footer. user click to reveal more.  -->
                 <div class="activator card-action">
-                    Click to see More  <i class="fas fa-angle-double-right"></i>
+                    Click to see More <i class="fas fa-angle-double-right"></i>
                 </div>
-<!-- Full recommendation revealed when user click -->
+                <!-- Full recommendation revealed when user click -->
                 <div class="card-reveal">
                     <span class="card-title"><i class="far fa-times-circle right"></i><span><br>
                             <p> <i class="fas fa-comment"></i> {{ recommendation.details }}</p>
