@@ -11,11 +11,12 @@
     <div class="row center-align">
         <button id="home-search-button"><i class="fas fa-search"></i></button>
     </div>
-    
-    
+   
+    <!-- search on the user page will only give results for the loggedin user-->
     <div class="container search-container">
+        <a href="{{ url_for('user_page', username=session['user'])}}" class="btn text-shadow" id="clear-search">Clear Search results</a>
         <div class="row card-panel search-card">
-            <form action="{{ url_for('search') }}" method="POST" class="col s12">
+            <form action="{{ url_for('search_user') }}" method="POST" class="col s12" id="search-form">
     
                 <div class="row valign-wrapper center-align">
                     <!-- <div class="row"> -->
