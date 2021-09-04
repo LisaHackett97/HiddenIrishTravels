@@ -24,6 +24,14 @@ def home():
     recommendations = list(mongo.db.recommendations.find())
     return render_template("home.html", recommendations=recommendations)
 
+# Search on user page
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    recommendations = list(mongo.db.recommendations.find({"$text": {"$search": query}}))
+    return render_template("user_page.html", recommendations=recommendations)
+
+
 
 # Access session user page
 @app.route("/user_page/<username>", methods=["GET", "POST"])
