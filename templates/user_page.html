@@ -1,34 +1,36 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="card-panel">
-    <h1 class="center-align"> {{ username }}'s' Recommendations</h1>
+<h1 class="center-align"> {{ username }}'s' Recommendations</h1>
 
-    <p>If you are new to our site, and haven't yet uploaded anything, this page will look a little blank.
-        Dont worry, you can select Add New from the recommendation menu, add something in there.
-        This will then appear below. Where you can edit or delete, or just view what you have uploaded. <br>
-        Please go to our home page, to see all user receommendations</p>
+<p>If you are new to our site, and haven't yet uploaded anything, this page will look a little blank.
+    Dont worry, you can select Add New from the recommendation menu, add something in there.
+    This will then appear below. Where you can edit or delete, or just view what you have uploaded. <br>
+    Please go to our home page, to see all user receommendations</p>
 
-    <div class="row card-panel">
-
+<div class="container">
+    <div class="row card-panel search-card">
         <form action="{{ url_for('search') }}" method="POST" class="col s12">
             <div class="row valign-wrapper center-align">
                 <div class="input-field col s12 m8">
                     <input type="text" name="query" id="query" required class="validate">
                     <label for="query">search</label>
                 </div>
-                <div class="col s12 m4">
-                    <a href="{{ url_for('user_page', username=session['user'])}}" class="red btn text-shadow">Reset</a>
+                <div class="col s12">
+                    <a href="{{ url_for('user_page', username=session['user'])}}" class="red btn text-shadow">Reset Form</a>
+                    <hr class="hide-on-med-and-up">
                     <button type="submit" class="btn text-shadow center">
-                        <i class="fas fa-search left"></i> Search
+                        <i class="fas fa-search left hide-on-small-only"></i> Search
                     </button>
                 </div>
             </div>
         </form>
-
     </div>
+</div>
 
 
+<!-- Card to show search results and all the users uploaded recommendations -->
+<div class="card-panel">  
     {% if recommendations|length > 0 %}
     <div class="container-fluid">
         <div class="row recommendation-row">
