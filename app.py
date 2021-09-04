@@ -167,6 +167,9 @@ def get_fields():
     return render_template("manage_dropdown_details.html", visitor_type=fields, locations=locations)
 
 
+@app.route("/add_dropdown_details", methods=["GET", "POST"])
+def add_dropdown_details():
+    return render_template("add_dropdown_details.html")
 
 @app.route("/logout")
 def logout():
