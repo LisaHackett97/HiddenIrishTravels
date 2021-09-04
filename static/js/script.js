@@ -4,22 +4,29 @@ window.onload = function() {
 }
 
 
-
-
 /*
 doc ready functions, including  materialize validate
 */
 $(document).ready(function () {
     $(".dropdown-trigger").dropdown({
         coverTrigger: false});
+
     $('.sidenav').sidenav({
         edge: "right" });
+
     $(".tooltipped").tooltip();
+
     $('.modal').modal();
+
     $("select").formSelect();
+
     $('.search-container').hide()
+ 
+
     $("#home-search-button").click(function(){
-        $(".search-container").show();
+        $(".search-container").show();  
+     
+        
     })
   
 
@@ -73,7 +80,12 @@ $('#confirm_password').on('keyup', function () {
   }
 
 // To allow user to close search box
-document.getElementById("home-hide-button").addEventListener("click", showSearchForm)
-function showSearchForm() {
+document.getElementById("home-hide-button").addEventListener("click", hideSearchForm)
+// fucntion will reset the search form then hide the container
+// applies to search on home and user pages
+function hideSearchForm() {
+    document.getElementById('search-form').reset();
     $(".search-container").hide();
+   
 }
+
