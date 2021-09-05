@@ -198,15 +198,30 @@ def add_visitor_details():
         return redirect(url_for("get_fields"))
     return render_template("add_field_details.html")
 
-
+# Edit visitor types that user can select
 @app.route("/edit_visitor_type/<visitor_id>", methods=["GET", "POST"])
 def edit_visitor_type(visitor_id):
+    if request.method == "POST":
+        v_submit = {
+            "visitor_type": request.form.get("visitor_type")
+        }
+        mongo.db.visitor_type.update({"_id": ObjectId(visitor_id)}, v_submit)
+        flash("Update Successful")
+        return redirect(url_for("get_fields"))
+
     visitor = mongo.db.visitor_type.find_one({"_id": ObjectId(visitor_id)})
- 
     return render_template("edit_visitor_type.html", visitor=visitor)
 
+# Edit visitor types that user can select from
 @app.route("/edit_location/<location_id>", methods=["GET", "POST"])
 def edit_location(location_id):
+    if request.method == "POST":
+        l_submit = {
+            "location_name": request.form.get("location_name")}
+        mongo.db.locations.update({"_id": ObjectId(location_id)}, l_submit)
+        flash("Update Successful")
+        return redirect(url_for("get_fields"))     
+
     location = mongo.db.locations.find_one({"_id": ObjectId(location_id)})
     return render_template("edit_location.html", location=location)
 
