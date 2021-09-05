@@ -205,11 +205,10 @@ def edit_visitor_type(visitor_id):
  
     return render_template("edit_visitor_type.html", visitor=visitor)
 
-# @app.route("/edit_location_details/<location_id>", methods=["GET", "POST"])
-# def edit_location_details(location_id, visitor_id):
-#     visitor = mongo.db.visitor_type.find_one({"_id": ObjectId(visitor_id)})
-#     location = mongo.db.locations.find_one({"_id": ObjectId(location_id)})
-#     return render_template("edit_field_details.html", visitor=visitor, location=location)
+@app.route("/edit_location/<location_id>", methods=["GET", "POST"])
+def edit_location(location_id):
+    location = mongo.db.locations.find_one({"_id": ObjectId(location_id)})
+    return render_template("edit_location.html", location=location)
 
 
 @app.route("/logout")
