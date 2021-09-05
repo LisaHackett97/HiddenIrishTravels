@@ -4,12 +4,12 @@
 <h1>Edit Field Details <i class="fas fa-pencil-alt"></i></h1>
 
 <div class="row card-panel">
-    <form action="{{ url_for('edit_visitor_details') }}" class="col s12" method="POST">
+    <form action="{{ url_for('edit_visitor_details', visitor_id=visitor._id, location_id=location._id) }}" class="col s12" method="POST">
         <!-- visitor input field -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-user-tag prefix"></i>
-                <input type="text" class="validate" required id="visitor_type" name="visitor_type">
+                <input type="text" value="{{visitor.visitor_type }}" class="validate" required id="visitor_type" name="visitor_type">
                 <label for="visitor_type">Visitor Type</label>
             </div>
         </div>
@@ -18,16 +18,16 @@
                 <button class="btn" type="submit" name="action">
                     Edit visitor Type
                 </button>
-                <button type="button" class="btn" onclick="resetAddForm();">Clear Form</button>
+                <button type="button" class="btn" onclick="resetAddForm();">Clear</button>
             </div>
         </div>
         </form>
 
-        <form action="{{ url_for('edit_location') }}" class="col s12" method="POST">
+        <!-- <form action="{{ url_for('edit_location_details', location_id=location._id) }}" class="col s12" method="POST">
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-user-tag prefix"></i>
-                <input type="text" class="validate" required id="location_name" name="location_name">
+                <input type="text" value="{{location.location_name }}"class="validate" required id="location_name" name="location_name">
                 <label for="location_name">Location Name</label>
             </div>
         </div>
@@ -43,6 +43,6 @@
 
         </button>
 
-    </form>
+    </form> -->
 </div>
 {% endblock %}

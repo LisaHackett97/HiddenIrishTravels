@@ -157,16 +157,19 @@ def delete_recommendation(recommendation_id):
 
 
 @app.route("/admin")
-def admin():    
+def admin():
     return render_template("admin.html")
-    
+
+
 @app.route("/get_fields")
 def get_fields():
     fields = list(mongo.db.visitor_type.find().sort("visitor_type", 1))
     locations = list(mongo.db.locations.find().sort("location_name", 1))
-    return render_template("manage_form_details.html", visitor_type=fields, locations=locations)
+    return render_template(
+        "manage_form_details.html", visitor_type=fields, locations=locations)
 
-# To bring admin user to the page to manage the categories for the dropdown lists
+
+# To bring admin user to the page to manage the categories for dropdown lists
 @app.route("/add_field_details")
 def add_field_details():
     return render_template("add_field_details.html")
@@ -177,22 +180,36 @@ def add_location():
     if request.method == "POST":
         location = {
             "location_name": request.form.get("location_name")
-        }        
+        }
         mongo.db.locations.insert_one(location)
-        flash("new location added")        
+        flash("new location added")
         return redirect(url_for("get_fields"))
     return render_template("add_field_details.html")
 
+
 @app.route("/add_visitor_details", methods=["GET", "POST"])
 def add_visitor_details():
-    if request.method == "POST":       
+    if request.method == "POST":
         visitor = {
             "visitor_type": request.form.get("visitor_type")
-        }        
+        }
         mongo.db.visitor_type.insert_one(visitor)
         flash("new visitor added")
         return redirect(url_for("get_fields"))
     return render_template("add_field_details.html")
+
+
+@app.route("/edit_visitor_type/<visitor_id>", methods=["GET", "POST"])
+def edit_visitor_type(visitor_id):
+    visitor = mongo.db.visitor_type.find_one({"_id": ObjectId(visitor_id)})
+ 
+    return render_template("edit_visitor_type.html", visitor=visitor)
+
+# @app.route("/edit_location_details/<location_id>", methods=["GET", "POST"])
+# def edit_location_details(location_id, visitor_id):
+#     visitor = mongo.db.visitor_type.find_one({"_id": ObjectId(visitor_id)})
+#     location = mongo.db.locations.find_one({"_id": ObjectId(location_id)})
+#     return render_template("edit_field_details.html", visitor=visitor, location=location)
 
 
 @app.route("/logout")

@@ -20,12 +20,12 @@
     <ul class="collection">
     {% for visitor in visitor_type %}
     
-    
       <li  class="collection-item">
           <i class="material-icons circle"></i>
           <span class="title">{{ visitor.visitor_type }}</span>
-        
-          <a href="{{ url_for('edit_visitor_type', visitor_id=visitor._id) }}" class="btn">Edit</a>
+          <span class="title">{{ location.location_name }}</span>
+          
+          <a href="{{ url_for('edit_details', visitor_id=visitor._id, location_id=location._id) }}" class="btn">Edit</a>
           <a href="#" class="btn">Delete</a>
         </li>  
         
@@ -33,25 +33,23 @@
   </ul> 
 </div>
 </section>
-
+<!-- 
 <section>
 <div class="row">
     <h6>Locations</h6>
     <ul class="collection">
     {% for location in locations %}
-  
     
       <li class="collection-item avatar">
           <i class="material-icons circle"></i>
           <span class="title">{{ location.location_name }}</span>
           
-          <a href="#" class="btn">Edit Location</a>
+          <a href="{{ url_for('edit_location_details', location_id=location._id) }}" class="btn">Edit Location</a>
           <a href="#" class="btn">Delete</a>
         </li>     
     {% endfor %}
-   
     </ul>
 </div>
-</section>
+</section> -->
 
 {% endblock %}
