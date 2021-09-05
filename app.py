@@ -227,7 +227,7 @@ def edit_location(location_id):
     return render_template("edit_location.html", location=location)
 
 
-# Delete a location Admin task
+# Delete a location -> Admin task
 @app.route("/delete_visitor_type/<visitor_id>")
 def delete_visitor_type(visitor_id):
     mongo.db.visitor_type.remove({"_id": ObjectId(visitor_id)})
@@ -235,7 +235,13 @@ def delete_visitor_type(visitor_id):
     return redirect(url_for("get_fields"))
 
 
-# Delete a location Admin task
+# Delete a location -> Admin task
+@app.route("/delete_location/<location_id>")
+def delete_location(location_id):
+    mongo.db.locations.remove({"_id": ObjectId(location_id)})
+    flash("Location Deleted!")
+    return redirect(url_for("get_fields"))
+
 
 
 # User logout
