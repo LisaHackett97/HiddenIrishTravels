@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="center-align">Manage Users</h1>
+
+
+
+<!-- section to display current users -->
+<section>
+<div class="row">
+    <h6>Users</h6>
+    
+      <ul class="collection">
+    {% for user in username %} 
+          <li class="collection-item">
+          <i class="material-icons circle"></i>
+          <span class="title">{{ user.username }}</span>        
+          <a href="{{ url_for('delete_user', user_id=user._id)}}" class="btn">Delete user</a>
+        </li>     
+    {% endfor %}   
+    
+    </ul>
+
+
+
+
+</div>
+</section>
+
+
+{% endblock %}

@@ -243,6 +243,26 @@ def delete_location(location_id):
     return redirect(url_for("get_fields"))
 
 
+# Delete a user -> Admin task
+@app.route("/delete_user/<user_id>")
+def delete_user(user_id):
+    mongo.db.users.remove({"_id": ObjectId(user_id)})
+    flash("User Deleted!")
+    return redirect(url_for("users_admin"))
+
+
+@app.route("/users_admin")
+def users_admin():
+    username = list(mongo.db.users.find())
+    
+    return render_template(
+        "users_admin.html", username=username)
+
+
+    #   def home():
+    # recommendations = list(mongo.db.recommendations.find())
+    # return render_template("home.html", recommendations=recommendations)
+
 
 # User logout
 @app.route("/logout")
