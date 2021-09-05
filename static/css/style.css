@@ -209,3 +209,18 @@ color:var(--main-text-color)
 }
 
 
+#coll-container:target {
+  display: block;
+}
+
+#coll-container2:target {
+  display: none;
+}
+
+#collection:target {
+  display: block;
+}
+
+#collection1:target {
+  display: none;
+}

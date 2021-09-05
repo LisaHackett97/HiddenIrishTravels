@@ -14,11 +14,20 @@
 <!-- section to display current visitor types -->
 <section>
 <div class="row">
-    <h6>Visitor Types</h6>
-    <ul class="collection">
-    {% for visitor in visitor_type %}    
-    
-      <li  class="collection-item">
+    <!-- <h6 type="btn" id="display_fields">Visitor Types</h6> -->
+    <!-- <div class="row center-align">
+      <button id="display_fields">Visitor Types</button>
+      <a href="#coll-container"></a>
+  </div> -->
+    <!-- 
+    targeted with jquery to hide on window ready.
+    Click to open. Same for the Locations section
+  -->
+  <a href="#coll-container">click me</a>
+  <a href="#coll-container2">close me</a>
+    <ul class="collection" id="coll-container2">
+    {% for visitor in visitor_type %} 
+          <li  class="collection-item">
           <i class="material-icons circle"></i>
           <span class="title">{{ visitor.visitor_type }}</span>        
           <a href="{{ url_for('edit_visitor_type', visitor_id=visitor._id) }}" class="btn">Edit</a>
@@ -27,12 +36,17 @@
     {% endfor %}
   </ul> 
 </div>
+
+<!-- </div> -->
 </section>
+
 <!-- section to display current locations -->
 <section>
 <div class="row">
     <h6>Locations</h6>
-    <ul class="collection">
+    <a href=".#collection">Open Locations me</a>
+    <a href="#collection1">Close</a>
+      <ul class="collection" id="collection1">
     {% for location in locations %} 
           <li class="collection-item avatar">
           <i class="material-icons circle"></i>
