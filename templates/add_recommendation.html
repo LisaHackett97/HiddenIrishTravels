@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Add a new recommendation  <i class="fas fa-pencil-alt"></i></h1>
+<h1>Add a new recommendation  <i class="fas fa-pencil-alt hide-on-small-only"></i></h1>
 
 <div class="row card-panel">
     <form action="{{ url_for('add_recommendation') }}" class="col s12" id="add-new-form" method="POST">
@@ -62,10 +62,10 @@
                 <button class="btn tooltipped" data-position="bottom" data-tooltip="Click this button to upload your recommendation" type="submit" name="action">
                    Add Recommendation
                 </button>
-               
-
-
-                    <button type="button" class="btn tooltipped" data-position="bottom" data-tooltip="This button will clear the form so you can start over" onclick="resetAddForm();">Clear Form</button>
+                <button type="button" class="btn tooltipped" data-position="bottom" 
+                    data-tooltip="This button will clear the form so you can start over" onclick="resetAddForm();">
+                    Clear Form
+                </button>
             </div>
         </div>
 
