@@ -6,14 +6,14 @@
 
 <div class="row">
   <div class="col s12 center-align">
-      <a href="{{ url_for('add_field_details') }}" class="btn-large light-blue darken-2 text-shadow">
-          Add New Details <i class="fas fa-plus-square right"></i>
-      </a>
+    <a href="{{ url_for('add_field_details') }}" class="btn-large light-blue darken-2 text-shadow">
+      Add New Details <i class="fas fa-plus-square right"></i>
+    </a>
   </div>
 </div>
 <!-- section to display current visitor types -->
 <section>
-<div class="row">
+  <div class="row">
     <!-- <h6 type="btn" id="display_fields">Visitor Types</h6> -->
     <!-- <div class="row center-align">
       <button id="display_fields">Visitor Types</button>
@@ -23,40 +23,61 @@
     targeted with jquery to hide on window ready.
     Click to open. Same for the Locations section
   -->
-  <a href="#coll-container">click me</a>
-  <a href="#coll-container2">close me</a>
+    <a href="#coll-container">click me</a>
+    <a href="#coll-container2">close me</a>
     <ul class="collection" id="coll-container2">
-    {% for visitor in visitor_type %} 
-          <li  class="collection-item">
-          <i class="material-icons circle"></i>
-          <span class="title">{{ visitor.visitor_type }}</span>        
-          <a href="{{ url_for('edit_visitor_type', visitor_id=visitor._id) }}" class="btn">Edit</a>
-          <a href="{{ url_for('delete_visitor_type', visitor_id=visitor._id) }}" class="btn">Delete</a>
-        </li>          
-    {% endfor %}
-  </ul> 
-</div>
+      {% for visitor in visitor_type %}
+      <li class="collection-item">
+        <i class="material-icons circle"></i>
+        <span class="title">{{ visitor.visitor_type }}</span>
+           <!-- Modal Trigger To ask User to confirm before deletion happens-->
+           <a class="btn modal-trigger" href="#modal2">Delete</a>
+           <!-- Modal Structure -->
+           <div id="modal2" class="modal">
+             <div class="modal-content">
+               <a href="{{ url_for('get_fields') }}" class="modal-close btn-flat">Dismiss </a>
+               <a href="{{ url_for('delete_visitor_type', visitor_id=visitor._id) }}" class="modal-close btn-flat">Confirm
+                 Deletion</a>
+             </div>
+           </div>
 
-<!-- </div> -->
+        <a href="{{ url_for('edit_visitor_type', visitor_id=visitor._id) }}" class="btn">Edit</a>
+
+     
+        {% endfor %}
+    </ul>
+  </div>
+
+  <!-- </div> -->
 </section>
 
 <!-- section to display current locations -->
 <section>
-<div class="row">
+  <div class="row">
     <h6>Locations</h6>
     <a href=".#collection">Open Locations me</a>
     <a href="#collection1">Close</a>
-      <ul class="collection" id="collection1">
-    {% for location in locations %} 
-          <li class="collection-item avatar">
-          <i class="material-icons circle"></i>
-          <span class="title">{{ location.location_name }}</span>          
-          <a href="{{ url_for('edit_location', location_id=location._id) }}" class="btn">Edit</a>
-          <a href="{{ url_for('delete_location', location_id=location._id) }}" class="btn">Delete</a>
-        </li>     
-    {% endfor %}   
+    <ul class="collection" id="collection1">
+      {% for location in locations %}
+      <li class="collection-item avatar">
+        <i class="material-icons circle"></i>
+        <span class="title">{{ location.location_name }}</span>
+        <a href="{{ url_for('edit_location', location_id=location._id) }}" class="btn">Edit</a>
+        <!-- Modal Trigger To ask User to confirm before deletion happens-->
+        <a class="btn modal-trigger" href="#modal3">Delete</a>
+        <!-- Modal Structure -->
+        <div id="modal3" class="modal">
+          <div class="modal-content">
+            <a href="{{ url_for('get_fields') }}" class="modal-close btn-flat">Dismiss </a>
+            <a href="{{ url_for('delete_location', location_id=location._id) }}" class="modal-close btn-flat">Confirm
+              Deletion</a>
+          </div>
+        </div>
+
+      </li>
+      {% endfor %}
     </ul>
-</div>
+  </div>
 </section>
 
 {% endblock %}
