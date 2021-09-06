@@ -14,8 +14,14 @@ $(document).ready(function () {
     $('.collapsible').collapsible();
     $(".tooltipped").tooltip();
     $('.modal').modal();
-    $("select").formSelect();    
-  
+    $("select").formSelect(); 
+
+    $("#location-view-btn").click(function () {
+        $("#location-collection").toggle()
+        });
+    $("#visitor-view-btn").click(function () {
+        $("#visitor-collection").toggle()
+        });
     $('.search-container').hide();
     $("#home-search-button").click(function(){
         $(".search-container").show(); 

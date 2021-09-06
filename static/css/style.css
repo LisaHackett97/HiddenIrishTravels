@@ -37,6 +37,11 @@ h2{
   font-size: 35px;
   text-align: center;
 }
+h6{
+  font-family: 'Hind', sans-serif;
+  font-weight: bold;
+
+}
 p{
   color: var(--main-text-color);
   font-family: 'Poppins', sans-serif;
@@ -175,6 +180,8 @@ color:var(--main-text-color)
 
 .page-btn{
   background-color: white;
+  margin:5px;
+  font-size: 10px;
 }
 .modal-close{
   color: var(--irish-green);
@@ -204,27 +211,9 @@ color:var(--main-text-color)
   color: var(--decoration2);
 }
 
-
 /* style ireland icon on navbar */
 .nav-wrapper img {
   margin-left: 25px;
   padding-bottom: 0;
   padding-top: 10px;
-}
-
-
-#coll-container:target {
-  display: block;
-}
-
-#coll-container2:target {
-  display: none;
-}
-
-#collection:target {
-  display: block;
-}
-
-#collection1:target {
-  display: none;
 }
