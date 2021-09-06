@@ -95,11 +95,11 @@ def registration():
             return redirect(url_for("registration"))
         # if user doesn't exist, update db with details from user
         # Add a timestamp to the user docs      
-        created_at = datetime.today().strftime('%d/%m/%Y, "%H:%M')
+        created_at = datetime.today().strftime('%d/%m/%Y, %H:%M')
         registration = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "timestamp":created_at            }
+            "timestamp":created_at}
         mongo.db.users.insert_one(registration)
         session['user'] = request.form.get("username").lower()
         flash("Congratulations. You have been registered")

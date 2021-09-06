@@ -4,27 +4,29 @@
 <h1 class="center-align">Manage Users</h1>
 
 
-
 <!-- section to display current users -->
 <section>
-<div class="row">
-    <h6>Users</h6>
-    
-      <ul class="collection">
-    {% for user in username %} 
-          <li class="collection-item">
-          <i class="material-icons circle"></i>
-          <span class="title">{{ user.username }}</span>        
-          <a href="{{ url_for('delete_user', user_id=user._id)}}" class="btn">Delete user</a>
-        </li>     
-    {% endfor %}   
-    
-    </ul>
+  <div class="row">
+     <table class="centered">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Date Registered</th>
+          <th>Option</th>
+        </tr>
+      </thead>
+      {% for user in username %}
+      <tbody>
+        <tr>
+          <td>{{ user.username }}</td>
+          <td>{{ user.timestamp }}</td>
+          <td><a href="{{ url_for('delete_user', user_id=user._id)}}" class="btn-small">Delete</a></td>
+        </tr>
+      </tbody>
 
-
-
-
-</div>
+      {% endfor %}
+    </table>
+  </div>
 </section>
 
 
