@@ -150,11 +150,18 @@ appearing on card reveal. Close and icon
 }
 
 
-/* Add enw page */
-#add_new_btns .btn{
-  margin-left: 25px;
-  margin-right: 25px;
-  width:35%;
+/* Add new page */
+.add_new_btns .btn{
+margin: 10px;
+  width:45vw;
+}
+
+/* change bg color on forms to distinguish */
+#newlocation {
+  background-color: #dce1e233
+}
+#newvisitor{
+  background-color: #c9d7db79
 }
 /* Other buttons across the site */
 #home-search-button, .btn, .btn-small{
