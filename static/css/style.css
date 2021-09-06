@@ -48,6 +48,18 @@ p{
   font-size: 14px;
 }
 
+td {
+  width: 50vw;
+}
+
+
+.field-type{
+  width: 50vw;
+}
+
+.field-option{
+  width:25vw ;
+}
 footer, .nav-wrapper {
     background-color: #83C5BE;
     color: #172A3A;
