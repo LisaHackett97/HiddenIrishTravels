@@ -5,6 +5,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from datetime import datetime
 if os.path.exists("env.py"):
     import env
 
@@ -92,11 +93,13 @@ def registration():
         if existing_user:
             flash("Username already exists. Please choose another!")
             return redirect(url_for("registration"))
-        # if user doesn't exist, update db with detials from user
+        # if user doesn't exist, update db with details from user
+        # Add a timestamp to the user docs      
+        created_at = datetime.today().strftime('%d/%m/%Y, "%H:%M')
         registration = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
-        }
+            "password": generate_password_hash(request.form.get("password")),
+            "timestamp":created_at            }
         mongo.db.users.insert_one(registration)
         session['user'] = request.form.get("username").lower()
         flash("Congratulations. You have been registered")
@@ -257,11 +260,6 @@ def users_admin():
     
     return render_template(
         "users_admin.html", username=username)
-
-
-    #   def home():
-    # recommendations = list(mongo.db.recommendations.find())
-    # return render_template("home.html", recommendations=recommendations)
 
 
 # User logout
