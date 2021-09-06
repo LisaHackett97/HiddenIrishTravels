@@ -164,8 +164,8 @@ def admin():
     return render_template("admin.html")
 
 
-@app.route("/get_fields")
-def get_fields():
+@app.route("/manage_form_fields")
+def manage_form_fields():
     fields = list(mongo.db.visitor_type.find().sort("visitor_type", 1))
     locations = list(mongo.db.locations.find().sort("location_name", 1))
     return render_template(
@@ -186,7 +186,7 @@ def add_location():
         }
         mongo.db.locations.insert_one(location)
         flash("new location added")
-        return redirect(url_for("get_fields"))
+        return redirect(url_for("manage_form_fields"))
     return render_template("add_field_details.html")
 
 
@@ -199,7 +199,7 @@ def add_visitor_details():
         }
         mongo.db.visitor_type.insert_one(visitor)
         flash("new visitor added")
-        return redirect(url_for("get_fields"))
+        return redirect(url_for("manage_form_fields"))
     return render_template("add_field_details.html")
 
 
@@ -212,7 +212,7 @@ def edit_visitor_type(visitor_id):
         }
         mongo.db.visitor_type.update({"_id": ObjectId(visitor_id)}, v_submit)
         flash("Update Successful")
-        return redirect(url_for("get_fields"))
+        return redirect(url_for("manage_form_fields"))
     visitor = mongo.db.visitor_type.find_one({"_id": ObjectId(visitor_id)})
     return render_template("edit_visitor_type.html", visitor=visitor)
 
@@ -225,7 +225,7 @@ def edit_location(location_id):
             "location_name": request.form.get("location_name")}
         mongo.db.locations.update({"_id": ObjectId(location_id)}, l_submit)
         flash("Update Successful")
-        return redirect(url_for("get_fields"))
+        return redirect(url_for("manage_form_fields"))
     location = mongo.db.locations.find_one({"_id": ObjectId(location_id)})
     return render_template("edit_location.html", location=location)
 
@@ -235,7 +235,7 @@ def edit_location(location_id):
 def delete_visitor_type(visitor_id):
     mongo.db.visitor_type.remove({"_id": ObjectId(visitor_id)})
     flash("Visitor type deletion successful!")
-    return redirect(url_for("get_fields"))
+    return redirect(url_for("manage_form_fields"))
 
 
 # Delete a location -> Admin task
@@ -243,7 +243,7 @@ def delete_visitor_type(visitor_id):
 def delete_location(location_id):
     mongo.db.locations.remove({"_id": ObjectId(location_id)})
     flash("Location Deleted!")
-    return redirect(url_for("get_fields"))
+    return redirect(url_for("manage_form_fields"))
 
 
 # Delete a user -> Admin task

@@ -36,7 +36,7 @@
     <!-- Modal Structure -->
     <div id="modal2" class="modal">
       <div class="modal-content">
-        <a href="{{ url_for('get_fields') }}" class="modal-close btn-flat">Dismiss </a>
+        <a href="{{ url_for('manage_form_fields') }}" class="modal-close btn-flat">Dismiss </a>
         <a href="{{ url_for('delete_visitor_type', visitor_id=visitor._id) }}" class="modal-close btn-flat">Confirm
           Deletion</a>
       </div>
@@ -61,14 +61,14 @@
   <tbody>
     {% for location in locations %}
     <tr>
-      <td class="field-type">{{ location.location_name }}</td>
+      <td class="field-typegit">{{ location.location_name }}</td>
       <td class="field-option"> <a href="{{ url_for('edit_location', location_id=location._id) }}" class="btn">Edit</a></td>
       <td class="field-option"><a class="btn modal-trigger" href="#modal3">Delete</a></td>
     </tr>
     <!-- Modal Structure -->
     <div id="modal3" class="modal">
       <div class="modal-content">
-        <a href="{{ url_for('get_fields') }}" class="modal-close btn-flat">Dismiss </a>
+        <a href="{{ url_for('manage_form_fields') }}" class="modal-close btn-flat">Dismiss </a>
         <a href="{{ url_for('delete_location', location_id=location._id) }}" class="modal-close btn-flat">Confirm
           Deletion</a>
       </div>
