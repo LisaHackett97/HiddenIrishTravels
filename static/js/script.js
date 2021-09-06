@@ -1,8 +1,8 @@
 // function to clear registration form 
-window.onload = function() {
-    document.getElementById("register_form").reset();
+// window.onload = function() {
+//     document.getElementById("register_form").reset();
   
-}
+// }
 /*
 doc ready functions, including  materialize validate
 */
