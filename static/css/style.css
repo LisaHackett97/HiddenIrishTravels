@@ -187,6 +187,10 @@ color:var(--main-text-color)
   background-color: var(--irish-green);
   font-weight: bold;
 }
+
+.admin-btns{
+  margin: 10px;
+}
 /* icon across the site */
 .fa-caret-down {
   font-size: 14px;
