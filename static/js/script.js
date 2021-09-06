@@ -22,9 +22,11 @@ $(document).ready(function () {
     $("#visitor-view-btn").click(function () {
         $("#visitor-collection").toggle()
         });
+
+    
     $('.search-container').hide();
     $("#home-search-button").click(function(){
-        $(".search-container").show(); 
+        $(".search-container").toggle(); 
             })
   
        // jQuery Select validation from the Code Institute task manager mini-project
@@ -76,7 +78,7 @@ $('#confirm_password').on('keyup', function () {
   }
 
 // To allow user to close search box
-document.getElementById("home-hide-button").addEventListener("click", hideSearchForm)
+// document.getElementById("home-hide-button").addEventListener("click", hideSearchForm)
 // fucntion will reset the search form then hide the container
 // applies to search on home and user pages
 function hideSearchForm() {

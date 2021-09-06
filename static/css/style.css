@@ -145,7 +145,7 @@ appearing on card reveal. Close and icon
   width:35%;
 }
 /* Other buttons across the site */
-#home-search-button, #home-hide-button, .btn, .btn-small{
+#home-search-button, .btn, .btn-small{
   color: var(--main-text-color);
   background-color: var(--decoration2);
   font-weight: bold;
@@ -154,7 +154,6 @@ appearing on card reveal. Close and icon
 }
 /* buttons within seach box */
 #search-action,
-#home-hide-button,
 .search-action-btn{
   margin-top: 25px;
 }
@@ -172,7 +171,7 @@ appearing on card reveal. Close and icon
 color:var(--main-text-color)
 }
 
-#home-hide-button:hover, .btn:hover, .btn-small:hover{
+.btn:hover, .btn-small:hover{
   color: var(--decoration2);
   background-color: var(--irish-green);
   font-weight: bold;
