@@ -3,6 +3,8 @@ from flask import (
     Flask, flash, render_template, url_for,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
+from flask_user import roles_required
+
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
@@ -155,8 +157,14 @@ def edit_recommendations(recommendation_id):
 @app.route("/delete_recommendation/<recommendation_id>")
 def delete_recommendation(recommendation_id):
     mongo.db.recommendations.remove({"_id": ObjectId(recommendation_id)})
+   
+
     flash("You have successfully deleted the recommendation.")
     return redirect(url_for("user_page", username=session["user"]))
+    # else:
+    #     flash("You have successfully deleted the recommendation.")
+    #     return redirect(url_for("recommend_admin_delete", username=session["user"]))
+
 
 
 @app.route("/admin")
@@ -240,6 +248,7 @@ def delete_visitor_type(visitor_id):
 
 # Delete a location -> Admin task
 @app.route("/delete_location/<location_id>")
+# @roles_required("root")
 def delete_location(location_id):
     mongo.db.locations.remove({"_id": ObjectId(location_id)})
     flash("Location Deleted!")

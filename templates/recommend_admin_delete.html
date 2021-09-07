@@ -33,22 +33,21 @@
                       <!-- 
                               User recommendations created by the logged in user are showing on the user page. 
                       -->
-                      {% if session.user|lower == recommendation.created_by|lower %}
-                      <a href="{{ url_for('edit_recommendations', recommendation_id=recommendation._id) }}"
-                          class="btn">Edit</a>
+                      
+                   
                       <!-- Modal Trigger To ask User to confirm before deletion happens-->
                       <a class="btn modal-trigger" href="#modal1">Delete</a>
 
                       <!-- Modal Structure -->
                       <div id="modal1" class="modal">
-                          <div class="modal-content">
-                              <a href="{{ url_for('user_page', username=session['user'])}}!"
-                                  class="modal-close btn-flat">Dismiss </a>
-                              <a href="{{ url_for('delete_recommendation', recommendation_id=recommendation._id) }}"
-                                  class="modal-close btn-flat">Confirm Deletion</a>
-                          </div>
-                      </div>
-                      {% endif %}
+                        <div class="modal-content">
+                            <a href="{{ url_for('user_page', username=session['user'])}}!"
+                                class="modal-close btn-flat">Dismiss </a>
+                            <a href="{{ url_for('delete_recommendation', recommendation_id=recommendation._id) }}"
+                                class="modal-close btn-flat">Confirm Deletion</a>
+                        </div>
+                    </div>
+                    
                   </div>
                   <!-- closing card content div -->
               </div>
