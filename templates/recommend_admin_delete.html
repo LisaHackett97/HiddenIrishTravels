@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1 class="center-align">Manage Users</h1>
+<h1 class="center-align">Delete Users</h1>
 
 <a href="{{ url_for('admin') }}" class="btn-flat">Back to Admin Page</a>
 
@@ -10,7 +10,7 @@
 <!-- section to display current users -->
 <section>
   <div class="row">
-    {% if session.user == "Admin1" %} 
+    {% if session.user == "admin1" %} 
 <!-- Card to show search results and all the users uploaded recommendations -->
 <div class="card-panel">
   {% if recommendations|length > 0 %}
@@ -43,7 +43,7 @@
                         <div class="modal-content">
                             <a href="{{ url_for('user_page', username=session['user'])}}!"
                                 class="modal-close btn-flat">Dismiss </a>
-                            <a href="{{ url_for('delete_recommendation', recommendation_id=recommendation._id) }}"
+                                <a href="{{ url_for('admin_del_recommend', recommendation_id=recommendation._id) }}"
                                 class="modal-close btn-flat">Confirm Deletion</a>
                         </div>
                     </div>
