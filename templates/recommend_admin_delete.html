@@ -5,8 +5,6 @@
 
 <a href="{{ url_for('admin') }}" class="btn-flat">Back to Admin Page</a>
 
-
-
 <!-- section to display current users -->
 <section>
   <div class="row">
@@ -29,39 +27,29 @@
                       <p id="recommend-details-user"><i class="fas fa-comment"></i> {{ recommendation.details }}</p>
                       <hr>
                       <p> Created By: </i> {{ recommendation.created_by }}</p>
-                      <br>
-                      <!-- 
-                              User recommendations created by the logged in user are showing on the user page. 
-                      -->
-                      
-                   
+                      <br>  
                       <!-- Modal Trigger To ask User to confirm before deletion happens-->
                       <a class="btn modal-trigger" href="#modal1">Delete</a>
-
                       <!-- Modal Structure -->
                       <div id="modal1" class="modal">
                         <div class="modal-content">
                             <a href="{{ url_for('user_page', username=session['user'])}}!"
                                 class="modal-close btn-flat">Dismiss </a>
                                 <a href="{{ url_for('admin_del_recommend', recommendation_id=recommendation._id) }}"
-                                class="modal-close btn-flat">Confirm Deletion</a>
+                                class="modal-close btn-flat">Confirm deletion of recommendation</a>
                         </div>
-                    </div>
-                    
+                    </div>                    
                   </div>
                   <!-- closing card content div -->
               </div>
               <!-- closing card div -->
-          </div>
-        
+          </div>        
           {% endfor %}
       </div>
       <!-- end of row for cards -->
   </div>
   <!-- end of container -->
-
-  {% endif %}
- 
+  {% endif %} 
 </div>
 {% else %}
 <h3>You are not authorised to view this page.</h3>
