@@ -230,7 +230,7 @@ def edit_location(location_id):
     return render_template("edit_location.html", location=location)
 
 
-# Delete a location -> Admin task
+# Delete a visitor type -> Admin task
 @app.route("/delete_visitor_type/<visitor_id>")
 def delete_visitor_type(visitor_id):
     mongo.db.visitor_type.remove({"_id": ObjectId(visitor_id)})
@@ -257,11 +257,19 @@ def delete_user(user_id):
 @app.route("/users_admin")
 def users_admin():
     username = list(mongo.db.users.find())
-    
     return render_template(
         "users_admin.html", username=username)
 
+# Access Admin page to delete Recommendations
+@app.route("/recommend_admin_delete", methods=["GET", "POST"])
+def recommend_admin_delete():
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    recommendations = list(mongo.db.recommendations.find())
 
+    return render_template(
+            "recommend_admin_delete.html",
+            username=username, recommendations=recommendations)
 # User logout
 @app.route("/logout")
 def logout():

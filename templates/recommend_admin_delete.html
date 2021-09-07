@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="center-align">Manage Users</h1>
+
+<a href="{{ url_for('admin') }}" class="btn-flat">Back to Admin Page</a>
+
+
+
+<!-- section to display current users -->
+<section>
+  <div class="row">
+     
+<!-- Card to show search results and all the users uploaded recommendations -->
+<div class="card-panel">
+  {% if recommendations|length > 0 %}
+  <div class="container-fluid">
+      <div class="row recommendation-row">
+          {% for recommendation in recommendations %}         
+          <div class="col s12">
+              <div class="card">
+                  <div class="card-image">
+                      <img src="#" alt="image to be inserted" class="activator">
+                  </div>
+                  <div class="card-content" id="user-card-content">
+                      <h5 id="recommend-title"> {{recommendation.title}}</h5>
+                      <p> <i class="fas fa-location-arrow"></i> {{ recommendation.location_name }} </p>
+                      <p> <i class="fas fa-user-tag"> </i> {{ recommendation.visitor_type }}</p>
+                      <p id="recommend-details-user"><i class="fas fa-comment"></i> {{ recommendation.details }}</p>
+                      <hr>
+                      <p> Created By: </i> {{ recommendation.created_by }}</p>
+                      <br>
+                      <!-- 
+                              User recommendations created by the logged in user are showing on the user page. 
+                      -->
+                      {% if session.user|lower == recommendation.created_by|lower %}
+                      <a href="{{ url_for('edit_recommendations', recommendation_id=recommendation._id) }}"
+                          class="btn">Edit</a>
+                      <!-- Modal Trigger To ask User to confirm before deletion happens-->
+                      <a class="btn modal-trigger" href="#modal1">Delete</a>
+
+                      <!-- Modal Structure -->
+                      <div id="modal1" class="modal">
+                          <div class="modal-content">
+                              <a href="{{ url_for('user_page', username=session['user'])}}!"
+                                  class="modal-close btn-flat">Dismiss </a>
+                              <a href="{{ url_for('delete_recommendation', recommendation_id=recommendation._id) }}"
+                                  class="modal-close btn-flat">Confirm Deletion</a>
+                          </div>
+                      </div>
+                      {% endif %}
+                  </div>
+                  <!-- closing card content div -->
+              </div>
+              <!-- closing card div -->
+          </div>
+        
+          {% endfor %}
+      </div>
+      <!-- end of row for cards -->
+  </div>
+  <!-- end of container -->
+
+  {% endif %}
+</div>
+
+{% endblock %}
