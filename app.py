@@ -102,7 +102,7 @@ def registration():
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
             "timestamp": created_at,
-            "type": "normal"}
+            "is_admin": False}
         mongo.db.users.insert_one(registration)
         session['user'] = request.form.get("username").lower()
         flash("Congratulations. You have been registered")
@@ -168,7 +168,17 @@ def delete_recommendation(recommendation_id):
 
 @app.route("/admin")
 def admin():
-    return render_template("admin.html")
+    # return render_template("admin.html")
+    # Do not delete code below until got the if stmt working to access ipage is is_admin is true.
+    # Possible Boolean to string needed
+    # defaulting to the else part of the stmt
+    is_admin = mongo.db.users.find_one({"is_admin": "false"})
+    if is_admin:
+        flash("you are not admin")
+        return redirect(url_for("admin"))
+    else:
+        flash("you are admin")
+        return render_template("admin.html")
 
 
 # Admin- to display visitor type and location names from db
