@@ -10,7 +10,7 @@
 <!-- section to display current users -->
 <section>
   <div class="row">
-     
+    {% if session.user == "Admin1" %} 
 <!-- Card to show search results and all the users uploaded recommendations -->
 <div class="card-panel">
   {% if recommendations|length > 0 %}
@@ -61,6 +61,9 @@
   <!-- end of container -->
 
   {% endif %}
+ 
 </div>
-
+{% else %}
+<h3>You are not authorised to view this page.</h3>
+{% endif %}
 {% endblock %}

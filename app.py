@@ -1,7 +1,7 @@
 import os
 from flask import (
     Flask, flash, render_template, url_for,
-    redirect, request, session, url_for)
+    redirect, request, session)
 from flask_pymongo import PyMongo
 from flask_user import roles_required
 
@@ -101,7 +101,7 @@ def registration():
         registration = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "timestamp":created_at}
+            "timestamp": created_at}
         mongo.db.users.insert_one(registration)
         session['user'] = request.form.get("username").lower()
         flash("Congratulations. You have been registered")
@@ -157,7 +157,6 @@ def edit_recommendations(recommendation_id):
 @app.route("/delete_recommendation/<recommendation_id>")
 def delete_recommendation(recommendation_id):
     mongo.db.recommendations.remove({"_id": ObjectId(recommendation_id)})
-   
 
     flash("You have successfully deleted the recommendation.")
     return redirect(url_for("user_page", username=session["user"]))
@@ -166,11 +165,15 @@ def delete_recommendation(recommendation_id):
     #     return redirect(url_for("recommend_admin_delete", username=session["user"]))
 
 
-
 @app.route("/admin")
 def admin():
     return render_template("admin.html")
 
+
+# @auth.route('/admin')
+# @roles_required('admin')
+# def admin():
+#     return render_template('admin.html')
 
 @app.route("/manage_form_fields")
 def manage_form_fields():
@@ -269,6 +272,7 @@ def users_admin():
     return render_template(
         "users_admin.html", username=username)
 
+
 # Access Admin page to delete Recommendations
 @app.route("/recommend_admin_delete", methods=["GET", "POST"])
 def recommend_admin_delete():
@@ -279,6 +283,8 @@ def recommend_admin_delete():
     return render_template(
             "recommend_admin_delete.html",
             username=username, recommendations=recommendations)
+
+
 # User logout
 @app.route("/logout")
 def logout():
