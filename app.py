@@ -101,7 +101,8 @@ def registration():
         registration = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "timestamp": created_at}
+            "timestamp": created_at,
+            "type": "normal"}
         mongo.db.users.insert_one(registration)
         session['user'] = request.form.get("username").lower()
         flash("Congratulations. You have been registered")
