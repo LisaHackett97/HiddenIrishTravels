@@ -3,7 +3,7 @@ from flask import (
     Flask, flash, render_template, url_for,
     redirect, request, session)
 from flask_pymongo import PyMongo
-from flask_user import roles_required
+from flask_user import roles_required, user_manager
 
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -130,8 +130,7 @@ def add_recommendation():
         visitor_type=visitor_type, locations=locations)
 
 
-@app.route(
-    "/edit_recommendations/<recommendation_id>",
+@app.route("/edit_recommendations/<recommendation_id>",
     methods=["GET", "POST"])
 def edit_recommendations(recommendation_id):
     if request.method == "POST":
@@ -157,12 +156,21 @@ def edit_recommendations(recommendation_id):
 @app.route("/delete_recommendation/<recommendation_id>")
 def delete_recommendation(recommendation_id):
     mongo.db.recommendations.remove({"_id": ObjectId(recommendation_id)})
-
+    # if session["user"] == "Admin1":
+    #     flash("You have successfully deleted the recommendation. Admin fn")
+    #     return redirect(url_for("admin", username=session["user"]))
+    # else:
     flash("You have successfully deleted the recommendation.")
     return redirect(url_for("user_page", username=session["user"]))
-    # else:
-    #     flash("You have successfully deleted the recommendation.")
-    #     return redirect(url_for("recommend_admin_delete", username=session["user"]))
+
+@app.route("/admin_del_recommend//<recommendation_id>")  
+def admin_del_recommend(recommendation_id):
+    mongo.db.recommendations.remove({"_id": ObjectId(recommendation_id)})
+    flash("You have successfully deleted a user recommendation.")
+    return redirect(url_for("admin"))
+
+
+
 
 
 @app.route("/admin")
@@ -170,8 +178,8 @@ def admin():
     return render_template("admin.html")
 
 
-# @auth.route('/admin')
-# @roles_required('admin')
+# @app.route('/admin')
+# @roles_required('root')
 # def admin():
 #     return render_template('admin.html')
 
@@ -251,7 +259,6 @@ def delete_visitor_type(visitor_id):
 
 # Delete a location -> Admin task
 @app.route("/delete_location/<location_id>")
-# @roles_required("root")
 def delete_location(location_id):
     mongo.db.locations.remove({"_id": ObjectId(location_id)})
     flash("Location Deleted!")
@@ -266,6 +273,7 @@ def delete_user(user_id):
     return redirect(url_for("users_admin"))
 
 
+# app route for page to view users. Option to delete
 @app.route("/users_admin")
 def users_admin():
     username = list(mongo.db.users.find())
@@ -279,7 +287,6 @@ def recommend_admin_delete():
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     recommendations = list(mongo.db.recommendations.find())
-
     return render_template(
             "recommend_admin_delete.html",
             username=username, recommendations=recommendations)
