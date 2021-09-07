@@ -96,7 +96,7 @@ def registration():
             flash("Username already exists. Please choose another!")
             return redirect(url_for("registration"))
         # if user doesn't exist, update db with details from user
-        # Add a timestamp to the user docs      
+        # Add a timestamp to the user docs
         created_at = datetime.today().strftime('%d/%m/%Y, %H:%M')
         registration = {
             "username": request.form.get("username").lower(),
@@ -110,6 +110,7 @@ def registration():
     return render_template("registration.html")
 
 
+# user add a new recommendation
 @app.route("/add_recommendation", methods=["GET", "POST"])
 def add_recommendation():
     if request.method == "POST":
@@ -130,6 +131,7 @@ def add_recommendation():
         visitor_type=visitor_type, locations=locations)
 
 
+# user edit their own recommendation
 @app.route("/edit_recommendations/<recommendation_id>",
     methods=["GET", "POST"])
 def edit_recommendations(recommendation_id):
@@ -153,36 +155,23 @@ def edit_recommendations(recommendation_id):
         visitor_type=visitor_type, locations=locations)
 
 
+# user delete their own recommendation
 @app.route("/delete_recommendation/<recommendation_id>")
 def delete_recommendation(recommendation_id):
     mongo.db.recommendations.remove({"_id": ObjectId(recommendation_id)})
-    # if session["user"] == "Admin1":
-    #     flash("You have successfully deleted the recommendation. Admin fn")
-    #     return redirect(url_for("admin", username=session["user"]))
-    # else:
     flash("You have successfully deleted the recommendation.")
     return redirect(url_for("user_page", username=session["user"]))
 
-@app.route("/admin_del_recommend//<recommendation_id>")  
-def admin_del_recommend(recommendation_id):
-    mongo.db.recommendations.remove({"_id": ObjectId(recommendation_id)})
-    flash("You have successfully deleted a user recommendation.")
-    return redirect(url_for("admin"))
 
-
-
-
+# Admin routes and functions
 
 @app.route("/admin")
 def admin():
     return render_template("admin.html")
 
 
-# @app.route('/admin')
-# @roles_required('root')
-# def admin():
-#     return render_template('admin.html')
-
+# Admin- to display visitor type and location names from db
+# From this page, admin will then be able to edit or delete field details
 @app.route("/manage_form_fields")
 def manage_form_fields():
     fields = list(mongo.db.visitor_type.find().sort("visitor_type", 1))
@@ -191,12 +180,14 @@ def manage_form_fields():
         "manage_form_details.html", visitor_type=fields, locations=locations)
 
 
-# To bring admin user to the page to manage the categories for dropdown lists
+# To bring admin user to the page to access forms
+# to add new details to the categories for dropdown lists
 @app.route("/add_field_details")
 def add_field_details():
     return render_template("add_field_details.html")
 
 
+# To access the form to add a new location
 @app.route("/add_location", methods=["GET", "POST"])
 def add_location():
     if request.method == "POST":
@@ -222,7 +213,7 @@ def add_visitor_details():
     return render_template("add_field_details.html")
 
 
-# Edit visitor types that user can select
+# Edit visitor types that user can select from
 @app.route("/edit_visitor_type/<visitor_id>", methods=["GET", "POST"])
 def edit_visitor_type(visitor_id):
     if request.method == "POST":
@@ -236,7 +227,7 @@ def edit_visitor_type(visitor_id):
     return render_template("edit_visitor_type.html", visitor=visitor)
 
 
-# Edit visitor types that user can select from
+# Edit locations that user can select from
 @app.route("/edit_location/<location_id>", methods=["GET", "POST"])
 def edit_location(location_id):
     if request.method == "POST":
@@ -273,7 +264,8 @@ def delete_user(user_id):
     return redirect(url_for("users_admin"))
 
 
-# app route for page to view users. Option to delete
+# app route for page for admin to view users
+# Displays option to delete
 @app.route("/users_admin")
 def users_admin():
     username = list(mongo.db.users.find())
@@ -281,7 +273,8 @@ def users_admin():
         "users_admin.html", username=username)
 
 
-# Access Admin page to delete Recommendations
+# Admin page to display users
+# # Will display delete Recommendations option
 @app.route("/recommend_admin_delete", methods=["GET", "POST"])
 def recommend_admin_delete():
     username = mongo.db.users.find_one(
@@ -290,6 +283,14 @@ def recommend_admin_delete():
     return render_template(
             "recommend_admin_delete.html",
             username=username, recommendations=recommendations)
+
+
+# Admin Delete function
+@app.route("/admin_del_recommend/<recommendation_id>")
+def admin_del_recommend(recommendation_id):
+    mongo.db.recommendations.remove({"_id": ObjectId(recommendation_id)})
+    flash("You have successfully deleted a user recommendation.")
+    return redirect(url_for("admin"))
 
 
 # User logout
