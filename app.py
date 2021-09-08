@@ -173,28 +173,29 @@ def delete_recommendation(recommendation_id):
 
 @app.route("/admin")
 def admin():
-    # return render_template("admin.html")
-    # Do not delete code below until got the if stmt working to
-    # access to page is is_admin is true.
-    # Possible Boolean to string needed
-    # defaulting to the else part of the stmt
-    is_admin = mongo.db.users.find_one({"is_admin": "false"})
-    if is_admin:
-        flash("you are not admin")
-        return redirect(url_for("admin"))
-    else:
-        flash("you are admin")
+    # if user is_admin, gives access to admin page
+    # if not, is_admin is default of false, redirect user to home page with a messag
+    user = mongo.db.users.find_one({"username": session["user"]})
+    if user["is_admin"]:
         return render_template("admin.html")
-
+    else:
+        flash("You are not authorized to access Admin Page")
+        flash("You have been redirected to Home Page")
+        return redirect(url_for("home"))
 
 # Admin- to display visitor type and location names from db
 # From this page, admin will then be able to edit or delete field details
 @app.route("/manage_form_fields")
 def manage_form_fields():
-    fields = list(mongo.db.visitor_type.find().sort("visitor_type", 1))
-    locations = list(mongo.db.locations.find().sort("location_name", 1))
-    return render_template(
-        "manage_form_details.html", visitor_type=fields, locations=locations)
+    user = mongo.db.users.find_one({"username": session["user"]})
+    if user["is_admin"]:
+        fields = list(mongo.db.visitor_type.find().sort("visitor_type", 1))
+        locations = list(mongo.db.locations.find().sort("location_name", 1))
+        return render_template(
+            "manage_form_details.html", visitor_type=fields, locations=locations)
+    else:
+        flash("You are not authorized to access the Page")
+        return redirect(url_for("home"))
 
 
 # To bring admin user to the page to access forms
@@ -260,9 +261,14 @@ def edit_location(location_id):
 # Delete a visitor type -> Admin task
 @app.route("/delete_visitor_type/<visitor_id>")
 def delete_visitor_type(visitor_id):
-    mongo.db.visitor_type.remove({"_id": ObjectId(visitor_id)})
-    flash("Visitor type deletion successful!")
-    return redirect(url_for("manage_form_fields"))
+    user = mongo.db.users.find_one({"username": session["user"]})
+    if user["is_admin"]:
+        mongo.db.visitor_type.remove({"_id": ObjectId(visitor_id)})
+        flash("Visitor type deletion successful!")
+        return redirect(url_for("manage_form_fields"))
+    else:
+        flash("You are not authorized to perform this action")
+        return redirect(url_for("home"))
 
 
 # Delete a location -> Admin task
