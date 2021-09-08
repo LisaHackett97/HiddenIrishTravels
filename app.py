@@ -3,8 +3,7 @@ from flask import (
     Flask, flash, render_template, url_for,
     redirect, request, session)
 from flask_pymongo import PyMongo
-from flask_user import roles_required, user_manager
-
+# from flask_user import roles_required, user_manager
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
@@ -169,7 +168,8 @@ def delete_recommendation(recommendation_id):
 @app.route("/admin")
 def admin():
     # return render_template("admin.html")
-    # Do not delete code below until got the if stmt working to access ipage is is_admin is true.
+    # Do not delete code below until got the if stmt working to
+    # access to page is is_admin is true.
     # Possible Boolean to string needed
     # defaulting to the else part of the stmt
     is_admin = mongo.db.users.find_one({"is_admin": "false"})
