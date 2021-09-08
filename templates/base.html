@@ -31,14 +31,11 @@
       <li><a href="{{ url_for('add_recommendation') }}">Add New</a></li>
         <!-- 
         At this point all edit review selection will direct the user page. 
-        Looking to see if it can directly open Edit page
-        May need to have a filter or search in place first 
         -->
       <li><a href="{{ url_for('user_page', username=session['user'])}}">Your page</a></li>
     </ul>
-   
-    <nav>
-     
+
+    <nav>     
       <!-- Materialize nav code -->
       <div class="nav-wrapper">
         <a href="{{ url_for('home')}}" class="brand-logo left"> 
@@ -52,9 +49,10 @@
           <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Recommendations  <i
                 class="fas fa-caret-down"></i></a></li>
                
-          <!-- Admin Option only available to an Admin user -->
-                    
-          <li><a href="{{ url_for('admin')}}">Admin</a></li>
+          <!-- Admin Option only available to an Admin user -->                             
+            {% if session.user|lower == "adminuser"|lower %}
+            <li><a href="{{ url_for('admin')}}">Admin</a></li>
+            {% endif %}
           <li><a href="{{ url_for('logout')}}">Log Out</a></li>
           
           {% else %}
@@ -74,8 +72,10 @@
       <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Recommendations  <i
             class="fas fa-caret-down"></i></a></li>
           
-      <!-- Admin Option only available to an Admin user -->
+      <!-- Admin Option only available to the Admin user -->
+      {% if session.user|lower == "adminuser"|lower %}
       <li><a href="{{ url_for('admin')}}">Admin</a></li>
+      {% endif %}
       <li><a href="{{ url_for('logout')}}">Log Out</a></li>
       
       {% else %}          
