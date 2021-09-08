@@ -274,17 +274,27 @@ def delete_visitor_type(visitor_id):
 # Delete a location -> Admin task
 @app.route("/delete_location/<location_id>")
 def delete_location(location_id):
-    mongo.db.locations.remove({"_id": ObjectId(location_id)})
-    flash("Location Deleted!")
-    return redirect(url_for("manage_form_fields"))
+    user = mongo.db.users.find_one({"username": session["user"]})
+    if user["is_admin"]:
+        mongo.db.locations.remove({"_id": ObjectId(location_id)})
+        flash("Location Deleted!")
+        return redirect(url_for("manage_form_fields"))
+    else:
+        flash("You are not authorized to perform this action")
+        return redirect(url_for("home"))
 
 
 # Delete a user -> Admin task
 @app.route("/delete_user/<user_id>")
 def delete_user(user_id):
-    mongo.db.users.remove({"_id": ObjectId(user_id)})
-    flash("User Deleted!")
-    return redirect(url_for("users_admin"))
+    user = mongo.db.users.find_one({"username": session["user"]})
+    if user["is_admin"]:
+        mongo.db.users.remove({"_id": ObjectId(user_id)})
+        flash("User Deleted!")
+        return redirect(url_for("users_admin"))
+    else:
+        flash("You are not authorized to perform this action")
+        return redirect(url_for("home"))
 
 
 # app route for page for admin to view users
@@ -297,24 +307,25 @@ def users_admin():
 
 
 # Admin page to display users
-# # Will display delete Recommendations option
+# Will display delete Recommendations option
 @app.route("/recommend_admin_delete", methods=["GET", "POST"])
 def recommend_admin_delete():
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    recommendations = list(mongo.db.recommendations.find())
-    return render_template(
-            "recommend_admin_delete.html",
-            username=username, recommendations=recommendations)
+    user = mongo.db.users.find_one({"username": session["user"]})
+    if user["is_admin"]:
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+        recommendations = list(mongo.db.recommendations.find())
+        return render_template(
+                "recommend_admin_delete.html",
+                username=username, recommendations=recommendations)
+    else:
+        flash("You are not authorized to perform this action")
+        return redirect(url_for("home"))
 
 
 # Admin Delete function
-# @app.route("/admin_del_recommend/<recommendation_id>")
-# def admin_del_recommend(recommendation_id):
-#     mongo.db.recommendations.remove({"_id": ObjectId(recommendation_id)})
-#     flash("You have successfully deleted a user recommendation.")
-#     return redirect(url_for("admin"))
-
+# This is access through the overall delete recommendation, with if else check_password_hash
+# No further code needed for admin section
 
 # User logout
 @app.route("/logout")
