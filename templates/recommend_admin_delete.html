@@ -35,8 +35,9 @@
                             <div id="modal1" class="modal">
                                 <div class="modal-content">
                                     <a href="{{ url_for('users_admin') }}" class="modal-close btn-flat">Dismiss </a>
-                                    <a href="{{ url_for('admin_del_recommend', recommendation_id=recommendation._id) }}"
-                                        class="modal-close btn-flat">Confirm deletion of recommendation</a>
+                                   
+                                        <a href="{{ url_for('delete_recommendation', recommendation_id=recommendation._id) }}"
+                                        class="modal-close btn-flat">Confirm Deletion</a>
                                 </div>
                             </div>
                         </div>

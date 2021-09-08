@@ -156,11 +156,17 @@ def edit_recommendations(recommendation_id):
 
 
 # user delete their own recommendation
+# admin delete any user recommendation
+# if is_admin is tru, redirect to admin page. If not, back to the user page
 @app.route("/delete_recommendation/<recommendation_id>")
 def delete_recommendation(recommendation_id):
     mongo.db.recommendations.remove({"_id": ObjectId(recommendation_id)})
     flash("You have successfully deleted the recommendation.")
-    return redirect(url_for("user_page", username=session["user"]))
+    user = mongo.db.users.find_one({"username": session["user"]})
+    if user["is_admin"]:
+        return redirect(url_for("admin"))
+    else:
+        return redirect(url_for("user_page", username=session["user"]))
 
 
 # Admin routes and functions
@@ -297,11 +303,11 @@ def recommend_admin_delete():
 
 
 # Admin Delete function
-@app.route("/admin_del_recommend/<recommendation_id>")
-def admin_del_recommend(recommendation_id):
-    mongo.db.recommendations.remove({"_id": ObjectId(recommendation_id)})
-    flash("You have successfully deleted a user recommendation.")
-    return redirect(url_for("admin"))
+# @app.route("/admin_del_recommend/<recommendation_id>")
+# def admin_del_recommend(recommendation_id):
+#     mongo.db.recommendations.remove({"_id": ObjectId(recommendation_id)})
+#     flash("You have successfully deleted a user recommendation.")
+#     return redirect(url_for("admin"))
 
 
 # User logout
