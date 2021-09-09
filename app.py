@@ -7,11 +7,14 @@ from flask_cors import CORS, cross_origin
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 if os.path.exists("env.py"):
     import env
 
 # needed for cloudinary, cannot import at this pt
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
