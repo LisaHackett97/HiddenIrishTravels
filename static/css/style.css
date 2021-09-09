@@ -141,6 +141,10 @@ appearing on card reveal. Close and icon
    margin:10px;
  }
 
+ #clear-search{
+
+ }
+
  /* search on admin user page */
 /* style input box border */
 .input-field #search {
@@ -177,11 +181,10 @@ margin: 10px;
   font-family: 'Poppins', sans-serif;
   font-size: 12px;
 }
-/* buttons within seach box */
+/* buttons within search box Home and user pages */
 #search-action,
 .search-action-btn{
-  margin-top: 25px;
-}
+  margin-top: 25px;}
 
 
 #home-search-button
@@ -196,6 +199,12 @@ margin: 10px;
 color:var(--main-text-color)
 }
 
+#clear-search{
+  font-size: 8px;
+  background-color: #169b6100;
+  height: 25px;
+ 
+}
 .btn:hover, .btn-small:hover{
   color: var(--decoration2);
   background-color: var(--irish-green);
