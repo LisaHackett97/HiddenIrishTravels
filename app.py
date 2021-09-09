@@ -297,6 +297,15 @@ def delete_user(user_id):
         return redirect(url_for("home"))
 
 
+# Search on admin user page only
+@app.route("/search_admin_user_page", methods=["GET", "POST"])
+def search_admin_user_page():
+    query = request.form.get("query")
+    users = list(mongo.db.recommendations.find(
+        {"$text": {"$search": query}}))
+    return render_template("users_admin.html", users=users)
+
+
 # app route for page for admin to view users
 # Displays option to delete
 @app.route("/users_admin")
