@@ -10,11 +10,14 @@ from datetime import datetime
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+import logging
+from dotenv import load_dotenv
+from cloudinary.utils import cloudinary_url
 if os.path.exists("env.py"):
     import env
 
+load_dotenv()
 
-from dotenv import load_dotenv
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -23,18 +26,18 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-load_dotenv()
 
-cloudinary.config(
-  cloud_name=os.environ.get("CLOUD_NAME"),
-  api_key=os.environ.get("API_KEY"),
-  api_secret=os.environ.get("API_SECRET"))
+
+# cloudinary.config(
+#   cloud_name=os.environ.get("CLOUD_NAME"),
+#   api_key=os.environ.get("API_KEY"),
+#   api_secret=os.environ.get("API_SECRET"))
 
 
 # https://cloudinary.com/blog/creating_an_api_with_python_flask_to_upload_files_to_cloudinary
 # code for upload API
 # add code to configure CORS for the upload API.
-@app.route("/upload", methods=['POST'])
+@app.route("/upload", methods=["GET", "POST"])
 @cross_origin()
 def upload():
     app.logger.info('in upload route')
@@ -48,7 +51,9 @@ def upload():
         if file_to_upload:
             upload_result = cloudinary.uploader.upload(file_to_upload)
             app.logger.info(upload_result)
+            app.logger.info(type(upload_result))
         return jsonify(upload_result)
+    return render_template("upload.html")
 
 
 @app.route("/")
