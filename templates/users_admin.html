@@ -9,38 +9,18 @@
 <div class="row center-align">
   <button id="home-search-button"><i class="fas fa-search"></i></button>
 </div>
-<!-- 
-  search on the Admin user pg, to search users collection, bu username and timestamp
--->
-<div class="container search-container">
-  <a href="{{ url_for('users_admin') }}" class="btn text-shadow" id="clear-search">Clear Search results</a>
-  <div class="row card-panel search-card">
-    <form action="{{ url_for('search_admin_user_page') }}" method="POST" class="col s12" id="search-form">
-
-      <div class="row valign-wrapper center-align">
-        <!-- <div class="row"> -->
-        <div class="input-field col s8" id="search-input">
-          <input type="text" name="query" id="query" required class="validate">
-          <label for="query">Search here</label>
-        </div>
-        <div class="row">
-          <div class="col s12">
-            <button type="submit" class="btn-small text-shadow center search-action-btn">
-              <i class="fas fa-search left hide-on-small-only"></i> Search
-            </button>
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-<!-- end of search container -->
-
 
 <!-- section to display current users -->
 <section>
   <div class="row">
-    <table class="centered">
+  <div class="input-field col s8 offset-s2">
+  <i class="fas fa-search prefix"></i> <input type="text" id="search" placeholder="Type to search">
+</div>
+</div>
+  <div class="row">
+<!-- js code for search box onusers. Found on stack overflow post
+http://jsfiddle.net/JeroenSormani/xhpkfwgd/1/ -->   
+    <table class="centered" id="table">
       <thead>
         <tr>
           <th>Username</th>

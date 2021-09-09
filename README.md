@@ -467,7 +467,11 @@ href="https://www.vecteezy.com/free-vector/ireland-map">Ireland Map Vectors by V
 code for password confirm on registration from this post
 https://stackoverflow.com/questions/21727317/how-to-check-confirm-password-field-in-form-without-reloading-page
 
-- I followed the Code Institute task manager tutorial for the CRUD structure. I also copied the JS code for the materialize validate form.
+- I followed the Code Institute task manager tutorial for the CRUD structure. I also used the JS code for the materialize validate form.
+
+- code for filter/search box, found on a stackoverflow post. This is the link to the posters jsfiddle
+ http://jsfiddle.net/JeroenSormani/xhpkfwgd/1/
+
 
 
 ### Acknowledgements

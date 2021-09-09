@@ -139,8 +139,14 @@ appearing on card reveal. Close and icon
 
  #search-input{
    margin:10px;
-
  }
+
+ /* search on admin user page */
+/* style input box border */
+.input-field #search {
+  border-bottom:2px solid var(--irish-green);
+}
+
 /* registration page */
 
 /* style button */

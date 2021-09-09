@@ -77,12 +77,25 @@ $('#confirm_password').on('keyup', function () {
       document.getElementById('add-new-form').reset();
   }
 
-// To allow user to close search box
-// document.getElementById("home-hide-button").addEventListener("click", hideSearchForm)
-// fucntion will reset the search form then hide the container
 // applies to search on home and user pages
 function hideSearchForm() {
     document.getElementById('search-form').reset();
     $(".search-container").hide();
 }
+
+// js code for search box onusers. Found on stack overflow post
+// http://jsfiddle.net/JeroenSormani/xhpkfwgd/1/
+var $rows = $('#table tr');
+$('#search').keyup(function() {
+  var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase().split(' ');
+
+  $rows.hide().filter(function() {
+    var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+    var matchesSearch = true;
+    $(val).each(function(index, value) {
+      matchesSearch = (!matchesSearch) ? false : ~text.indexOf(value);
+    });
+    return matchesSearch;
+  }).show();
+});
 
