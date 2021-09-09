@@ -1,7 +1,7 @@
 import os
 from flask import (
     Flask, flash, render_template, url_for,
-    redirect, request, session)
+    redirect, request, session, jsonify)
 from flask_pymongo import PyMongo
 # from flask_user import roles_required, user_manager
 from bson.objectid import ObjectId
@@ -18,6 +18,28 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
+
+
+# https://cloudinary.com/blog/creating_an_api_with_python_flask_to_upload_files_to_cloudinary
+# code for upload API
+#
+
+@app.route("/upload", methods=['POST'])
+def upload_file():
+  app.logger.info('in upload route')
+
+  cloudinary.config(cloud_name = os.getenv('CLOUD_NAME'), api_key=os.getenv('API_KEY'), 
+    api_secret=os.getenv('API_SECRET'))
+  upload_result = None
+  if request.method == 'POST':
+    file_to_upload = request.files['file']
+    app.logger.info('%s file_to_upload', file_to_upload)
+    if file_to_upload:
+      upload_result = cloudinary.uploader.upload(file_to_upload)
+      app.logger.info(upload_result)
+      return jsonify(upload_result)
+
+
 
 
 @app.route("/")
