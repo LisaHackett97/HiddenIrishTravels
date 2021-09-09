@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-
+<!-- this is an admin form to mange details of the dropdown fields 
+  which users can select from when adding a receommendation
+-->
 <h1 class="center-align">Manage Form</h1>
 
 <h2>Visitor type and location dropdown options</h2>
@@ -13,7 +15,6 @@
   </div>
 </div>
 <!-- section to display current visitor types -->
-
 <div class="row">
     <!-- 
       header for visitor type with plus minus icon to open/close the collection
@@ -25,8 +26,6 @@
         <i class="fas fa-minus-circle"></i>
       </span>
     </h6>
-
-
 <!-- layout of data change to table. More even layout then the materialize collections -->
 <table id="visitor-collection">
   <tbody class>

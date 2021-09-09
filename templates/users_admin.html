@@ -1,13 +1,46 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!-- this page gives the Admin user options to view and delete users -->
 <h1 class="center-align">Manage Users</h1>
 
 <a href="{{ url_for('admin') }}" class="btn-flat">Back to Admin Page</a>
+
+<div class="row center-align">
+  <button id="home-search-button"><i class="fas fa-search"></i></button>
+</div>
+<!-- 
+  search on the Admin user pg, to search users collection, bu username and timestamp
+-->
+<div class="container search-container">
+  <a href="{{ url_for('users_admin') }}" class="btn text-shadow" id="clear-search">Clear Search results</a>
+  <div class="row card-panel search-card">
+    <form action="{{ url_for('search_admin_user_page') }}" method="POST" class="col s12" id="search-form">
+
+      <div class="row valign-wrapper center-align">
+        <!-- <div class="row"> -->
+        <div class="input-field col s8" id="search-input">
+          <input type="text" name="query" id="query" required class="validate">
+          <label for="query">Search here</label>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <button type="submit" class="btn-small text-shadow center search-action-btn">
+              <i class="fas fa-search left hide-on-small-only"></i> Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- end of search container -->
+
+
 <!-- section to display current users -->
 <section>
   <div class="row">
-     <table class="centered">
+    <table class="centered">
       <thead>
         <tr>
           <th>Username</th>
@@ -21,19 +54,16 @@
           <td>{{ user.username }}</td>
           <td>{{ user.timestamp }}</td>
           <td>
-              <!-- Modal Trigger To ask User to confirm before deletion happens-->
-              <a class="btn modal-trigger" href="#modal1">Delete</a>
-
-              <!-- Modal Structure -->
-              <div id="modal1" class="modal">
-                  <div class="modal-content">
-                      <a href="{{ url_for('users_admin') }}"
-                          class="modal-close btn-flat">Dismiss </a>
-                      <a href="{{ url_for('delete_user', user_id=user._id)}}"
-                          class="modal-close btn-flat">Confirm Deletion</a>
-
-                  </div>
+            <!-- Modal Trigger To ask User to confirm before deletion happens-->
+            <a class="btn modal-trigger" href="#modal1">Delete</a>
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+              <div class="modal-content">
+                <a href="{{ url_for('users_admin') }}" class="modal-close btn-flat">Dismiss </a>
+                <a href="{{ url_for('delete_user', user_id=user._id)}}" class="modal-close btn-flat">Confirm
+                  Deletion</a>
               </div>
+            </div>
           </td>
         </tr>
       </tbody>
