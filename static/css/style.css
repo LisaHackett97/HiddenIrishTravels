@@ -253,3 +253,23 @@ color:var(--main-text-color)
   padding-bottom: 0;
   padding-top: 10px;
 }
+/* 
+Code for back to top icon from a tutorial
+https://www.w3schools.com/howto/howto_js_scroll_to_top.asp */
+/* style back to top of page icon */
+#backToTopBtn{
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; 
+  background: none;
+  color: var(--irish-green);
+  cursor: pointer; /* Add a mouse pointer on hover */
+}
+
+#backToTopBtn > i {
+  font-size: 30px;
+}
+
