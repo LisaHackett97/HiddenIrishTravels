@@ -120,3 +120,28 @@ function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+
+document.querySelector("#image-upload").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const fileInput = document.querySelector("#media");
+  const formData = new FormData();
+
+  formData.append("file", fileInput.files[0]);
+
+  const options = {
+    method: "POST",
+    body: formData,
+  };
+
+  fetch("http://127.0.0.1:5000/upload", options)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+

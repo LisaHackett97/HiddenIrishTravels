@@ -2,7 +2,7 @@
 
 {% block content %}
 
-
+<a href="{{ url_for('upload')}}">image test</a>
 <h1>Welcome to Hidden Irish Travels</h1>
 <!-- Link to bring user to their page -->
 {% if session.user %}
@@ -45,6 +45,7 @@
     </div>
 </div>
 <!-- end of search container -->
+
 
 
 {% if recommendations|length > 0 %}
