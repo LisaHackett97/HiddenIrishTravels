@@ -134,15 +134,11 @@ appearing on card reveal. Close and icon
 /* Search card styling */
 .search-card{
   background-color: var(--decoration2);
-  border-radius: 5%;
+ 
  }
 
  #search-input{
    margin:10px;
- }
-
- #clear-search{
-
  }
 
  /* search on admin user page */
@@ -195,16 +191,23 @@ margin: 10px;
 }
 
 #home-search-button > .fa-search:hover{
-  font-size: 40px;
 color:var(--main-text-color)
 }
 
 #clear-search{
-  font-size: 8px;
-  background-color: #169b6100;
-  height: 25px;
- 
+  margin-top: 20px;
+  margin-bottom: 5px; 
 }
+
+#clear-search > a{
+ color: var(--irish-green);
+ font-family: 'Poppins', sans-serif;
+}
+
+#clear-search > a:hover{
+  color: var(--main-text-color)
+ }
+
 .btn:hover, .btn-small:hover{
   color: var(--decoration2);
   background-color: var(--irish-green);
@@ -240,7 +243,7 @@ color:var(--main-text-color)
   color: #169B62;
 }
 
-.fa-times-circle:hover, .fa-search:hover{
+.fa-times-circle:hover{
   color: var(--decoration2);
 }
 
