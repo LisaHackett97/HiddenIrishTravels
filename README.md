@@ -472,7 +472,8 @@ https://stackoverflow.com/questions/21727317/how-to-check-confirm-password-field
 - code for filter/search box, found on a stackoverflow post. This is the link to the posters jsfiddle
  http://jsfiddle.net/JeroenSormani/xhpkfwgd/1/
 
-
+- Code for back to top icon from a tutorial
+// https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
 
 ### Acknowledgements
 
