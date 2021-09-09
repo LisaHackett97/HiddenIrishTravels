@@ -5,6 +5,7 @@ cloudinary==1.26.0
 dnspython==2.1.0
 email-validator==1.1.3
 Flask==2.0.1
+Flask-Cors==3.0.10
 Flask-Login==0.5.0
 Flask-Mail==0.9.1
 Flask-PyMongo==2.3.0
