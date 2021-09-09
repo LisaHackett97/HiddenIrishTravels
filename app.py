@@ -13,7 +13,7 @@ import cloudinary.api
 if os.path.exists("env.py"):
     import env
 
-# needed for cloudinary, cannot import at this pt
+
 from dotenv import load_dotenv
 app = Flask(__name__)
 
@@ -23,14 +23,20 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-# load_dotenv()
+load_dotenv()
+
+cloudinary.config(
+  cloud_name=os.environ.get("CLOUD_NAME"),
+  api_key=os.environ.get("API_KEY"),
+  api_secret=os.environ.get("API_SECRET"))
+
 
 # https://cloudinary.com/blog/creating_an_api_with_python_flask_to_upload_files_to_cloudinary
 # code for upload API
 # add code to configure CORS for the upload API.
 @app.route("/upload", methods=['POST'])
 @cross_origin()
-def upload_file():
+def upload():
     app.logger.info('in upload route')
     cloudinary.config(
         cloud_name=os.getenv('CLOUD_NAME'), api_key=os.getenv('API_KEY'),
@@ -96,10 +102,10 @@ def login():
         if existing_user:
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("welcome, {}".format(request.form.get("username")))
-                    return redirect(url_for(
-                        "user_page", username=session['user']))
+                session["user"] = request.form.get("username").lower()
+                flash("welcome, {}".format(request.form.get("username")))
+                return redirect(url_for(
+                    "user_page", username=session['user']))
             else:
                 # invald password
                 flash("incorrect Username and/password")
@@ -158,7 +164,7 @@ def add_recommendation():
 
 # user edit their own recommendation
 @app.route("/edit_recommendations/<recommendation_id>",
-    methods=["GET", "POST"])
+        methods=["GET", "POST"])
 def edit_recommendations(recommendation_id):
     if request.method == "POST":
         submit = {
