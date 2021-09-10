@@ -3,8 +3,9 @@
 //     document.getElementById("register_form").reset();
   
 // }
-/*
-doc ready functions, including  materialize validate
+
+
+/*/ doc ready functions, including  materialize validate
 */
 $(document).ready(function () {
     $(".dropdown-trigger").dropdown({
@@ -121,27 +122,17 @@ function topFunction() {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
-document.querySelector("#image-upload").addEventListener("submit", (event) => {
-  event.preventDefault();
-  const fileInput = document.querySelector("#media");
-  const formData = new FormData();
 
-  formData.append("file", fileInput.files[0]);
-
-  const options = {
-    method: "POST",
-    body: formData,
-  };
-
-  fetch("http://127.0.0.1:5000/upload", options)
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-});
+// Upload widget from Cloudinary docs
+var myWidget = cloudinary.createUploadWidget({
+  cloudName: 'dc9rijkkz', 
+  uploadPreset: 'mcuus0xs'}, (error, result) => { 
+    if (!error && result && result.event === "success") { 
+      console.log('Done! Here is the image info: ', result.info); 
+    }
+  }
+)
+document.getElementById("upload_widget").addEventListener("click", function(){
+    myWidget.open();
+  }, false);
 

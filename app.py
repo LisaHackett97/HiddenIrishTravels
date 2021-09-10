@@ -26,7 +26,9 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-
+logging.basicConfig(level=logging.DEBUG)
+#verify cloud
+app.logger.info('%s',os.getenv('CLOUD_NAME'))
 
 # cloudinary.config(
 #   cloud_name=os.environ.get("CLOUD_NAME"),
@@ -38,9 +40,10 @@ mongo = PyMongo(app)
 # code for upload API
 # add code to configure CORS for the upload API.
 @app.route("/upload", methods=["GET", "POST"])
-@cross_origin()
+# @cross_origin()
 def upload():
     app.logger.info('in upload route')
+
     cloudinary.config(
         cloud_name=os.getenv('CLOUD_NAME'), api_key=os.getenv('API_KEY'),
     api_secret=os.getenv('API_SECRET'))
@@ -55,6 +58,21 @@ def upload():
         return jsonify(upload_result)
     return render_template("upload.html")
 
+@app.route("/cld_optimize", methods=['POST'])
+@cross_origin()
+def cld_optimize():
+    app.logger.info('in optimize route')
+
+    cloudinary.config(cloud_name = os.getenv('CLOUD_NAME'), api_key=os.getenv('API_KEY'), 
+    api_secret=os.getenv('API_SECRET'))
+    if request.method == 'POST':
+        public_id = request.form['public_id']
+        app.logger.info('%s public id', public_id)
+        if public_id:
+            cld_url = cloudinary_url(public_id, fetch_format='auto', quality='auto', secure=True)
+      
+        app.logger.info(cld_url)
+        return jsonify(cld_url)
 
 @app.route("/")
 @app.route("/home")
