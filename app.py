@@ -30,20 +30,14 @@ logging.basicConfig(level=logging.DEBUG)
 #verify cloud
 app.logger.info('%s',os.getenv('CLOUD_NAME'))
 
-# cloudinary.config(
-#   cloud_name=os.environ.get("CLOUD_NAME"),
-#   api_key=os.environ.get("API_KEY"),
-#   api_secret=os.environ.get("API_SECRET"))
-
-
-# https://cloudinary.com/blog/creating_an_api_with_python_flask_to_upload_files_to_cloudinary
+# Follow this tutorial on https://cloudinary.com/blog/creating_an_api_with_python_flask_to_upload_files_to_cloudinary
+# Tutorial linked to https://github.com/rebeccapeltz/flask-cld-upload/blob/master/app.py
 # code for upload API
 # add code to configure CORS for the upload API.
 @app.route("/upload", methods=["GET", "POST"])
 # @cross_origin()
 def upload():
     app.logger.info('in upload route')
-
     cloudinary.config(
         cloud_name=os.getenv('CLOUD_NAME'), api_key=os.getenv('API_KEY'),
     api_secret=os.getenv('API_SECRET'))
@@ -58,6 +52,8 @@ def upload():
         return jsonify(upload_result)
     return render_template("upload.html")
 
+# Follow this tutorial on https://cloudinary.com/blog/creating_an_api_with_python_flask_to_upload_files_to_cloudinary
+# Tutorial linked to https://github.com/rebeccapeltz/flask-cld-upload/blob/master/app.py
 @app.route("/cld_optimize", methods=['POST'])
 @cross_origin()
 def cld_optimize():
