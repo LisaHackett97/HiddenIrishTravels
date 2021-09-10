@@ -28,7 +28,8 @@ mongo = PyMongo(app)
 
 logging.basicConfig(level=logging.DEBUG)
 #verify cloud
-app.logger.info('%s',os.getenv('CLOUD_NAME'))
+app.logger.info('%s', os.getenv('CLOUD_NAME'))
+
 
 # Follow this tutorial on https://cloudinary.com/blog/creating_an_api_with_python_flask_to_upload_files_to_cloudinary
 # Tutorial linked to https://github.com/rebeccapeltz/flask-cld-upload/blob/master/app.py
@@ -59,16 +60,17 @@ def upload():
 def cld_optimize():
     app.logger.info('in optimize route')
 
-    cloudinary.config(cloud_name = os.getenv('CLOUD_NAME'), api_key=os.getenv('API_KEY'), 
+    cloudinary.config(cloud_name = os.getenv('CLOUD_NAME'), api_key=os.getenv('API_KEY'),
     api_secret=os.getenv('API_SECRET'))
     if request.method == 'POST':
         public_id = request.form['public_id']
         app.logger.info('%s public id', public_id)
         if public_id:
             cld_url = cloudinary_url(public_id, fetch_format='auto', quality='auto', secure=True)
-      
+
         app.logger.info(cld_url)
         return jsonify(cld_url)
+
 
 @app.route("/")
 @app.route("/home")
@@ -169,7 +171,8 @@ def add_recommendation():
             "visitor_type": request.form.get("visitor_type"),
             "location_name": request.form.get("location_name"),
             "details": request.form.get("recommend-details"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "upload_img": request.form.get("upload_img")
         }
         mongo.db.recommendations.insert_one(recommendation)
         flash("Success. You have added a new recommendation!")

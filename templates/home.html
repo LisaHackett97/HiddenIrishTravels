@@ -47,7 +47,6 @@
 <!-- end of search container -->
 
 
-
 {% if recommendations|length > 0 %}
 <div class="container-fluid">
     <div class="row recommendation-row">
@@ -55,8 +54,8 @@
         <div class="col s12 m6 l3">
             <div class="card medium">
                 <div class="card-image">
-                    <img src="https://res.cloudinary.com/dc9rijkkz/image/upload/v1631214810/sample.jpg" alt="" class="activator">
-                </div>
+                    <img src="{{ recommendation.upload_image }}" alt="Image to be uploaded" class="activator">
+                                    </div>
                 <div class="card-content">
                     <h5 id="recommend-title"> {{recommendation.title}}</h5>
                     <p> <i class="fas fa-location-arrow"></i> {{ recommendation.location_name }} </p>
