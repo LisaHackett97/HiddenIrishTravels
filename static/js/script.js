@@ -122,17 +122,17 @@ function topFunction() {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
-
 // Upload widget from Cloudinary docs
 var myWidget = cloudinary.createUploadWidget({
   cloudName: 'dc9rijkkz', 
   uploadPreset: 'mcuus0xs'}, (error, result) => { 
-    if (!error && result && result.event === "success") { 
-      console.log('Done! Here is the image info: ', result.info); 
-    }
+    // if (!error && result && result.event === "success") { 
+      
+    // }
   }
 )
 document.getElementById("upload_widget").addEventListener("click", function(){
     myWidget.open();
   }, false);
+
 

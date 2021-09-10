@@ -10,7 +10,7 @@ from datetime import datetime
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-import logging
+# import logging
 from dotenv import load_dotenv
 from cloudinary.utils import cloudinary_url
 if os.path.exists("env.py"):
@@ -26,17 +26,16 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-logging.basicConfig(level=logging.DEBUG)
-#verify cloud
-app.logger.info('%s', os.getenv('CLOUD_NAME'))
+# logging.basicConfig(level=logging.DEBUG)
+# # verify cloud
+# app.logger.info('%s', os.getenv('CLOUD_NAME'))
 
 
 # Follow this tutorial on https://cloudinary.com/blog/creating_an_api_with_python_flask_to_upload_files_to_cloudinary
 # Tutorial linked to https://github.com/rebeccapeltz/flask-cld-upload/blob/master/app.py
-# code for upload API
-# add code to configure CORS for the upload API.
+# Link to Admin Page Only. future feature for user to upload own image
 @app.route("/upload", methods=["GET", "POST"])
-# @cross_origin()
+@cross_origin()
 def upload():
     app.logger.info('in upload route')
     cloudinary.config(
@@ -45,34 +44,17 @@ def upload():
     upload_result = None
     if request.method == 'POST':
         file_to_upload = request.files['file']
-        app.logger.info('%s file_to_upload', file_to_upload)
+        # app.logger.info('%s file_to_upload', file_to_upload)
         if file_to_upload:
             upload_result = cloudinary.uploader.upload(file_to_upload)
-            app.logger.info(upload_result)
-            app.logger.info(type(upload_result))
+            # app.logger.info(upload_result)
+            # app.logger.info(type(upload_result))
+        flash("Success")
         return jsonify(upload_result)
+
     return render_template("upload.html")
 
-# Follow this tutorial on https://cloudinary.com/blog/creating_an_api_with_python_flask_to_upload_files_to_cloudinary
-# Tutorial linked to https://github.com/rebeccapeltz/flask-cld-upload/blob/master/app.py
-@app.route("/cld_optimize", methods=['POST'])
-@cross_origin()
-def cld_optimize():
-    app.logger.info('in optimize route')
 
-    cloudinary.config(cloud_name = os.getenv('CLOUD_NAME'), api_key=os.getenv('API_KEY'),
-    api_secret=os.getenv('API_SECRET'))
-    if request.method == 'POST':
-        public_id = request.form['public_id']
-        app.logger.info('%s public id', public_id)
-        if public_id:
-            cld_url = cloudinary_url(public_id, fetch_format='auto', quality='auto', secure=True)
-
-        app.logger.info(cld_url)
-        return jsonify(cld_url)
-
-
-@app.route("/")
 @app.route("/home")
 def home():
     recommendations = list(mongo.db.recommendations.find())
