@@ -475,9 +475,19 @@ https://stackoverflow.com/questions/21727317/how-to-check-confirm-password-field
 - Code for back to top icon from a tutorial
 // https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
 
+- Cloudinary
+	- Follow this tutorial on https://cloudinary.com/blog/creating_an_api_with_python_flask_to_upload_files_to_cloudinary
+	- Tutorial linked to https://github.com/rebeccapeltz/flask-cld-upload/blob/master/app.py
+	- Cloudinary widget from Cloudinary documentation
+	- I also read https://medium.com/@johndavidsimmons/cloudinary-api-in-flask-14018d84a314 for reference.
+
+
+
 ### Acknowledgements
 
 I referred to the following to add to my knowledge and for help.
+
+	- Thanks to all those who has posted on Slack in relation to Cloudinary, which was very helpful for guidance and my learning
 
 [Back to table of contents](#table-of-contents)
 

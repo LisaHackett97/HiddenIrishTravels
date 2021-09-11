@@ -1,9 +1,10 @@
 {% extends "base.html" %}
-
 {% block content %}
 
-
 <h1>Welcome to Hidden Irish Travels</h1>
+<div class="container">
+    <div class="row">
+
 <!-- Link to bring user to their page -->
 {% if session.user %}
 <a href="{{ url_for('user_page', username=session['user'])}}" class="btn col s6 page-btn">Your page <i class="far fa-user-circle"></i></a>
@@ -26,7 +27,6 @@
 <div class="container search-container">
         <div class="row card-panel search-card">
         <form action="{{ url_for('search') }}" method="POST" class="col s12" id="search-form">
-
             <div class="row valign-wrapper center-align">
                 <!-- <div class="row"> -->
                 <div class="input-field col s8" id="search-input">
@@ -46,7 +46,7 @@
 </div>
 <!-- end of search container -->
 
-
+<!-- container to display all user recommendations-->
 {% if recommendations|length > 0 %}
 <div class="container-fluid">
     <div class="row recommendation-row">
@@ -54,8 +54,8 @@
         <div class="col s12 m6 l3">
             <div class="card medium">
                 <div class="card-image">
-                    <img src="#" alt="" class="activator">
-                </div>
+                    <img src="{{ recommendation.image_url }}" alt="Image to be uploaded" class="activator">
+                                    </div>
                 <div class="card-content">
                     <h5 id="recommend-title"> {{recommendation.title}}</h5>
                     <p> <i class="fas fa-location-arrow"></i> {{ recommendation.location_name }} </p>
@@ -77,14 +77,14 @@
                 </div>
             </div>
         </div>
-
         {% endfor %}
-
-
+        <!-- end of container showing recommendations-->
     </div>
     <!-- end of row for cards -->
 </div>
 <!-- end of container -->
+
+<!-- else stmt if search returns nothing -->
 {% else %}
 <h3 class="center-align red-text">No Results found</h3>
 {% endif %}

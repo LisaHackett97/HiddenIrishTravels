@@ -1,15 +1,22 @@
 import os
 from flask import (
     Flask, flash, render_template, url_for,
-    redirect, request, session)
+    redirect, request, session, jsonify)
 from flask_pymongo import PyMongo
-# from flask_user import roles_required, user_manager
+from flask_cors import CORS, cross_origin
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+# import logging
+from dotenv import load_dotenv
+from cloudinary.utils import cloudinary_url
 if os.path.exists("env.py"):
     import env
 
+load_dotenv()
 
 app = Flask(__name__)
 
@@ -18,6 +25,33 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
+
+# logging.basicConfig(level=logging.DEBUG)
+# # verify cloud
+# app.logger.info('%s', os.getenv('CLOUD_NAME'))
+
+
+# Follow this tutorial on https://cloudinary.com/blog/creating_an_api_with_python_flask_to_upload_files_to_cloudinary
+# Tutorial linked to https://github.com/rebeccapeltz/flask-cld-upload/blob/master/app.py
+# Link to Admin Page Only. future feature for user to upload own image
+@app.route("/upload", methods=["GET", "POST"])
+@cross_origin()
+def upload():
+    app.logger.info('in upload route')
+    cloudinary.config(
+        cloud_name=os.getenv('CLOUD_NAME'), api_key=os.getenv('API_KEY'),
+    api_secret=os.getenv('API_SECRET'))
+    upload_result = None
+    if request.method == 'POST':
+        file_to_upload = request.files['file']
+        # app.logger.info('%s file_to_upload', file_to_upload)
+        if file_to_upload:
+            upload_result = cloudinary.uploader.upload(file_to_upload)
+            # app.logger.info(upload_result)
+            # app.logger.info(type(upload_result))
+        flash("Success")
+        return jsonify(upload_result)
+    return render_template("upload.html")
 
 
 @app.route("/")
@@ -71,10 +105,10 @@ def login():
         if existing_user:
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("welcome, {}".format(request.form.get("username")))
-                    return redirect(url_for(
-                        "user_page", username=session['user']))
+                session["user"] = request.form.get("username").lower()
+                flash("welcome, {}".format(request.form.get("username")))
+                return redirect(url_for(
+                    "user_page", username=session['user']))
             else:
                 # invald password
                 flash("incorrect Username and/password")
@@ -119,21 +153,41 @@ def add_recommendation():
             "visitor_type": request.form.get("visitor_type"),
             "location_name": request.form.get("location_name"),
             "details": request.form.get("recommend-details"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "image_url": request.form.get("image_name")
         }
         mongo.db.recommendations.insert_one(recommendation)
         flash("Success. You have added a new recommendation!")
         return redirect(url_for("home"))
     locations = mongo.db.locations.find().sort("location_name", 1)
     visitor_type = mongo.db.visitor_type.find().sort("visitor_type", 1)
+    image_url = mongo.db.images.find().sort("image_name", 1)
     return render_template(
         "add_recommendation.html",
-        visitor_type=visitor_type, locations=locations)
+        visitor_type=visitor_type, locations=locations, image_name=image_url)
 
+
+# get images
+@app.route("/images")
+def images():
+    images = list(mongo.db.images.find())
+    return render_template("images.html", images=images)
+
+    #  mongo.db.locations.find({"_id": ObjectId(location_id)}
+
+
+# def home():
+#     recommendations = list(mongo.db.recommendations.find())
+#     return render_template("home.html", recommendations=recommendations)
+
+
+# def home():
+#     recommendations = list(mongo.db.recommendations.find())
+#     return render_template("home.html", recommendations=recommendations)
 
 # user edit their own recommendation
 @app.route("/edit_recommendations/<recommendation_id>",
-    methods=["GET", "POST"])
+        methods=["GET", "POST"])
 def edit_recommendations(recommendation_id):
     if request.method == "POST":
         submit = {
@@ -174,7 +228,8 @@ def delete_recommendation(recommendation_id):
 @app.route("/admin")
 def admin():
     # if user is_admin, gives access to admin page
-    # if not, is_admin is default of false, redirect user to home page with a messag
+    # if not, is_admin is default of false,
+    # redirect user to home page with msg
     user = mongo.db.users.find_one({"username": session["user"]})
     if user["is_admin"]:
         return render_template("admin.html")
@@ -182,6 +237,7 @@ def admin():
         flash("You are not authorized to access Admin Page")
         flash("You have been redirected to Home Page")
         return redirect(url_for("home"))
+
 
 # Admin- to display visitor type and location names from db
 # From this page, admin will then be able to edit or delete field details
@@ -192,9 +248,11 @@ def manage_form_fields():
         fields = list(mongo.db.visitor_type.find().sort("visitor_type", 1))
         locations = list(mongo.db.locations.find().sort("location_name", 1))
         return render_template(
-            "manage_form_details.html", visitor_type=fields, locations=locations)
+            "manage_form_details.html",
+            visitor_type=fields, locations=locations)
     else:
-        flash("You are not authorized to access the Page")
+        flash(
+            "You are not authorized to access the Page")
         return redirect(url_for("home"))
 
 
@@ -333,9 +391,10 @@ def recommend_admin_delete():
 
 
 # Admin Delete function
-# This is access through the overall delete recommendation, with if else check_password_hash
+# This is access through the overall delete recommendation,
+# with the if else check_password_hash
 # No further code needed for admin section
-
+#
 # User logout
 @app.route("/logout")
 def logout():

@@ -44,10 +44,10 @@
         <div class="container-fluid">
             <div class="row recommendation-row">
                 {% for recommendation in recommendations %}
-                <div class="col s12">
-                    <div class="card">
+                <div class="col s12 m6 l3">
+                    <div class="card medium">
                         <div class="card-image">
-                            <img src="#" alt="image to be inserted" class="activator">
+                            <img src="{{ recommendation.image_url }}" alt="image to be inserted" class="activator">
                         </div>
                         <div class="card-content" id="user-card-content">
                             <h5 id="recommend-title"> {{recommendation.title}}</h5>
