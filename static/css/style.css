@@ -162,8 +162,10 @@ appearing on card reveal. Close and icon
 
 /* Add new page */
 
-button.btn.tooltipped {
- margin-bottom: 10px;
+/*cancel btn on edit recommendations 
+action buttons on add new field */
+.btn.tooltipped{
+  margin-bottom: 10px;
 }
 .input-field {
   margin-top: 0.5rem;
@@ -264,7 +266,7 @@ button.btn.tooltipped {
 .add-new{
   line-height: 1;  
  }
- 
+
 /* icon across the site */
 .fa-caret-down {
   font-size: 14px;

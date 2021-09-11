@@ -2,17 +2,26 @@
 {% block content %}
 
 <h1>Edit your recommendations <i class="fas fa-edit"></i></h1>
-
+<a href="{{ url_for('user_page', username=session['user'])}}" class="btn col s6 page-btn">Back to your page <i class="far fa-user-circle"></i></a>
 <div class="row card-panel">
     <form class="col s12" method="POST"
         action="{{ url_for('edit_recommendations', recommendation_id=recommendation._id) }}">
         <!-- image upload area input field Not yet working -->
         <div class="row">
             <div class="input-field col s12">
-                <i class="fas fa-image prefix"></i>
-                <textarea id="upload_img" name="upload_img" minlength="5" maxlength="200"
-                   class="materialize-textarea"></textarea>
-                <label for="upload_img"> Image Upload here. Functionality not yet in place</label>
+                <i class="fas fa-images prefix  tooltipped" data-position="left"
+                    data-tooltip="Select to change image"></i>
+                <select name="image_name" id="image_name" class="validate" required>
+                    <option value="" disable selected>Choose an Image</option>
+                    {% for image in image_name %}
+                        {% if image.upload_image == recommendation.image_url %}
+                    <option value="{{ image.upload_image }}" selected>{{ image.image_name }}</option>
+                        {% else %}
+                        <option value="{{ image.upload_image }}">{{ image.image_name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <label for="image_name">Image</label>
             </div>
         </div>
         <!-- title field -->
@@ -21,7 +30,7 @@
                 <i class="fas fa-info-circle prefix tooltipped" data-position="left"
                     data-tooltip="Select to edit details"></i>
                 <textarea id="recommend-title" name="recommend-title" minlength="5" maxlength="200"
-                class="materialize-textarea validate" required>{{- recommendation.title }}</textarea>
+                    class="materialize-textarea validate" required>{{- recommendation.title }}</textarea>
                 <label for="recommend-title">Title</label>
             </div>
         </div>
@@ -33,11 +42,11 @@
                 <select name="visitor_type" id="visitor_type" class="validate" required>
                     <option value="" disable>Choose visitor type</option>
                     {% for visitor in visitor_type %}
-                        {% if visitor.visitor_type == recommendation.visitor_type %}
-                            <option value="{{ visitor.visitor_type }}" selected>{{ visitor.visitor_type }}</option>
-                        {% else %}
-                            <option value="{{ visitor.visitor_type }}">{{ visitor.visitor_type }}</option>
-                        {% endif %}
+                    {% if visitor.visitor_type == recommendation.visitor_type %}
+                    <option value="{{ visitor.visitor_type }}" selected>{{ visitor.visitor_type }}</option>
+                    {% else %}
+                    <option value="{{ visitor.visitor_type }}">{{ visitor.visitor_type }}</option>
+                    {% endif %}
                     {% endfor %}
                 </select>
                 <label for="visitor_type">Visitor Type</label>
@@ -51,11 +60,11 @@
                 <select id="location_name" name="location_name" class="validate" required>
                     <option value="" disabled>Choose county</option>
                     {% for location in locations %}
-                        {% if location.location_name == recommendation.location_name %}
-                            <option value="{{ location.location_name }}" selected>{{ location.location_name }}</option>
-                        {% else %}
-                            <option value="{{ location.location_name }}">{{ location.location_name }}</option>
-                        {% endif %}
+                    {% if location.location_name == recommendation.location_name %}
+                    <option value="{{ location.location_name }}" selected>{{ location.location_name }}</option>
+                    {% else %}
+                    <option value="{{ location.location_name }}">{{ location.location_name }}</option>
+                    {% endif %}
                     {% endfor %}
                 </select>
                 <label for="location_name">Location</label>
@@ -78,19 +87,16 @@
                 {% if session.user|lower == recommendation.created_by|lower %}
                 <button class="btn tooltipped" data-position="bottom"
                     data-tooltip="Click this button to edit your recommendation" type="submit" name="action">
-                    Edit Recommendation
-                </button>               
-                <a href="{{ url_for('user_page', username=session['user'])}}" class="btn tooltipped" data-position="bottom"
-                    data-tooltip="Click to cancel your edits"><i class="far fa-times-circle"></i>
+                    Confirm Edits
+                </button>
+                <a href="{{ url_for('user_page', username=session['user'])}}" class="btn tooltipped"
+                    data-position="bottom" data-tooltip="Click to cancel your edits"><i class="far fa-times-circle"></i>
                     Cancel
                 </a>
                 {% endif %}
             </div>
         </div>
-
-
         </button>
-
     </form>
 </div>
 {% endblock %}

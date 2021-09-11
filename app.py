@@ -73,10 +73,12 @@ def search():
 # Search on user page only
 @app.route("/search_user_page", methods=["GET", "POST"])
 def search_user_page():
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
     query = request.form.get("query")
     recommendations = list(mongo.db.recommendations.find(
         {"$text": {"$search": query}}))
-    return render_template("user_page.html", recommendations=recommendations)
+    return render_template("user_page.html", recommendations=recommendations, username=username)
 
 
 # Access session user page
@@ -176,7 +178,8 @@ def edit_recommendations(recommendation_id):
             "visitor_type": request.form.get("visitor_type"),
             "location_name": request.form.get("location_name"),
             "details": request.form.get("recommend-details"),
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "image_url": request.form.get("image_name")
         }
         mongo.db.recommendations.update(
             {"_id": ObjectId(recommendation_id)}, submit)
@@ -185,9 +188,10 @@ def edit_recommendations(recommendation_id):
         {"_id": ObjectId(recommendation_id)})
     locations = mongo.db.locations.find().sort("location_name", 1)
     visitor_type = mongo.db.visitor_type.find().sort("visitor_type", 1)
+    image_url = mongo.db.images.find().sort("image_name", 1)
     return render_template(
         "edit_recommendations.html", recommendation=recommendation,
-        visitor_type=visitor_type, locations=locations)
+        visitor_type=visitor_type, locations=locations,  image_name=image_url)
 
 
 # user delete their own recommendation
