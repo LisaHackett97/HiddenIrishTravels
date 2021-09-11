@@ -16,7 +16,8 @@ $(document).ready(function () {
     $(".tooltipped").tooltip();
     $('.modal').modal();
     $("select").formSelect(); 
-
+    $('#location-collection').hide();
+    $('#visitor-collection').hide();
     $("#location-view-btn").click(function () {
         $("#location-collection").toggle()
         });
