@@ -192,13 +192,22 @@ button.btn.tooltipped {
   margin-top: 25px;}
 
 
-#home-search-button
+#home-search-button, 
 {
   font-size: 35px;
   border:none;
   background-color: white;
 }
 
+#upload_widget{
+  background-color: var(--decoration2);
+  color: var(--main-text-color);
+}
+
+#upload_widget:hover {
+  background-color: var(--irish-green);
+  color: var(--main-text-color);
+}
 #home-search-button > .fa-search:hover{
 color:var(--main-text-color)
 }
