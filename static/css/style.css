@@ -179,7 +179,7 @@ button.btn.tooltipped {
   background-color: #c9d7db79
 }
 /* Other buttons across the site */
-#home-search-button, .btn, .btn-small{
+.btn, .btn-small{
   color: var(--main-text-color);
   background-color: var(--decoration2);
   font-weight: bold;
@@ -192,13 +192,35 @@ button.btn.tooltipped {
 .search-action-btn{
   margin-top: 25px;}
 
-
+/* Search icon btn */
 #home-search-button
 {
+  color: var(--main-text-color);
+  background-color: var(--decoration2);
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
   font-size: 35px;
   border:none;
   background-color: white;
 }
+
+#home-search-button > .fa-search:hover{
+  color:var(--main-text-color)
+  }
+  
+  #clear-search{
+    margin-top: 20px;
+    margin-bottom: 5px; 
+  }
+  
+  #clear-search > a{
+   color: var(--irish-green);
+   font-family: 'Poppins', sans-serif;
+  }
+  
+  #clear-search > a:hover{
+    color: var(--main-text-color)
+   }
 
 #upload_widget{
   background-color: var(--decoration2);
@@ -209,23 +231,7 @@ button.btn.tooltipped {
   background-color: var(--irish-green);
   color: var(--main-text-color);
 }
-#home-search-button > .fa-search:hover{
-color:var(--main-text-color)
-}
 
-#clear-search{
-  margin-top: 20px;
-  margin-bottom: 5px; 
-}
-
-#clear-search > a{
- color: var(--irish-green);
- font-family: 'Poppins', sans-serif;
-}
-
-#clear-search > a:hover{
-  color: var(--main-text-color)
- }
 
 .btn:hover, .btn-small:hover{
   color: var(--decoration2);
@@ -233,6 +239,7 @@ color:var(--main-text-color)
   font-weight: bold;
 }
 
+/* button styling across a number of pages including clear search and add new */
 .page-btn{
   background-color: white;
   margin:5px;
@@ -255,10 +262,9 @@ color:var(--main-text-color)
 }
 /* admin add a new field buttons */
 .add-new{
-
-  line-height: 1;
-  
+  line-height: 1;  
  }
+ 
 /* icon across the site */
 .fa-caret-down {
   font-size: 14px;
