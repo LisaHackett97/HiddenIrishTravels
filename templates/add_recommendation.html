@@ -5,14 +5,6 @@
 
 <div class="row card-panel">
     <form action="{{ url_for('add_recommendation') }}" class="col s12" id="add-new-form" method="POST">
-
-        <!-- image upload area input field Not yet working -->
-        <div class="input-field col s12">
-            <i class="fas fa-image prefix"></i>
-            <input type="url" id="upload_img" class="validate" name="upload_img">
-             <label for="upload_img"> </label>
-        </div>
-
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-images prefix  tooltipped" data-position="left" data-tooltip="Choose which type of image to display on your recommendation"></i>
@@ -27,8 +19,7 @@
                 </select>
                 <label for="image_name">Image</label>
             </div>
-        </div>
-        
+        </div>        
         <!-- title input field -->
         <div class="row">
             <div class="input-field col s12">
@@ -61,8 +52,7 @@
                     <option value="{{ location.location_name }}">{{ location.location_name }}</option>
                     {% endfor %}
                 </select>
-                <label for="location_name">Location</label>
-                
+                <label for="location_name">Location</label>                
             </div>
         </div>
         <!-- details input field -->
@@ -84,11 +74,7 @@
                     Clear Form
                 </button>
             </div>
-        </div>
-
-
-        </button>
-
+        </div>      
     </form>
 </div>
 

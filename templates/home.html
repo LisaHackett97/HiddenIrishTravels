@@ -1,18 +1,9 @@
 {% extends "base.html" %}
-
 {% block content %}
-
-
 
 <h1>Welcome to Hidden Irish Travels</h1>
 <div class="container">
     <div class="row">
-image
-   
-
-<a href="{{ url_for('images')}}" class="btn col s6 page-btn">image </a>
-
-<p>image test</p>
 
 <!-- Link to bring user to their page -->
 {% if session.user %}
@@ -36,7 +27,6 @@ image
 <div class="container search-container">
         <div class="row card-panel search-card">
         <form action="{{ url_for('search') }}" method="POST" class="col s12" id="search-form">
-
             <div class="row valign-wrapper center-align">
                 <!-- <div class="row"> -->
                 <div class="input-field col s8" id="search-input">
@@ -56,7 +46,7 @@ image
 </div>
 <!-- end of search container -->
 
-
+<!-- container to display all user recommendations-->
 {% if recommendations|length > 0 %}
 <div class="container-fluid">
     <div class="row recommendation-row">
@@ -87,14 +77,14 @@ image
                 </div>
             </div>
         </div>
-
         {% endfor %}
-
-
+        <!-- end of container showing recommendations-->
     </div>
     <!-- end of row for cards -->
 </div>
 <!-- end of container -->
+
+<!-- else stmt if search returns nothing -->
 {% else %}
 <h3 class="center-align red-text">No Results found</h3>
 {% endif %}
