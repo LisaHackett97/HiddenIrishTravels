@@ -11,8 +11,21 @@
             <i class="fas fa-image prefix"></i>
             <input type="url" id="upload_img" class="validate" name="upload_img">
              <label for="upload_img"> </label>
-
         </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-images prefix  tooltipped" data-position="left" data-tooltip="Choose which type of image to display on your receommendation"></i>
+                <select name="upload_image" id="upload_image" class="validate" required>
+                    <option value="" disable selected>Choose an Image</option>
+                    {% for image in upload_image %}
+                    <option value="{{ image.upload_image }}">{{ image.upload_image }}</option>
+                    {% endfor %}
+                </select>
+                <label for="upload_image">Image</label>
+            </div>
+        </div>
+        
         <!-- title input field -->
         <div class="row">
             <div class="input-field col s12">

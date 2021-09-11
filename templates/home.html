@@ -5,6 +5,15 @@
 
 
 <h1>Welcome to Hidden Irish Travels</h1>
+<div class="container">
+    <div class="row">
+image
+   
+
+<a href="{{ url_for('images')}}" class="btn col s6 page-btn">image </a>
+
+<p>image test</p>
+
 <!-- Link to bring user to their page -->
 {% if session.user %}
 <a href="{{ url_for('user_page', username=session['user'])}}" class="btn col s6 page-btn">Your page <i class="far fa-user-circle"></i></a>

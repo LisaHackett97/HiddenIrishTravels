@@ -51,10 +51,10 @@ def upload():
             # app.logger.info(type(upload_result))
         flash("Success")
         return jsonify(upload_result)
-
     return render_template("upload.html")
 
 
+@app.route("/")
 @app.route("/home")
 def home():
     recommendations = list(mongo.db.recommendations.find())
@@ -161,10 +161,29 @@ def add_recommendation():
         return redirect(url_for("home"))
     locations = mongo.db.locations.find().sort("location_name", 1)
     visitor_type = mongo.db.visitor_type.find().sort("visitor_type", 1)
+    upload_image = mongo.db.images.find().sort("upload_image", 1)
     return render_template(
         "add_recommendation.html",
-        visitor_type=visitor_type, locations=locations)
+        visitor_type=visitor_type, locations=locations, upload_image=upload_image)
 
+
+# get images
+@app.route("/images")
+def images():
+    images = list(mongo.db.images.find())
+    return render_template("images.html", images=images)
+
+    #  mongo.db.locations.find({"_id": ObjectId(location_id)}
+
+
+# def home():
+#     recommendations = list(mongo.db.recommendations.find())
+#     return render_template("home.html", recommendations=recommendations)
+
+
+def home():
+    recommendations = list(mongo.db.recommendations.find())
+    return render_template("home.html", recommendations=recommendations)
 
 # user edit their own recommendation
 @app.route("/edit_recommendations/<recommendation_id>",
