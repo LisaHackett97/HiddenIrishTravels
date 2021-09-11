@@ -161,15 +161,16 @@ appearing on card reveal. Close and icon
 
 
 /* Add new page */
-.add_new_btns .btn{
-margin: 10px;
-  width:45vw;
-}
 
+button.btn.tooltipped {
+ margin-bottom: 10px;
+}
 .input-field {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
+
+
 /* change bg color on forms to distinguish */
 #newlocation {
   background-color: #dce1e233
@@ -240,8 +241,14 @@ color:var(--main-text-color)
 }
 
 .admin-btns{
-  margin: 10px;
+  margin: 25px;
 }
+/* admin add a new field buttons */
+.add-new{
+
+  line-height: 1;
+  
+ }
 /* icon across the site */
 .fa-caret-down {
   font-size: 14px;

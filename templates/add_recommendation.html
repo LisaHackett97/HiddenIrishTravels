@@ -2,7 +2,7 @@
 {% block content %}
 
 <!-- Show title as smaller h2 for mobiles -->
-<h1 class="hide-on-small-only">Add a new recommendation  <i class="fas fa-pencil-alt"></i></h1>
+<h1 class="hide-on-small-only">Add a new recommendation <i class="fas fa-pencil-alt"></i></h1>
 <h2 class="hide-on-med-and-up">Add a new recommendation </h2>
 
 
@@ -10,7 +10,8 @@
     <form action="{{ url_for('add_recommendation') }}" class="col s12" id="add-new-form" method="POST">
         <div class="row">
             <div class="input-field col s12">
-                <i class="fas fa-images prefix  tooltipped" data-position="left" data-tooltip="Choose which type of image to display on your recommendation"></i>
+                <i class="fas fa-images prefix  tooltipped" data-position="left"
+                    data-tooltip="Choose which type of image to display on your recommendation"></i>
                 <!-- User select an image name from dropdown
                     The related url called upload_images in collection is inserted into the image url on receommendations 
                 -->
@@ -22,11 +23,12 @@
                 </select>
                 <label for="image_name">Image</label>
             </div>
-        </div>        
+        </div>
         <!-- title input field -->
         <div class="row">
             <div class="input-field col s12">
-                <i class="fas fa-info-circle prefix tooltipped" data-position="left" data-tooltip="Give your recommendation a title"></i>
+                <i class="fas fa-info-circle prefix tooltipped" data-position="left"
+                    data-tooltip="Give your recommendation a title"></i>
                 <textarea id="recommend-title" name="recommend-title" minlength="5" maxlength="200"
                     class="materialize-textarea validate" required></textarea>
                 <label for="recommend-title">Title</label>
@@ -35,7 +37,8 @@
         <!-- visitor input field -->
         <div class="row">
             <div class="input-field col s12">
-                <i class="fas fa-user-tag prefix  tooltipped" data-position="left" data-tooltip="Choose which type of visitor would enjoy it. If you're not sure, pick other"></i>
+                <i class="fas fa-user-tag prefix  tooltipped" data-position="left"
+                    data-tooltip="Choose which type of visitor would enjoy it. If you're not sure, pick other"></i>
                 <select name="visitor_type" id="visitor_type" class="validate" required>
                     <option value="" disable selected>Choose visitor type</option>
                     {% for visitor in visitor_type %}
@@ -48,20 +51,22 @@
         <!-- location input field -->
         <div class="row">
             <div class="input-field col s12">
-                <i class="fas fa-location-arrow prefix  tooltipped" data-position="left" data-tooltip="Pick the county in Ireland"></i>
+                <i class="fas fa-location-arrow prefix  tooltipped" data-position="left"
+                    data-tooltip="Pick the county in Ireland"></i>
                 <select id="location_name" name="location_name" class="validate" required>
                     <option value="" disabled selected>Choose county</option>
                     {% for location in locations %}
                     <option value="{{ location.location_name }}">{{ location.location_name }}</option>
                     {% endfor %}
                 </select>
-                <label for="location_name">Location</label>                
+                <label for="location_name">Location</label>
             </div>
         </div>
         <!-- details input field -->
         <div class="row">
             <div class="input-field col s12">
-                <i class="fas fa-comment prefix tooltipped" data-position="left" data-tooltip="Enter details of your recommendation"></i>
+                <i class="fas fa-comment prefix tooltipped" data-position="left"
+                    data-tooltip="Enter details of your recommendation"></i>
                 <textarea id="recommend-details" name="recommend-details" minlength="5" maxlength="200"
                     class="materialize-textarea validate" required></textarea>
                 <label for="recommend-details">Details</label>
@@ -69,17 +74,18 @@
         </div>
         <div class="row" id="add_new_btns">
             <div class="col s12 center-align">
-                <button class="btn tooltipped" data-position="bottom" data-tooltip="Click this button to upload your recommendation" type="submit" name="action">
-                   Add Recommendation
+                <button class="btn tooltipped" data-position="bottom"
+                    data-tooltip="Click this button to upload your recommendation" type="submit" name="action">
+                    Add Recommendation
                 </button>
-                <button type="button" class="btn tooltipped" data-position="bottom" 
+                <button type="button" class="btn tooltipped" data-position="bottom"
                     data-tooltip="This button will clear the form so you can start over" onclick="resetAddForm();">
                     Clear Form
                 </button>
             </div>
-        </div>      
+        </div>
     </form>
 </div>
 
-<script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script> 
+<script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
 {% endblock %}

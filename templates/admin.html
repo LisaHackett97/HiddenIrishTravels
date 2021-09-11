@@ -6,10 +6,10 @@ Function Admin -->
 <h1>Admin</h1>
 <div class="row">
 
-<a href="{{ url_for('upload')}}" class="btn col s8 offset-s2 admin-btns">Upload Image to Cloudinary Storage</a>
-<a href="{{ url_for('manage_form_details')}}" class="btn col s8 offset-s2 admin-btns">Manage Visitor and locations Details</a>
-<a href="{{ url_for('recommend_admin_delete') }}"class="btn col s8 offset-s2 admin-btns">Delete User Recommendations</a>
-<a href="{{ url_for('users_admin') }}" class="btn col s8 offset-s2 admin-btns">Delete User</a>
+<a href="{{ url_for('upload')}}" class="btn col s12 admin-btns">Upload Image to Cloudinary Storage</a>
+<a href="{{ url_for('manage_form_details')}}" class="btn col s12 admin-btns">Manage Visitor and locations Details</a>
+<a href="{{ url_for('recommend_admin_delete') }}"class="btn col col s12 admin-btns">Delete User Recommendations</a>
+<a href="{{ url_for('users_admin') }}" class="btn col s12 admin-btns">Delete User</a>
 
 </div>
 {% endblock %}
