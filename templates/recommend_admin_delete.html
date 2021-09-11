@@ -55,11 +55,9 @@
                             <p> <i class="fas fa-user-tag"> </i> {{ recommendation.visitor_type }}</p>
                             <p id="recommend-details-user"><i class="fas fa-comment"></i> {{ recommendation.details }}
                             </p>
-                            <hr>
-                            <p> Created By: {{ recommendation.created_by }}</p>
-                            <br>
+                            
                             <!-- Modal Trigger To ask User to confirm before deletion happens-->
-                            <a class="btn modal-trigger" href="#modal1">Delete</a>
+                           <a class="btn modal-trigger" href="#modal1">Delete</a>
                             <!-- Modal Structure for confirmation of delete-->
                             <div id="modal1" class="modal">
                                 <div class="modal-content">
@@ -71,6 +69,18 @@
                             </div>
                         </div>
                         <!-- closing card content div -->
+                        <div class="activator card-action">
+                            Click to see More <i class="fas fa-angle-double-right"></i>
+                        </div>
+                        <!-- Full recommendation revealed when user click -->
+                        <div class="card-reveal">
+                            <span class="card-title"><i class="far fa-times-circle right"></i><span><br>
+                                    <p> <i class="fas fa-comment"></i> {{ recommendation.details }}</p>
+                                    <p> Created By: <span>{{ recommendation.created_by }}</span></p>
+                                    <div class="card-title activator right" id="reveal-close">Close <i
+                                            class="far fa-times-circle"></i>
+                                    </div>
+                        </div>
                     </div>
                     <!-- closing card div -->
                 </div>
