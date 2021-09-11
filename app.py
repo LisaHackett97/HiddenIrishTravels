@@ -154,17 +154,17 @@ def add_recommendation():
             "location_name": request.form.get("location_name"),
             "details": request.form.get("recommend-details"),
             "created_by": session["user"],
-            "upload_img": request.form.get("upload_img")
+            "image_url": request.form.get("image_name")
         }
         mongo.db.recommendations.insert_one(recommendation)
         flash("Success. You have added a new recommendation!")
         return redirect(url_for("home"))
     locations = mongo.db.locations.find().sort("location_name", 1)
     visitor_type = mongo.db.visitor_type.find().sort("visitor_type", 1)
-    upload_image = mongo.db.images.find().sort("upload_image", 1)
+    image_url = mongo.db.images.find().sort("image_name", 1)
     return render_template(
         "add_recommendation.html",
-        visitor_type=visitor_type, locations=locations, upload_image=upload_image)
+        visitor_type=visitor_type, locations=locations, image_name=image_url)
 
 
 # get images
@@ -181,9 +181,9 @@ def images():
 #     return render_template("home.html", recommendations=recommendations)
 
 
-def home():
-    recommendations = list(mongo.db.recommendations.find())
-    return render_template("home.html", recommendations=recommendations)
+# def home():
+#     recommendations = list(mongo.db.recommendations.find())
+#     return render_template("home.html", recommendations=recommendations)
 
 # user edit their own recommendation
 @app.route("/edit_recommendations/<recommendation_id>",
