@@ -166,25 +166,6 @@ def add_recommendation():
         "add_recommendation.html",
         visitor_type=visitor_type, locations=locations, image_name=image_url)
 
-
-# get images
-@app.route("/images")
-def images():
-    images = list(mongo.db.images.find())
-    return render_template("images.html", images=images)
-
-    #  mongo.db.locations.find({"_id": ObjectId(location_id)}
-
-
-# def home():
-#     recommendations = list(mongo.db.recommendations.find())
-#     return render_template("home.html", recommendations=recommendations)
-
-
-# def home():
-#     recommendations = list(mongo.db.recommendations.find())
-#     return render_template("home.html", recommendations=recommendations)
-
 # user edit their own recommendation
 @app.route("/edit_recommendations/<recommendation_id>",
         methods=["GET", "POST"])
@@ -267,6 +248,7 @@ def add_field_details():
 @app.route("/add_location", methods=["GET", "POST"])
 def add_location():
     if request.method == "POST":
+        
         location = {
             "location_name": request.form.get("location_name")
         }
@@ -279,14 +261,23 @@ def add_location():
 # Add a new visitor type. Update dropdown list on recommendation form
 @app.route("/add_visitor_details", methods=["GET", "POST"])
 def add_visitor_details():
+    
     if request.method == "POST":
-        visitor = {
-            "visitor_type": request.form.get("visitor_type")
-        }
+        # Check if data entered already exists in visitor collection
+        visitor_check = mongo.db.visitor_type.find_one({"visitor_type": request.form.get("visitor_type")})
+        # Flash a message if data already in db
+        if visitor_check:
+            flash("Visitor Type already exists")
+            return render_template("add_field_details.html")        
+        # If data is new, add to the db collection
+        visitor = {"visitor_type": request.form.get("visitor_type")}
         mongo.db.visitor_type.insert_one(visitor)
-        flash("new visitor added")
-        return redirect(url_for("add_location"))
+        # flash("New Visitor Type added")
+        flash("Successfully added, {}".format(request.form.get("visitor_type")))
+        return redirect(url_for("add_visitor_details"))
+        
     return render_template("add_field_details.html")
+
 
 
 # Edit visitor types that user can select from
