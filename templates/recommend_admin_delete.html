@@ -5,33 +5,34 @@
 
 <a href="{{ url_for('admin') }}" class="btn-flat">Back to Admin Page</a>
 
-<div class="row center-align">    
-       <button id="home-search-button"><i class="fas fa-search"></i></button>
-       <div class="row center-align" id="clear-search">
-        <a href="{{ url_for('user_page', username=session['user'])}}" class="btn page-btn"> <i class="fas fa-times"></i> Clear Search</a>
+<div class="row center-align">
+    <button id="home-search-button"><i class="fas fa-search"></i></button>
+    <div class="row center-align" id="clear-search">
+        <a href="{{ url_for('user_page', username=session['user'])}}" class="btn page-btn"> <i class="fas fa-times"></i>
+            Clear Search</a>
     </div>
 </div>
 <!-- search --->
 <div class="container search-container">
     <div class="row card-panel search-card">
-    <form action="{{ url_for('search') }}" method="POST" class="col s12" id="search-form">
+        <form action="{{ url_for('search') }}" method="POST" class="col s12" id="search-form">
 
-        <div class="row valign-wrapper center-align">
-            <!-- <div class="row"> -->
-            <div class="input-field col s8" id="search-input">
-                <input type="text" name="query" id="query" required class="validate">
-                <label for="query">Search here</label>
-            </div>
-            <div class="row">
-                <div class="col s12">
-                    <button type="submit" class="btn-small text-shadow center search-action-btn">
-                        <i class="fas fa-search left hide-on-small-only"></i> Search
-                    </button>                      
+            <div class="row valign-wrapper center-align">
+                <!-- <div class="row"> -->
+                <div class="input-field col s8" id="search-input">
+                    <input type="text" name="query" id="query" required class="validate">
+                    <label for="query">Search here</label>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <button type="submit" class="btn-small text-shadow center search-action-btn">
+                            <i class="fas fa-search left hide-on-small-only"></i> Search
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
-</div>
+        </form>
+    </div>
 </div>
 <!-- end of search container -->
 <!-- section to display current users -->
@@ -55,15 +56,15 @@
                             <p> <i class="fas fa-user-tag"> </i> {{ recommendation.visitor_type }}</p>
                             <p id="recommend-details-user"><i class="fas fa-comment"></i> {{ recommendation.details }}
                             </p>
-                            
+
                             <!-- Modal Trigger To ask User to confirm before deletion happens-->
-                           <a class="btn modal-trigger" href="#modal1">Delete</a>
+                            <a class="btn modal-trigger" href="#modal1">Delete</a>
                             <!-- Modal Structure for confirmation of delete-->
                             <div id="modal1" class="modal">
                                 <div class="modal-content">
-                                    <a href="{{ url_for('users_admin') }}" class="modal-close btn-flat">Dismiss </a>
-                                   
-                                        <a href="{{ url_for('delete_recommendation', recommendation_id=recommendation._id) }}"
+                                    <a href="{{ url_for('recommend_admin_delete') }}"
+                                        class="modal-close btn-flat">Dismiss </a>
+                                    <a href="{{ url_for('delete_recommendation', recommendation_id=recommendation._id) }}"
                                         class="modal-close btn-flat">Confirm Deletion</a>
                                 </div>
                             </div>
