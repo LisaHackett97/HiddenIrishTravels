@@ -1,11 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!-- 
+Page for admin user to the page to access forms 
+and can to add new details to the categories for dropdown lists
+-->
 <h1>Add a new field <i class="fas fa-pencil-alt hide-on-small-only"></i></h1>
+
+<a href="{{ url_for('admin') }}" class="btn-flat">Back to Admin Page</a>
 
 <div class="row card-panel">
     <form action="{{ url_for('add_visitor_details') }}" class="col s12" method="POST" id="newvisitor">
-        <!-- visitor input field -->
+        <!-- 
+        Visitor input field 
+        Admin user can add a new Visitor type for users to choose from
+        -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-user-tag prefix"></i>
@@ -13,17 +22,20 @@
                 <label for="visitor_type">Visitor Type</label>
             </div>
         </div>
+        <!-- buttons to submit new or clear what had been typed in the input box -->
         <div class="row add_new_btns">
             <div class="col s12 center-align">
-                <button class="btn" type="submit" name="action">
+                <button class="btn col s5 offset-s1" type="submit" name="action">
                     Add visitor Type
                 </button>
-                <button type="button" class="btn" onclick="resetAddForm();">Clear Form</button>
+                <button type="button" class="btn col s5" onclick="resetAddForm();">
+                    Clear Form
+                </button>
             </div>
         </div>
-        </form>
-
-        <form action="{{ url_for('add_location') }}" class="col s12" method="POST" id="newlocation">
+    </form>
+    <!-- Admin user can add a new location name for users to choose from -->
+    <form action="{{ url_for('add_location') }}" class="col s12" method="POST" id="newlocation">
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-user-tag prefix"></i>
@@ -31,18 +43,18 @@
                 <label for="location_name">Location Name</label>
             </div>
         </div>
+        <!-- buttons to submit new or clear what had been typed in the input box -->
         <div class="row add_new_btns">
             <div class="col s12 center-align">
-                <button class="btn" type="submit" name="action">
-                    Add New Location
+
+                <button class="btn col s5 offset-s1" type="submit" name="action">
+                    Add Location
                 </button>
-                <button type="button" class="btn" onclick="resetAddForm();">Clear Form</button>
+                <button type="button" class="btn col s5" onclick="resetAddForm();">
+                    Clear Form
+                </button>
             </div>
         </div>
-
-
-        </button>
-
     </form>
 </div>
 {% endblock %}

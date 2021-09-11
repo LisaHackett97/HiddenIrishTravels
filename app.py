@@ -241,8 +241,8 @@ def admin():
 
 # Admin- to display visitor type and location names from db
 # From this page, admin will then be able to edit or delete field details
-@app.route("/manage_form_fields")
-def manage_form_fields():
+@app.route("/manage_form_details")
+def manage_form_details():
     user = mongo.db.users.find_one({"username": session["user"]})
     if user["is_admin"]:
         fields = list(mongo.db.visitor_type.find().sort("visitor_type", 1))
@@ -298,7 +298,7 @@ def edit_visitor_type(visitor_id):
         }
         mongo.db.visitor_type.update({"_id": ObjectId(visitor_id)}, v_submit)
         flash("Update Successful")
-        return redirect(url_for("manage_form_fields"))
+        return redirect(url_for("manage_form_details"))
     visitor = mongo.db.visitor_type.find_one({"_id": ObjectId(visitor_id)})
     return render_template("edit_visitor_type.html", visitor=visitor)
 
@@ -311,7 +311,7 @@ def edit_location(location_id):
             "location_name": request.form.get("location_name")}
         mongo.db.locations.update({"_id": ObjectId(location_id)}, l_submit)
         flash("Update Successful")
-        return redirect(url_for("manage_form_fields"))
+        return redirect(url_for("manage_form_details"))
     location = mongo.db.locations.find_one({"_id": ObjectId(location_id)})
     return render_template("edit_location.html", location=location)
 
@@ -323,7 +323,7 @@ def delete_visitor_type(visitor_id):
     if user["is_admin"]:
         mongo.db.visitor_type.remove({"_id": ObjectId(visitor_id)})
         flash("Visitor type deletion successful!")
-        return redirect(url_for("manage_form_fields"))
+        return redirect(url_for("manage_form_details"))
     else:
         flash("You are not authorized to perform this action")
         return redirect(url_for("home"))
@@ -336,7 +336,7 @@ def delete_location(location_id):
     if user["is_admin"]:
         mongo.db.locations.remove({"_id": ObjectId(location_id)})
         flash("Location Deleted!")
-        return redirect(url_for("manage_form_fields"))
+        return redirect(url_for("manage_form_details"))
     else:
         flash("You are not authorized to perform this action")
         return redirect(url_for("home"))
