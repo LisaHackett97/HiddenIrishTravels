@@ -166,6 +166,10 @@ margin: 10px;
   width:45vw;
 }
 
+.input-field {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
 /* change bg color on forms to distinguish */
 #newlocation {
   background-color: #dce1e233
@@ -245,7 +249,11 @@ color:var(--main-text-color)
 
 .fas, .far {
   color: #169B62;
-}
+ }
+
+ /* to target icons set as prefixs on input fields */
+.input-field .prefix{
+font-size: 1.5rem;}
 
 .fa-times-circle:hover{
   color: var(--decoration2);

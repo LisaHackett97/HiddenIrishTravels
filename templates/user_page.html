@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 <!-- This page is for logged in users to view/search their own uploaded receommendations -->
-<h1 class="center-align"> {{ username }}</h1>
+<h1 class="center-align"> {{ username }}'s page</h1>
 
-<h2 class="center-align">Your Recommendations </h2>
+<!-- <h2 class="center-align">Your Recommendations </h2> -->
 {% if session.user %}
 <a href="{{ url_for('home')}}" class="btn col s6 page-btn">Home <i class="fas fa-home"></i></a>
 
