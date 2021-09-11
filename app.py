@@ -272,7 +272,7 @@ def add_location():
         }
         mongo.db.locations.insert_one(location)
         flash("new location added")
-        return redirect(url_for("manage_form_fields"))
+        return redirect(url_for("add_location"))
     return render_template("add_field_details.html")
 
 
@@ -285,7 +285,7 @@ def add_visitor_details():
         }
         mongo.db.visitor_type.insert_one(visitor)
         flash("new visitor added")
-        return redirect(url_for("manage_form_fields"))
+        return redirect(url_for("add_location"))
     return render_template("add_field_details.html")
 
 
