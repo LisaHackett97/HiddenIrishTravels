@@ -185,6 +185,7 @@ button.btn.tooltipped {
   font-weight: bold;
   font-family: 'Poppins', sans-serif;
   font-size: 12px;
+
 }
 /* buttons within search box Home and user pages */
 #search-action,
@@ -192,7 +193,7 @@ button.btn.tooltipped {
   margin-top: 25px;}
 
 
-#home-search-button, 
+#home-search-button
 {
   font-size: 35px;
   border:none;
