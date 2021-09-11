@@ -248,20 +248,26 @@ def add_field_details():
 @app.route("/add_location", methods=["GET", "POST"])
 def add_location():
     if request.method == "POST":
-        
+        # Check if data entered already exists in locations collection
+        location_check = mongo.db.locations.find_one({"location_name": request.form.get("location_name")})
+        # Flash a message if data already in db
+        if location_check:
+            flash("Location already exists in the DB")
+            return render_template("add_field_details.html")        
+        # If data is new, add to the db collection
+       
         location = {
             "location_name": request.form.get("location_name")
         }
         mongo.db.locations.insert_one(location)
-        flash("new location added")
+        flash("Successfully added {} to the DB".format(request.form.get("location_name")))
         return redirect(url_for("add_location"))
     return render_template("add_field_details.html")
 
 
 # Add a new visitor type. Update dropdown list on recommendation form
 @app.route("/add_visitor_details", methods=["GET", "POST"])
-def add_visitor_details():
-    
+def add_visitor_details():    
     if request.method == "POST":
         # Check if data entered already exists in visitor collection
         visitor_check = mongo.db.visitor_type.find_one({"visitor_type": request.form.get("visitor_type")})
@@ -272,12 +278,10 @@ def add_visitor_details():
         # If data is new, add to the db collection
         visitor = {"visitor_type": request.form.get("visitor_type")}
         mongo.db.visitor_type.insert_one(visitor)
-        # flash("New Visitor Type added")
-        flash("Successfully added, {}".format(request.form.get("visitor_type")))
+        flash("Successfully added, {} to the DB".format(request.form.get("visitor_type")))
         return redirect(url_for("add_visitor_details"))
-        
-    return render_template("add_field_details.html")
 
+    return render_template("add_field_details.html")
 
 
 # Edit visitor types that user can select from
