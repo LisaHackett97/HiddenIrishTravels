@@ -78,7 +78,7 @@ footer, .nav-wrapper {
 
 /* Recommendation Cards */
 .card {
-  border-radius: 5%;
+  border-radius: 1%;
 }
 
 .card.medium .card-image+.card-content {
@@ -175,6 +175,14 @@ action buttons on add new field */
   margin-bottom: 0.5rem;
 }
 
+/* to change bg color of card div on user pg
+for a visual to user, that this is a different pg to Home
+use hex value for decoration2, then color pick to adjust
+*/
+#table{
+  background-color: #d9e9ee7a;
+}
+
 
 /* change bg color on forms to distinguish */
 #newlocation {
@@ -183,6 +191,11 @@ action buttons on add new field */
 #newvisitor{
   background-color: #c9d7db79
 }
+
+.form-sections{
+  background-color: #ffffff;
+}
+
 /* Other buttons across the site */
 .btn, .btn-small{
   color: var(--main-text-color);

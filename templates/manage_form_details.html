@@ -14,7 +14,9 @@
     </a>
   </div>
 </div>
+
 <!-- section to display current visitor types -->
+<section class="form-sections">
 <div class="row">
   <!-- 
       header for visitor type with plus minus icon to open/close the collection
@@ -42,7 +44,7 @@
       <div id="{{ visitor._id}}delete-confirm" class="modal">
         <div class="modal-content">
                  <a href="{{ url_for('manage_form_details') }}" class="modal-close btn-flat">Dismiss </a>
-          <a href="{{ url_for('delete_visitor', visitor_id=visitor._id) }}" class="btn-small green accent-4">Confirm delete</a>
+          <a href="{{ url_for('delete_visitor', visitor_id=visitor._id) }}" class="btn-small">Confirm delete</a>
         </div>
       </div>
       {% endfor %}
@@ -50,6 +52,9 @@
   </table>
 
 </div>
+</section>
+
+<section class="form-sections">
 <div class="row">
   <!-- 
       header for location with plus minus icon to open/close the collection
@@ -60,7 +65,8 @@
       <i class="fas fa-minus-circle"></i>
     </span>
   </h6>
-  <!-- layout of data change to table. More even layout then the materialize collections -->
+  <!-- layout of data change to table. More even layout then the materialize collections 
+  id attached to table. Targetd with jquery to show/hide details -->
   <table id="location-collection">
     <tbody>
       {% for location in locations %}
@@ -82,5 +88,6 @@
     </tbody>
   </table>
 </div>
+</section>
 
 {% endblock %}
