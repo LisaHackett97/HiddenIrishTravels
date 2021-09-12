@@ -75,10 +75,14 @@
                         <!-- Modal Structure -->
                         <div id="modal1" class="modal">
                             <div class="modal-content">
+                                <p>Are you sure?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="{{ url_for('delete_recommendation', recommendation_id=recommendation._id) }}"
+                                    class="modal-action modal-close btn-flat">Confirm Deletion</a>
                                 <a href="{{ url_for('user_page', username=session['user'])}}!"
                                     class="modal-close btn-flat">Dismiss </a>
-                                <a href="{{ url_for('delete_recommendation', recommendation_id=recommendation._id) }}"
-                                    class="modal-close btn-flat">Confirm Deletion</a>
+                                
                             </div>
                         </div>
                         {% endif %}
