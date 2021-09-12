@@ -10,9 +10,7 @@ from datetime import datetime
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-# import logging
 from dotenv import load_dotenv
-from cloudinary.utils import cloudinary_url
 if os.path.exists("env.py"):
     import env
 
@@ -26,29 +24,21 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-# logging.basicConfig(level=logging.DEBUG)
-# # verify cloud
-# app.logger.info('%s', os.getenv('CLOUD_NAME'))
 
-
-# Follow this tutorial on https://cloudinary.com/blog/creating_an_api_with_python_flask_to_upload_files_to_cloudinary
-# Tutorial linked to https://github.com/rebeccapeltz/flask-cld-upload/blob/master/app.py
+# Follow this tutorial on cloudinary.com
+# Link in credits section of README
 # Link to Admin Page Only. future feature for user to upload own image
 @app.route("/upload", methods=["GET", "POST"])
 @cross_origin()
 def upload():
-    app.logger.info('in upload route')
     cloudinary.config(
         cloud_name=os.getenv('CLOUD_NAME'), api_key=os.getenv('API_KEY'),
-    api_secret=os.getenv('API_SECRET'))
+        api_secret=os.getenv('API_SECRET'))
     upload_result = None
     if request.method == 'POST':
         file_to_upload = request.files['file']
-        # app.logger.info('%s file_to_upload', file_to_upload)
         if file_to_upload:
             upload_result = cloudinary.uploader.upload(file_to_upload)
-            # app.logger.info(upload_result)
-            # app.logger.info(type(upload_result))
         flash("Success")
         return jsonify(upload_result)
     return render_template("upload.html")
@@ -78,7 +68,8 @@ def search_user_page():
     query = request.form.get("query")
     recommendations = list(mongo.db.recommendations.find(
         {"$text": {"$search": query}}))
-    return render_template("user_page.html", recommendations=recommendations, username=username)
+    return render_template(
+        "user_page.html", recommendations=recommendations, username=username)
 
 
 # Access session user page
@@ -87,19 +78,21 @@ def user_page(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     recommendations = list(mongo.db.recommendations.find())
-
     if session["user"]:
         return render_template(
             "user_page.html",
             username=username, recommendations=recommendations)
 
 
+# user login route
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        # Check is user exists in db.
-        # Look in users collection for key of username
-        # Value is the data from the user input
+        """
+        Check if user exists in db.
+        Look in users collection for key of username
+        Value is the data from the user input
+        """
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
         # check if existing user variable found a match in db
@@ -107,10 +100,10 @@ def login():
         if existing_user:
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
-                session["user"] = request.form.get("username").lower()
-                flash("welcome, {}".format(request.form.get("username")))
-                return redirect(url_for(
-                    "user_page", username=session['user']))
+                    session["user"] = request.form.get("username").lower()
+                    flash("welcome, {}".format(request.form.get("username")))
+                    return redirect(url_for(
+                        "user_page", username=session['user']))
             else:
                 # invald password
                 flash("incorrect Username and/password")
@@ -142,7 +135,6 @@ def registration():
         session['user'] = request.form.get("username").lower()
         flash("Congratulations. You have been registered")
         return redirect(url_for("user_page", username=session["user"]))
-
     return render_template("registration.html")
 
 
@@ -168,9 +160,10 @@ def add_recommendation():
         "add_recommendation.html",
         visitor_type=visitor_type, locations=locations, image_name=image_url)
 
+
 # user edit their own recommendation
 @app.route("/edit_recommendations/<recommendation_id>",
-        methods=["GET", "POST"])
+            methods=["GET", "POST"])
 def edit_recommendations(recommendation_id):
     if request.method == "POST":
         submit = {
@@ -194,9 +187,13 @@ def edit_recommendations(recommendation_id):
         visitor_type=visitor_type, locations=locations,  image_name=image_url)
 
 
-# user delete their own recommendation
-# admin delete any user recommendation
-# if is_admin is tru, redirect to admin page. If not, back to the user page
+"""
+user can delete their own recommendation
+admin can delete any user recommendation
+if is_admin is true, redirect to admin page. If not, back to the user page
+"""
+
+
 @app.route("/delete_recommendation/<recommendation_id>")
 def delete_recommendation(recommendation_id):
     mongo.db.recommendations.remove({"_id": ObjectId(recommendation_id)})
@@ -253,37 +250,40 @@ def add_field_details():
 def add_location():
     if request.method == "POST":
         # Check if data entered already exists in locations collection
-        location_check = mongo.db.locations.find_one({"location_name": request.form.get("location_name")})
+        location_check = mongo.db.locations.find_one(
+            {"location_name": request.form.get("location_name")})
         # Flash a message if data already in db
         if location_check:
             flash("Location already exists in the DB")
-            return render_template("add_field_details.html")        
+            return render_template("add_field_details.html")
         # If data is new, add to the db collection
         location = {
             "location_name": request.form.get("location_name")
         }
         mongo.db.locations.insert_one(location)
-        flash("Successfully added {} to the DB".format(request.form.get("location_name")))
+        flash("Successfully added {} to the DB".format(
+            request.form.get("location_name")))
         return redirect(url_for("add_location"))
     return render_template("add_field_details.html")
 
 
 # Add a new visitor type. Update dropdown list on recommendation form
 @app.route("/add_visitor_details", methods=["GET", "POST"])
-def add_visitor_details():    
+def add_visitor_details():
     if request.method == "POST":
         # Check if data entered already exists in visitor collection
-        visitor_check = mongo.db.visitor_type.find_one({"visitor_type": request.form.get("visitor_type")})
+        visitor_check = mongo.db.visitor_type.find_one(
+            {"visitor_type": request.form.get("visitor_type")})
         # Flash a message if data already in db
         if visitor_check:
             flash("Visitor Type already exists")
-            return render_template("add_field_details.html")        
+            return render_template("add_field_details.html")
         # If data is new, add to the db collection
         visitor = {"visitor_type": request.form.get("visitor_type")}
         mongo.db.visitor_type.insert_one(visitor)
-        flash("Successfully added, {} to the DB".format(request.form.get("visitor_type")))
+        flash("Successfully added, {} to the DB".format(
+            request.form.get("visitor_type")))
         return redirect(url_for("add_visitor_details"))
-
     return render_template("add_field_details.html")
 
 
@@ -383,11 +383,14 @@ def recommend_admin_delete():
         return redirect(url_for("home"))
 
 
-# Admin Delete function
-# This is access through the overall delete recommendation,
-# with the if else check_password_hash
-# No further code needed for admin section
-#
+"""
+Admin Delete function is not located on this section of code.
+It is accessed through the overall delete recommendation,
+with the if else check on admin
+No further code needed for admin section
+"""
+
+
 # User logout
 @app.route("/logout")
 def logout():
