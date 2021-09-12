@@ -18,6 +18,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background-color: var(--decoration2);
 }
 
 main {
@@ -128,7 +129,9 @@ appearing on card reveal. Close and icon
 .card-image  { 
   height: 35%;
   object-fit: contain;
-  border-radius: 5%;
+  border-radius: 9%;
+  padding: 4px 4px 0 4px;
+ 
 }
 
 .card .card-reveal{
@@ -203,7 +206,7 @@ action buttons on add new field */
   font-family: 'Poppins', sans-serif;
   font-size: 35px;
   border:none;
-  background-color: white;
+  /* background-color: white; */
 }
 
 #home-search-button > .fa-search:hover{
