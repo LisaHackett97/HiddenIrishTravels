@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Use the form to get in touch</h1>
+
+<p>Fill in your email and details of your query </p>
+
+<div class="col s-12">
+<form onsubmit="return sendMail(this);" method="POST" id="contact-form"
+    name="form">
+    <fieldset id="field-set">
+        <legend>
+            Send us your query:
+        </legend>
+        <!--required details section on form-->
+        <label for="name" class="details-labels">Name</label>
+        <input type="text" name="name" id="name" required placeholder="Name">
+        <br>
+        <label for="email" class="details-labels">Your email</label>
+        <input type="email" name="email" id="email" required placeholder="email address">
+        <!-- spacing before text area -->
+        <br>
+        <br>
+        
+        <!--text area for user to add more information. Closing textarea tag needs to be on same code line so placeholder text shows-->
+        <textarea name="message" placeholder="Send us your query!!"
+            aria-label="textarea for query details"></textarea>
+        <button class="btn form-button" type="submit" id="form-button">Send
+        </button>
+    </fieldset>
+</form>
+</div>
+
+<!-- This is pop up when an email is sent successfully -->
+<div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="modalSendMail" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modalSendMail">
+                Thanks You. Your email has been sent. <i class="fas fa-paper-plane"></i>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" data-dismiss="modal"
+                    onclick="clearForm(document.form.reset)">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+   <!-- scripts, email for emailjs -->
+   
+   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
+   </script>
+   <script>
+       (function () {
+           emailjs.init("user_he7TLqdOmlhFJWTWw6UUa");
+       })();
+   </script>
+   <!-- <script src="assets/js/email.js"></script> -->
+   <script src="{{ url_for('static', filename='js/email.js') }}"></script>
+
+{% endblock %}
