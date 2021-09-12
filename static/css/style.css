@@ -288,8 +288,13 @@ use hex value for decoration2, then color pick to adjust
   font-size: 14px;
 }
 
-.fas, .far {
+.fas, .far, .fab {
   color: #169B62;
+ }
+
+ .fab {
+   font-size: 30px;
+   padding: 10px;
  }
 
  /* to target icons set as prefixs on input fields */
