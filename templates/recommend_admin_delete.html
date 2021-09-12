@@ -57,10 +57,10 @@
                             <p id="recommend-details-user"><i class="fas fa-comment"></i> {{ recommendation.details }}
                             </p>
 
-                            <!-- Modal Trigger To ask User to confirm before deletion happens-->
-                            <a class="btn modal-trigger" href="#modal1">Delete</a>
+                                  <!-- Modal Trigger To ask User to confirm before deletion happens-->
+                            <a class="btn modal-trigger" href="#{{ recommendation._id }}delete-confirmation">Delete</a>
                             <!-- Modal Structure for confirmation of delete-->
-                            <div id="modal1" class="modal">
+                            <div id="{{ recommendation._id }}delete-confirmation" class="modal">
                                 <div class="modal-content">
                                     <a href="{{ url_for('recommend_admin_delete') }}"
                                         class="modal-close btn-flat">Dismiss </a>

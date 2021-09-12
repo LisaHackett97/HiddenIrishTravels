@@ -242,7 +242,7 @@ def manage_form_details():
 
 
 # To bring admin user to the page to access forms
-# to add new details to the categories for dropdown lists
+# where they can then add new details to the categories for dropdown lists
 @app.route("/add_field_details")
 def add_field_details():
     return render_template("add_field_details.html")
@@ -259,7 +259,6 @@ def add_location():
             flash("Location already exists in the DB")
             return render_template("add_field_details.html")        
         # If data is new, add to the db collection
-       
         location = {
             "location_name": request.form.get("location_name")
         }
@@ -315,17 +314,12 @@ def edit_location(location_id):
     return render_template("edit_location.html", location=location)
 
 
-# Delete a visitor type -> Admin task
-@app.route("/delete_visitor_type/<visitor_id>")
-def delete_visitor_type(visitor_id):
-    user = mongo.db.users.find_one({"username": session["user"]})
-    if user["is_admin"]:
-        mongo.db.visitor_type.remove({"_id": ObjectId(visitor_id)})
-        flash("Visitor type deletion successful!")
-        return redirect(url_for("manage_form_details"))
-    else:
-        flash("You are not authorized to perform this action")
-        return redirect(url_for("home"))
+# Admin function to delete a visitor type in the  selection user can choose
+@app.route("/delete_visitor/<visitor_id>")
+def delete_visitor(visitor_id):
+    mongo.db.visitor_type.remove({"_id": ObjectId(visitor_id)})
+    flash("Deletion Successful")
+    return redirect(url_for("manage_form_details"))
 
 
 # Delete a location -> Admin task
