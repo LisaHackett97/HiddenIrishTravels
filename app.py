@@ -316,16 +316,24 @@ def edit_location(location_id):
 
 
 # Delete a visitor type -> Admin task
-@app.route("/delete_visitor_type/<visitor_id>")
-def delete_visitor_type(visitor_id):
-    user = mongo.db.users.find_one({"username": session["user"]})
-    if user["is_admin"]:
-        mongo.db.visitor_type.remove({"_id": ObjectId(visitor_id)})
-        flash("Visitor type deletion successful!")
-        return redirect(url_for("manage_form_details"))
-    else:
-        flash("You are not authorized to perform this action")
-        return redirect(url_for("home"))
+# @app.route("/delete_visitor_type/<visitor_id>")
+# def delete_visitor_type(visitor_id):
+#     # user = mongo.db.users.find_one({"username": session["user"]})
+#     user = mongo.db.users.find_one({"username": session["user"]})
+#     if user["is_admin"]:
+#         mongo.db.visitor_type.remove({"_id": ObjectId(visitor_id)})
+#         flash("Visitor type deletion successful!")
+#         return redirect(url_for("manage_form_details"))
+#     else:
+#         flash("You are not authorized to perform this action")
+#         return redirect(url_for("home"))
+
+@app.route("/delete_visitor/<visitor_id>")
+def delete_visitor(visitor_id):
+    mongo.db.visitor_type.remove({"_id": ObjectId(visitor_id)})
+    flash("Task Successfully Deleted")
+    return redirect(url_for("manage_form_details"))
+
 
 
 # Delete a location -> Admin task
