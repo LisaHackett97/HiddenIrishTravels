@@ -18,6 +18,8 @@
 
 <body>
 
+  
+  
   <header>
     <!-- Materialize nav bar-->
     <!-- Dropdown Structure for logged in users -->
@@ -85,7 +87,9 @@
       <li><a href="{{ url_for('registration')}}">Register</a></li>
       {% endif %}
     </ul>
+    
   </header>
+
 
   <section>
     <!-- flash messages -->
@@ -102,8 +106,14 @@
 
   <main class="container">
     {% block content %}
+
+
     {% endblock %}
+    
+   
   </main>
+
+
 
   <button onclick="topFunction()" id="backToTopBtn" title="Go to top"><i class="fas fa-angle-double-up"></i></button>
 

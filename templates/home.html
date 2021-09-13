@@ -1,11 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 
+<div class="container-fluid"><div class="scroll-1">
+       
+</div>
+</div>
+        <h1 class="hide-on-small-only">Welcome to Hidden Irish Travels</h1>
+        <h2 class="hide-on-med-and-up">Welcome to Hidden Irish Travels</h2>
+   
 <!-- Show title as smaller h2 for mobiles -->
-<h1 class="hide-on-small-only">Welcome to Hidden Irish Travels</h1>
-<h2 class="hide-on-med-and-up">Welcome to Hidden Irish Travels</h2>
 
-
+     
 <!-- Link to bring user to their page -->
 {% if session.user %}
 <a href="{{ url_for('user_page', username=session['user'])}}" class="btn col s6 page-btn">Your page <i class="far fa-user-circle"></i></a>

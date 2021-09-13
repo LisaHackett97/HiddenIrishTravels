@@ -13,6 +13,11 @@ font-family: 'Poppins', sans-serif; */
   
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 /* flex setting in order to fix footer, per materialize docs */
 body {
   display: flex;
@@ -48,6 +53,22 @@ p{
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
 }
+
+
+/* images on home page set as background images in order for parallax type scrolling to work */
+/* geeksforGeeks tutorial for help */
+.scroll-1 {
+  width: 100%;
+            height: 75vh;
+            background: url(../images/hero-lake-img.jpg);
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            position:relative;
+            object-fit: contain;
+
+}
+
 
 td {
   width: 50vw;
@@ -359,3 +380,5 @@ textarea{
 .details-labels{
   width: 2rem;
 }
+
+

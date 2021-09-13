@@ -15,7 +15,8 @@ $(document).ready(function () {
     $('.collapsible').collapsible();
     $(".tooltipped").tooltip();
     $('.modal').modal();
-    $("select").formSelect(); 
+    $("select").formSelect();
+    $('.parallax').parallax(); 
     $('#location-collection').hide();
     $('#visitor-collection').hide();
     $("#location-view-btn").click(function () {
@@ -30,7 +31,7 @@ $(document).ready(function () {
     $("#home-search-button").click(function(){
         $(".search-container").toggle(); 
             })
-  
+           
        // jQuery Select validation from the Code Institute task manager mini-project
        validateMaterializeSelect();
        function validateMaterializeSelect() {
