@@ -328,8 +328,10 @@ font-size: 1.5rem;}
 .nav-wrapper img {
   margin-left: 25px;
   padding-bottom: 0;
-  padding-top: 10px;
+  padding-top: 2px;
 }
+
+
 /* 
 Code for back to top icon from a tutorial
 https://www.w3schools.com/howto/howto_js_scroll_to_top.asp */
