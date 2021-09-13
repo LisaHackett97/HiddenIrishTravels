@@ -1,15 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-<a href="{{ url_for('admin') }}" class="btn-flat">Back to Admin Page</a>
+
 
 <!-- This is page for Admin only, who will also have access to the Cloudinary and mongodb accounts -->
 <!-- // Upload widget from Cloudinary docs -->
 <h1>Upload Page</h1>
-
+<a href="{{ url_for('admin') }}" class="btn-flat" id="back-admin">Back to Admin Page</a>
+<br>
 <p> Once image is uploaded in cloudinary, copy the url. <br>
     In the images collection in Mongo, insert a new document,
     image_name: add a name related to the image. This is what the user will see when selecting an image to use. 
 For upload_image field, you will add the url from cloudinary
+
 
 <div class="row center-align">
 
