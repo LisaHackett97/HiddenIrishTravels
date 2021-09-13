@@ -414,3 +414,12 @@ https://www.w3schools.com/howto/howto_js_scroll_to_top.asp */
   position: relative;
   object-fit: contain;
 }
+
+#error404-bg {
+
+  background: url(../images/404-bg.jpg) no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  width:100vw;
+  float:left;
+}
