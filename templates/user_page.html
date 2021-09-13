@@ -74,10 +74,10 @@
                         <a href="{{ url_for('edit_recommendations', recommendation_id=recommendation._id) }}"
                             class="btn">Edit</a>
                         <!-- Modal Trigger To ask User to confirm before deletion happens-->
-                        <a class="btn modal-trigger" href="#modal1">Delete</a>
+                        <a class="btn modal-trigger" href="#{{ recommendation._id }}delete-confirmation">Delete</a>
 
                         <!-- Modal Structure -->
-                        <div id="modal1" class="modal">
+                        <div id="{{ recommendation._id }}delete-confirmation" class="modal">
                             <div class="modal-content">
                                 <p>Are you sure?</p>
                             </div>
