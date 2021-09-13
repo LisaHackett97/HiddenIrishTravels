@@ -131,12 +131,14 @@ function topFunction() {
 }
 
 // Upload widget from Cloudinary docs
+// image success info is sent to the console log per the docs
+// admin can access this here
 var myWidget = cloudinary.createUploadWidget({
   cloudName: 'dc9rijkkz', 
   uploadPreset: 'mcuus0xs'}, (error, result) => { 
-    // if (!error && result && result.event === "success") { 
-      
-    // }
+    if (!error && result && result.event === "success") { 
+      console.log('Done! Here is the image info: ', result.info); 
+    }
   }
 )
 document.getElementById("upload_widget").addEventListener("click", function(){
