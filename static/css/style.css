@@ -7,7 +7,7 @@
   --irish-green: #169B62;
   --decoration1: #83C5BE;
   --decoration2: #EDF6F9;
-  
+
 }
 
 html {
@@ -20,59 +20,49 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background: linear-gradient(  #169b6111, rgba(161, 204, 186, 0.5) );}
- 
+  background: linear-gradient(#169b6111, rgba(161, 204, 186, 0.5));
+}
+
 
 main {
   flex: 1 0 auto;
 }
 
-h1{
+h1 {
   color: var(--irish-green);
   font-family: 'Hind', sans-serif;
   font-size: 45px;
   text-align: center;
- 
+
 }
 
-h2{
+h2 {
   color: var(--irish-green);
   font-family: 'Hind', sans-serif;
   font-size: 35px;
   text-align: center;
 }
-h6{
+
+h6 {
   font-family: 'Hind', sans-serif;
   font-weight: bold;
 
 }
-p{
+
+p {
   color: var(--main-text-color);
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
 }
 
-
-
 td {
   width: 50vw;
 }
 
-
-.field-type{
-  width: 50vw;
-}
-
-.field-option{
-  width:25vw ;
-}
-footer, .nav-wrapper {
-    background-color: #83C5BE;
-    color: #172A3A;
-}
-
-.dropdown-content  {
-  background-color: var(--decoration2);
+footer,
+.nav-wrapper {
+  background-color: #83C5BE;
+  color: #172A3A;
 }
 
 .flashes h5 {
@@ -81,29 +71,42 @@ footer, .nav-wrapper {
   line-height: 2;
 }
 
+/* recommendation card fields */
+.field-type {
+  width: 50vw;
+}
+
+.field-option {
+  width: 25vw;
+}
+
+.dropdown-content {
+  background-color: var(--decoration2);
+}
+
 /* Recommendation Cards */
 .card {
   border-radius: 1%;
 }
 
 .card.medium .card-image+.card-content {
-   max-height: 55%;
-   padding-bottom: 9px;
-   padding-top: 9px;
+  max-height: 55%;
+  padding-bottom: 9px;
+  padding-top: 9px;
 }
 
 /* action card on recommendation to click to reveal more */
-.card.medium .card-action{
-padding-top: 2px;
-padding-bottom:5px;
-color: var(--irish-green);
-font-size: 12.5px;
-font-family: 'Poppins', sans-serif;
+.card.medium .card-action {
+  padding-top: 2px;
+  padding-bottom: 5px;
+  color: var(--irish-green);
+  font-size: 12.5px;
+  font-family: 'Poppins', sans-serif;
 }
 
-.card-actions{
-height: 19px;
-position: absolute;
+.card-actions {
+  height: 19px;
+  position: absolute;
 }
 
 hr {
@@ -111,17 +114,17 @@ hr {
 }
 
 /* set height of title section on front card */
-#recommend-title{
- font-style: italic;
- font-size:14px;
- font-weight: bold;
- height: 30px;
- }
+#recommend-title {
+  font-style: italic;
+  font-size: 14px;
+  font-weight: bold;
+  height: 30px;
+}
 
 /* set height of details section on front card */
-#recommend-details-user{
-height:50px;
-overflow: hidden;
+#recommend-details-user {
+  height: 50px;
+  overflow: hidden;
 }
 
 /* to give spacing between title and content */
@@ -132,13 +135,13 @@ overflow: hidden;
 /* set img height to 100% of its container so that all imgs appear same size */
 img {
   height: 100%;
-  }
+}
 
-  /* 
+/* 
 give id to the close text on the card 
 seperate id needed to target just the text 
 */
-#reveal-close{
+#reveal-close {
   font-size: 20px;
 }
 
@@ -146,56 +149,54 @@ seperate id needed to target just the text
 set font style on card title
 appearing on card reveal. Close and icon 
 */
-.card-title{
- color: var(--irish-green);
- font-family: 'Hind', sans-serif;
+.card-title {
+  color: var(--irish-green);
+  font-family: 'Hind', sans-serif;
 }
 
 /* card image set to 35% height of card */
-.card-image  { 
+.card-image {
   height: 38%;
   object-fit: contain;
   border-radius: 9%;
   padding: 4px 4px 0 4px;
- 
 }
 
-.card .card-reveal{
-  background-color:#a9d3c1;
+.card .card-reveal {
+  background-color: #a9d3c1;
 }
 
 /* Search card styling */
-.search-card{
+.search-card {
   background-color: var(--decoration2);
- 
- }
+}
 
- #search-input{
-   margin:10px;
- }
+#search-input {
+  margin: 10px;
+}
 
- /* search on admin user page */
+/* search on admin user page */
 /* style input box border */
 .input-field #search {
-  border-bottom:2px solid var(--irish-green);
+  border-bottom: 2px solid var(--irish-green);
 }
 
 /* registration page */
 
 /* style button */
-.register > button {
+.register>button {
   color: var(--main-text-color);
   background-color: var(--decoration2);
 }
-
 
 /* Add new page */
 
 /*cancel btn on edit recommendations 
 action buttons on add new field */
-.btn.tooltipped{
+.btn.tooltipped {
   margin-bottom: 10px;
 }
+
 .input-field {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -205,148 +206,156 @@ action buttons on add new field */
 for a visual to user, that this is a different pg to Home
 use hex value for decoration2, then color pick to adjust
 */
-#table{
+#table {
   background-color: #fff;
 }
-
 
 /* change bg color on forms to distinguish */
 #newlocation {
   background-color: #dce1e233
 }
-#newvisitor{
+
+#newvisitor {
   background-color: #c9d7db79
 }
 
-.form-sections{
+.form-sections {
   background-color: var(--decoration2);
   padding-top: 2px;
- 
 }
 
 /* Other buttons across the site */
-.btn, .btn-small{
+.btn,
+.btn-small {
   color: var(--main-text-color);
   background-color: var(--decoration1);
   font-weight: bold;
   font-family: 'Poppins', sans-serif;
   font-size: 12px;
-
 }
+
 /* buttons within search box Home and user pages */
 #search-action,
-.search-action-btn{
-  margin-top: 25px;}
+.search-action-btn {
+  margin-top: 25px;
+}
 
 /* Search icon btn */
-#home-search-button
-{
+#home-search-button {
   color: var(--main-text-color);
   background-color: #edf6f900;
   font-weight: bold;
   font-family: 'Poppins', sans-serif;
   font-size: 35px;
-  border:none;
- }
+  border: none;
+}
 
-#home-search-button > .fa-search:hover{
-  color:var(--main-text-color)
-  }
-  
-  #clear-search{
-    margin-top: 20px;
-    margin-bottom: 5px; 
-  }
-  
-  #clear-search > a{
-   color: var(--irish-green);
-   font-family: 'Poppins', sans-serif;
-  }
-  
-  #clear-search > a:hover{
-    color: var(--main-text-color)
-   }
+#home-search-button>.fa-search:hover {
+  color: var(--main-text-color)
+}
 
-#upload_widget{
+#clear-search {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+#clear-search>a {
+  color: var(--irish-green);
+  font-family: 'Poppins', sans-serif;
+}
+
+#clear-search>a:hover {
+  color: var(--main-text-color)
+}
+
+/* upload page for admin only */
+#upload_widget {
   background-color: var(--decoration2);
   color: var(--main-text-color);
-  margin:5px;
+  margin: 5px;
   font-size: 10px;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
 }
 
-
-.btn-flat:hover{
+.btn-flat:hover {
   font-weight: bold;
   text-decoration: underline;
 }
-.btn:hover, .btn-small:hover{
+
+.btn:hover,
+.btn-small:hover {
   color: var(--decoration2);
   background-color: var(--irish-green);
   font-weight: bold;
 }
+/* end of upload pg */
 
 /* button styling across a number of pages including clear search and add new */
-.page-btn{
+.page-btn {
   background-color: white;
-  margin:5px;
+  margin: 5px;
   font-size: 10px;
 }
-.modal-close{
+
+.modal-close {
   color: var(--irish-green);
   background-color: var(--decoration2);
   font-weight: bold;
 }
 
-.modal-close:hover{
+.modal-close:hover {
   color: var(--decoration2);
   background-color: var(--irish-green);
   font-weight: bold;
 }
 
-.admin-btns{
+.admin-btns {
   margin: 25px;
   background-color: #fff;
 }
 
-.cloudinary-button{
+.cloudinary-button {
   background-color: white;
   color: var(--main-text-color);
-  margin:5px;
+  margin: 5px;
   font-size: 10px;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
 }
+
 /* admin add a new field buttons */
-.add-new{
-  line-height: 1;  
- }
+.add-new {
+  line-height: 1;
+}
 
 /* icon across the site */
 .fa-caret-down {
   font-size: 14px;
 }
 
-.fas, .far, .fab {
+.fas,
+.far,
+.fab {
   color: #169B62;
- }
+}
 
- .fab {
-   font-size: 26px;
-   padding: 10px;
- }
+.fab {
+  font-size: 26px;
+  padding: 10px;
+}
 
- /* text in footer */
- .copyright{
-   font-size: 12px;
- }
+/* text in footer */
+.copyright {
+  font-size: 12px;
+}
 
- /* to target icons set as prefixs on input fields */
-.input-field .prefix{
-font-size: 1.5rem;}
+/* to target icons set as prefixs on input fields */
+.input-field .prefix {
+  font-size: 1.5rem;
+}
 
-.fa-times-circle:hover{
+.fa-times-circle:hover {
   color: var(--decoration2);
 }
 
@@ -362,74 +371,46 @@ font-size: 1.5rem;}
 Code for back to top icon from a tutorial
 https://www.w3schools.com/howto/howto_js_scroll_to_top.asp */
 /* style back to top of page icon */
-#backToTopBtn{
-  display: none; 
+#backToTopBtn {
+  display: none;
   position: fixed;
   bottom: 65px;
   right: 30px;
   z-index: 99;
-  border: none; 
+  border: none;
   background: none;
   color: var(--irish-green);
   cursor: pointer;
 }
 
-#backToTopBtn > i {
+#backToTopBtn>i {
   font-size: 30px;
 }
 
-#backToTopBtn > i:hover {
-  color:var(--decoration1);
-}
-
-/* style contact form */
-
-textarea{
-  height: 6rem;
-}
-
-#fieldset{
- 
-  border: 2px solid red;
-  border-radius: 2%;
-  padding: 5px;
-  margin: 0;
-}
-
-#name,
-#email {
-  font: 0.7em;
-  min-width: 90%;
-  margin-left: 5px;
-}
-
-.details-labels{
-  width: 2rem;
+#backToTopBtn>i:hover {
+  color: var(--decoration1);
 }
 
 /* hero image on home pg */
 .scroll-1 {
   width: 100%;
-            height: 35vh;
-            background: url(../images/hero-lake-img.jpg);
-            background-size: 100% 60%;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            position:relative;
-            object-fit: contain;
+  height: 35vh;
+  background: url(../images/hero-lake-img.jpg);
+  background-size: 100% 60%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+  object-fit: contain;
 }
 
 /* hero image on users pg */
 .scroll-2 {
   width: 100%;
-            height: 35vh;
-            background: url(../images/long-hall-dublin.jpg);
-            background-size: 100% 60%;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            position:relative;
-            object-fit: contain;
-
+  height: 35vh;
+  background: url(../images/long-hall-dublin.jpg);
+  background-size: 100% 60%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+  object-fit: contain;
 }
-
-
