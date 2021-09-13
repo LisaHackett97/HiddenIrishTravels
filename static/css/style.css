@@ -95,17 +95,35 @@ footer, .nav-wrapper {
 /* action card on recommendation to click to reveal more */
 .card.medium .card-action{
 padding-top: 2px;
+padding-bottom:5px;
 color: var(--irish-green);
 }
 
+.card-actions{
+height: 18px;
+position: absolute;
+}
+
+/* set height of title section on front card */
 #recommend-title{
  font-style: italic;
- font-size:16px;
+ font-size:14px;
  font-weight: bold;
+ height: 30px;
+ /* padding-bottom: 15px;
+ margin-bottom: 15px; */
+ 
+
 }
 /* set height of details section on front card */
 #recommend-details-user{
-  height:50px;
+height:50px;
+overflow: hidden;
+}
+
+/* to give spacing between title and content */
+#user-card-content p {
+  padding-top: 4px;
 }
 
 /* set img height to 100% of its container so that all imgs appear same size */

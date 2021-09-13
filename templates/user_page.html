@@ -56,7 +56,7 @@
         <div class="row recommendation-row">
             {% for recommendation in recommendations %}
             {% if session.user|lower == recommendation.created_by|lower %}
-            <div class="col s12 m6 l3">
+            <div class="col s12 m6 l4">
                 <div class="card medium">
                     <div class="card-image">
                         <img src="{{ recommendation.image_url }}" alt="image to be inserted" class="activator">
@@ -71,11 +71,12 @@
                                 User recommendations created by the logged in user are showing on the user page. 
                         -->
                         {% if session.user|lower == recommendation.created_by|lower %}
+                        <p class="card-actions">
                         <a href="{{ url_for('edit_recommendations', recommendation_id=recommendation._id) }}"
                             class="btn">Edit</a>
                         <!-- Modal Trigger To ask User to confirm before deletion happens-->
                         <a class="btn modal-trigger" href="#{{ recommendation._id }}delete-confirmation">Delete</a>
-
+                    </p>
                         <!-- Modal Structure -->
                         <div id="{{ recommendation._id }}delete-confirmation" class="modal">
                             <div class="modal-content">

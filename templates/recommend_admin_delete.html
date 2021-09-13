@@ -56,9 +56,11 @@
                             <p> <i class="fas fa-user-tag"> </i> {{ recommendation.visitor_type }}</p>
                             <p id="recommend-details-user"><i class="fas fa-comment"></i> {{ recommendation.details }}
                             </p>
-
+                            
+                            <p class="card-actions">
                                   <!-- Modal Trigger To ask User to confirm before deletion happens-->
                             <a class="btn modal-trigger" href="#{{ recommendation._id }}delete-confirmation">Delete</a>
+                            </p>
                             <!-- Modal Structure for confirmation of delete-->
                             <div id="{{ recommendation._id }}delete-confirmation" class="modal">
                                 <div class="modal-content">
