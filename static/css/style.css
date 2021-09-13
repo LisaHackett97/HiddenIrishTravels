@@ -415,11 +415,33 @@ https://www.w3schools.com/howto/howto_js_scroll_to_top.asp */
   object-fit: contain;
 }
 
+/* styling 404 page */
 #error404-bg {
-
   background: url(../images/404-bg.jpg) no-repeat center center fixed;
   background-size: cover;
   height: 100vh;
   width:100vw;
   float:left;
+ }
+
+ #error404-bg p,
+ #error500-bg p {
+ font-family: 'Poppins', sans-serif;
+ font-weight: bold;
+}
+ 
+.link-home{ 
+   font-family: 'Poppins', sans-serif;
+  font-size: 45px;
+  text-align: center;
+padding-top:55px;
+
+}
+.link-home a {
+  color: var(--main-text-color);
+  font-family: 'Hind', sans-serif;
+}
+
+.link-home a:hover {
+  color: var(--irish-green); 
 }
