@@ -69,7 +69,20 @@ footer,
   color: var(--decoration2);
   background-color: var(--irish-green);
   line-height: 2;
+
+  top:50;
 }
+#flash-msg-icon {
+  color: var(--decoration2);
+  padding-right: 5px;
+}
+
+#flash-msg-close {
+  color: rgb(228, 210, 187);
+  padding-left: 5px;
+}
+
+
 
 /* recommendation card fields */
 .field-type {
