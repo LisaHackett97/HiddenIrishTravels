@@ -48,7 +48,7 @@
     </div>
     </div>
   
-        
+    {% if session.user %}       
 <div class="row center-align">    
        <button id="home-search-button"><i class="fas fa-search"></i></button>
        <div class="row center-align" id="clear-search">
@@ -78,6 +78,7 @@
     </div>
 </div>
 <!-- end of search container -->
+{% endif %}
 
 <!-- container to display all user recommendations-->
 {% if recommendations|length > 0 %}
