@@ -39,7 +39,7 @@
             <div class="input-field col s12">
                 <i class="fas fa-user-tag prefix  tooltipped" data-position="left"
                     data-tooltip="Choose which type of visitor would enjoy it. If you're not sure, pick other"></i>
-                <select name="visitor_type" id="visitor_type" class="validate" required>
+                <select name="visitor_type" id="visitor_type" class="validate" required data-error="Please select a visitor type">
                     <option value="" disable selected>Choose visitor type</option>
                     {% for visitor in visitor_type %}
                     <option value="{{ visitor.visitor_type }}">{{ visitor.visitor_type }}</option>
