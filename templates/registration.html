@@ -8,6 +8,11 @@
 <div class="row">
   <form class="col s12 m8 offset-m2" id="register_form" method="POST" action="{{ url_for('registration') }}">
 
+    <div id="registration-instructions">
+      Username must be between 4 and 15 characters in length and have no spaces
+      Password must be between 5 and 15 characters in length and have no spaces
+      Password must match in order to register
+    </div>
     <div class="card-panel blue-grey lighten-5">
 <!-- user to enter their new username. Must be betwwen 5 and 15 characters in length -->
       <div class="row">
