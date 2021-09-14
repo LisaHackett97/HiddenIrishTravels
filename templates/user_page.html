@@ -11,6 +11,8 @@
 {% if session.user %}
 <a href="{{ url_for('home')}}" class="btn col s6 page-btn">Home <i class="fas fa-home"></i></a>
 
+<a href="{{ url_for('add_recommendation') }}" class="btn col s6 page-btn">Add New  <i class="fas fa-plus"></i></a>
+
 {% endif %}
 <p>If you are new to our site, and haven't yet uploaded anything, this page will look a little blank.
     Dont worry, you can select Add New from the recommendation menu, add something in there.
