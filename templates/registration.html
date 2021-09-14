@@ -1,20 +1,38 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1 class="center-align">Register</h1>
+<h1 class="center-align">Register <a class="modal-trigger" id="instruction-modal-btn" href="#register-modal"><i class="fas fa-info-circle"></i></a></h1> <!-- REgistrations Instruction Modal Trigger -->
+
 
 <p class="center-align">Please update details below to register:</p>
 
+
+
+<!-- Modal Structure -->
+<div id="register-modal" class="modal">
+  <div class="modal-content">
+    <h4>How to register</h4>
+    <ol>
+      <li> Enter a username, with no spaces & 4 to 15 characters in length</li>
+      <li> Enter a password of your choice, between 5 and 15 characters in length.</li>
+      <li> Re-enter your password</li>
+      <li> You will see a message on screen confirming passwords match</li>
+      <li> Please click Register</li>
+
+    </ol>
+    <p> You will then be logged in and brought to your personal user page. <br><br>
+      To view all users recommendations, please select Home </p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-close btn-flat">Close</a>
+  </div>
+</div>
+
+<!-- row for registration form -->
 <div class="row">
   <form class="col s12 m8 offset-m2" id="register_form" method="POST" action="{{ url_for('registration') }}">
-
-    <div id="registration-instructions">
-      Username must be between 4 and 15 characters in length and have no spaces
-      Password must be between 5 and 15 characters in length and have no spaces
-      Password must match in order to register
-    </div>
     <div class="card-panel blue-grey lighten-5">
-<!-- user to enter their new username. Must be betwwen 5 and 15 characters in length -->
+      <!-- user to enter their new username. Must be betwwen 5 and 15 characters in length -->
       <div class="row">
         <div class="input-field col s12">
           <i class="far fa-user prefix"></i>
@@ -23,27 +41,28 @@
           <label for="username">Username:</label>
         </div>
       </div>
-<!-- User to input a password -->
+      <!-- User to input a password -->
       <div class="row">
         <div class="input-field col s12">
           <i class="fas fa-unlock-alt prefix"></i>
           <input id="password" name="password" type="password" minlength="5" maxlength="15"
-          pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+            pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
           <label for="password">Password</label>
         </div>
       </div>
-<!-- User to re-enter password to confirm-->
+      <!-- User to re-enter password to confirm-->
       <div class="row">
         <div class="input-field col s12">
           <i class="fas fa-unlock-alt prefix"></i>
-          <input id="confirm_password" name="confirm_password" type="password">          
+          <input id="confirm_password" name="confirm_password" type="password">
           <label for="confirm_password">Confirm Password</label>
           <span id='message'></span>
         </div>
       </div>
-<!-- Register Button -->
+      <!-- Register Button -->
       <div class="row register">
-        <button type="submit" id="register-btn" class="btn col s8 offset-s2" name="action"><i class="fas fa-sign-in-alt"></i>
+        <button type="submit" id="register-btn" class="btn col s8 offset-s2" name="action"><i
+            class="fas fa-sign-in-alt"></i>
           Register
         </button>
       </div>

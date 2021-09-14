@@ -43,6 +43,13 @@ h2 {
   text-align: center;
 }
 
+h4{
+  color: var(--irish-green);
+  font-family: 'Hind', sans-serif;
+  font-size: 20px;
+  text-align: center;
+
+}
 h6 {
   font-family: 'Hind', sans-serif;
   font-weight: bold;
@@ -323,6 +330,15 @@ use hex value for decoration2, then color pick to adjust
   font-weight: bold;
 }
 
+#register-modal p {
+  font-family: 'Poppins', sans-serif;
+  color: var(--main-text-color); 
+  font-size: 12px; 
+}
+
+#instruction-modal-btn{
+font-size: 35px;
+}
 .admin-btns {
   margin: 25px;
   background-color: #fff;
