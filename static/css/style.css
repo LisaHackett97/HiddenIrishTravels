@@ -48,12 +48,17 @@ h4{
   font-family: 'Hind', sans-serif;
   font-size: 20px;
   text-align: center;
+}
 
+h5{
+  color: var(--irish-green);
+  font-family: 'Hind', sans-serif;
+  font-size: 15px;
+  text-align: center;
 }
 h6 {
   font-family: 'Hind', sans-serif;
   font-weight: bold;
-
 }
 
 p {

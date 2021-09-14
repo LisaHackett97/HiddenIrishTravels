@@ -5,11 +5,100 @@
 Function Admin -->
 <h1>Admin</h1>
 <div class="row">
+    
+    <a class="modal-trigger btn page-btn col s2" href="#admin-instruction4">
+        <i class="fas fa-info-circle"></i> Upload page info
+    </a>
+    <a class="modal-trigger btn page-btn col s3" href="#admin-instruction1">
+        <i class="fas fa-info-circle"></i> Visitor/Location info
+    </a>
+    <a class="modal-trigger btn page-btn col s3" href="#admin-instruction2">
+        <i class="fas fa-info-circle"></i> Delete Recommendations info
+    </a>
+    <a class="modal-trigger btn page-btn col s3" href="#admin-instruction3">
+        <i class="fas fa-info-circle"></i> Delete User Info
+    </a> 
 
-<a href="{{ url_for('upload')}}" class="btn col s12 admin-btns">Upload Image to Cloudinary Storage</a>
-<a href="{{ url_for('manage_form_details')}}" class="btn col s12 admin-btns">Manage Visitor and locations Details</a>
-<a href="{{ url_for('recommend_admin_delete') }}"class="btn col col s12 admin-btns">Delete User Recommendations</a>
-<a href="{{ url_for('users_admin') }}" class="btn col s12 admin-btns">Delete User</a>
+    <a href="{{ url_for('upload')}}" class="btn col s12 admin-btns">Upload Image to Cloudinary Storage</a>
+    <a href="{{ url_for('manage_form_details')}}" class="btn col s12 admin-btns">Manage Visitor and locations Details
+        
+    </a>
+    <a href="{{ url_for('recommend_admin_delete') }}" class="btn col col s12 admin-btns">
+        Delete User Recommendations
+        
+    </a>
+    
+    <a href="{{ url_for('users_admin') }}" class="btn col s12 admin-btns">
+        Delete User </a>
+        
 
+    
+
+</div>
+
+
+<!-- Modal Structure -->
+<div id="admin-instruction1" class="modal">
+    <div class="modal-content">
+        <h4>This button will open the page where you can manage Visitor types and locations</h4>
+        <ul>
+            <li>Select Add New to enter details for a new Visitor type or location</li>
+            <li> Select Add new from menu or button on screen</li>
+            <li> Click on the + / - symbols to expand each list </li>
+            <li> You will see options beside each to edit or delete</li>
+        </ul>
+        <a href="#!" class="modal-close btn-flat right">Close</a>
+    </div>
+</div>
+
+
+<!-- Modal for Delete Recommendations -->
+<div id="admin-instruction2" class="modal">
+    <div class="modal-content">
+        <h4>This button will open the page where you can view and delete all user recommendations</h4>
+        <h5> Deletion should only be done is a recommendation violates site policies
+            eg, negative or profane language
+        </h5>
+        <h6>If deleting a recommendation, you should take a screen shot for your records</h6>
+        <ul>
+            <li>Select button </li>
+            <li> A delete option will be displayed on each recommendation card.</li>
+            <li> Use search option to narrow your view </li>
+
+        </ul>
+        <a href="#!" class="modal-close btn-flat right">Close</a>
+    </div>
+</div>
+
+<!-- Modal for Delete Recommendations -->
+<div id="admin-instruction3" class="modal">
+    <div class="modal-content">
+        <h4>This button will open the page where you can delete a</h4>
+        
+        <h5>If deleting a user, you should take a screen shot for your records</h5>
+        
+        <ul>
+            <li> Select button </li>
+            <li> A list of users, along with creation date will be displayed</li>
+            <li> A delete option will be displayed on each.</li>
+            <li> Use search option to narrow your view </li>
+
+        </ul>
+        <a href="#!" class="modal-close btn-flat right">Close</a>
+    </div>
+</div>
+
+<!-- Modal for Cloud page -->
+<div id="admin-instruction4" class="modal">
+    <div class="modal-content">
+        <h4>This button will open the page where you can upload an image to the cloud storage</h4>
+                <ul>
+            <li> Select button to open the page </li>
+            <li> Further instructions will be displayed</li>
+            
+
+        </ul>
+        <a href="#!" class="modal-close btn-flat right">Close</a>
+    </div>
 </div>
 {% endblock %}
