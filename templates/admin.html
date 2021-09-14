@@ -5,38 +5,40 @@
 Function Admin -->
 <h1>Admin</h1>
 <div class="row">
-    
-    <a class="modal-trigger btn page-btn col s2" href="#admin-instruction4">
-        <i class="fas fa-info-circle"></i> Upload page info
+       
+    <a href="{{ url_for('upload')}}" class="btn col s12 admin-btns">
+        Upload Image to Cloudinary Storage
     </a>
-    <a class="modal-trigger btn page-btn col s3" href="#admin-instruction1">
-        <i class="fas fa-info-circle"></i> Visitor/Location info
-    </a>
-    <a class="modal-trigger btn page-btn col s3" href="#admin-instruction2">
-        <i class="fas fa-info-circle"></i> Delete Recommendations info
-    </a>
-    <a class="modal-trigger btn page-btn col s3" href="#admin-instruction3">
-        <i class="fas fa-info-circle"></i> Delete User Info
-    </a> 
-
-    <a href="{{ url_for('upload')}}" class="btn col s12 admin-btns">Upload Image to Cloudinary Storage</a>
-    <a href="{{ url_for('manage_form_details')}}" class="btn col s12 admin-btns">Manage Visitor and locations Details
-        
+    <a href="{{ url_for('manage_form_details')}}" class="btn col s12 admin-btns">
+        Manage Visitor and locations Details        
     </a>
     <a href="{{ url_for('recommend_admin_delete') }}" class="btn col col s12 admin-btns">
-        Delete User Recommendations
-        
+        Delete User Recommendations  
     </a>
-    
-    <a href="{{ url_for('users_admin') }}" class="btn col s12 admin-btns">
-        Delete User </a>
-        
-
-    
-
+        <a href="{{ url_for('users_admin') }}" class="btn col s12 admin-btns">
+        Delete User
+     </a> 
 </div>
+<!-- Mondal trigger buttons -->
 
+<section>
+    <p class="center"> Select one of the options below to get further info on the Admin Options</p>
+ <div class="row">   
+<a class="modal-trigger btn page-btn btn col s6 offset-s3" href="#admin-instruction4">
+    <i class="fas fa-info-circle"></i> Upload page info
+</a>
+<a class="modal-trigger btn page-btn col s6 offset-s3" href="#admin-instruction1">
+    <i class="fas fa-info-circle"></i> Visitor/Location info
+</a>
 
+<a class="modal-trigger btn page-btn col s6 offset-s3" href="#admin-instruction2">
+    <i class="fas fa-info-circle"></i> Delete Recommendations info
+</a>
+<a class="modal-trigger btn page-btn col s6 offset-s3" href="#admin-instruction3">
+    <i class="fas fa-info-circle"></i> Delete User Info
+</a> 
+</div>
+</section>
 <!-- Modal Structure -->
 <div id="admin-instruction1" class="modal">
     <div class="modal-content">
