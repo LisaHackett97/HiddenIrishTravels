@@ -32,6 +32,10 @@ $(document).ready(function () {
   $("#home-search-button").click(function () {
     $(".search-container").toggle();
   });
+// to fade out flash message
+  $('#flash-msg-close').click(function(){
+    $('.flashes').fadeOut(1200);
+  });
 
   // Code for form validation taken from CI Task manager tutorial 
     validateMaterializeSelect();
@@ -63,6 +67,7 @@ $(document).ready(function () {
     }
 });
 // End of doc ready function
+
 
 /* code for password confirm from this post
 https://stackoverflow.com/questions/21727317/how-to-check-confirm-password-field-in-form-without-reloading-page
