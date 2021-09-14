@@ -458,6 +458,8 @@ Shamrock background
 https://www.vecteezy.com/free-vector/clover-pattern
 
 
+- Favicon generated from (https://www.websiteplanet.com/webtools/favicon-generator/)
+
 
 
 #### Other
