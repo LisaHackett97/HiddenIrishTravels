@@ -18,7 +18,8 @@ and can to add new details to the categories for dropdown lists
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-user-tag prefix"></i>
-                <input type="text" class="validate" required id="visitor_type" name="visitor_type">
+                <input type="text" class="validate" required id="visitor_type" name="visitor_type" 
+                minlength="4" maxlength="25" pattern="^[a-zA-Z0-9_][a-zA-Z0-9_ ]*[a-zA-Z0-9_]$">
                 <label for="visitor_type">Visitor Type</label>
             </div>
         </div>
@@ -39,18 +40,18 @@ and can to add new details to the categories for dropdown lists
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-user-tag prefix"></i>
-                <input type="text" class="validate" required id="location_name" name="location_name">
+                <!-- pattern ensures that cannot have leading and trailing whitespaces-->
+                <input type="text" class="validate" required id="location_name" name="location_name" minlength="4" maxlength="25" pattern="^[a-zA-Z0-9_][a-zA-Z0-9_ ]*[a-zA-Z0-9_]$">
                 <label for="location_name">Location Name</label>
             </div>
         </div>
         <!-- buttons to submit new or clear what had been typed in the input box -->
         <div class="row add_new_btns">
             <div class="center-align">
-
                 <button class="btn col s6 m3 offset-m2 add-new" type="submit" name="action">
                     Add Location
                 </button>
-                             <button type="button" class="btn col s5 offset-s1 m3 offset-m2 add-new" onclick="resetAddForm();">
+                 <button type="button" class="btn col s5 offset-s1 m3 offset-m2 add-new" onclick="resetAddForm();">
                     Clear Form
                 </button>
             </div>

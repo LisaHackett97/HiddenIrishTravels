@@ -33,7 +33,7 @@
             <div class="input-field col s12">
                 <i class="fas fa-info-circle prefix tooltipped" data-position="left"
                     data-tooltip="Give your recommendation a title"></i>
-                <textarea id="recommend-title" name="recommend-title" minlength="5" maxlength="200"
+                <textarea id="recommend-title" name="recommend-title" minlength="5" maxlength="200" pattern="^[a-zA-Z0-9_][a-zA-Z0-9_ ]*[a-zA-Z0-9_]$"
                     class="materialize-textarea validate" required></textarea>
                 <label for="recommend-title">Title</label>
             </div>
@@ -71,7 +71,7 @@
             <div class="input-field col s12">
                 <i class="fas fa-comment prefix tooltipped" data-position="left"
                     data-tooltip="Enter details of your recommendation"></i>
-                <textarea id="recommend-details" name="recommend-details" minlength="5" maxlength="200"
+                <textarea id="recommend-details" name="recommend-details" minlength="5" maxlength="500" pattern="^[a-zA-Z0-9_][a-zA-Z0-9_ ]*[a-zA-Z0-9_]$"
                     class="materialize-textarea validate" required></textarea>
                 <label for="recommend-details">Details</label>
             </div>
