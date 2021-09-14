@@ -330,15 +330,28 @@ use hex value for decoration2, then color pick to adjust
   font-weight: bold;
 }
 
-#register-modal p {
+#register-modal p,
+#instruction-modal-btn li {
   font-family: 'Poppins', sans-serif;
   color: var(--main-text-color); 
   font-size: 12px; 
 }
 
+#instruction-modal-btn li{
+  list-style-type: disc;
+}
+
+#instruction-modal-btn ul{
+  margin: 10px 5px 10px 5px;
+}
 #instruction-modal-btn{
 font-size: 35px;
 }
+
+#instruction-modal-btn .modal-content{
+  padding-bottom: 10px;
+  }
+
 .admin-btns {
   margin: 25px;
   background-color: #fff;
