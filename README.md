@@ -137,16 +137,15 @@ I feel these fonts are easy for user to read on screen and are visually appealin
 |------------|-----------------	|
 |  Home	     | Home       	|
 |  Log In    | Recommendations  |
-|  Register  | Search 		|
-|  	     | Admin *  	| 
+|  Register  |  Admin * 		|
 |  	     | Log Out  	|
 |  	     |   		|
 
 | Recommendations Menu| 
 |---------------------|
 |  Add New	      | 
-|  Edit  	      | 
-|  Delete	      | 
+|  User page  	      | 
+|  	      | 
 
 ** Admin option will bring the user to the overall Admin  page, where user can access the admin functionality
 ** The Admin option is restricted and regular user will not have access
@@ -154,14 +153,16 @@ I feel these fonts are easy for user to read on screen and are visually appealin
 - Navbar is collapsible icon on medium and small screens, and will display as vertical menu when clicked
 - Search will display as an icon on desktop
 
-#### Search
-
-- search box to be displayed
 
 #### Footer
 
-- Contains copyright and site policy info
+- Contains copyright and social info
+#### Icon
+- Arrows Up to click to go to top of page.
+- icon in nav bar, Brings user to home page
 
+#### Flash Messages
+- Display under nav bar. Cancel icon to clear it, will fade out so that user will not have to refresh pg
 
 ### Features on individual pages
 
@@ -170,33 +171,33 @@ I feel these fonts are easy for user to read on screen and are visually appealin
 Contains the following:
 
 - Logged Out User 
-	- Navigation Menu
-	
-	- Button to Log in
-	- Button to register  Modal Pop Up for instructions on registering
+	- Navigation Menu with options to login and register	
+	- Recommendations section	
+	- Footer
+
+- Logged In User (Regular and Admin)
+	- Navigation Menu	
+	- Add new button
+	- Home page link
+	- Modal with info on adding a new recommendation
+	- Search Option
 	- Recommendations section
 	- Button to click to go to top of page.
 	- Footer
 
-- Logged In User (Regular and Admin)
-	- Navigation Menu
-	
-	- Add/Edit button
-	- Recommendations section
-	- Button to click to go to top of page.
-	- Footer
 
 #### Registration Page
 
 Contains the following:
 
 - Navigation Menu
-- Header and quick note on how to register
+- Header and modal with info on registration
 - Registration Form with 3 input fields and submit button
 	- username
 	- password
 	- password confirmation
 	- Submit button to register
+- Link to login page
 - Footer
 
 #### Log In Page
@@ -210,53 +211,75 @@ Contains the following:
 	- Log In button
 - Footer
 
-#### Recommendation Page
+#### Users personal Page
 
 Contains the following:
 
 - Navigation Menu
-- If Add New Option was selected : Blank Recommendation form.
-- If Edit Option was selected: Prepopulated form is shown with Edit button. **Restrict to username
-- If Delete Option was selected: Prepopulated form is shown with delete button.    **Restrict to username and show confirmation btn
+- Add New Option : Blank Recommendation form opens
+- Home Page Button
+- Modal with more info
+- Search Option
+- Button to click to go to top of page.
+- Footer
 
-- Recommendation Form:
-	- Image to select from
+- Recommendations section:- Only those displayed by user can be viewed.
+	- Each will give user options to edit or delete
+		- If Edit Option was selected: Prepopulated form is shown with Edit button. **Restrict to username
+		- If Delete Option was selected: Prepopulated form is shown with delete button.    **Restrict to username and show confirmation btn
+
+#### Recommendation Form:
+
+#### Add New
+	- dropdown list of images to select from
+	- Title, Details are free form text input for users
+	- 2 fields for user to select from dropdown. Visitor type and locations
+	- Submit Button/Clear form
+	- Back to user page Option
+
+#### Edit 
+	- Image 
+		On Edit, user can select to change
 	- 2 user input fields: title and details.
 		On Edit, fields user can click on fields to edit
-	- 2 fields for user to select from dropdown
-	- Created_by field updated from username
-	- Submit Button/Edit Button/Delete Button (dependant on option selected)
-- Footer
+	- 2 fields for user to select from dropdown. Visitor tyoe and locations
+		On Edit, user can select to change
+	- Edit Button/Cancel/Back buttons
+
+#### Displayed on Home and User pages
+
+Recommendation form and card reveal displayed on Home and user pages.
+User has access to edit and delete on their own page.
+	- Card showing image, title, location, start of details
+	- Reveal shows all details and created by field
+
 
 #### Admin Overview Page
 
 Contains the following:
 
 - Navigation Menu
-- Manage Form fields Button
-- Delete a user recommendation button
-- Delete user button
+- Button to open page to upload to cloud
+- Button to open Manage Visitor and Location page
+- button to open page to delete user recommendations
+- Button to open page to Delete users
+- Section containing modal triggers, for more info on all admin options
 - Footer
 
-#### Admin Delete User Page
-
-Contains the following:
+#### Upload to Cloudinary Page
 
 - Navigation Menu
-- Admin Username as heading
-- Form with the following fields:
-	- Find username
-	- User details
-	- Reason for deletion (admin could keep screenshots as back up to confirm reasons)
-- Delete button
-- Cancel button
+- Section containing instructions
+- Cloudinary upload widget
 - Footer
+
+
 
 #### Admin Add/Edit Fields Page
 
 Contains the following:
 
-** warning on how these actions affect active recommendation **
+
 
 - Navigation Menu
 - Admin Username as heading
@@ -283,22 +306,35 @@ Contains the following:
 - Cancel button
 - Footer
 
-#### Logout Page
+#### Admin Delete User Page
 
 Contains the following:
 
 - Navigation Menu
-- Confirm logout button. 
+- Admin Username as heading
+- Form with the following fields:
+	- Find username
+	- User details
+	- Reason for deletion (admin could keep screenshots as back up to confirm reasons)
+- Delete button
+- Cancel button
 - Footer
 
-#### Logout confirmation
+#### Logout 
 
-Contains the following:
+This is an app route. Option in Nav Bar.
+Flash message to user
 
-- Message to user 
-- Option to return to home page
 
 ## Future Features
+
+- User can upload own images
+- Automate updating uploaded image URLs
+- Email contact
+..
+.
+.
+
 
 [Back to table of contents](#table-of-contents)
 
@@ -336,12 +372,6 @@ Contains the following:
 - [techsini for mock-ups](https://techsini.com/multi-mockup/index.php)
 - WAVE extension for reviewing accessibility and colour contrasts in testing.
 - Chrome Dev Tools - used to view responsiveness and layout as site was being developed. I found this very useful when developing the site, as it aided my learning throughout the project.
-
-
-
-
-
-
 
 
 [Back to table of contents](#table-of-contents)
