@@ -304,6 +304,9 @@ Contains the following:
 
 ## Technologies Used
 
+- HTML5 - Programming language for structuring the site.
+- CSS3- Style sheet programming language
+- Python3, Jinja templating language & Flask microframework
 - [Github](https://github.com/)- software hosting platform to keep project in a remote location
 - [Gitpod](https://gitpod.io/) - a development hosting platform
 - Git - used for version-control.
@@ -311,11 +314,30 @@ Contains the following:
 - [Online kanban tool for plan and management of project tasks](https://kanbantool.com/)
 - [Balsamiq](https://balsamiq.com/) - used to build wireframes. Downloaded software to use.
 - [Markdown table convert](https://tableconvert.com/) - I am using this to turn data on excel into markdown table syntax
-- Microsoft word and excel: to assis in organising planning for project
+- Microsoft word and excel: to assist in organising planning for project
 - [Flow chart](https://app.diagrams.net/) - Used to create a flow chart for planning of project
-- [site for creating DB schema diagrams](dbdiagram.io)
-- [site to enable me to edit pdfS](https://www.ilovepdf.com/) - I needed a tool to allow me to edit pdfs of diagrams 
-- 
+- [Site for creating DB schema diagrams](dbdiagram.io)
+- [Site to enable me to edit pdfS](https://www.ilovepdf.com/) - I needed a tool to allow me to edit pdfs of diagrams 
+- [Heroku for deployment](https://heroku.com/)
+- [Site to resizing images](https://resizeimage.net/)
+- [Favicon generator - website planet](https://www.websiteplanet.com/webtools/favicon-generator/)
+- Materializecss
+- Cloudinary for image storage
+- Mongodb Database
+- Tinyjpeg to compress images
+- Fontawesome & google fonts
+- [techsini for mock-ups](https://techsini.com/multi-mockup/index.php)
+- Validators:
+  - jshint
+  - validator.w3.org
+  - jigsaw.w3.org/css-validator
+  - pep8online.com
+- [Site for CSS animations](https://animate.style/.)
+- [techsini for mock-ups](https://techsini.com/multi-mockup/index.php)
+- WAVE extension for reviewing accessibility and colour contrasts in testing.
+- Chrome Dev Tools - used to view responsiveness and layout as site was being developed. I found this very useful when developing the site, as it aided my learning throughout the project.
+
+
 
 
 
@@ -406,7 +428,7 @@ Ensure there are no additional blank lines in the Procfile
 	- Choose deploy using Github. Select your repo and click connect
 	- Under automatic deploy, choose master branch 
 	- Click Enable automatic deploys. ***nb ensure config variables are set up before you do this)
-	- Ubder manual deploy section, select the branch to deploy
+	- Under manual deploy section, select the branch to deploy
 	- Click Deploy branch
 	- A message should be displayed once the app is successfully deployed
 	- Click view to launch app
@@ -451,23 +473,52 @@ GitHub docs link [Forking a repository](https://docs.github.com/en/desktop/contr
 ### Media
 
 #### Images Used
-Ireland icon in navbar
-href="https://www.vecteezy.com/free-vector/ireland-map">Ireland Map Vectors by Vecteezy
+- Ireland icon in navbar - https://www.vecteezy.com/free-vector/ireland-map
 
-Shamrock background
-https://www.vecteezy.com/free-vector/clover-pattern
+- 404 background image https://www.vecteezy.com/free-vector/nature
+
+- Long-hall Hero image on user page: unsplash.com
+
+- Lake image on home page: Usres own
 
 
 - Favicon generated from (https://www.websiteplanet.com/webtools/favicon-generator/)
+
+##### User default image
+- Shamrock - https://www.vecteezy.com/free-vector/clover-pattern
+
+- Site owners own images
+	- Sunrise at the beach
+	- Stormy sea
+	- Mountain View
+	- View frrom Crough Patrick
+	- Fairytale House
+	- Woods
+
+
+- Unsplash.com
+	- Church Interior
+	- Family
+	- City Street
+	- Art Gallery
+	- Castle Ruins
+	- Old Library
+	- Puffins
+
+
 
 
 
 #### Other
 
+- I used some slide in animations on text on the 404 page. This was created from the following site. [animations](https://animate.style/)
 ### Content
+
+
 
 ### Colours
 
+I used cooler.co to select inital colours. Color picker was then used to adjust as needed.
 
 ### Code
 
@@ -487,6 +538,10 @@ https://stackoverflow.com/questions/21727317/how-to-check-confirm-password-field
 	- Tutorial linked to https://github.com/rebeccapeltz/flask-cld-upload/blob/master/app.py
 	- Cloudinary widget from Cloudinary documentation
 	- I also read https://medium.com/@johndavidsimmons/cloudinary-api-in-flask-14018d84a314 for reference.
+ 
+- Help with timestamp creation:  https://www.programiz.com/python-programming/datetime/strftime
+
+- 
 
 
 
@@ -494,7 +549,11 @@ https://stackoverflow.com/questions/21727317/how-to-check-confirm-password-field
 
 I referred to the following to add to my knowledge and for help.
 
-	- Thanks to all those who has posted on Slack in relation to Cloudinary, which was very helpful for guidance and my learning
+- Thanks to all those who has posted on Slack in relation to Cloudinary, which was very helpful for guidance and my learning
+- Code Institute course material
+- Slack Community - I searched for a topic and usually someone else had the same question. This has been a great help in developing my understanding.
+- Stackoverflow.com: Helped with finding a solution to set focus on next question button on modal
+- Materialize documentation
 
 [Back to table of contents](#table-of-contents)
 

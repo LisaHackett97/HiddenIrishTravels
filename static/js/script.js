@@ -136,7 +136,7 @@ function topFunction() {
 // Upload widget from Cloudinary docs
 // image success info is sent to the console log per the docs
 // admin can access this here
-let myWidget = cloudinary.createUploadWidget({
+var myWidget = cloudinary.createUploadWidget({
   cloudName: 'dc9rijkkz',
   uploadPreset: 'mcuus0xs'
 }, (error, result) => {

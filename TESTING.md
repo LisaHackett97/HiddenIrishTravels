@@ -141,10 +141,108 @@ The following are defensive design elements identified in planning. Each will be
 
 ### Issues during development
 
+- Heroku not running after deployment. checked all config variable, versions in requirements etc...
+in app.py, I had "main" instead of "__main__"
+
+- On mobile view, on add new, no spacing between buttons. 
+
+- Icon on nav bar too big and was not appearing on all pages. Needed to set the url_for method for img src, and set height and width
+
+- Showing search results, no user name on screen. Needed to pass username into the return function and needed to reset the form and target it by Id not class name in JS
+
+
+
+
+footer on templates is not showing full width. Ok on hime and registration Not ok on login template. cloising div tag missing a >
+fixed and commited when finalising page structure
+
+
+
+
+styling divs with card-title. These are on teh card reveal. Top has icon to close and btm has txt also. Needed to give id to text inorder to change font
+
+
+reduced space for images, so that more details could be viewed on fromnt card But large space, related to card action footer
+reveal top border is hidden
+needed to 
+.card.medium .card-image+.card-content {
+   max-height: 55%;
+   padding-bottom: 10px;
+}
+Using dev tools id'd what to be targeted
+
+Was using the toor color irish green for card reval, used color picker to change the transparency but then you could see txt on card. used color picker to choose a different shade of the gree, 
+Not giving any transparency settings
+
+
+session user set up on nav bar, cannot access recommendations dropdown. needed to crrect data target. ok now
+
+losed app while still logged in. When re-opened, was still showing logged in. Need to show logged out page onload??
+session cookies cleared when full browser window closed but not when tab closed
+
+Looking at lendght of text for details and how it appears on small screens!!
+
+
 
 [Back to table of contents](#table-of-contents)
 
 ### Bugs
+
+- Modal confirm button was causing jsut first item in the list to be deleted. The Id needed to be passed into the function
+
+
+- Issue with image upload. Resolved by storing in cloudinary, updating url in images collection
+- validate on form not working on dropdown lists. Code wasn't inside the doc ready function
+
+- search was not working. 
+    - Only returning 1 result, should have multiple. No flash message if no results
+    - Needed an else statment on template for no results, needed to drop index and set up so could search on all fields
+    - Bug: the hide search container is hiding it but also actually performing a search. Button was needed to hide container and cancel search. 
+
+
+- Search icon and link was haing when trying to cancel. Needed to add toggle jquery to the search icon.
+  - And ensure that syntax was correct. Was previously using the hide on window load and jquery to show for click. Toggle works better   
+
+- Setting admin: 
+	Started with checking if session user was called Admin (user I had set up), works fine
+	Tried to see if I could set this as a role in MongoDB. couldn't get it to work
+	Tried assigning roles, not authorized
+		1. used the db.createUser method in cli. Not authorised. also tried using the db.grantRolesToUser
+		2. added a role field to document in the collection
+		Then use the @roles.required decorator. Error AttributeError: 'Flask' object has no attribute 'user_manager'
+	Talk to tutor. No experience with roles in mongodb but advised me to do the following
+	have a user_type field in my user collection
+	Set that as admin for the user who is admin
+	Then do a check for that admin user type field. No route decorator needed, jsut a check if the user_type field contains admin
+		I set a type field with normal for stnd user. Giving errors
+Now have set is_admin to true/false. and updated code. Tested and no issues
+
+- Admin delete function and user delete recommendation are basically repeats but could not get them to be in one function, with using if/else to redirect to diff pages.
+If/else, kept deleting wrg recommendation, then while trying this with just s message, still not working, returning false
+Needed to allow admin to be redirected to admin page, not the user page
+Indentation corrected
+
+
+Addin the materialize nav bar, I had a dropdown list under recommendations. Once I got the collpsed mobile menu to work, the dropdown wouldn't work for desktop view.
+Needed to add a 2nd UL with id of dropdown2, and match this so the mobile...
+
+card layout: need to standardise size or restrict content?? They are scaling up and down. layout issues when I tried to add margin to cards
+headings to show on fromt of card and details to show on reveal. Was trying to make it so a user could click anywhere to close. Doesn't work. Added to cancel buttons
+cards with no spacing: If giving margin, cards are not held on same row/colum,n as intened. Needed to wrap each card in its own column
+
+
+card-reveal not working!. class to be added to correct elements. Cancel symbol added
+
+added jquery for password match on confirmation But when user click on first password field, giving password match mesg
+before anything input
+Also, need to disable register button until validation complete!
+
+
+
+Set up register functinality, working--> users are being insterted into db but allowing same user and password to register again..
+
+
+Can still register even if passwords do not match. Need to disable submit button until pws match
 
 
 [Back to table of contents](#table-of-contents)

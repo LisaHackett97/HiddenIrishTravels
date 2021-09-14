@@ -25,7 +25,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-# Follow this tutorial on cloudinary.com
+# Follow a tutorial on cloudinary.com
 # Link in credits section of README
 # Link to Admin Page Only. future feature for user to upload own image
 @app.route("/upload", methods=["GET", "POST"])
@@ -131,6 +131,8 @@ def registration():
             return redirect(url_for("registration"))
         # if user doesn't exist, update db with details from user
         # Add a timestamp to the user docs
+        # Credit following post to fix issue with datetime
+        # https://www.programiz.com/python-programming/datetime/strftime
         created_at = datetime.today().strftime('%d/%m/%Y, %H:%M')
         registration = {
             "username": request.form.get("username").lower(),
