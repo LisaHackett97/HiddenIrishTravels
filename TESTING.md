@@ -74,10 +74,10 @@ The following are defensive design elements identified in planning. Each will be
   - View 'logged in' menu bar
   - View or access any admin options
 
-- Error pages should be in place. 405
+- Error pages should be in place. 404
 
 - Regular logged in user should not be able to do the following
-  - View logged out menu bar
+  - View 'logged out' menu bar
   - View Admin Option in nav bar
   - View Admin Overview page
   - View or action any admin functionality: Edit fields/delete recommendations (other than own)/Delete a user
@@ -171,16 +171,15 @@ needed to
 }
 Using dev tools id'd what to be targeted
 
-Was using the toor color irish green for card reval, used color picker to change the transparency but then you could see txt on card. used color picker to choose a different shade of the gree, 
-Not giving any transparency settings
+Was using the root color irish green for card reval, used color picker to change the transparency but then you could see txt on card. used color picker to choose a different shade of the green. could not use any transparency settings
 
 
-session user set up on nav bar, cannot access recommendations dropdown. needed to crrect data target. ok now
+Session user set up on nav bar, cannot access recommendations dropdown. I needed to correct the data target, issue resolved
 
-losed app while still logged in. When re-opened, was still showing logged in. Need to show logged out page onload??
-session cookies cleared when full browser window closed but not when tab closed
+Closed app while still logged in. When re-opened, was still showing logged in. 
+session cookies cleared when full browser window closed but not when tab closed. Timer
 
-Looking at lendght of text for details and how it appears on small screens!!
+Looking at length of text for details and how it appears on small screens!! Need to change to list, decrease font size
 
 
 
@@ -242,7 +241,26 @@ Also, need to disable register button until validation complete!
 Set up register functinality, working--> users are being insterted into db but allowing same user and password to register again..
 
 
-Can still register even if passwords do not match. Need to disable submit button until pws match
+Can still register even if passwords do not match. Need to disable submit button until passwords match
+
+- layout of cards on large screen, change font size, number of columns on the div
+Navbar fixed not working, disappears on scroll. Resolved by wrapping nav element only, not the header
+
+- User being directed to wrong page after clicking dismiss option. Update the return route
+
+- Image was not updating on the edit page, pass username, image name into the render tempalte, update the 
+- Card buttons and reveal not working. Reviewed all code structure. Typos, but also styling and spacing needs to be updated. text hiding and overflowing
+- Open-close collections on mage form. Was not opening correctly, Had two collections on the page. Reviewed code and what the materialize collections did and layout. 
+Decided layout on a table looked better for this form
+
+Bug with icon: url for method and upate filepath
+
+Search limited, not fully searching. Moved within its own container
+
+Testing registration form when the 'logged in user' functionality discovered was able to register without a username. Required field was missing from form
+
+Search was showing for logged out. Restrict to session user
+
 
 
 [Back to table of contents](#table-of-contents)
