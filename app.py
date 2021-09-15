@@ -56,7 +56,6 @@ def email():
     return render_template("email.html")
 
 
-
 # Search on home page for all recommendations
 @app.route("/search", methods=["GET", "POST"])
 def search():
@@ -290,7 +289,7 @@ def add_visitor_details():
         visitor = {"visitor_type": request.form.get("visitor_type")}
         mongo.db.visitor_type.insert_one(visitor)
         flash("Successfully added, {} to the DB".format(
-            request.form.get("visitor_type")) )
+            request.form.get("visitor_type")))
         return redirect(url_for("add_visitor_details"))
     return render_template("add_field_details.html")
 

@@ -81,9 +81,8 @@ footer,
   color: var(--decoration2);
   background-color: var(--irish-green);
   line-height: 2;
-
-  top:50;
 }
+
 #flash-msg-icon {
   color: var(--decoration2);
   padding-right: 5px;
