@@ -169,7 +169,7 @@ def add_recommendation():
 def edit_recommendations(recommendation_id):
     if request.method == "POST":
         submit = {
-            "title": request.form.get("recommend-title"),
+            "title": request.form.get("recommend-title1"),
             "visitor_type": request.form.get("visitor_type"),
             "location_name": request.form.get("location_name"),
             "details": request.form.get("recommend-details"),

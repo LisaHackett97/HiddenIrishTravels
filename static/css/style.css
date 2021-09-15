@@ -152,7 +152,9 @@ hr {
 }
 
 /* set height of title section on front card */
-#recommend-title {
+#recommend-title,
+#recommend-title1,
+#recommend-title2 {
   font-style: italic;
   font-size: 14px;
   font-weight: bold;

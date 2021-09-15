@@ -262,7 +262,7 @@ Testing registration form when the 'logged in user' functionality discovered was
 Search was showing for logged out. Restrict to session user
 
 
-
+TESTING: Add new allows#ed 8500 chars on the details. But edit form was restirected to 200. Causes issues for users when trying to update details
 [Back to table of contents](#table-of-contents)
 
 ### Performance and accessibility Testing
@@ -291,6 +291,14 @@ No errors
 
 HTML: vALIDATING BY TEXT ONLY ON EACH PAGE. I cleared up error with stray and unclosed tags. remiang errors relate to jinja templating.
 To validate by uri method
+Warning: Section lacks heading. Consider using h2-h6 elements to add identifying headings to all sections. TO BE REVIEWED
+Duplicate IDs are the remaining warnings
+
+recommend-title id was repeated across, add new and edit. Change add new pg is to recommend-title1. Updated on the edit route. Tested ok
+Change is on the admin delete page to recommend-tt#itle3.
+Change is on the user delete page to recommend-tt#itle4.
+all working as expected.
+Ran through validator again. Still error warning as they are being picked up frm the new recommendations added/held. all have the same id. Maybe need to sue a class??
 
 
 [These are the final validation reports](xx)
