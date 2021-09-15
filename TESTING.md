@@ -274,6 +274,24 @@ Search was showing for logged out. Restrict to session user
 [Click here are the final WAVE reports](xx)
 
 ### Code Validation
+Ran code through all validatiors for python, js, html and css once miost of the coding was complete.
+Errors in relation to some stray tags within code. Updated these and ran through again
+
+JS:
+Cloudinary undefined.Console error when on any other page thatn the uplaod
+
+3 unused vars. Associated with onclick assigned to elements
+
+Unexpected use of ~. But this is required in order for the search functionm to work
+
+Pep8:
+continuation line over indented for visual indent
+CSS:
+No errors
+
+HTML: vALIDATING BY TEXT ONLY ON EACH PAGE. I cleared up error with stray and unclosed tags. remiang errors relate to jinja templating.
+To validate by uri method
+
 
 [These are the final validation reports](xx)
 

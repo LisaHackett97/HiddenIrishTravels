@@ -51,9 +51,6 @@ def home():
     return render_template("home.html", recommendations=recommendations)
 
 
-
-
-
 # Search on home page for all recommendations
 @app.route("/search", methods=["GET", "POST"])
 def search():

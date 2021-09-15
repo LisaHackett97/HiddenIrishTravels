@@ -12,7 +12,7 @@
             Clear Search</a>
     </div>
 </div>
-<!-- search --->
+<!-- search -->
 <div class="container search-container">
     <div class="row card-panel search-card">
         <form action="{{ url_for('search') }}" method="POST" class="col s12" id="search-form">
@@ -77,11 +77,11 @@
                         </div>
                         <!-- Full recommendation revealed when user click -->
                         <div class="card-reveal">
-                            <span class="card-title"><i class="far fa-times-circle right"></i><span><br>
+                            <div class="card-title"><i class="far fa-times-circle right"></i></div><br>
                                     <p> <i class="fas fa-comment"></i> {{ recommendation.details }}</p>
                                     <p> Created By: <span>{{ recommendation.created_by }}</span></p>
-                                    <div class="card-title activator right" id="reveal-close">Close <i
-                                            class="far fa-times-circle"></i>
+                                    <div class="card-title activator right" id="reveal-close">Close 
+                                        <i class="far fa-times-circle"></i>
                                     </div>
                         </div>
                     </div>
