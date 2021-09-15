@@ -2,67 +2,65 @@
 {% block content %}
 
 <div class="scroll-3">
-<!-- Show title as smaller h2 for mobiles  -->
+    <!-- Show title as smaller h2 for mobiles  -->
     <h1 class="hide-on-small-only">Hidden Irish Travels</h1>
-        <h2 class="hide-on-med-and-up"> Hidden Irish Travels</h2>
-    </div>
-       <div class="scroll-1"> <span
-        class="sr-only">(image of mountains and lake. Using parallax effect)          
-        </div>
-     
+    <h2 class="hide-on-med-and-up"> Hidden Irish Travels</h2>
+</div>
+<div class="scroll-1"> <span class="sr-only">(image of mountains and lake. Using parallax effect) </span>
+</div>
+
 <!-- Link to bring user to their page -->
 {% if session.user %}
-<a href="{{ url_for('user_page', username=session['user'])}}" class="btn col s6 page-btn">Your page <i class="far fa-user-circle"></i></a>
-<a href="{{ url_for('add_recommendation') }}" class="btn col s6 page-btn">Add New <i class="far fa-plus-square"></i></a>
+<a href="{{ url_for('user_page', username=session['user'])}}" class="btn col s6 page-btn"> <i
+        class="far fa-user-circle"></i></a>
+<a href="{{ url_for('add_recommendation') }}" class="btn col s6 page-btn"><i class="far fa-plus-square"></i></a>
 <a class="modal-trigger btn page-btn" href="#instruction-modal-btn">
     <i class="fas fa-info-circle"></i>
 </a>
 {% endif %}
 
-<p>Findout about places across the island of Ireland that you may not have heard of. <br> 
+<p>Findout about places across the island of Ireland that you may not have heard of. <br>
     The site is designed to be a positive place, where you can tell others about places/things to do,
-     that you have stumbled across and loved. We hope you enjoy and discover something new. <br>
-     You can view or register/login to add your own recommendations.
-    
-    <i class="far fa-smile"></i></p>
+    that you have stumbled across and loved. We hope you enjoy and discover something new. <br>
+    You can view or register/login to add your own recommendations.
+
+    <i class="far fa-smile"></i>
+</p>
 
 
 <!-- Modal Structure -->
 <div id="instruction-modal-btn" class="modal">
     <div class="modal-content">
-      <h4>How to add a recommendation</h4>
-      <ul>
-        <li> Select Add new from menu or button on screen</li>
-        <li> A form will be displayed</li> <br>
-        <li> Select a default image, by choosing a description from dropdown menu.</li>
-        <li> Enter a title for your recommendation. 
-            
-        <li> Choose a visitor_type & location in Ireland from the list. </li>        
-        <li> Fill in the details section. <br> This is where you can add details of why you loved the palces/activity, and any info you think others would like to know</li>
-        
-        <li> Select Add Recommendation. </li> <br>
-        
-        <li> Clear form, will clear all fields you have updated</li>
-        <li> You will be able to view the recommendation on your personal page, where you can edit/delete it</li>
-      </ul>
-      <a href="#!" class="modal-close btn-flat right">Close</a>       
+        <h4>How to add a recommendation</h4>
+        <ul>
+            <li> Select Add new from menu or button on screen</li>
+            <li> A form will be displayed</li>
+            <li> Select a default image, by choosing a description from dropdown menu.</li>
+            <li> Enter a title for your recommendation.
+            <li> Choose a visitor_type & location in Ireland from the list. </li>
+            <li> Fill in the details section. This is where you can add details of why you loved the
+                palces/activity, and any info you think others would like to know</li>
+            <li> Select Add Recommendation. </li>
+            <li> Clear form, will clear all fields you have updated</li>
+            <li> You will be able to view the recommendation on your personal page, where you can edit/delete it</li>
+        </ul>
+        <a href="#!" class="modal-close btn-flat right">Close</a>
     </div>
-    </div>
-  
-    {% if session.user %}       
-<div class="row center-align">    
-       <button id="home-search-button"><i class="fas fa-search"></i></button>
-       <div class="row center-align" id="clear-search">
+</div>
+
+{% if session.user %}
+<div class="row center-align">
+    <button id="home-search-button"><i class="fas fa-search"></i></button>
+    <div class="row center-align" id="clear-search">
         <a href="{{ url_for('user_page', username=session['user'])}}"> <i class="fas fa-times"></i> Clear Search</a>
     </div>
 </div>
 
 <!-- search on the home page will give results which are not filtered by user name-->
 <div class="container search-container">
-        <div class="row card-panel search-card">
+    <div class="row card-panel search-card">
         <form action="{{ url_for('search') }}" method="POST" class="col s12" id="search-form">
             <div class="row valign-wrapper center-align">
-                <!-- <div class="row"> -->
                 <div class="input-field col s8" id="search-input">
                     <input type="text" name="query" id="query" required class="validate">
                     <label for="query">Search here</label>
@@ -71,7 +69,7 @@
                     <div class="col s12">
                         <button type="submit" class="btn-small text-shadow center search-action-btn">
                             <i class="fas fa-search left hide-on-small-only"></i> Search
-                        </button>                      
+                        </button>
                     </div>
                 </div>
             </div>
@@ -90,7 +88,7 @@
             <div class="card medium">
                 <div class="card-image">
                     <img src="{{ recommendation.image_url }}" alt="Image to be uploaded" class="activator">
-                                    </div>
+                </div>
                 <div class="card-content">
                     <h5 id="recommend-title"> {{recommendation.title}}</h5>
                     <p> <i class="fas fa-location-arrow"></i> {{ recommendation.location_name }} </p>
@@ -103,12 +101,12 @@
                 </div>
                 <!-- Full recommendation revealed when user click -->
                 <div class="card-reveal">
-                    <span class="card-title"><i class="far fa-times-circle right"></i><span><br>
-                            <p> <i class="fas fa-comment"></i> {{ recommendation.details }}</p>
-                            <p> Created By: <span>{{ recommendation.created_by }}</span></p>
-                            <div class="card-title activator right" id="reveal-close">Close <i
-                                    class="far fa-times-circle"></i>
-                            </div>
+                    <span class="card-title"><i class="far fa-times-circle right"></i>
+                    </span><br>
+                    <p> <i class="fas fa-comment"></i> {{ recommendation.details }}</p>
+                    <p> Created By: <span>{{ recommendation.created_by }}</span></p>
+                    <div class="card-title activator right" id="reveal-close">Close <i class="far fa-times-circle"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -116,7 +114,7 @@
         <!-- end of container showing recommendations-->
     </div>
     <!-- end of row for cards -->
-  
+
 </div>
 <!-- end of container -->
 
@@ -126,4 +124,3 @@
 {% endif %}
 
 {% endblock %}
-

@@ -439,10 +439,10 @@ https://www.w3schools.com/howto/howto_js_scroll_to_top.asp */
 
 /* hero image on home pg */
 .scroll-1 {
-  width: 100%;
+
   height: 35vh;
   background: url(../images/hero-lake-img.jpg);
-  background-size: 100% 60%;
+  background-size: 100% 95%;
   background-attachment: fixed;
   background-repeat: no-repeat;
   position: relative;
@@ -451,10 +451,10 @@ https://www.w3schools.com/howto/howto_js_scroll_to_top.asp */
 
 /* hero image on users pg */
 .scroll-2 {
-  width: 100%;
+ 
   height: 35vh;
   background: url(../images/long-hall-dublin.jpg);
-  background-size: 100% 60%;
+  background-size: 100% 95%;
   background-attachment: fixed;
   background-repeat: no-repeat;
   position: relative;

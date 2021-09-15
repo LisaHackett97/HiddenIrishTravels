@@ -3,61 +3,52 @@
 <!-- This page is for logged in users to view/search their own uploaded receommendations -->
 <h1 class="center-align"> {{ username }}'s page</h1>
 
-<div class="scroll-2"> <span
-    class="sr-only">(image of old library)          
-    </div>
+<div class="scroll-2"> <span class="sr-only">(image of old library)
+</div>
 
 
 {% if session.user %}
-<a href="{{ url_for('home')}}" class="btn col s6 page-btn">Home <i class="fas fa-home"></i></a>
+<a href="{{ url_for('home')}}" class="btn col s6 page-btn"><i class="fas fa-home"></i></a>
 
-<a href="{{ url_for('add_recommendation') }}" class="btn col s6 page-btn">Add New  <i class="fas fa-plus"></i></a>
+<a href="{{ url_for('add_recommendation') }}" class="btn col s6 page-btn"><i class="fas fa-plus"></i></a>
 <a class="modal-trigger btn page-btn" href="#instruction-modal-btn">
     <i class="fas fa-info-circle"></i>
-    </a>
+</a>
 {% endif %}
 <p>If you are new to our site, and haven't yet uploaded anything, this page will look a little blank.
     Dont worry, you can select Add New from the recommendation menu, add something in there.
     This will then appear below. Where you can edit or delete, or just view what you have uploaded. <br>
     Please go to our home page, to see all user receommendations</p> <br>
-    <p>You can edit or delete your previously uploaded receommendations by clicking on buttons underneath each one.</p>
+<p>You can edit or delete your previously uploaded receommendations by clicking on buttons underneath each one.</p>
 
-    <!-- Modal Structure -->
+<!-- Modal Structure -->
 <div id="instruction-modal-btn" class="modal">
     <div class="modal-content">
-      <h4>How to add a recommendation</h4>
-      <ul>
-        <li> Select Add new from menu or button on screen</li>
-        <li> A form will be displayed</li> <br>
-        <li> Select a default image, by choosing a description from dropdown menu.</li>
-        <li> Enter a title for your recommendation. 
-            
-        <li> Choose a visitor_type & location in Ireland from the list. </li>        
-        <li> Fill in the details section. <br> This is where you can add details of why you loved the palces/activity, and any info you think others would like to know</li>
-        
-        <li> Select Add Recommendation. </li> <br>
-        
-        <li> Clear form, will clear all fields you have updated</li>
-        <li> You will be able to view the recommendation on your personal page, where you can edit/delete it</li>
-      </ul>
-      <a href="#!" class="modal-close btn-flat right">Close</a>       
+        <h4>How to add a recommendation</h4>
+        <ul>
+            <li> Select Add new from menu or button on screen</li>
+            <li> A form will be displayed</li> 
+            <li> Select a default image, by choosing a description from dropdown menu.</li>
+            <li> Enter a title for your recommendation.
+            <li> Choose a visitor_type & location in Ireland from the list. </li>
+            <li> Fill in the details section. <br> This is where you can add details of why you loved the
+                palces/activity, and any info you think others would like to know</li>
+            <li> Select Add Recommendation. </li> 
+            <li> Clear form, will clear all fields you have updated</li>
+            <li> You will be able to view the recommendation on your personal page, where you can edit/delete it</li>
+        </ul>
+        <a href="#!" class="modal-close btn-flat right">Close</a>
     </div>
-    </div>
+</div>
 
 <div class="row center-align">
-
     <button id="home-search-button"><i class="fas fa-search"></i></button>
-
     <div class="row center-align" id="clear-search">
         <a href="{{ url_for('user_page', username=session['user'])}}"> <i class="fas fa-times"></i> Clear Search</a>
     </div>
 </div>
-
-
-
 <!-- search on the user page will only give results for the loggedin user-->
 <div class="container search-container">
-
     <div class="row card-panel search-card">
         <form action="{{ url_for('search_user_page') }}" method="POST" class="col s12" id="search-form">
             <div class="row valign-wrapper center-align">
@@ -94,16 +85,16 @@
                         <p> <i class="fas fa-user-tag"> </i> {{ recommendation.visitor_type }}</p>
                         <p id="recommend-details-user"><i class="fas fa-comment"></i> {{ recommendation.details }}</p>
                         <hr>
-                                              <!-- 
+                        <!-- 
                                 User recommendations created by the logged in user are showing on the user page. 
                         -->
                         {% if session.user|lower == recommendation.created_by|lower %}
                         <p class="card-actions">
-                        <a href="{{ url_for('edit_recommendations', recommendation_id=recommendation._id) }}"
-                            class="btn">Edit</a>
-                        <!-- Modal Trigger To ask User to confirm before deletion happens-->
-                        <a class="btn modal-trigger" href="#{{ recommendation._id }}delete-confirmation">Delete</a>
-                    </p>
+                            <a href="{{ url_for('edit_recommendations', recommendation_id=recommendation._id) }}"
+                                class="btn">Edit</a>
+                            <!-- Modal Trigger To ask User to confirm before deletion happens-->
+                            <a class="btn modal-trigger" href="#{{ recommendation._id }}delete-confirmation">Delete</a>
+                        </p>
                         <!-- Modal Structure -->
                         <div id="{{ recommendation._id }}delete-confirmation" class="modal">
                             <div class="modal-content">
@@ -114,13 +105,11 @@
                                     class="modal-action modal-close btn-flat">Confirm Deletion</a>
                                 <a href="{{ url_for('user_page', username=session['user'])}}!"
                                     class="modal-close btn-flat">Dismiss </a>
-                                
                             </div>
                         </div>
                         {% endif %}
                     </div>
                     <!-- closing card content div -->
-
                     <div class="activator card-action">
                         Click to see More <i class="fas fa-angle-double-right"></i>
                     </div>
