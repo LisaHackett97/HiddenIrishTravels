@@ -93,7 +93,9 @@ footer .row {
   color: var(--decoration2);
   background-color: var(--irish-green);
   line-height: 2;
+  font-size: 20px;
 }
+
 
 #flash-msg-icon {
   color: var(--decoration2);
