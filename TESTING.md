@@ -262,12 +262,20 @@ Testing registration form when the 'logged in user' functionality discovered was
 Search was showing for logged out. Restrict to session user
 
 
+after fixing bugs, user page edit/delete btns have floated out of the card
+Use compare site to id where difference in last few commits. Needed to update the id'S ON title on details, that I removed when ficing validation. Also change the columns for large scrren. Looks fine now
+
+
 TESTING: Add new allows#ed 8500 chars on the details. But edit form was restirected to 200. Causes issues for users when trying to update details
 [Back to table of contents](#table-of-contents)
 
 ### Performance and accessibility Testing
 
 #### Lighthouse testing
+
+When code finished, ran lighthouse reports on mobile and desktop
+
+
 
 #### Accessibility
 

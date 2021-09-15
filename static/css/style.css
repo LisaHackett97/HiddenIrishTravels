@@ -154,7 +154,8 @@ hr {
 /* set height of title section on front card */
 #recommend-title,
 #recommend-title1,
-#recommend-title2 {
+#recommend-title2,
+#recommend-title3 {
   font-style: italic;
   font-size: 14px;
   font-weight: bold;
@@ -162,7 +163,7 @@ hr {
 }
 
 /* set height of details section on front card */
-#recommend-details-user {
+.recommend-details-user {
   height: 50px;
   overflow: hidden;
 }
