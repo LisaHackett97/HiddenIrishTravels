@@ -51,9 +51,7 @@ def home():
     return render_template("home.html", recommendations=recommendations)
 
 
-@app.route("/email",  methods=["GET", "POST"])
-def email():
-    return render_template("email.html")
+
 
 
 # Search on home page for all recommendations
