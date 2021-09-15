@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="scroll-3">
+<div class="scroll-3"></div>
     <!-- Show title as smaller h2 for mobiles  -->
     <h1 class="hide-on-small-only">Hidden Irish Travels</h1>
     <h2 class="hide-on-med-and-up"> Hidden Irish Travels</h2>
 </div>
-<div class="scroll-1"> <span class="sr-only">(image of mountains and lake. Using parallax effect) </span>
+<div class="scroll-1 col center-align"><img src="{{ url_for('static', filename='images/puffins.jpg')}}" 
+    alt="irelandtwo puffin birds">
 </div>
 
 <!-- Link to bring user to their page -->

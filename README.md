@@ -99,6 +99,7 @@ These were built using balsamiq.
 
 ### Surface
 
+REmoved text on home anduser page buttons, just using icons
 [Surface Plane](xx)
 
 #### Colors
@@ -120,6 +121,9 @@ I feel these fonts are easy for user to read on screen and are visually appealin
 
 
 #### Images
+
+Final decision was to change the images used on home and user pages and removed the fixed bg css prop. Dont have parallax but looks and scales better. Had to set to 90% of its parent div and center
+
 
 [Back to table of contents](#table-of-contents)
 
@@ -507,9 +511,9 @@ GitHub docs link [Forking a repository](https://docs.github.com/en/desktop/contr
 
 - 404 background image https://www.vecteezy.com/free-vector/nature
 
-- Long-hall Hero image on user page: unsplash.com
+- Puffin image on user page: unsplash.com
 
-- Lake image on home page: Usres own
+- Lake image on user page: Usres own
 
 
 - Favicon generated from (https://www.websiteplanet.com/webtools/favicon-generator/)
