@@ -544,6 +544,12 @@ GitHub docs link [Forking a repository](https://docs.github.com/en/desktop/contr
 - I used some slide in animations on text on the 404 page. This was created from the following site. [animations](https://animate.style/)
 ### Content
 
+Content for uploaded recommendations from the followings sites:
+- walkni.com
+- www.theirishroadtrip.com/best-places-to-visit-in-ireland/
+- www.irishcentral.com/travel/travel-tips/
+- www.atlasobscura.com/places/
+
 
 
 ### Colours
