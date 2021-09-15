@@ -71,12 +71,24 @@ td {
   width: 50vw;
 }
 
+/* footer */
 footer,
 .nav-wrapper {
   background-color: #83C5BE;
   color: #172A3A;
 }
 
+footer #social-links {
+  margin-top: 8px;
+  margin-bottom: 2px;
+}
+
+footer .row {
+  margin-top: 0;
+  margin-bottom: 2px;
+}
+
+/* flash messages */
 .flashes h5 {
   color: var(--decoration2);
   background-color: var(--irish-green);
