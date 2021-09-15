@@ -298,7 +298,10 @@ recommend-title id was repeated across, add new and edit. Change add new pg is t
 Change is on the admin delete page to recommend-tt#itle3.
 Change is on the user delete page to recommend-tt#itle4.
 all working as expected.
-Ran through validator again. Still error warning as they are being picked up frm the new recommendations added/held. all have the same id. Maybe need to sue a class??
+Ran through validator again. Still error warning as they are being picked up frm the new recommendations added/held. all have the same id. 
+Needed to remove the ID from User page and home page for title and details. Not needed for display. On the reveal-close, changed it to a class, needed for styling
+
+
 
 
 [These are the final validation reports](xx)

@@ -94,7 +94,7 @@
                     <h5> {{recommendation.title}}</h5>
                     <p> <i class="fas fa-location-arrow"></i> {{ recommendation.location_name }} </p>
                     <p> <i class="fas fa-user-tag"> </i> {{ recommendation.visitor_type }}</p>
-                    <p id="recommend-details"><i class="fas fa-comment"></i> {{ recommendation.details }}</p>
+                    <p"><i class="fas fa-comment"></i> {{ recommendation.details }}</p>
                 </div>
                 <!-- card action footer. user click to reveal more.  -->
                 <div class="activator card-action">
@@ -106,7 +106,7 @@
                     </span><br>
                     <p> <i class="fas fa-comment"></i> {{ recommendation.details }}</p>
                     <p> Created By: <span>{{ recommendation.created_by }}</span></p>
-                    <div class="card-title activator right" id="reveal-close">Close <i class="far fa-times-circle"></i>
+                    <div class="card-title activator right reveal-close">Close <i class="far fa-times-circle"></i>
                     </div>
                 </div>
             </div>

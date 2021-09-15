@@ -85,7 +85,7 @@
                         <h5> {{recommendation.title}} </h5>
                         <p> <i class="fas fa-location-arrow"></i> {{ recommendation.location_name }} </p>
                         <p> <i class="fas fa-user-tag"> </i> {{ recommendation.visitor_type }}</p>
-                        <p id="recommend-details-user"><i class="fas fa-comment"></i> {{ recommendation.details }}</p>
+                        <p><i class="fas fa-comment"></i> {{ recommendation.details }}</p>
                         <hr>
                         <!-- 
                                 User recommendations created by the logged in user are showing on the user page. 
@@ -121,7 +121,7 @@
                         </div><br>
                                 <p> <i class="fas fa-comment"></i> {{ recommendation.details }}</p>
                                 <p> Created By: <span>{{ recommendation.created_by }}</span></p>
-                                <div class="card-title activator right" id="reveal-close">Close <i
+                                <div class="card-title activator right reveal-close">Close <i
                                         class="far fa-times-circle"></i>
                                 </div>
                     </div>

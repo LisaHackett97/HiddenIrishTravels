@@ -181,7 +181,7 @@ img {
 give id to the close text on the card 
 seperate id needed to target just the text 
 */
-#reveal-close {
+.reveal-close {
   font-size: 20px;
 }
 
