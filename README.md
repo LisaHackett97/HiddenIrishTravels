@@ -228,7 +228,7 @@ Contains the following:
 	- Navigation Menu	
 	- Add new button
 	- Home page link
-	- Modal with info on adding a new recommendation
+	- Add Recommendations link
 	- Search Option
 	- Recommendations section
 	- Button to click to go to top of page.

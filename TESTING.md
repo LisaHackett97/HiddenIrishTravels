@@ -102,6 +102,142 @@ The following are defensive design elements identified in planning. Each will be
 
 ### Functionality Testing
 
+#### Features accessible across all pages 
+
+| Feature:                        	|  Nav   Bar                                                                                                                                       	|
+|---------------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
+| Expected:                       	|  Users can view and access menu items   according to their user status. <br>      Logged out can only view login/register/home links<br>      	|
+| 	                        	| Logged in can view all recommendations options, home, search and logout.<br>     Admin user also has access to Admin option.                    	|
+| Testing:                        	| View nav bar as each type of user. Attempt to manually type url for an option user shouldn't have access to, logged in options when user is logged out <br> |
+|		                    	| Admin options for standard user
+| Results:                        	|                                                                                                                                                  	|
+| Home Page:                      	| As expected. User gets 404 message if they try to access a page not authorized by typing in url. Logged in user will get a flashed message        |
+| Recommendations Page            	| As expected.                                                                                                                                           	|
+| Admin Pages                     	| As expected.                                                                                                                                             	|
+| Add Recommendation Page         	| As expected.                                                                                                                                             	|
+| Edit/Delete Recommendation Page 	| As expected.                                                                                                                                            	|
+
+| Feature:                        |  Nav Bar- Recommendations menu																|
+|---------------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
+| Expected:                       |  Users can view lower level menu for   recommendations.<br>     They can select add new/edit/delete<br>     Not available to logged out users.|  
+| Testing:                        | click on Recommendations menu,   check 3 options are available.<br>     Click on each option on lower menu.<br>     Add new should open a blank recommendation form<br>     
+|				  |Edit & delete should open prepopulated forms with relevant   buttons,<br>     and be restricted by username of logged in user.<br>     Cancel action buttons should also be available on forms |   
+| Results:                        |                                                                                                                                                                                                                                                                                                                                                                            |   |
+| Home Page:                      | As expected. |
+| Recommendations Page            |As expected. |
+| Admin Pages                     | As expected. |
+| Add Recommendation Page         | As expected. |
+| Edit/Delete Recommendation Page | As expected. |
+
+
+| Feature:  | Footer                                                                                                  										|   
+|---------------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
+| Expected: | All Users can view footer and content across all pages                                                  |   
+| Testing:  | View nav bar menu on small, medium   and large screen sizes. <br>     (Same content for each user type). Viewed each page on small, medium and large screen sizes |   
+| Results:                        |     |
+| Home Page:                      | Footer displaying as expected |
+| Recommendations Page            | Footer displaying as expected|
+| Admin Pages                     | Footer displaying as expected|
+| Add Recommendation Page         | Footer displaying as expected|
+| Edit/Delete Recommendation Page | Footer displaying as expected|
+
+
+
+| Feature:  | Flash Messages										|   
+|---------------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
+| Expected: |Display under nav bar. Cancel icon to clear it, will fade out so that user will not have to refresh pg                                                
+| Testing:  | Perform action on each page that prompts a flash message, eg login, search etc |   
+| Results:              Performs as expected across all pages          |     
+
+
+| Feature:  | go to top of page function |
+|---------------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
+| Expected: | All Users can view arrow icon once they have scrolled down the page, and click to bring to top of page                                                  |   
+| Testing:  |View and click on each page where it is possible to scroll down. Test for 3 user types|   
+| Results:                        |     |
+| Home Page:                      | As expected.|
+| Recommendations Page            | As expected. |
+| Admin Pages                     | As expected. |
+| Add Recommendation Page         | As expected.|
+| Edit/Delete Recommendation Page | As expected. |
+
+
+                                                                                                                                                                                                                                                                       	|
+#### Home   Page 
+
+| Feature:    | Log In Button accessed through nav bar, with a link on registration page                                                                                                   |   
+|---------------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
+| Expected:   | Logged out user click button, Log   in page should Open.<br>     Option not available for logged in/admin user 									|   
+| Testing:    | Click button, view page which opens                                                                            									|   
+| Results:    | Works as expected                                                                                                           									|   
+
+
+
+| Feature:    | Register Button  accessed through nav bar, with a link on the login page                                                                                                								|   
+|---------------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
+| Expected:   | Logged out user click button, Log   in page should Open.<br>     Option not available for logged in/admin user 									|   
+| Testing:    | Click button, view page which opens                                                                            									|   
+| Results:    | TBD                                                                                                        									|  
+
+
+| Feature:    | Log Out Button  accessed through nav bar                                                                                                									|   
+|---------------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
+| Expected:   | "Logged in user clicks button, message is flashed and can then only view logged out options <br> 								|   
+| Testing:    | Click button, view page which opens                                                                            									|   
+| Results:    |    Works as expected                                                                                                          								| 
+ 
+
+| Feature:    | Search                                                                                                								|   
+|---------------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
+| Expected:   | User click search icon, types search details and clicks search button. Search results are displayed. User has option to clear search results. same as clearing a filter <br>     Option not available for loggedout user								|   
+| Testing:    | Click button, perform a seach                                                                            									|   
+| Results:    | Works as expected. Search result displayed, or messaged given when no result. clear search button resets the page                                                                                                        									| 
+
+| Feature:  | Recommendations section                                                                                 |
+|---------------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
+| Expected: | Recommendations from all users,   image and content should be easy to view, <br>     with no ability to edit those for another user                                                     |
+| Testing:  | View recommendations, try click   on another users recommendations.<br>     Test for 3 user types. Should be no difference. Admin would have to go   admin page to access functionality |
+| Results:  |       Works as expected                                                                                                                                                                                   |   
+
+| Feature:  | Add Recommendation button                                                                          |
+|---------------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
+| Expected: | Click on the + icon or select from nav bar. When selected, Blank   recommendation form opens.<br>     Option not available for logged out user |
+| Testing:  | Click button, view page which opens. Add details. Test for user and admin user                                  |
+| Results:  |  Works as expected. A new recommendation added can be viewed on the page.                                                                                                  |
+
+
+
+
+#### Registration Page
+- Features only available to a logged out user
+                                         |
+
+| Feature:  | Registration  Form                                                                                                                                                          |
+|---------------------------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Expected: | Form with 3 input fields and   submit button<br>     User can add username/password and register                                                                            |
+| Testing:  | Form with 3 input fields and   submit button<br>     Review form is showing as expected.<br>     Update a test user and register.<br>     Registration should be successful |
+| Results:  | view page and register a user with no issues. Password validation working                                                                                                                                                                       |
+
+| Feature:    |Modal Pop up for instruction                                                                                    |   
+|---------------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
+| Expected:   | Info icon displayed which user can click and get instructions |   
+| Testing:    | View icon, click and check details. Close modal                                                                           |   
+| Results:    |    Works as expected                                                                                                            |   
+                                                                                                         |  
+- There is also a link to login page included. Clicked to test it beings user to page as expected. No issues
+
+#### Log in Page
+- Features only available to a logged out user
+
+| Feature:  | LogIn form                                                                                                 |
+|---------------------------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Expected: | Log In Form with 2 input fields and submit button                                                          |
+| Testing:  | Update form with previously   created test user and press login button.<br>     Login should be successful |
+| Results:  | Worked as expected                                                                                                      |
+
+- There is also a link to registration page included. Clicked to test it beings user to page as expected. No issues |
+
+
 [Back to table of contents](#table-of-contents)
 ### Compatibility Testing
 [Back to table of contents](#table-of-contents)
