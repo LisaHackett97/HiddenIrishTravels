@@ -3,6 +3,15 @@
 
 // variables to set 
 let mybutton = document.getElementById("backToTopBtn");
+jQuery.event.special.touchstart = {
+  setup: function( _, ns, handle ){
+    if ( ns.includes("noPreventDefault") ) {
+      this.addEventListener("touchstart", handle, { passive: false });
+    } else {
+      this.addEventListener("touchstart", handle, { passive: true });
+    }
+  }
+};
 
 // Doc ready functions, including jquery materialize code Credit CI Tutorial
 $(document).ready(function () {
@@ -147,3 +156,20 @@ var myWidget = cloudinary.createUploadWidget({
 document.getElementById("upload_widget").addEventListener("click", function () {
   myWidget.open();
 }, false);
+
+
+// jQuery.event.special.touchmove = {
+//   setup: function( _, ns, handle ){
+//     if ( ns.includes("noPreventDefault") ) {
+//       this.addEventListener("touchmove", handle, { passive: false });
+//     } else {
+//       this.addEventListener("touchmove", handle, { passive: true });
+//     }
+//   }
+// };
+
+document.addEventListener(document, "touchmove", function(e) {
+  console.log(e.defaultPrevented);  // will be false
+  e.preventDefault();   // does nothing since the listener is passive
+  console.log(e.defaultPrevented);  // still false
+}, Modernizr.passiveeventlisteners ? {passive: true} : false);
