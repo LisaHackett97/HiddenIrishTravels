@@ -105,37 +105,37 @@ The following are defensive design elements identified in planning. Each will be
 
 | 	| Tests Performed | 
 |------ | ----| 
-| Understand the main purpose of the   site.| | 
-|View recommended places in Ireland  <br> and Northern Ireland. | | 
-| Find out how to submit a recommendation | | 
-| Register as a user  | | 
-| Be able to view the site on mobile/<br> desktop/tablet. |  | |
-| Be able to access all pages and navigate <br> without confusion, without too many clicks. | |
+| Understand the main purpose of the   site.| Paragraph on home and user pages explaing the site. Easy to see the recommendations on both pages | 
+|View recommended places in Ireland  <br> and Northern Ireland. | Recommendations are displayed on home and users own page. Cards can be clicked on to see more details if provided | 
+| Find out how to submit a recommendation | Information provided on a pop up modal | 
+| Register as a user  | Easy to use registration form | 
+| Be able to view the site on mobile/<br> desktop/tablet. | Site can be viewed on small/medium/large/extra large.  Layout and some headings are adjuted for different screen sizes.| |
+| Be able to access all pages and navigate <br> without confusion, without too many clicks. | Clear options on home page and nav bar. Once user is registered and logged in, options are provided in the nav bar as well as some links on the page |
 
 #### As a returning user, I want to
 
 | 	| Tests Performed | 
 |------ | ----|
-| View recommended places in Ireland  <br> and Northern Ireland.| | 
-| Log In| | 
-| Submit a recommendation | |
+| View recommended places in Ireland  <br> and Northern Ireland.| Recommendations are displayed on home and users own page. Cards can be clicked on to see more details if provided | 
+| Log In| Easy to use login form provided | 
+| Submit a recommendation | Add recommendation form provided in nav bar and on logged in users page. Hints and instructions included|
 |	
-| Delete negative / misleading  user <br> recommendations  | | 
-| Delete Users | | 
-| Be able to view the site on mobile/<br> desktop/tablet. | | 
-| Be able to access all pages and navigate <br> without confusion, without too many clicks. |
-|											    |
-|											    | | 								
+| Delete negative own recommendations  | User can view their own recommendations on their user page, where they can edit or delete previously uploaded| 
+| | |
+| Be able to view the site on mobile<br> desktop/tablet. | Site can be viewed on small/medium/large/extra large.  Layout and some headings are adjuted for different screen sizes | 
+| Be able to access all pages and navigate <br> without confusion, without too many clicks. | Clear options on home page and nav bar. Once user is registered and logged in, options are provided in the nav bar as well as some links on the page
+
+							
 
 #### As site owner I want to
 
 | 	| Tests Performed |
 |------ | ----| 
-| Provide a place for users to recommend <br>unusual and unknown places to see on the island of Ireland.| |
-| Manage Categories | |
-| Update/add own personal recommendations | | 
-| Delete negative and misleading recommendations | 
-| Delete users| | 
+| Provide a place for users to recommend <br>unusual and unknown places to see on the island of Ireland.| Users can access site, and once register/loggedin can add a recommendation with location, visitory type and details. Drop down images are provided for user to choose from |
+| Manage Categories | On the admin page, link to a manage fields form/page. Here admin user can view all current user and visitor types. Otions are provided to edit each of these, with an option at top of page to add new details |
+| Update/add own personal recommendations | Admin or site owner functionality works same as standard user for updating and adding own recommendations| 
+| Delete negative and misleading recommendations | On the admin page, link to a manage user recommendation page. Here admin user can view all current and can dlete if appropriate. Other business controls would need to be in place to manage the adminisatration of this process. Admin cannot edit another usrs recommendations.
+| Delete users| On the admin page, link to a delete user page, where the admin is provided with a list of current users and option to search and delete.| 
 
 [Back to table of contents](#table-of-contents)
 
@@ -271,7 +271,9 @@ Version one score across the site on mobile were as follows:
 - SEO 96 TO 100 
 
 Review worst score first: 67 on Home Page
-Most of scores on this page/type relate to images. Bulk resize images and compress
+Most of scores on this page/type relate to images. Bulk resize images and compress, which has improved scores.
+Aria labels updated improved scores for accessibility]
+
 
 
 
@@ -286,7 +288,7 @@ I had a number of contrast issues.
 - Some warnings showing on each pge
   - Links: due to having code for navbar and mobiel side nav bar
   - Alt attributes on images repeating. This is due to the fact that images are uploading from db, with a standard alt text
-  
+
 
 
 [Click here are the final WAVE reports](xx)
