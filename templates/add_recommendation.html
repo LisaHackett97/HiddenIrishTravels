@@ -5,7 +5,7 @@
 <h1 class="hide-on-small-only">Add a new recommendation <i class="fas fa-pencil-alt"></i></h1>
 <h2 class="hide-on-med-and-up">Add a new recommendation </h2>
 
-
+<!-- for logged in user, access functionality on this page -->
 {% if session.user %}
 <a href="{{ url_for('user_page', username=session['user'])}}" class="btn col s6 page-btn">Back to your page <i class="far fa-user-circle"></i></a>
 {% endif %}

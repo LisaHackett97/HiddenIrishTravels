@@ -16,7 +16,6 @@
 <div class="container search-container">
     <div class="row card-panel search-card">
         <form action="{{ url_for('search') }}" method="POST" class="col s12" id="search-form">
-
             <div class="row valign-wrapper center-align">
                 <!-- <div class="row"> -->
                 <div class="input-field col s8" id="search-input">
@@ -56,10 +55,10 @@
                             <p> <i class="fas fa-user-tag"> </i> {{ recommendation.visitor_type }}</p>
                             <p id="recommend-details-user"><i class="fas fa-comment"></i> {{ recommendation.details }}
                             </p>
-                            
                             <p class="card-actions">
-                                  <!-- Modal Trigger To ask User to confirm before deletion happens-->
-                            <a class="btn modal-trigger" href="#{{ recommendation._id }}delete-confirmation">Delete</a>
+                                <!-- Modal Trigger To ask User to confirm before deletion happens-->
+                                <a class="btn modal-trigger"
+                                    href="#{{ recommendation._id }}delete-confirmation">Delete</a>
                             </p>
                             <!-- Modal Structure for confirmation of delete-->
                             <div id="{{ recommendation._id }}delete-confirmation" class="modal">
@@ -78,11 +77,11 @@
                         <!-- Full recommendation revealed when user click -->
                         <div class="card-reveal">
                             <div class="card-title"><i class="far fa-times-circle right"></i></div><br>
-                                    <p> <i class="fas fa-comment"></i> {{ recommendation.details }}</p>
-                                    <p> Created By: <span>{{ recommendation.created_by }}</span></p>
-                                    <div class="card-title activator right" id="reveal-close">Close 
-                                        <i class="far fa-times-circle"></i>
-                                    </div>
+                            <p> <i class="fas fa-comment"></i> {{ recommendation.details }}</p>
+                            <p> Created By: <span>{{ recommendation.created_by }}</span></p>
+                            <div class="card-title activator right" id="reveal-close">Close
+                                <i class="far fa-times-circle"></i>
+                            </div>
                         </div>
                     </div>
                     <!-- closing card div -->
@@ -94,6 +93,7 @@
         <!-- end of container -->
         {% endif %}
     </div>
+    <!-- else statement is user is not = session user -->
     {% else %}
     <h3>You are not authorised to view this page.</h3>
     {% endif %}

@@ -1,43 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!-- Admin manage Page. If user has the default field of is_admin as false. Will not have access to this Page
-Function Admin -->
+<!--
+    Admin manage Page. 
+    If user has the default field of is_admin as false, they will not have access to this Page
+    -->
 <h1>Admin</h1>
 <div class="row">
-       
     <a href="{{ url_for('upload')}}" class="btn col s12 admin-btns">
         Upload Image to Cloudinary Storage
     </a>
     <a href="{{ url_for('manage_form_details')}}" class="btn col s12 admin-btns">
-        Manage Visitor and locations Details        
+        Manage Visitor and locations Details
     </a>
     <a href="{{ url_for('recommend_admin_delete') }}" class="btn col col s12 admin-btns">
-        Delete User Recommendations  
+        Delete User Recommendations
     </a>
-        <a href="{{ url_for('users_admin') }}" class="btn col s12 admin-btns">
+    <a href="{{ url_for('users_admin') }}" class="btn col s12 admin-btns">
         Delete User
-     </a> 
+    </a>
 </div>
-<!-- Mondal trigger buttons -->
 
+<!-- Mondal trigger buttons -->
 <div>
     <p class="center"> Select one of the options below to get further info on the Admin Options</p>
- <div class="row">   
-<a class="modal-trigger btn page-btn btn col s6 offset-s3" href="#admin-instruction4">
-    <i class="fas fa-info-circle"></i> Upload page info
-</a>
-<a class="modal-trigger btn page-btn col s6 offset-s3" href="#admin-instruction1">
-    <i class="fas fa-info-circle"></i> Visitor/Location info
-</a>
-
-<a class="modal-trigger btn page-btn col s6 offset-s3" href="#admin-instruction2">
-    <i class="fas fa-info-circle"></i> Delete Recommendations info
-</a>
-<a class="modal-trigger btn page-btn col s6 offset-s3" href="#admin-instruction3">
-    <i class="fas fa-info-circle"></i> Delete User Info
-</a> 
-</div>
+    <div class="row">
+        <a class="modal-trigger btn page-btn btn col s6 offset-s3" href="#admin-instruction4">
+            <i class="fas fa-info-circle"></i> Upload page info
+        </a>
+        <a class="modal-trigger btn page-btn col s6 offset-s3" href="#admin-instruction1">
+            <i class="fas fa-info-circle"></i> Visitor/Location info
+        </a>
+        <a class="modal-trigger btn page-btn col s6 offset-s3" href="#admin-instruction2">
+            <i class="fas fa-info-circle"></i> Delete Recommendations info
+        </a>
+        <a class="modal-trigger btn page-btn col s6 offset-s3" href="#admin-instruction3">
+            <i class="fas fa-info-circle"></i> Delete User Info
+        </a>
+    </div>
 </div>
 <!-- Modal Structure -->
 <div id="admin-instruction1" class="modal">
@@ -52,7 +52,6 @@ Function Admin -->
         <a href="#!" class="modal-close btn-flat right">Close</a>
     </div>
 </div>
-
 
 <!-- Modal for Delete Recommendations -->
 <div id="admin-instruction2" class="modal">
@@ -76,15 +75,12 @@ Function Admin -->
 <div id="admin-instruction3" class="modal">
     <div class="modal-content">
         <h4>This button will open the page where you can delete a</h4>
-        
         <h5>If deleting a user, you should take a screen shot for your records</h5>
-        
         <ul>
             <li> Select button </li>
             <li> A list of users, along with creation date will be displayed</li>
             <li> A delete option will be displayed on each.</li>
             <li> Use search option to narrow your view </li>
-
         </ul>
         <a href="#!" class="modal-close btn-flat right">Close</a>
     </div>
@@ -94,11 +90,9 @@ Function Admin -->
 <div id="admin-instruction4" class="modal">
     <div class="modal-content">
         <h4>This button will open the page where you can upload an image to the cloud storage</h4>
-                <ul>
+        <ul>
             <li> Select button to open the page </li>
             <li> Further instructions will be displayed</li>
-            
-
         </ul>
         <a href="#!" class="modal-close btn-flat right">Close</a>
     </div>

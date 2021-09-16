@@ -1,26 +1,22 @@
 <!--  -->
-    {% extends "base.html" %}
-    {% block content %}
-    
-    <div>
-        <!-- Show title as smaller h2 for mobiles  -->
-        <h1 class="hide-on-small-only">{{ username }}'s page</h1>
-        <h2 class="hide-on-med-and-up">{{ username }}'s pages</h2>
-    </div>
-    
-    
-    <div class="row">
-    <div class="scroll-2 center-align col s12">
-        <img src="{{ url_for('static', filename='images/cliffs-of-moher.jpg') }}" 
-        alt="ireland-cliffs">
-    </div>
-    </div>
-    
-    
-        
+{% extends "base.html" %}
+{% block content %}
 
+<div>
+    <!-- Show title as smaller h2 for mobiles  -->
+    <h1 class="hide-on-small-only">{{ username }}'s page</h1>
+    <h2 class="hide-on-med-and-up">{{ username }}'s pages</h2>
+</div>
+
+<!-- image to display on user page -->
+<div class="row">
+    <div class="scroll-2 center-align col s12">
+        <img src="{{ url_for('static', filename='images/cliffs-of-moher.jpg') }}" alt="ireland-cliffs">
+    </div>
+</div>
 
 {% if session.user %}
+<!-- buttons for instructions / more info /home-->
 <a href="{{ url_for('home')}}" class="btn col s6 page-btn"><i class="fas fa-home"></i></a>
 
 <a href="{{ url_for('add_recommendation') }}" class="btn col s6 page-btn"><i class="fas fa-plus"></i></a>
@@ -40,20 +36,20 @@
         <h4>How to add a recommendation</h4>
         <ul>
             <li> Select Add new from menu or button on screen</li>
-            <li> A form will be displayed</li> 
+            <li> A form will be displayed</li>
             <li> Select a default image, by choosing a description from dropdown menu.</li>
             <li> Enter a title for your recommendation.
             <li> Choose a visitor_type & location in Ireland from the list. </li>
             <li> Fill in the details section. <br> This is where you can add details of why you loved the
                 palces/activity, and any info you think others would like to know</li>
-            <li> Select Add Recommendation. </li> 
+            <li> Select Add Recommendation. </li>
             <li> Clear form, will clear all fields you have updated</li>
             <li> You will be able to view the recommendation on your personal page, where you can edit/delete it</li>
         </ul>
         <a href="#!" class="modal-close btn-flat right">Close</a>
     </div>
 </div>
-
+<!-- search area -->
 <div class="row center-align">
     <button id="home-search-button"><i class="fas fa-search"></i></button>
     <div class="row center-align" id="clear-search">
@@ -90,13 +86,15 @@
             <div class="col s12 m6 ">
                 <div class="card medium">
                     <div class="card-image">
-                        <img src="{{ recommendation.image_url }}" alt="If image is not displaying, please edit to choose another" class="activator">
+                        <img src="{{ recommendation.image_url }}"
+                            alt="If image is not displaying, please edit to choose another" class="activator">
                     </div>
                     <div class="card-content" id="user-card-content">
                         <h5 id="recommend-title3"> {{recommendation.title}} </h5>
                         <p> <i class="fas fa-location-arrow"></i> {{ recommendation.location_name }} </p>
                         <p> <i class="fas fa-user-tag"> </i> {{ recommendation.visitor_type }}</p>
-                        <p class="recommend-details-user"><i class="fas fa-comment"></i> {{ recommendation.details }}</p>
+                        <p class="recommend-details-user"><i class="fas fa-comment"></i> {{ recommendation.details }}
+                        </p>
                         <hr>
                         <!-- 
                                 User recommendations created by the logged in user are showing on the user page. 
@@ -130,11 +128,10 @@
                     <div class="card-reveal">
                         <div class="card-title"><i class="far fa-times-circle right"></i>
                         </div><br>
-                                <p> <i class="fas fa-comment"></i> {{ recommendation.details }}</p>
-                                <p> Created By: <span>{{ recommendation.created_by }}</span></p>
-                                <div class="card-title activator right reveal-close">Close <i
-                                        class="far fa-times-circle"></i>
-                                </div>
+                        <p> <i class="fas fa-comment"></i> {{ recommendation.details }}</p>
+                        <p> Created By: <span>{{ recommendation.created_by }}</span></p>
+                        <div class="card-title activator right reveal-close">Close <i class="far fa-times-circle"></i>
+                        </div>
                     </div>
                 </div>
                 <!-- closing card div -->

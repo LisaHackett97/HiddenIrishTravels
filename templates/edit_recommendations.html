@@ -6,7 +6,10 @@
 <div class="row card-panel">
     <form class="col s12" method="POST"
         action="{{ url_for('edit_recommendations', recommendation_id=recommendation._id) }}">
-        <!-- image upload area input field Not yet working -->
+        <!-- image upload area. 
+            This gives access to one of the predefined images, 
+            which are stored in cloudinary and url updated on db  
+        -->
         <div class="row">
             <div class="input-field col s12">
                 <i class="fas fa-images prefix  tooltipped" data-position="left"
@@ -29,7 +32,6 @@
             <div class="input-field col s12">
                 <i class="fas fa-info-circle prefix tooltipped" data-position="left"
                     data-tooltip="Select to edit details"></i>
-
                 <textarea id="#recommend-title1" name="recommend-title1" minlength="5" maxlength="500"
                     class="materialize-textarea validate" required>{{- recommendation.title }}</textarea>
                 <label for="recommend-title1">Title</label>
@@ -69,7 +71,6 @@
                     {% endfor %}
                 </select>
                 <label for="location_name">Location</label>
-
             </div>
         </div>
         <!-- details field -->
@@ -96,8 +97,7 @@
                 </a>
                 {% endif %}
             </div>
-        </div>
-        <!-- </button> -->
+        </div>     
     </form>
 </div>
 {% endblock %}

@@ -6,16 +6,12 @@
     <h1 class="hide-on-small-only">Hidden Irish Travels</h1>
     <h2 class="hide-on-med-and-up"> Hidden Irish Travels</h2>
 </div>
-
-
+<!-- iamge under heading, for visual-->
 <div class="row">
-<div class="scroll-1 center-align col s12">
-    <img src="{{ url_for('static', filename='images/puffins.jpg')}}" 
-    alt="irelandtwo puffin birds">
+    <div class="scroll-1 center-align col s12">
+        <img src="{{ url_for('static', filename='images/puffins.jpg')}}" alt="irelandtwo puffin birds">
+    </div>
 </div>
-</div>
-
-
 
 <!-- Link to bring user to their page -->
 {% if session.user %}
@@ -30,11 +26,8 @@
 <p>Find out about places across the island of Ireland that you may not have heard of. <br>
     The site is designed to be a positive place, where you can tell others about places/things to do,
     that you have stumbled across and loved. We hope you enjoy discovering something new. <br>
-    You can view or register/login to add your own recommendations.
-
-    <i class="far fa-smile"></i>
+    You can view or register/login to add your own recommendations.<i class="far fa-smile"></i>
 </p>
-
 
 <!-- Modal Structure -->
 <div id="instruction-modal-btn" class="modal">
@@ -95,7 +88,8 @@
         <div class="col s12 m6 l4">
             <div class="card medium">
                 <div class="card-image">
-                    <img src="{{ recommendation.image_url }}" alt="If image is not displaying, please edit to choose another" class="activator">
+                    <img src="{{ recommendation.image_url }}"
+                        alt="If image is not displaying, please edit to choose another" class="activator">
                 </div>
                 <div class="card-content">
                     <h5> {{recommendation.title}}</h5>
@@ -122,7 +116,6 @@
         <!-- end of container showing recommendations-->
     </div>
     <!-- end of row for cards -->
-
 </div>
 <!-- end of container -->
 
