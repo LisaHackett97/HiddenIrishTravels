@@ -274,6 +274,14 @@ TESTING: Add new allows#ed 8500 chars on the details. But edit form was restirec
 #### Lighthouse testing
 
 When code finished, ran lighthouse reports on mobile and desktop
+Version one score across the site on mobile were as follows:
+- Performance 76 to 94
+- Accessibility 77 to 93
+- Best Practices 67 to 87
+- SEO 96 TO 100 
+
+Review worst score first: 67 on Home Page
+Most of scores on this page/type relate to images. Bulk resize 
 
 
 

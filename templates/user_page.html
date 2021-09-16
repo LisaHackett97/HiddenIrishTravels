@@ -1,12 +1,23 @@
-{% extends "base.html" %}
-{% block content %}
-<!-- This page is for logged in users to view/search their own uploaded receommendations -->
-<h1 class="center-align hide-on-small-only"> {{ username }}'s page</h1>
-<h2 class="center-align hide-on-med-and-up">{{ username }}'s page</h2>
-
-<div class="scroll-1 center-align"><img src="{{ url_for('static', filename='images/hero-lake-img-orig.jpg')}}" 
-    alt="Lough Tay from above">
-</div>
+<!--  -->
+    {% extends "base.html" %}
+    {% block content %}
+    
+    <div>
+        <!-- Show title as smaller h2 for mobiles  -->
+        <h1 class="hide-on-small-only">{{ username }}'s page</h1>
+        <h2 class="hide-on-med-and-up">{{ username }}'s pages</h2>
+    </div>
+    
+    
+    <div class="row">
+    <div class="scroll-2 center-align col s12">
+        <img src="{{ url_for('static', filename='images/cliffs-ireland.jpg') }}" 
+        alt="ireland-cliffs">
+    </div>
+    </div>
+    
+    
+        
 
 
 {% if session.user %}

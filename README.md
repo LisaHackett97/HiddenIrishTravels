@@ -100,6 +100,7 @@ These were built using balsamiq.
 ### Surface
 
 REmoved text on home anduser page buttons, just using icons
+Changed top image on homne and user pages, and reset css properties to ensure images displaying without stretching on all screens
 [Surface Plane](xx)
 
 #### Colors
