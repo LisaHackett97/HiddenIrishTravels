@@ -230,7 +230,7 @@ Contains the following:
 	- Home page link
 	- Add Recommendations link
 	- Search Option
-	- Recommendations section
+	- Recommendations section (displaying all user recommendations)
 	- Button to click to go to top of page.
 	- Footer
 
@@ -277,23 +277,23 @@ Contains the following:
 		- If Edit Option was selected: Prepopulated form is shown with Edit button. **Restrict to username
 		- If Delete Option was selected: Prepopulated form is shown with delete button.    **Restrict to username and show confirmation btn
 
-#### Recommendation Form:
+##### Recommendation Form:
 
-#### Add New
+#### Add  (accessed through nav bar or button on pages)
 	- dropdown list of images to select from
 	- Title, Details are free form text input for users
 	- 2 fields for user to select from dropdown. Visitor type and locations
 	- Submit Button/Clear form
 	- Back to user page Option
 
-#### Edit 
+#### Edit (Only available on user page, in order to edit own recommendations)
 	- Image 
 		On Edit, user can select to change
 	- 2 user input fields: title and details.
 		On Edit, fields user can click on fields to edit
 	- 2 fields for user to select from dropdown. Visitor tyoe and locations
 		On Edit, user can select to change
-	- Edit Button/Cancel/Back buttons
+	- Edit Button/Cancel buttons
 
 #### Displayed on Home and User pages
 

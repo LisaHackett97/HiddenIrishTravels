@@ -104,7 +104,7 @@ The following are defensive design elements identified in planning. Each will be
 
 #### Features accessible across all pages 
 
-| Feature:                        	|  Nav   Bar                                                                                                                                       	|
+| Feature:                        	|  Nav Bar                                                                                                                                       	|
 |---------------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
 | Expected:                       	|  Users can view and access menu items   according to their user status. <br>      Logged out can only view login/register/home links<br>      	|
 | 	                        	| Logged in can view all recommendations options, home, search and logout.<br>     Admin user also has access to Admin option.                    	|
@@ -128,6 +128,12 @@ The following are defensive design elements identified in planning. Each will be
 | Admin Pages                     | As expected. |
 | Add Recommendation Page         | As expected. |
 | Edit/Delete Recommendation Page | As expected. |
+
+| Feature:  | Modals                                                                                                  										|   
+|---------------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
+| Expected: | Modals are in place across site: Registration info, add new recommendations, info for Admin page and confirmation of deletions for user and admin |
+| Testing:  | Click on each modal to check info displays as expected. And for delete confirmations, actions completes  or cancels as expected. |   
+| Results:                        |    Works as expected  |
 
 
 | Feature:  | Footer                                                                                                  										|   
@@ -161,8 +167,17 @@ The following are defensive design elements identified in planning. Each will be
 | Add Recommendation Page         | As expected.|
 | Edit/Delete Recommendation Page | As expected. |
 
+#### Log in Page
+- Features only available to a logged out user
 
-                                                                                                                                                                                                                                                                       	|
+| Feature:  | LogIn form                                                                                                 |
+|---------------------------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Expected: | Log In Form with 2 input fields and submit button                                                          |
+| Testing:  | Update form with previously   created test user and press login button.<br>     Login should be successful |
+| Results:  | Worked as expected                                                                                                      |
+
+- There is also a link to registration page included. Clicked to test it beings user to page as expected. No issues |
+
 #### Home   Page 
 
 | Feature:    | Log In Button accessed through nav bar, with a link on registration page                                                                                                   |   
@@ -177,7 +192,7 @@ The following are defensive design elements identified in planning. Each will be
 |---------------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------	|
 | Expected:   | Logged out user click button, Log   in page should Open.<br>     Option not available for logged in/admin user 									|   
 | Testing:    | Click button, view page which opens                                                                            									|   
-| Results:    | TBD                                                                                                        									|  
+| Results:    |  Works as expected                                                                                                         									|  
 
 
 | Feature:    | Log Out Button  accessed through nav bar                                                                                                									|   
@@ -206,11 +221,9 @@ The following are defensive design elements identified in planning. Each will be
 | Results:  |  Works as expected. A new recommendation added can be viewed on the page.                                                                                                  |
 
 
-
-
 #### Registration Page
 - Features only available to a logged out user
-                                         |
+
 
 | Feature:  | Registration  Form                                                                                                                                                          |
 |---------------------------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -223,19 +236,112 @@ The following are defensive design elements identified in planning. Each will be
 | Expected:   | Info icon displayed which user can click and get instructions |   
 | Testing:    | View icon, click and check details. Close modal                                                                           |   
 | Results:    |    Works as expected                                                                                                            |   
-                                                                                                         |  
+ 
 - There is also a link to login page included. Clicked to test it beings user to page as expected. No issues
 
-#### Log in Page
-- Features only available to a logged out user
 
-| Feature:  | LogIn form                                                                                                 |
+#### Users Page
+- only accessible to logged in user
+
+| Feature:  |          Recommendations Section                                                                                                  |
 |---------------------------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Expected: | Log In Form with 2 input fields and submit button                                                          |
-| Testing:  | Update form with previously   created test user and press login button.<br>     Login should be successful |
-| Results:  | Worked as expected                                                                                                      |
+| Expected: | Recommendations which user previously uploaded, displaying with all details or a message is none |
+| Testing:  | View page. Check created by on each recommendation: check are only for the logged in user. Add a new recommendation and check display updates      |
+| Results:  | Works as expected                                                                                                                          |
+ 
 
-- There is also a link to registration page included. Clicked to test it beings user to page as expected. No issues |
+| Feature:  | Add New Recommendation                                                                                                                                                                                                           |
+|---------------------------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Expected: | If Add New Option was selected :   Blank Recommendation form is presented to user.<br>User can select image, update 2 user input fields, select from 2 dropdown fields and click submit.<br> Action is successful |
+| Testing:  | Select Add new from nav   menu/button.<br>     Form opens as expected, add details for a new recommendation. <br>     Click submit button<br>     New recommendation successful and appears in the recommendations section   |
+| Results:  | Works as expected. Also tested by clicking on the add new button. Recommendations display on home and user page with details showing                                                                                                                                                                                                                        |
+
+| Feature:  | Edit Recommendation                                                                                                                                                                                                                                       |
+|---------------------------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Expected: | Edit Option under recommedation allows access to change a field. Only for recommendations uploaded by the logged in user <br> |
+|         |Prepopulated form is shown with Edit button or cancel options. Once edit done or cancel selected, brought back to user page. <br>     Form opens with user details. User can click on a field to update details.   <br>  Click button to confirm edits. Updated details appear in recommendations   section |
+| Testing:  | Select Edit option beside a recommendations,   change some details on form. Select submit. <br>  Review recommendations section on home page. Open edit page and check cancel option returns user to thier page                                                                                                                           |
+| Results:  | Works as expected                                                                                                                                                              |
+
+| Feature:  | Delete Recommendations                                                                                                         |
+|---------------------------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Expected: | Delete Option button under each of the users recommendations. <br>  Modal opens asking user to confirm or dismiss. If confirm selected, recommendation is deleted and does not appear on user or home page. |
+| Testing:  | Select Delete under a user recommendation, click dismiss. REcommendations still on page. Repeat but choose confirm. Recommendation is no longer accessible.      |
+| Results:  | Works as expected                                                                                                                            |
+ 
+
+#### Admin Overview Page
+- Only accessible to admin user
+
+Test that only the user set with is_admin true in db can access. Logged in as a standard user. Cannot view admin pages. Manually type url for admin.
+User is redirected to home page with a Not authorized message.
+
+| Feature:  | Upload   Button                                                                                      |
+|---------------------------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Expected: | Button on admin page. When pressed, displays page with cloudiinary widget for uploading images to cloud                                             |
+| Testing:  | Press button, Review fwidget displays on screen.<br>  Upload image, check console message to confirm. |
+| Results:  | Works as expected                                                                                                       |
+
+| Feature:  | Manage Form fields Button                                                                                 |
+|---------------------------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Expected: | Button on page. When pressed, displays Add/edit fields page                                               |
+| Testing:  | Press button, Review details shown on screen, and the back to admin page, brings user back to the overall admin pg.<br> Press + and - for visitor and locations, and can view all.|
+| Results:  | Works as expected                                                                                                        |
+
+
+| Feature:  | Delete a user recommendation button                                                                       |
+|---------------------------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Expected: | Button on page. When pressed, displays admin delete user page                                             |
+| Testing:  | Press button, Review form shown   on screen.<br>     Press cancel. Check back to admin button brings admin back |
+| Results:  | Works as expected                                                                                                       |
+
+| Feature:  | Delete user button                                                                                        |
+|---------------------------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Expected: | Button on page. When pressed, displays admin delete user page  with list of currently active users                                            |
+| Testing:  | Press button, Review form shown   on screen.<br>    Check back to admin button brings admin back  |
+| Results:  | Works as expected                                                                                                        |
+
+#### Admin Delete User Page
+- Only accessible to admin user
+
+| Feature:  | Delete User form                                                                                                                                                                                               |
+|---------------------------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Expected: | Table with list of users and time registered, delete button beside each user. Search/filter button, where user can type text or dates to narrow user list on view. Confirm deletion modal opens |
+| Testing:  | Open page, check displays with user list.<br>  Find a user, either by time or user name. <br>     Press delete button on a user. Check dismiss take no action. Repeat and choose delete. Confirm user deleted as expected                                          |
+| Results:  | Works as expected                                                                                                                                                                                                             |
+
+-- Users recommendations remain on the home page only, but with no access to edit.                                                                                                                  |
+
+#### Admin Add/Edit Fields Page
+- Only accessible to admin user
+
+| Feature:  | Option button to add new details                                                 |
+|---------------------------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Expected: | When pressed, displays 2 simple forms, for visitor type and location. Under each type, there is an add new and also a clear form option|
+| Testing:  | Add a new visitor type, press add. Check new type is available to users on the recommendation dropdown form. <br> 
+User redirected to the same page. Repeat for Locations. For both types, try add a detail you know already exists. Ensure it doesn't get duplicated and message displayed to user                                                                                                    |
+| Results:  | Works as expected                                                                                                                    |
+
+
+#### Admin Delete Recommendation Page
+- Only accessible to admin user
+
+| Feature:  | Delete Recommendation form                                                                                                                                   |
+|---------------------------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Expected: | Press button. Page appears with search and all user recommendations. Delete option beneath each. <br>Press delete button, modal appears. Check dismiss returns user to page. Repeat and confirm deletion. check receommendation no longer appears on page andhome page. |
+| Testing:  | Open page, review form appears   as expected. <br>     Find a recommendation.                                                                                |
+| Results:  | Works as expected                                                                                                                                                             |
+
+
+
+
+
+
+
+
+
+
+
 
 
 [Back to table of contents](#table-of-contents)
@@ -314,7 +420,8 @@ session cookies cleared when full browser window closed but not when tab closed.
 	- Images are stored in Cloudinary, where Admin user with the account details, can upload further images.
 	- Image URL from Cloudinary is manually updated on the images collection in the DB.
 	- Functionality is set up, so user can view and select image name, and this is the linked to the field for the image URL in mongo.
-  - Instruction are onthe admin upload page. It is assumed that an admin user would have access to the cloudinary and mongo accounts for the site
+  - Instruction are on the admin upload page. It is assumed that an admin user would have access to the cloudinary and mongo accounts for the site.
+  - Details of the uploaded image are accessed through the console
 
 - After testing and getting user feedback, some images were showing stretched on different screen sizes, along with the 2 images on home and user pages.
 I needed to resize all, and set the height and width, as well as the object cover properties (home/user pg imgs) so images displayed for a better user experience. Some images may still need to be compressed further. Will work through this in order to show increased lighthouse scores.
@@ -398,6 +505,11 @@ Use compare site to id where difference in last few commits. Needed to update th
 Also changed the columns for large screen. Resolved.
 
 - When testing the recommendation forms, discovered that the Add new allowed 500 chars on the details. But edit form was restirected to 200. Causes issues for users when trying to update details. Resolved by updating the restriction on the edit form.
+
+#### Bug/issue not fully resolved
+
+Cloudinary is used for the admin to upload images. Data is console logged where admin can access the info. I followed code as per the cloudinary docs.
+I did not have the time or knowledge to use to info (value returned from API) and either display to user or use to pass to a form in order to upload info directly to DB, instead of having to manually update these image details.
 
 [Back to table of contents](#table-of-contents)
 
