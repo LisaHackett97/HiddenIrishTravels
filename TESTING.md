@@ -141,66 +141,59 @@ The following are defensive design elements identified in planning. Each will be
 
 ### Issues during development
 
-- Heroku not running after deployment. checked all config variable, versions in requirements etc...
-in app.py, I had "main" instead of "__main__"
+- Heroku not running after deployment. I checked all config variable, versions in requirements etc... Contacted tutorResolved. In app.py, I had "main" instead of "__main__"
 
-- On mobile view, on add new, no spacing between buttons. 
+- On mobile view, on add new, no spacing between buttons. Changed line height on the row to give mroe space to the materialze buttons 
 
 - Icon on nav bar too big and was not appearing on all pages. Needed to set the url_for method for img src, and set height and width
 
-- Showing search results, no user name on screen. Needed to pass username into the return function and needed to reset the form and target it by Id not class name in JS
+- When showing search results, no user name on screen. Needed to pass username into the return function and needed to reset the form 
+and target it by Id not class name in JS
 
+- The footer on templates was not showing full width on all pages, specificially on the login template. Issue was that a closing div tag was missing. Resolved
 
+- Issues with styling divs with card-title, on the card reveal. Top has icon to close and footer close has txt also. 
+I needed to give id to the text in order to change font
 
+- I needed to reduce space for recommendation images, so that more details could be viewed on front card, but large space was showing. 
+This was related to card action footer and reveal top border is hidden. I needed to be more specific in targeting with css.
+Using dev tools identified what to be targeted
 
-footer on templates is not showing full width. Ok on hime and registration Not ok on login template. cloising div tag missing a >
-fixed and commited when finalising page structure
+- I was Was using the root color irish green for card reval, used color picker to change the transparency but then you could see txt on card. used color picker to choose a different shade of the green. Could not use any transparency settings
 
+- Session user was set up on nav bar,but could not access recommendations dropdown. I needed to correct the data target, issue resolved
 
-
-
-styling divs with card-title. These are on teh card reveal. Top has icon to close and btm has txt also. Needed to give id to text inorder to change font
-
-
-reduced space for images, so that more details could be viewed on fromnt card But large space, related to card action footer
-reveal top border is hidden
-needed to 
-.card.medium .card-image+.card-content {
-   max-height: 55%;
-   padding-bottom: 10px;
-}
-Using dev tools id'd what to be targeted
-
-Was using the root color irish green for card reval, used color picker to change the transparency but then you could see txt on card. used color picker to choose a different shade of the green. could not use any transparency settings
-
-
-Session user set up on nav bar, cannot access recommendations dropdown. I needed to correct the data target, issue resolved
-
-Closed app while still logged in. When re-opened, was still showing logged in. 
+- Closed app while still logged in. When re-opened, was still showing logged in. 
 session cookies cleared when full browser window closed but not when tab closed. Timer
 
-Looking at length of text for details and how it appears on small screens!! Need to change to list, decrease font size
+- Looking at length of text for details and how it appears on small screens!! I needed to change to list, decrease font size.
 
+- I wanted to give users the option to either upload own images or have a choice of default images. I was using cloudinary to do this but did not have the knowledge/time to implement functionality for user to upload own images. 
+	- Images are stored in Cloudinary, where Admin user with the account details, can upload further images.
+	- Image URL from Cloudinary is manually updated on the images collection in the DB.
+	- Functionality is set up, so user can view and select image name, and this is the linked to the field for the image URL in mongo.
+  - Instruction are onthe admin upload page. It is assumed that an admin user would have access to the cloudinary and mongo accounts for the site
 
+- After testing and getting user feedback, some images were showing stretched on different screen sizes, along with the 2 images on home and user pages.
+I needed to resize all, and set the height and width, as well as the object cover properties (home/user pg imgs) so images displayed for a better user experience. Some images may still need to be compressed further. Will work through this in order to show increased lighthouse scores.
 
 [Back to table of contents](#table-of-contents)
 
 ### Bugs
 
-- Modal confirm button was causing jsut first item in the list to be deleted. The Id needed to be passed into the function
+- Modal confirm button was causing just the first item in the list to be deleted. The Id needed to be passed into the function and issues resolved
 
+- Issue with image upload. Resolved by storing in cloudinary, updating url in images collection on the DB. Resolved
 
-- Issue with image upload. Resolved by storing in cloudinary, updating url in images collection
-- validate on form not working on dropdown lists. Code wasn't inside the doc ready function
+- Validate on form not working on dropdown lists. Code wasn't inside the doc ready function. Resolved
 
 - search was not working. 
     - Only returning 1 result, should have multiple. No flash message if no results
     - Needed an else statment on template for no results, needed to drop index and set up so could search on all fields
-    - Bug: the hide search container is hiding it but also actually performing a search. Button was needed to hide container and cancel search. 
+    - Bug: the hide search container is hiding it but also actually performing a search. Button was needed to hide container and cancel search. Resolved
 
-
-- Search icon and link was haing when trying to cancel. Needed to add toggle jquery to the search icon.
-  - And ensure that syntax was correct. Was previously using the hide on window load and jquery to show for click. Toggle works better   
+- Search icon and link was showing display issues when trying to cancel. Needed to add toggle jquery to the search icon.
+  - And ensure that syntax was correct. Was previously using the hide on window load and jquery to show for click. Toggle works better  Resolved 
 
 - Setting admin: 
 	Started with checking if session user was called Admin (user I had set up), works fine
@@ -209,64 +202,61 @@ Looking at length of text for details and how it appears on small screens!! Need
 		1. used the db.createUser method in cli. Not authorised. also tried using the db.grantRolesToUser
 		2. added a role field to document in the collection
 		Then use the @roles.required decorator. Error AttributeError: 'Flask' object has no attribute 'user_manager'
-	Talk to tutor. No experience with roles in mongodb but advised me to do the following
-	have a user_type field in my user collection
-	Set that as admin for the user who is admin
+	  - Talk to tutor. No experience with roles in mongodb but advised me to do the following
+	    - have a user_type field in my user collection
+	    - Set that as admin for the user who is admin
 	Then do a check for that admin user type field. No route decorator needed, jsut a check if the user_type field contains admin
 		I set a type field with normal for stnd user. Giving errors
-Now have set is_admin to true/false. and updated code. Tested and no issues
+Now have set is_admin to true/false. and updated code. Tested and no issues. Resolved
 
 - Admin delete function and user delete recommendation are basically repeats but could not get them to be in one function, with using if/else to redirect to diff pages.
-If/else, kept deleting wrg recommendation, then while trying this with just s message, still not working, returning false
-Needed to allow admin to be redirected to admin page, not the user page
-Indentation corrected
+If/else, kept deleting wrg recommendation, then while trying this with just a message, still not working, returning false
+I needed to allow admin to be redirected to admin page, not the user page
+Indentation was corrected. Resolved
 
+- Adding the materialize nav bar, I had a dropdown list under recommendations. Once I got the collpsed mobile menu to work, the dropdown wouldn't work for desktop view.
+Needed to add a 2nd UL with id of dropdown2, and match this so the mobile navbar displays correctly. Resolved
 
-Addin the materialize nav bar, I had a dropdown list under recommendations. Once I got the collpsed mobile menu to work, the dropdown wouldn't work for desktop view.
-Needed to add a 2nd UL with id of dropdown2, and match this so the mobile...
+- On card layout: issue with deciding to standardise size or restrict content. Cards were scaling up and down. Layout issues when I tried to add margin to card
+headings to show on front of card and details to show on reveal. Was trying to make it so a user could click anywhere to close. Doesn't work. Added to cancel buttons
+cards with no spacing: If giving margin, cards are not held on same row/column as intened. Needed to wrap each card in its own column. To close the reveal I have a cancel icon at top and bottom of card. Resolved
 
-card layout: need to standardise size or restrict content?? They are scaling up and down. layout issues when I tried to add margin to cards
-headings to show on fromt of card and details to show on reveal. Was trying to make it so a user could click anywhere to close. Doesn't work. Added to cancel buttons
-cards with no spacing: If giving margin, cards are not held on same row/colum,n as intened. Needed to wrap each card in its own column
+- The card-reveal was not working. To resolve, the class added needed to be added to correct elements. Cancel symbol also added.
 
+- I added jquery for password match on confirmation But when user clicked on first password field, giving password match mesg
+before anything input. Resolved, password check doesn't happen and display message until a user has input first password field
 
-card-reveal not working!. class to be added to correct elements. Cancel symbol added
+- Set up register functinality, working--> users are being insterted into db but allowing same user and password to register again. Resolved, function updated.
 
-added jquery for password match on confirmation But when user click on first password field, giving password match mesg
-before anything input
-Also, need to disable register button until validation complete!
+- Can still register even if passwords do not match. Need to disable submit button until passwords match. Resolved. Validation/functions checks working as planned now.
 
+- Layout of cards on large screen, change font size, number of columns on the div, Resolved
 
+- Navbar fixed not working, disappears on scroll. Resolved by wrapping nav element only, not the header. Resolved
 
-Set up register functinality, working--> users are being insterted into db but allowing same user and password to register again..
+- User being directed to wrong page after clicking dismiss option. Update the return route. Resolved
 
+- Image was not updating on the edit page, pass username, image name into the render template. Resolved
 
-Can still register even if passwords do not match. Need to disable submit button until passwords match
+- Card buttons and reveal not working. Reviewed all code structure. Typos, but also styling and spacing needs to be updated. Resolved.
 
-- layout of cards on large screen, change font size, number of columns on the div
-Navbar fixed not working, disappears on scroll. Resolved by wrapping nav element only, not the header
+- Open-close collections on manage form. Was not opening correctly, Had two collections on the page. Used jquery, toggle to resolve.
+Reviewed code and what the materialize collections did and layout. Decided layout on a table looked better for this form. Resolved
 
-- User being directed to wrong page after clicking dismiss option. Update the return route
+- Bug with icon: Resolved by adding url for method and upate filepath. Resolved
 
-- Image was not updating on the edit page, pass username, image name into the render tempalte, update the 
-- Card buttons and reveal not working. Reviewed all code structure. Typos, but also styling and spacing needs to be updated. text hiding and overflowing
-- Open-close collections on mage form. Was not opening correctly, Had two collections on the page. Reviewed code and what the materialize collections did and layout. 
-Decided layout on a table looked better for this form
+- Search functionality was limited, not fully searching. Moved within its own container and set up index to search on all fields. Resolved
 
-Bug with icon: url for method and upate filepath
+- When testing registration form, for the 'registration' functionality, I discovered was able to register without a username. Required field was missing from form. This resolved the issue.
 
-Search limited, not fully searching. Moved within its own container
+- Search was showing for logged out. Restrict to session user. Resolved
 
-Testing registration form when the 'logged in user' functionality discovered was able to register without a username. Required field was missing from form
+- After fixing bugs, user page edit/delete btns had floated out of the card
+Use compare site to id where difference in last few commits. Needed to update the id'S on title and details, that I removed when fixing validation. 
+Also changed the columns for large screen. Resolved.
 
-Search was showing for logged out. Restrict to session user
+- When testing the recommendation forms, discovered that the Add new allowed 500 chars on the details. But edit form was restirected to 200. Causes issues for users when trying to update details. Resolved by updating the restriction on the edit form.
 
-
-after fixing bugs, user page edit/delete btns have floated out of the card
-Use compare site to id where difference in last few commits. Needed to update the id'S ON title on details, that I removed when ficing validation. Also change the columns for large scrren. Looks fine now
-
-
-TESTING: Add new allows#ed 8500 chars on the details. But edit form was restirected to 200. Causes issues for users when trying to update details
 [Back to table of contents](#table-of-contents)
 
 ### Performance and accessibility Testing
@@ -281,7 +271,7 @@ Version one score across the site on mobile were as follows:
 - SEO 96 TO 100 
 
 Review worst score first: 67 on Home Page
-Most of scores on this page/type relate to images. Bulk resize 
+Most of scores on this page/type relate to images. Bulk resize images and compress
 
 
 

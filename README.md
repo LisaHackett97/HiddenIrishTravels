@@ -21,7 +21,8 @@ The aim is to highlight and share information on places/things to do, that do no
     - [Colors](#colors)
     - [Typography](#typography)
     - [Images](#images)
-    - [Features](#features)
+	- [DB Schema](#dbschema)
+    - [Features](#features)	
 - [Technologies](#technologies-used)
 - [Testing](#testing)
 - [Deployment](#deployment)
@@ -75,9 +76,7 @@ The aim is to highlight and share information on places/things to do, that do no
 The main goal of the site is to provide user with a site where they can find recommendations from others, on unusual or unknown places on the island of Ireland. Eg places the user may not have been aware. Users will not need to be registered to view the recommendations but will have to do so, in order to upload a review.<br>
 To convert a visitor, and draw them in, there will be a short explanation of the site with some examples of unique and interesting places to visit.<br> Emphasis is on positivity on the site, this is a place for users to let others know about places they have perhaps stumbled that they have enjoyed and found interesting, but maybe had never heard of before.
 
-####       ADD SCREENSHOT OF SCOPE TABLES ###
-
-[Strategy and scope tables](xx)
+[Strategy and scope tables](README-assets/scope-table-ms3.PNG)
 
 ### Structure of the website
 
@@ -87,21 +86,37 @@ Standard form will be used for new reviews/editing/deleting for all users and ad
 Admin user will also have a small form to find a user and option to delete.
 Logout button will also be provided
 
+I wanted to give users the option to either upload own images or have a choice of default images. I was using cloudinary to do this but did not have the knowledge/time to implement functionality for user to upload own images. 
+	- Images are stored in Cloudinary, where Admin user with the account details, can upload further images.
+	- Image URL from Cloudinary is manually updated on the images collection in the DB.
+	- Functionality is set up, so user can view and select image name, and this is the linked to the field for the image URL in mongo
 
-[Structure Plan](xx)
+
+![Structure Plan](README-assets/scope-table-ms3.PNG)
 
 ### Wireframes
+
 
 [Wireframe Mobile](xx)
 [Wireframe Tablet](xx)
 [Wireframe Desktop](xx)
 These were built using balsamiq.
 
+#### These were the original wireframes
+
+[Mobile](README-assets/wireframe-mobile1.pdf)
+
+[Tablet](README-assets/wireframe-tablet1.pdf)
+
+[Desktop](README-assets/wireframe-desktop1.pdf)
+
 ### Surface
 
-REmoved text on home anduser page buttons, just using icons
-Changed top image on homne and user pages, and reset css properties to ensure images displaying without stretching on all screens
-[Surface Plane](xx)
+![Surface plane plan](README-assets/surface.PNG)
+
+I removed text on home and user page buttons, just using icons
+Changed top image on home and user pages, and reset css properties to ensure images displaying without stretching on all screens.
+Decided to leave background on forms as whote, contrasts with background on main pages.
 
 #### Colors
 
@@ -109,7 +124,7 @@ I wanted to use green colour associate with Ireland so chose the hex value of th
 
 Simple colour scheme containing 3 main colours:
 	- 172a3a/169b62/edf6f9			
-    | A dark color for txt/ Irish green for small elements /  / light blue colour for overall visual |
+    | A dark color for txt/ Irish green for small elements /  light blue colour for overall visual |
 
 
 
@@ -127,6 +142,12 @@ Images were mainly taken from unsplash.com and saved to cloudinary. I had used 2
 the images were not appearing well on screen.
 Final decision was to change the images used on home and user pages and removed the fixed bg css prop. Dont have parallax but looks and scales better. Used object position to place for different sizes
 
+#### DB Schema
+
+DB has five collections. The main two are for the users and the recommendation details. Images, visitor types and locations are held in their own seperate collections. 
+These are the fields on the form, that a user can select from predefined options
+
+![DB Schema diagram](README-assets/DB-schema.png)
 
 [Back to table of contents](#table-of-contents)
 
@@ -286,8 +307,6 @@ Contains the following:
 
 Contains the following:
 
-
-
 - Navigation Menu
 - Admin Username as heading
 - Recommendation Form:
@@ -338,9 +357,10 @@ Flash message to user
 - User can upload own images
 - Automate updating uploaded image URLs
 - Email contact
-..
-.
-.
+- Email verfication on registration
+- Change password fucntionality
+- Ranking/Likes
+- Map showing places recommended
 
 
 [Back to table of contents](#table-of-contents)
@@ -379,6 +399,8 @@ Flash message to user
 - [techsini for mock-ups](https://techsini.com/multi-mockup/index.php)
 - WAVE extension for reviewing accessibility and colour contrasts in testing.
 - Chrome Dev Tools - used to view responsiveness and layout as site was being developed. I found this very useful when developing the site, as it aided my learning throughout the project.
+- BIRME.net
+
 
 
 [Back to table of contents](#table-of-contents)
@@ -514,14 +536,14 @@ GitHub docs link [Forking a repository](https://docs.github.com/en/desktop/contr
 
 - 404 background image https://www.vecteezy.com/free-vector/nature
 
-- Puffin image on user page: unsplash.com
+- Puffin image on home page: unsplash.com
 
-- Lake image on user page: Usres own
-
+- Cliffs of Moher User page: unsplash.com
 
 - Favicon generated from (https://www.websiteplanet.com/webtools/favicon-generator/)
 
-##### User default image
+##### User default images
+
 - Shamrock - https://www.vecteezy.com/free-vector/clover-pattern
 
 - Site owners own images
@@ -529,9 +551,7 @@ GitHub docs link [Forking a repository](https://docs.github.com/en/desktop/contr
 	- Stormy sea
 	- Mountain View
 	- View frrom Crough Patrick
-	- Fairytale House
-	- Woods
-
+	-  Woods
 
 - Unsplash.com
 	- Church Interior
@@ -542,13 +562,10 @@ GitHub docs link [Forking a repository](https://docs.github.com/en/desktop/contr
 	- Old Library
 	- Puffins
 
-
-
-
-
 #### Other
 
 - I used some slide in animations on text on the 404 page. This was created from the following site. [animations](https://animate.style/)
+
 ### Content
 
 Content for uploaded recommendations from the followings sites:
@@ -556,8 +573,6 @@ Content for uploaded recommendations from the followings sites:
 - www.theirishroadtrip.com/best-places-to-visit-in-ireland/
 - www.irishcentral.com/travel/travel-tips/
 - www.atlasobscura.com/places/
-
-
 
 ### Colours
 
@@ -584,9 +599,6 @@ https://stackoverflow.com/questions/21727317/how-to-check-confirm-password-field
  
 - Help with timestamp creation:  https://www.programiz.com/python-programming/datetime/strftime
 
-- 
-
-
 
 ### Acknowledgements
 
@@ -595,8 +607,10 @@ I referred to the following to add to my knowledge and for help.
 - Thanks to all those who has posted on Slack in relation to Cloudinary, which was very helpful for guidance and my learning
 - Code Institute course material
 - Slack Community - I searched for a topic and usually someone else had the same question. This has been a great help in developing my understanding.
+- And thank you to those on slock who took the time to review my project and give me feedback.
 - Stackoverflow.com: Helped with finding a solution to set focus on next question button on modal
 - Materialize documentation
+- Thank you to my mentor Adegbenga Adeye, for his help and guidance.
 
 [Back to table of contents](#table-of-contents)
 
