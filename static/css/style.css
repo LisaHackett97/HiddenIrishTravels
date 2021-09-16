@@ -169,7 +169,8 @@ hr {
 }
 
 /* to give spacing between title and content */
-#user-card-content p {
+#user-card-content p,
+#user-card-content1 p {
   padding-top: 4px;
 }
 

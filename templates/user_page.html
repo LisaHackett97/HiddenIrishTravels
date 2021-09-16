@@ -83,7 +83,7 @@
         <div class="row recommendation-row">
             {% for recommendation in recommendations %}
             {% if session.user|lower == recommendation.created_by|lower %}
-            <div class="col s12 m6 ">
+            <div class="col s12 m6 l3">
                 <div class="card medium">
                     <div class="card-image">
                         <img src="{{ recommendation.image_url }}"
