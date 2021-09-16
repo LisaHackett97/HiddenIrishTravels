@@ -126,9 +126,10 @@ Simple colour scheme containing 3 main colours:
 	- 172a3a/169b62/edf6f9			
     | A dark color for txt/ Irish green for small elements /  light blue colour for overall visual |
 
+When checking contrast on the pages, I had some contrast errors.
+Changed colour of text on navbar, text on cards to the root main text colour. 
+Used the color picker to choose darker colors for footer icons and inoput labels. This cleared all the contrast errors
 
-
-![Final Colours Used](xx)
 
 #### Typography
 
@@ -361,6 +362,7 @@ Flash message to user
 - Change password fucntionality
 - Ranking/Likes
 - Map showing places recommended
+- Individual alt attribures on uploaded images
 
 
 [Back to table of contents](#table-of-contents)

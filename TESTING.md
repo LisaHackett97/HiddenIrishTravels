@@ -277,6 +277,18 @@ Most of scores on this page/type relate to images. Bulk resize images and compre
 
 #### Accessibility
 
+I had a number of contrast issues.
+  Changed colour of text on navbar, text on cards to the root main text colour. 
+  Used the color picker to choose darker colors for footer icons and inoput labels. This cleared all the contrast errors
+
+- Errors relating to empty links and buttons. Aria labels needed to be updated across the site
+
+- Some warnings showing on each pge
+  - Links: due to having code for navbar and mobiel side nav bar
+  - Alt attributes on images repeating. This is due to the fact that images are uploading from db, with a standard alt text
+  
+
+
 [Click here are the final WAVE reports](xx)
 
 ### Code Validation

@@ -81,11 +81,19 @@ footer,
 footer #social-links {
   margin-top: 8px;
   margin-bottom: 2px;
+ 
+}
+#social-links i{
+  color:#172A3A;
 }
 
 footer .row {
   margin-top: 0;
   margin-bottom: 2px;
+}
+
+.sr-only{
+  display: none;
 }
 
 /* flash messages */
@@ -137,11 +145,14 @@ footer .row {
 .card.medium .card-action {
   padding-top: 2px;
   padding-bottom: 5px;
-  color: var(--irish-green);
+  color: rgb(18, 88, 59);
   font-size: 12.5px;
   font-family: 'Poppins', sans-serif;
 }
 
+i.fa-angle-double-right{
+  color: rgb(18, 88, 59);
+}
 .card-actions {
   height: 19px;
   position: absolute;
@@ -160,6 +171,10 @@ hr {
   font-size: 14px;
   font-weight: bold;
   height: 30px;
+}
+
+.input-field label {
+  color:#0d151b;
 }
 
 /* set height of details section on front card */
@@ -192,14 +207,17 @@ set font style on card title
 appearing on card reveal. Close and icon 
 */
 .card-title {
-  color: var(--irish-green);
+  color: var(--main-text-color);
   font-family: 'Hind', sans-serif;
+}
+.card-content h5 {
+  color: var(--main-text-color);
+  font-weight: 600;
 }
 
 /* card image set to % height of card */
 .card-image {
   height: 38%;
-  /* object-fit: contain; */
   border-radius: 9%;
   padding: 4px 4px 0 4px;
 }
@@ -436,6 +454,10 @@ font-size: 35px;
   margin-left: 25px;
   padding-bottom: 0;
   padding-top: 2px;
+}
+
+nav ul a {
+  color: var(--main-text-color);
 }
 
 

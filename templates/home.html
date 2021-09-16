@@ -15,10 +15,10 @@
 
 <!-- Link to bring user to their page -->
 {% if session.user %}
-<a href="{{ url_for('user_page', username=session['user'])}}" class="btn col s6 page-btn"> <i
+<a href="{{ url_for('user_page', username=session['user'])}}" class="btn col s6 page-btn" aria-label="link to user page"> <i
         class="far fa-user-circle"></i></a>
-<a href="{{ url_for('add_recommendation') }}" class="btn col s6 page-btn"><i class="far fa-plus-square"></i></a>
-<a class="modal-trigger btn page-btn" href="#instruction-modal-btn">
+<a href="{{ url_for('add_recommendation') }}" class="btn col s6 page-btn" aria-label="link to add recommendation"><i class="far fa-plus-square"></i></a>
+<a class="modal-trigger btn page-btn" href="#instruction-modal-btn" aria-label="modal trigger for instructions">
     <i class="fas fa-info-circle"></i>
 </a>
 {% endif %}
@@ -51,7 +51,7 @@
 
 {% if session.user %}
 <div class="row center-align">
-    <button id="home-search-button"><i class="fas fa-search"></i></button>
+    <button id="home-search-button" aria-label="search on home page"><i class="fas fa-search"></i></button>
     <div class="row center-align" id="clear-search">
         <a href="{{ url_for('user_page', username=session['user'])}}"> <i class="fas fa-times"></i> Clear Search</a>
     </div>
