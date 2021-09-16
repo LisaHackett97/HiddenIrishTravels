@@ -123,7 +123,9 @@ I feel these fonts are easy for user to read on screen and are visually appealin
 
 #### Images
 
-Final decision was to change the images used on home and user pages and removed the fixed bg css prop. Dont have parallax but looks and scales better. Had to set to 90% of its parent div and center
+Images were mainly taken from unsplash.com and saved to cloudinary. I had used 2 images on home and user pages and was trying to achive a parallax effect. Thsi worked but 
+the images were not appearing well on screen.
+Final decision was to change the images used on home and user pages and removed the fixed bg css prop. Dont have parallax but looks and scales better. Used object position to place for different sizes
 
 
 [Back to table of contents](#table-of-contents)
