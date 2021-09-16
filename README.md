@@ -96,11 +96,17 @@ I wanted to give users the option to either upload own images or have a choice o
 
 ### Wireframes
 
+#### Final Wireframes 
 
-[Wireframe Mobile](xx)
-[Wireframe Tablet](xx)
-[Wireframe Desktop](xx)
+[This is the final mobile wireframe](README-assets/wireframes-mobile-final.pdf)
+
 These were built using balsamiq.
+
+- First Wireframe I had add admin and all user-recommendations options on the menu. This was too cluttered.
+Planning meeting with mentor, he advised to have these on diff levels. So I plan to have a recommendations option on main
+nav bar with a lower level menu for further options. 
+At the start I have admin option on the nav bar, which will bring the admin user to a Administration page. There further admin 
+options will be displayed.
 
 #### These were the original wireframes
 
@@ -111,6 +117,20 @@ These were built using balsamiq.
 [Desktop](README-assets/wireframe-desktop1.pdf)
 
 ### Surface
+
+#### Includes some design decision made during development
+
+- Search: Word shown on vertical drop down for mobile/tablet but too cluttered on desktop menu. Use a search icon instead
+- Originally did not have a footer, but as I was going through structure and skeleton planes, I made the decision to add simple
+footer, in order to have a place to give social media contacts, and for future development where email contact could be added.
+- Had a what field on original scope plan, removed it. Title and deails cover what is needed on the form
+- When planning out templates needed for site. Decision made to add a user_page.html to site. This will covers instances where a user has more than 1 recommendation
+They will all open on this one page.
+Page also to be used for admin to see all users recommendations, and admin can delete from there
+- Have set a background colour on the card reveal. Use the color picker to change from the root irish green to another shde.
+Wanted the card reveal to stand out from the page as a whole
+- Change manage form details from collection to table. Was a better layout for UX
+
 
 ![Surface plane plan](README-assets/surface.PNG)
 
@@ -363,9 +383,40 @@ Flash message to user
 - Ranking/Likes
 - Map showing places recommended
 - Individual alt attribures on uploaded images
+- Admin could have an option to change a field, and it would auto update the recommendations displayed.
+- Filter field types on admin manage form page
 
 
 [Back to table of contents](#table-of-contents)
+
+## Defensive Design 
+
+The following are defensive design elements identified in planning. Each will be manually tested (See testing docs)
+
+- Non registered User should not be able to do the following:
+  - Add/Edit/Delete a recommendation
+  - Search site
+  - View 'logged in' menu bar
+  - View or access any admin options
+
+- Error pages should be in place. 404
+
+- Regular logged in user should not be able to do the following
+  - View 'logged out' menu bar
+  - View Admin Option in nav bar
+  - View Admin Overview page
+  - View or action any admin functionality: Edit fields/delete recommendations (other than own)/Delete a user
+
+- Back buttons/Home buttons or other navigation buttons should bring user back to the appropriate page, depending on their logged in/Out status
+
+- Form validation needs to be in place
+
+- If Admin deletes a user, how does this affect active recommendations.	Recommendation remains on the Home page as displayed. Data held in a deperate collection on the DB. Cannot be edited
+		
+- If Admin deletes/edits fields, how does this affect active recommendations. 
+		
+*** Abuse of Admin privileges, controls on this and info security need to be in place as part of the business process ***
+
 
 ## Technologies Used
 
@@ -401,7 +452,7 @@ Flash message to user
 - [techsini for mock-ups](https://techsini.com/multi-mockup/index.php)
 - WAVE extension for reviewing accessibility and colour contrasts in testing.
 - Chrome Dev Tools - used to view responsiveness and layout as site was being developed. I found this very useful when developing the site, as it aided my learning throughout the project.
-- BIRME.net
+- BIRME.net for resizing images in bulk
 
 
 

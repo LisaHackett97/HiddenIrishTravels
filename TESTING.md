@@ -3,7 +3,7 @@
 ## site mock Up
 ## link to live site
 
-This document will cover manual, caompatability and validation testing. Issues found during development and bugs are also detailed.
+This document will cover manual, compatability and validation testing. Issues found during development and bugs are also detailed.
 I have included a section on the defensive design elements of the site I planned.
 
 ## **To open any links in a new tab, please press Ctrl + click**
@@ -74,7 +74,7 @@ The following are defensive design elements identified in planning. Each will be
   - View 'logged in' menu bar
   - View or access any admin options
 
-- Error pages should be in place. 404
+- Error pages should be in place. 404. This and 500 page is in place, giving user a link back to the home page.
 
 - Regular logged in user should not be able to do the following
   - View 'logged out' menu bar
@@ -84,9 +84,15 @@ The following are defensive design elements identified in planning. Each will be
 
 - Back buttons/Home buttons or other navigation buttons should bring user back to the appropriate page, depending on their logged in/Out status
 
-- Required input fields on forms, give message
+- Required input fields on forms, gives message, through form field validation. This in place, user will get a message/feedback
 
-- Form validation needs to be in place
+- If Admin deletes a user, how does this affect active recommendations.	
+    - Recommendation remains on the Home page as displayed. Data held in a deperate collection on the DB. Cannot be edited
+		
+- If Admin deletes/edits/adds fields, how does this affect active recommendations.
+  - Data remains on the active card, until a user tries to edit.
+  - If admin changes or deletes a field in error, this will not affect the displayed recommendations.
+  - Part of future features would be that admin could have an option to change a field, and it would auto update the recommendations displayed to users.
 
 ----
 
