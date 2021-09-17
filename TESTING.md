@@ -2,7 +2,7 @@
 
 ![site-mockup](README-assets/site-mockup.PNG)
 
-## [Link to live site](http://hiddenirishtravels.herokuapp.com/)
+## [Link to live site](https://hiddenirishtravels.herokuapp.com/)
 
 This document will cover manual, compatability and validation testing. Issues found during development and bugs are also detailed.
 I have included a section on the defensive design elements of the site I planned.

@@ -7,14 +7,17 @@
 <h1>Upload Page</h1>
 <a href="{{ url_for('admin') }}" class="btn-flat" id="back-admin">Back to Admin Page</a>
 <br>
-<p> Once image is uploaded in cloudinary, copy the url. <br>
+<p> Once image is uploaded in cloudinary, copy the url  from below field. <br>
     In the images collection in Mongo, insert a new document,
     image_name: add a name related to the image. This is what the user will see when selecting an image to use. 
-For upload_image field, you will add the url from cloudinary
+    For upload_image field, you will add the url from cloudinary
 
 
 <div class="row center-align">
 <button id="upload_widget" class="cloudinary-button">Upload files</button>
+<!-- When an image uploads, the URL will be sent to this field, where it can be copied to the DB -->
+<input type="text" name="secure_url" id="secure_url">
+<label for="secure_url"></label>
 </div>
 
 <script src="https://upload-widget.cloudinary.com/global/all.js"></script>  

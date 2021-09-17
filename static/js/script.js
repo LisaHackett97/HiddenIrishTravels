@@ -143,33 +143,17 @@ function topFunction() {
 }
 
 // Upload widget from Cloudinary docs
-// image success info is sent to the console log per the docs
+// image success info is sent to an input field on the adminpage
 // admin can access this here
 var myWidget = cloudinary.createUploadWidget({
   cloudName: 'dc9rijkkz',
   uploadPreset: 'mcuus0xs'
 }, (error, result) => {
   if (!error && result && result.event === "success") {
-    console.log('Done! Here is the image info: ', result.info);
+      document.getElementById("secure_url").value = result.info.secure_url; 
   }
 });
 document.getElementById("upload_widget").addEventListener("click", function () {
   myWidget.open();
 }, false);
 
-
-// jQuery.event.special.touchmove = {
-//   setup: function( _, ns, handle ){
-//     if ( ns.includes("noPreventDefault") ) {
-//       this.addEventListener("touchmove", handle, { passive: false });
-//     } else {
-//       this.addEventListener("touchmove", handle, { passive: true });
-//     }
-//   }
-// };
-
-document.addEventListener(document, "touchmove", function(e) {
-  console.log(e.defaultPrevented);  // will be false
-  e.preventDefault();   // does nothing since the listener is passive
-  console.log(e.defaultPrevented);  // still false
-}, Modernizr.passiveeventlisteners ? {passive: true} : false);
