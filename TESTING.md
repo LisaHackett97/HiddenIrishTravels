@@ -9,7 +9,7 @@ I have included a section on the defensive design elements of the site I planned
 
 ## **To open any links in a new tab, please press Ctrl + click**
 
-##
+
 
 ## Table of Contents
 
@@ -63,6 +63,9 @@ Wave tests help identify issues early so that they could be corrected and featur
 - WAVE accessibility reports
 - Cross brower testing
 
+
+[Back to table of contents](#table-of-contents)
+
 #### Defensive Design
 
 The following are defensive design elements identified in planning. Each will be manually tested
@@ -105,7 +108,8 @@ Recommendation remains on the Home page as displayed. Data held in a deperate co
   - If admin changes or deletes a field in error, this will not affect the displayed recommendations.
   - Part of future features would be that admin could have an option to change a field, and it would auto update the recommendations displayed to users.
 
-----
+
+[Back to table of contents](#table-of-contents)
 
 ### Functionality Testing
 
@@ -369,12 +373,10 @@ Recommended do not use IE10 to view site, please use Microsoft edge for best vie
 |------ | ----|
 | View recommended places in Ireland  <br> and Northern Ireland.| Recommendations are displayed on home and users own page. Cards can be clicked on to see more details if provided | 
 | Log In| Easy to use login form provided | 
-| Submit a recommendation | Add recommendation form provided in nav bar and on logged in users page. Hints and instructions included|
-|	
-| Delete negative own recommendations  | User can view their own recommendations on their user page, where they can edit or delete previously uploaded| 
-| | |
+| Submit a recommendation | Add recommendation form provided in nav bar and on logged in users page. Hints and instructions included |
+| Delete negative own recommendations  | User can view their own recommendations on their user page, where they can edit or delete previously uploaded | 
 | Be able to view the site on mobile<br> desktop/tablet. | Site can be viewed on small/medium/large/extra large.  Layout and some headings are adjuted for different screen sizes | 
-| Be able to access all pages and navigate <br> without confusion, without too many clicks. | Clear options on home page and nav bar. Once user is registered and logged in, options are provided in the nav bar as well as some links on the page
+| Be able to access all pages and navigate <br> without confusion, without too many clicks. | Clear options on home page and nav bar. Once user is registered and logged in, options are provided in the nav bar as well as some links on the page |
 
 							
 
@@ -382,7 +384,7 @@ Recommended do not use IE10 to view site, please use Microsoft edge for best vie
 
 | 	| Tests Performed |
 |------ | ----| 
-| Provide a place for users to recommend <br>unusual and unknown places to see on the island of Ireland.| Users can access site, and once register/loggedin can add a recommendation with location, visitory type and details. Drop down images are provided for user to choose from |
+| Provide a place for users to recommend <br>unusual and unknown places to see on the island of Ireland. | Users can access site, and once register/loggedin can add a recommendation with location, visitory type and details. Drop down images are provided for user to choose from |
 | Manage Categories | On the admin page, link to a manage fields form/page. Here admin user can view all current user and visitor types. Otions are provided to edit each of these, with an option at top of page to add new details |
 | Update/add own personal recommendations | Admin or site owner functionality works same as standard user for updating and adding own recommendations| 
 | Delete negative and misleading recommendations | On the admin page, link to a manage user recommendation page. Here admin user can view all current and can dlete if appropriate. Other business controls would need to be in place to manage the adminisatration of this process. Admin cannot edit another usrs recommendations.
