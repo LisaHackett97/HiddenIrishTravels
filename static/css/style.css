@@ -43,6 +43,14 @@ h2 {
   text-align: center;
 }
 
+h3 {
+  color: var(--irish-green);
+  font-family: 'Hind', sans-serif;
+  font-size: 25px;
+  text-align: center;
+}
+
+
 h4{
   color: var(--irish-green);
   font-family: 'Hind', sans-serif;
