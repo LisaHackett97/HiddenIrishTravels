@@ -1,7 +1,8 @@
-# [Hidden Irish Travels](xx)
+# [Hidden Irish Travels](https://hiddenirishtravels.herokuapp.com/)
 
-## site mock Up
-## link to live site
+![site-mockup](README-assets/site-mockup.PNG)
+
+## [Link to live site](http://hiddenirishtravels.herokuapp.com/)
 
 This document will cover manual, compatability and validation testing. Issues found during development and bugs are also detailed.
 I have included a section on the defensive design elements of the site I planned.
@@ -14,6 +15,7 @@ I have included a section on the defensive design elements of the site I planned
 
 - [Testing](#testing)
   - [Planning Approach](#testing-plan)
+  - [Defensive Design](#Defensive-design)
   - [Functionality testing](#functionality-testing)
   - [Compatibility testing](#compatibility-testing)
   - [User stories testing](#user-stories-testing)
@@ -21,12 +23,9 @@ I have included a section on the defensive design elements of the site I planned
   - [Bugs](#bugs)
   - [Performance and Accessibility testing](#performance-and-accessibility-testing)
   - [Code Validation](#code-validation)
-  - [Defensive design testing](#defensive-design-testing)
   - [Main README File](https://github.com/LisaHackett97/HiddenIrishTravels/blob/main/README.md)
     
 ---
-
-
 
 ### Testing Plan
 
@@ -74,7 +73,11 @@ The following are defensive design elements identified in planning. Each will be
   - View 'logged in' menu bar
   - View or access any admin options
 
+As an non registered/logged out user, I manually viewed and tries to type urls to access the above. I did not get any issues and could not access menu/pages I wasn't authorised to.
+
 - Error pages should be in place. 404. This and 500 page is in place, giving user a link back to the home page.
+
+Pages in place, 404 pages are working
 
 - Regular logged in user should not be able to do the following
   - View 'logged out' menu bar
@@ -82,21 +85,25 @@ The following are defensive design elements identified in planning. Each will be
   - View Admin Overview page
   - View or action any admin functionality: Edit fields/delete recommendations (other than own)/Delete a user
 
+As an non admin/logged in user, I manually viewed and tried to type urls to access the above. I did not get any issues and could not access menu/pages I wasn't authorised to.
+Was redirected back to home page with a message
+
 - Back buttons/Home buttons or other navigation buttons should bring user back to the appropriate page, depending on their logged in/Out status
 
-- Required input fields on forms, gives message, through form field validation. This in place, user will get a message/feedback
+Each button clicked and brought user back to the expected page. Back buttons also checked that this didn't cause issues
+
+- Required input fields on forms, gives message, through form field validation. 
+
+This in place, user will get a message/feedback
 
 - If Admin deletes a user, how does this affect active recommendations.	
-    - Recommendation remains on the Home page as displayed. Data held in a deperate collection on the DB. Cannot be edited
+
+Recommendation remains on the Home page as displayed. Data held in a deperate collection on the DB. Cannot be edited
 		
 - If Admin deletes/edits/adds fields, how does this affect active recommendations.
   - Data remains on the active card, until a user tries to edit.
   - If admin changes or deletes a field in error, this will not affect the displayed recommendations.
   - Part of future features would be that admin could have an option to change a field, and it would auto update the recommendations displayed to users.
-
-----
-
-- Any further changes made, re-run all steps (manual, non-manual and defensive design tests) and note any issues (iterative)
 
 ----
 
@@ -334,18 +341,14 @@ User redirected to the same page. Repeat for Locations. For both types, try add 
 
 
 
-
-
-
-
-
-
-
-
-
-
 [Back to table of contents](#table-of-contents)
 ### Compatibility Testing
+
+- Site was manually tested on google chrome,microsoft edge, firefox and opera. No issues.
+
+- I have access to IE10. Site has limited functionaility as site uses ES6. Recommended to use Microsoft edge rather than IE for best viewing experience
+Recommended do not use IE10 to view site, please use Microsoft edge for best viewing experience
+
 [Back to table of contents](#table-of-contents)
 ### User stories Testing
 
@@ -529,8 +532,6 @@ Most of scores on this page/type relate to images. Bulk resize images and compre
 Aria labels updated improved scores for accessibility]
 
 
-
-
 #### Accessibility
 
 I had a number of contrast issues.
@@ -563,7 +564,7 @@ continuation line over indented for visual indent
 CSS:
 No errors
 
-HTML: vALIDATING BY TEXT ONLY ON EACH PAGE. I cleared up error with stray and unclosed tags. remiang errors relate to jinja templating.
+HTML: I first validated by text only on each page. I cleared up error with stray and unclosed tags. remiang errors relate to jinja templating.
 To validate by uri method
 Warning: Section lacks heading. Consider using h2-h6 elements to add identifying headings to all sections. TO BE REVIEWED
 Duplicate IDs are the remaining warnings
@@ -576,11 +577,7 @@ Ran through validator again. Still error warning as they are being picked up frm
 Needed to remove the ID from User page and home page for title and details. Not needed for display. On the reveal-close, changed it to a class, needed for styling
 
 
-
-
-[These are the final validation reports](xx)
-
-### Defensive Design testing
+When all feature, user story testing etc fully completed. Rerun though validators. Any changes would be noted here
 
 [Back to table of contents](#table-of-contents)
 

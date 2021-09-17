@@ -1,12 +1,13 @@
-# [Hidden Irish Travels](xx)
+# [Hidden Irish Travels](https://hiddenirishtravels.herokuapp.com/)
 
-![site-mockup](xxx)
+![site-mockup](README-assets/site-mockup.PNG)
 
 Irish Hidden Travels is a site where users can share/view information/recommendations on places on the island of Ireland that others may not have heard of, but the user recommends visiting. Site was inspired by stories of friends and families about places they have accidently ‘found’, or discovered through word of mouth, while on day trips, or longer holidays around the island of Ireland.
 
 The aim is to highlight and share information on places/things to do, that do not always appear on those “top10 places to visit lists” or get hidden way down the bottom of a google search. Site is aiming to encourage people living and visiting the Island of Ireland, to experience, discover and tell others about these places in a positive and helpful way. 
 
-(Link to live Site)[https://hiddenirishtravels.herokuapp.com/]
+[Link to live Site](https://hiddenirishtravels.herokuapp.com/)
+
 ## **To open any links in a new tab, please press Ctrl + click**
 
 ## Table of Contents
@@ -442,7 +443,7 @@ The following are defensive design elements identified in planning. Each will be
 - Mongodb Database
 - Tinyjpeg to compress images
 - Fontawesome & google fonts
-- [techsini for mock-ups](https://techsini.com/multi-mockup/index.php)
+- [ami responsive for mock-ups](ami.responsivedesign.i)
 - Validators:
   - jshint
   - validator.w3.org
