@@ -289,8 +289,8 @@ User is redirected to home page with a Not authorized message.
 
 | Feature:  | Upload   Button                                                                                      |
 |---------------------------------	|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| Expected: | Button on admin page. When pressed, displays page with cloudiinary widget for uploading images to cloud                                             |
-| Testing:  | Press button, Review fwidget displays on screen.<br>  Upload image, check console message to confirm. |
+| Expected: | Button on admin page. When pressed, displays page with cloudinary widget for uploading images to cloud. URL displays on page                                            |
+| Testing:  | Press button, Review widget displays on screen.<br> Check url displayed matches the upload image. |
 | Results:  | Works as expected                                                                                                       |
 
 | Feature:  | Manage Form fields Button                                                                                 |
@@ -426,7 +426,7 @@ session cookies cleared when full browser window closed but not when tab closed.
 	- Image URL from Cloudinary is manually updated on the images collection in the DB.
 	- Functionality is set up, so user can view and select image name, and this is the linked to the field for the image URL in mongo.
   - Instruction are on the admin upload page. It is assumed that an admin user would have access to the cloudinary and mongo accounts for the site.
-  - Details of the uploaded image are accessed through the console
+  - Details of the uploaded image are accessed through an input field on the upload page or through cloudinary account.
 
 - After testing and getting user feedback, some images were showing stretched on different screen sizes, along with the 2 images on home and user pages.
 I needed to resize all, and set the height and width, as well as the object cover properties (home/user pg imgs) so images displayed for a better user experience. Some images may still need to be compressed further. Will work through this in order to show increased lighthouse scores.
@@ -513,8 +513,10 @@ Also changed the columns for large screen. Resolved.
 
 #### Bug/issue not fully resolved
 
-Cloudinary is used for the admin to upload images. Data is console logged where admin can access the info. I followed code as per the cloudinary docs.
-I did not have the time or knowledge to use to info (value returned from API) and either display to user or use to pass to a form in order to upload info directly to DB, instead of having to manually update these image details.
+Cloudinary is used for the admin to upload images. Result data was being console logged where admin can access the info. But I found a resolution, where this data can be updated to an input field on the upload page. Tested and no issues. Though admin has to copy the data before refreshing page
+I did not have the time to pass the url info to a form in order to upload info directly to DB, instead of having to manually update these image details.
+
+- Cloudinary not defined message shows in the console if user is on any page other than the upload page. Tried various things to resolve. Included the script tags in base template and also in individual templates. But this caused further errors to show in the console. Due to time constraints, decided to leave the script on the uplaod page. Not causing any other issues
 
 [Back to table of contents](#table-of-contents)
 
@@ -533,6 +535,24 @@ Review worst score first: 67 on Home Page
 Most of scores on this page/type relate to images. Bulk resize images and compress, which has improved scores.
 Aria labels updated improved scores for accessibility]
 
+Version two score across the site on mobile were as follows:
+- Performance 77 to 95
+- Accessibility 89 to 97
+- Best Practices 87 to 93
+- SEO 96 TO 100 
+
+Desktop score across the site were as follows:
+- Performance 92 to 100
+- Accessibility 89 to 97
+- Best Practices 87 to 93 (Improved after cloudinary url function update)
+- SEO 100 
+
+To try and improve scores, I resized images and corrected the aspect ratios. The aspect ratio correction improved the best practice scores.
+
+After running the attached reports, I found a resolution to displaying cloudinary url on the page, rather than in the console. This has improved all the nest practice scores to over 90. Many of the other things bringing down score were related to materialize and cdns.
+
+[Reports for Mobile](README-assets/Lighthouse-mobile.pdf)
+[Reports for Desktop](README-assets/Lighthouse-desktop.pdf)
 
 #### Accessibility
 
@@ -547,22 +567,20 @@ I had a number of contrast issues.
   - Alt attributes on images repeating. This is due to the fact that images are uploading from db, with a standard alt text
 
 
-
-[Click here are the final WAVE reports](xx)
-
 ### Code Validation
 Ran code through all validatiors for python, js, html and css once miost of the coding was complete.
 Errors in relation to some stray tags within code. Updated these and ran through again
 
 JS:
-Cloudinary undefined.Console error when on any other page thatn the uplaod
+Cloudinary undefined.Console error when on any other page that the upload
 
 3 unused vars. Associated with onclick assigned to elements
 
 Unexpected use of ~. But this is required in order for the search functionm to work
 
 Pep8:
-continuation line over indented for visual indent
+continuation line over indented for visual indent. If I tried to change this indent, just created an over indent message. code is related to line above
+
 CSS:
 No errors
 
@@ -580,6 +598,11 @@ Needed to remove the ID from User page and home page for title and details. Not 
 
 
 When all feature, user story testing etc fully completed. Rerun though validators. Any changes would be noted here
+
+[HTML](README-assets/html-validator.PNG)
+[CSS](README-assets/css-validator.PNG)
+[JS](README-assets/js-validator.PNG)
+[PEP8](README-assets/pep8-validator.PNG)
 
 [Back to table of contents](#table-of-contents)
 

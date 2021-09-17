@@ -90,6 +90,7 @@ Logout button will also be provided
 I wanted to give users the option to either upload own images or have a choice of default images. I was using cloudinary to do this but did not have the knowledge/time to implement functionality for user to upload own images. 
 	- Images are stored in Cloudinary, where Admin user with the account details, can upload further images.
 	- Image URL from Cloudinary is manually updated on the images collection in the DB.
+	- When an imae is uploaded, url will display on the uplaod page. This is not stored and must be copied before page is refreshed. Otherwise, admin can get the url from cloudinary account.
 	- Functionality is set up, so user can view and select image name, and this is the linked to the field for the image URL in mongo
 
 
@@ -160,7 +161,7 @@ I feel these fonts are easy for user to read on screen and are visually appealin
 
 #### Images
 
-Images were mainly taken from unsplash.com and saved to cloudinary. I had used 2 images on home and user pages and was trying to achive a parallax effect. Thsi worked but 
+Images were mainly taken from unsplash.com and saved to cloudinary. I had used 2 images on home and user pages and was trying to achive a parallax effect. This worked but 
 the images were not appearing well on screen.
 Final decision was to change the images used on home and user pages and removed the fixed bg css prop. Dont have parallax but looks and scales better. Used object position to place for different sizes
 
@@ -652,6 +653,9 @@ https://stackoverflow.com/questions/21727317/how-to-check-confirm-password-field
 	- I also read https://medium.com/@johndavidsimmons/cloudinary-api-in-flask-14018d84a314 for reference.
  
 - Help with timestamp creation:  https://www.programiz.com/python-programming/datetime/strftime
+
+- Code to send URL for uploaded image to upload page, foudn on this post
+https://stackoverflow.com/questions/58914865/cloudinary-secure-url-to-form
 
 
 ### Acknowledgements
